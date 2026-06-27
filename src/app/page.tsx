@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { books } from "@/data/books";
 import BookCard from "@/components/BookCard";
+import BookCoverSVG from "@/components/BookCoverSVG";
 import Container from "@/components/Container";
 
 const publishingAreas = [
@@ -51,28 +52,29 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Right: book cover stack */}
-        <div className="hidden lg:flex lg:col-span-2 items-center justify-center border-l border-[#e2e2e2] bg-[#f7f7f7] px-10">
-          <div className="flex flex-col gap-5 w-full max-w-[220px]">
+        {/* Right: book covers */}
+        <div className="hidden lg:flex lg:col-span-2 items-center justify-center border-l border-[#e2e2e2] bg-[#f7f7f7] px-8">
+          <div className="flex items-end justify-center gap-5">
             {coverBooks.map((book, i) => (
               <Link
                 key={book.slug}
                 href={`/books/${book.slug}`}
-                className={`border border-[#c8c8c8] bg-white hover:border-[#111111] transition-colors p-5 ${
-                  i === 1 ? "ml-6" : i === 2 ? "ml-12" : ""
+                className={`shrink-0 hover:-translate-y-2 transition-transform duration-300 ${
+                  i === 1 ? "w-[148px]" : "w-[112px]"
                 }`}
               >
-                <div className="w-5 h-px bg-[#111111] mb-3" />
-                <p className="text-[10px] tracking-[0.15em] uppercase text-[#888888] font-serif mb-2">
-                  {book.bookType}
-                </p>
-                <p className="font-serif text-sm leading-snug text-[#111111] font-medium line-clamp-2">
-                  {book.title}
-                </p>
-                <div className="w-full h-px bg-[#e2e2e2] my-3" />
-                <p className="font-serif text-[11px] text-[#888888]">
-                  {book.isEdited ? book.editors[0] : book.authors[0]} &middot; {book.publicationYear}
-                </p>
+                <div className="border border-[#c8c8c8] overflow-hidden">
+                  <BookCoverSVG
+                    slug={book.slug}
+                    title={book.title}
+                    subtitle={book.subtitle}
+                    authors={book.authors}
+                    editors={book.editors}
+                    isEdited={book.isEdited}
+                    bookType={book.bookType}
+                    status={book.status}
+                  />
+                </div>
               </Link>
             ))}
           </div>
