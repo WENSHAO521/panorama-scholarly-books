@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --color-ink: #111111;
   --color-ink-secondary: #444444;
   --color-ink-tertiary: #888888;
@@ -11,23 +11,6 @@
 
   --font-serif: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
   --font-serif-cn: var(--font-noto-serif-sc), var(--font-eb-garamond), Georgia, serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-ink: #f0f0f0;
-    --color-ink-secondary: #bbbbbb;
-    --color-ink-tertiary: #777777;
-    --color-paper: #0f0f0f;
-    --color-paper-alt: #1a1a1a;
-    --color-border: #2a2a2a;
-    --color-border-dark: #3d3d3d;
-  }
-
-  ::selection {
-    background: #f0f0f0;
-    color: #0f0f0f;
-  }
 }
 
 html {
