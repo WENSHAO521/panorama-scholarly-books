@@ -1,6 +1,15 @@
 <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-  <rect width="400" height="400" fill="white"/>
-  <rect x="100" y="80" width="120" height="160" fill="#1A1A1A"/>
-  <rect x="130" y="110" width="120" height="160" fill="#4A4A4A" opacity="0.8"/>
-  <rect x="160" y="140" width="120" height="160" fill="#8E8E8E" opacity="0.6"/>
+  <style>
+    .b1 { fill: #1A1A1A; }
+    .b2 { fill: #4A4A4A; }
+    .b3 { fill: #8E8E8E; }
+    @media (prefers-color-scheme: dark) {
+      .b1 { fill: #f0f0f0; }
+      .b2 { fill: #aaaaaa; }
+      .b3 { fill: #666666; }
+    }
+  </style>
+  <rect x="100" y="80" width="120" height="160" class="b1"/>
+  <rect x="130" y="110" width="120" height="160" class="b2" opacity="0.8"/>
+  <rect x="160" y="140" width="120" height="160" class="b3" opacity="0.6"/>
 </svg>
