@@ -84,7 +84,7 @@ export default function AboutPage() {
                 ["Publisher", "Panorama Scholarly Books"],
                 ["Parent Organisation", "Panorama Scholarly Group"],
                 ["Type", "Academic Book Publisher"],
-                ["Headquarters", "Berlin, Germany"],
+                ["Registered Address", "Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong"],
                 ["Contact", "books@panorama-sg.com"],
                 ["Website", "books.panorama-sg.com"],
               ].map(([label, value]) => (

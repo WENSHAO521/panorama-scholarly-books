@@ -79,7 +79,9 @@ export default function ContactPage() {
                 </p>
                 <p className="font-serif text-sm text-[#555555] leading-relaxed">
                   Panorama Scholarly Group<br />
-                  Berlin, Germany
+                  Room 1508, 15/F., Office Tower Two,<br />
+                  Grand Plaza, 625 Nathan Road,<br />
+                  Kowloon, Hong Kong
                 </p>
               </div>
 

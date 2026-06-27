@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 const quickLinks = [
-  { href: "/books", label: "Books" },
-  { href: "/book-series", label: "Book Series" },
-  { href: "/for-authors", label: "For Authors" },
-  { href: "/publishing-services", label: "Publishing Services" },
-  { href: "/distribution", label: "Distribution" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/books", label: "Books", external: false },
+  { href: "/book-series", label: "Book Series", external: false },
+  { href: "/for-authors", label: "For Authors", external: false },
+  { href: "/publishing-services", label: "Publishing Services", external: false },
+  { href: "/distribution", label: "Distribution", external: false },
+  { href: "/about", label: "About", external: false },
+  { href: "/contact", label: "Contact", external: false },
+  { href: "https://posi.panorama-sg.com", label: "POSI · Scholarly Index", external: true },
 ];
 
 const policyLinks = [
@@ -30,14 +31,36 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
+            <a
+              href="https://panorama-sg.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 mb-5 group w-fit"
+              aria-label="Panorama Scholarly Group"
+            >
+              <svg width="32" height="36" viewBox="95 90 195 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <g transform="translate(100, 100)">
+                  <rect x="0" y="0" width="30" height="200" fill="#000000"/>
+                  <path d="M30 0 H120 C150 0, 150 70, 120 70 H30 Z" fill="#E30613"/>
+                  <path d="M0 100 H120 V130 H30 V150 H120 V200 H0 V170 H90 V150 H0 Z" fill="#000000"/>
+                  <path d="M150 200 H50 V170 H150 V50 H180 V200 Z" fill="#000000"/>
+                  <rect x="160" y="10" width="30" height="30" fill="#E30613"/>
+                </g>
+              </svg>
+              <span className="font-serif text-[11px] tracking-[0.14em] uppercase text-[#888888] group-hover:text-[#555555] transition-colors">
+                Panorama Scholarly Group
+              </span>
+            </a>
             <p className="font-serif text-xl font-semibold text-[#111111] mb-1">
               Panorama Scholarly Books
             </p>
             <p className="font-serif text-sm text-[#888888] mb-6 leading-relaxed">
-              An Academic Book Publishing Platform of Panorama Scholarly Group
+              Academic Book Publishing Platform
             </p>
-            <p className="font-serif text-sm text-[#555555] leading-relaxed">
-              Berlin, Germany
+            <p className="font-serif text-sm text-[#555555] leading-relaxed mb-1">
+              Room 1508, 15/F., Office Tower Two,<br />
+              Grand Plaza, 625 Nathan Road,<br />
+              Kowloon, Hong Kong
             </p>
             <a
               href="mailto:books@panorama-sg.com"
@@ -53,16 +76,29 @@ export default function Footer() {
               Quick Links
             </p>
             <ul className="flex flex-col gap-2">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {quickLinks.map((link) =>
+                link.external ? (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
+                    >
+                      {link.label} ↗
+                    </a>
+                  </li>
+                ) : (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
