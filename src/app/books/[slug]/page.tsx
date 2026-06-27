@@ -37,8 +37,8 @@ export default async function BookDetailPage({
     : book.authors.join(", ");
 
   const citationAPA = book.isEdited
-    ? `${book.editors.map((e) => e.split(" ").reverse().join(", ")).join(", ")} (Eds.). (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. Panorama Scholarly Books.${book.doi ? ` https://doi.org/${book.doi}` : ""}`
-    : `${book.authors.map((a) => a.split(" ").reverse().join(", ")).join(", ")}. (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. Panorama Scholarly Books.${book.doi ? ` https://doi.org/${book.doi}` : ""}`;
+    ? `${book.editors.map((e) => e.split(" ").reverse().join(", ")).join(", ")} (Eds.). (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. Panorama Scholarly Group Ltd.${book.doi ? ` https://doi.org/${book.doi}` : ""}`
+    : `${book.authors.map((a) => a.split(" ").reverse().join(", ")).join(", ")}. (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. Panorama Scholarly Group Ltd.${book.doi ? ` https://doi.org/${book.doi}` : ""}`;
 
   return (
     <>
@@ -80,7 +80,7 @@ export default async function BookDetailPage({
                 <div className="w-full h-px bg-[#e2e2e2] mb-4" />
                 <p className="font-serif text-xs text-[#888888]">{credit}</p>
                 <p className="font-serif text-xs text-[#888888] mt-1">
-                  Panorama Scholarly Books, {book.publicationYear}
+                  Panorama Scholarly Group Ltd, {book.publicationYear}
                 </p>
               </div>
             </div>

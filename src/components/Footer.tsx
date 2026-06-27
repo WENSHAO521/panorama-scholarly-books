@@ -160,7 +160,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-[#e2e2e2] pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <p className="font-serif text-xs text-[#888888]">
-            &copy; {year} Panorama Scholarly Group. All rights reserved.
+            &copy; {year} Panorama Scholarly Group Ltd. All rights reserved.
           </p>
           <p className="font-serif text-xs text-[#888888]">
             Panorama Scholarly Books is an imprint of Panorama Scholarly Group.

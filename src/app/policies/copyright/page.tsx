@@ -31,7 +31,7 @@ export default function CopyrightPage() {
           <section className="mb-10">
             <h2 className="font-serif text-xl text-[#111111] font-medium mb-4">1. Copyright Ownership</h2>
             <p className="mb-4">Unless otherwise agreed in writing, copyright in works published by Panorama Scholarly Books is retained by the author or authors. The publisher does not claim ownership of copyright in submitted manuscripts or published works.</p>
-            <p>By entering into a publishing agreement with Panorama Scholarly Books, authors grant the publisher a licence to produce, distribute, and make available the work in the agreed formats and through the agreed channels for the duration of the agreement.</p>
+            <p>By entering into a publishing agreement with Panorama Scholarly Group Ltd, authors grant the publisher a licence to produce, distribute, and make available the work in the agreed formats and through the agreed channels for the duration of the agreement.</p>
           </section>
 
           <div className="w-full h-px bg-[#e2e2e2] mb-10" />
