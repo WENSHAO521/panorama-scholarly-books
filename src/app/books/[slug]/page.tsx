@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { books, getBookBySlug } from "@/data/books";
 import Container from "@/components/Container";
+import BookCoverSVG from "@/components/BookCoverSVG";
 import { ArrowLeft, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
 
 export async function generateStaticParams() {
@@ -60,29 +61,18 @@ export default async function BookDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 py-12 lg:py-16">
           {/* Left: Book cover + metadata */}
           <div className="lg:col-span-1 lg:border-r border-[#e2e2e2] lg:pr-10 mb-12 lg:mb-0">
-            {/* Typographic cover */}
-            <div className="border border-[#c8c8c8] bg-white p-8 aspect-[2/3] flex flex-col justify-between mb-8 max-w-[280px]">
-              <div>
-                <div className="w-8 h-px bg-[#111111] mb-6" />
-                <p className="text-[10px] tracking-[0.2em] uppercase text-[#888888] font-serif mb-4">
-                  {book.bookType}
-                </p>
-                <p className="font-serif text-xl leading-[1.25] text-[#111111] font-medium mb-3">
-                  {book.title}
-                </p>
-                {book.subtitle && (
-                  <p className="font-serif text-sm italic text-[#555555] leading-snug">
-                    {book.subtitle}
-                  </p>
-                )}
-              </div>
-              <div>
-                <div className="w-full h-px bg-[#e2e2e2] mb-4" />
-                <p className="font-serif text-xs text-[#888888]">{credit}</p>
-                <p className="font-serif text-xs text-[#888888] mt-1">
-                  Panorama Scholarly Group Ltd, {book.publicationYear}
-                </p>
-              </div>
+            {/* Book cover */}
+            <div className="mb-8 max-w-[280px] border border-[#c8c8c8] overflow-hidden">
+              <BookCoverSVG
+                slug={book.slug}
+                title={book.title}
+                subtitle={book.subtitle}
+                authors={book.authors}
+                editors={book.editors}
+                isEdited={book.isEdited}
+                bookType={book.bookType}
+                status={book.status}
+              />
             </div>
 
             {/* Metadata table */}
