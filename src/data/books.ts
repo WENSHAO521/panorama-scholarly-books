@@ -75,7 +75,7 @@ export const books: Book[] = [
     authorBio: [
       {
         name: "Elena Richter",
-        bio: "Dr. Elena Richter is an independent researcher specialising in education governance and digital policy. She holds a doctorate in Education from the University of Vienna and has contributed to policy consultations with UNESCO and the European Commission. Her previous work has appeared in the Journal of Education Policy and Comparative Education.",
+        bio: "Dr. Elena Richter is an independent researcher specialising in education governance and digital policy. She holds a doctorate in Education from Westlake International University and has contributed to policy consultations with the International Education Research Consortium and the European Education Policy Forum. Her previous work has appeared in Comparative Education Policy Review and the International Journal of Educational Governance.",
       },
     ],
     hasSampleChapter: true,
@@ -125,11 +125,11 @@ export const books: Book[] = [
     authorBio: [
       {
         name: "James T. Chen",
-        bio: "Prof. James T. Chen is Professor of International Studies at the National University of Singapore. He has published extensively on regional governance and Asian political economy.",
+        bio: "Prof. James T. Chen is Professor of International Studies at Meridian University. He has published extensively on regional governance and Asian political economy.",
       },
       {
         name: "Mei Lin Tanaka",
-        bio: "Dr. Mei Lin Tanaka is Associate Professor of Global Studies at Waseda University, Tokyo. Her research addresses gender, governance, and transnational civil society in the Asia-Pacific.",
+        bio: "Dr. Mei Lin Tanaka is Associate Professor of Global Studies at Nishimura University, Tokyo. Her research addresses gender, governance, and transnational civil society in the Asia-Pacific.",
       },
     ],
     hasSampleChapter: false,
@@ -218,7 +218,7 @@ export const books: Book[] = [
     authorBio: [
       {
         name: "Klaus Hoffmann",
-        bio: "Prof. Klaus Hoffmann is Professor of Public Administration at the Hertie School, Berlin. He is the author of State Restructuring in Comparative Perspective (2017) and has advised public sector reform commissions in Germany, Austria, and the European Union.",
+        bio: "Prof. Klaus Hoffmann is Professor of Public Administration at the Leinburg School of Governance. He is the author of The Administrative State in Transition: A Comparative Analysis (2017) and has advised public sector reform commissions in several European governments.",
       },
     ],
     hasSampleChapter: false,
