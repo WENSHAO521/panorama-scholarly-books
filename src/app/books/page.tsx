@@ -6,7 +6,7 @@ import type { BookType } from "@/data/books";
 import BookCard from "@/components/BookCard";
 import Container from "@/components/Container";
 
-type FilterTab = "All" | BookType | "Forthcoming";
+type FilterTab = "All" | BookType | "Open Access" | "Forthcoming";
 
 const tabs: FilterTab[] = [
   "All",
@@ -25,6 +25,7 @@ export default function BooksPage() {
   const filtered = (() => {
     if (active === "All") return books;
     if (active === "Forthcoming") return books.filter((b) => b.status === "Forthcoming");
+    if (active === "Open Access") return books.filter((b) => b.license === "CC BY-NC-ND 4.0");
     return books.filter((b) => b.bookType === active);
   })();
 

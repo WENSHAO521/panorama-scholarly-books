@@ -28,20 +28,25 @@ export default function BookCard({ book }: { book: Book }) {
       </div>
 
       {/* Card footer */}
-      <div className="px-4 py-3 flex items-center justify-between">
-        <div className="flex flex-wrap gap-1">
-          {book.subjectArea.slice(0, 2).map((s) => (
-            <span
-              key={s}
-              className="text-[10px] tracking-[0.1em] uppercase font-serif text-[#888888]"
-            >
-              {s}
+      <div className="px-4 pt-3 pb-3 flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] tracking-[0.12em] uppercase font-serif text-[#555555] border border-[#e2e2e2] px-2 py-0.5">
+            {book.bookType}
+          </span>
+          {book.license === "CC BY-NC-ND 4.0" && (
+            <span className="text-[10px] tracking-[0.12em] uppercase font-serif text-[#888888] border border-[#e2e2e2] px-2 py-0.5">
+              Open Access
             </span>
-          ))}
+          )}
         </div>
-        <span className="text-[12px] font-serif text-[#111111] group-hover:underline underline-offset-2">
-          View Details
-        </span>
+        <div className="flex items-center justify-between">
+          <p className="text-[10px] font-serif text-[#aaaaaa] truncate max-w-[70%]">
+            {book.isEdited ? book.editors.join(", ") : book.authors.join(", ")}
+          </p>
+          <span className="text-[11px] font-serif text-[#111111] group-hover:underline underline-offset-2 shrink-0">
+            View →
+          </span>
+        </div>
       </div>
     </Link>
   );
