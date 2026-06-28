@@ -209,125 +209,205 @@ function CoverPublicAdmin({ credit }: { credit: string }) {
   );
 }
 
-// ─── Procedural cover (all other books) ──────────────────────────────────────
-function CoverGenerated({
-  slug,
-  title,
-  credit,
-  bookType,
-  status,
-}: {
-  slug: string;
-  title: string;
-  credit: string;
-  bookType: string;
-  status: string;
-}) {
-  const isCJK = /[一-鿿]/.test(title);
-  const isForthcoming = status === "Forthcoming";
-
-  const seed = (slug.split("").reduce((a, c, i) => (a * 31 + c.charCodeAt(0) + i) >>> 0, 0)) >>> 0;
-
-  const palettes = [
-    { bg: "#f5f5f5", dark: false, band: "#111111", bt: "#ffffff", dim: "#888888" },
-    { bg: "#0d0d0d", dark: true,  band: "#1a1a1a", bt: "#f0f0f0", dim: "#555555" },
-    { bg: "#f0f0f0", dark: false, band: "#222222", bt: "#eeeeee", dim: "#777777" },
-    { bg: "#1a1a1a", dark: true,  band: "#0d0d0d", bt: "#e8e8e8", dim: "#666666" },
-    { bg: "#ffffff", dark: false, band: "#333333", bt: "#ffffff", dim: "#999999" },
-    { bg: "#111111", dark: true,  band: "#1e1e1e", bt: "#f5f5f5", dim: "#555555" },
+// ─── Cover 5: Media, Democracy and the Digital Public Sphere ─────────────────
+function CoverMediaDemocracy({ credit }: { credit: string }) {
+  const waves = [
+    { y: 242, amp: 10, op: 0.10 }, { y: 264, amp: 16, op: 0.14 },
+    { y: 286, amp: 22, op: 0.18 }, { y: 308, amp: 26, op: 0.22 },
+    { y: 330, amp: 28, op: 0.24 }, { y: 352, amp: 22, op: 0.20 },
+    { y: 374, amp: 16, op: 0.15 }, { y: 396, amp: 10, op: 0.10 },
+    { y: 418, amp: 5,  op: 0.07 },
   ];
-  const p = palettes[seed % palettes.length];
-  const pat = Math.floor(seed / 6) % 4;
-
-  const lo = (a: number) => p.dark ? `rgba(255,255,255,${a})` : `rgba(0,0,0,${a})`;
-
-  let patternEl: React.ReactNode = null;
-
-  if (pat === 0) {
-    // Horizontal bar mountain
-    patternEl = Array.from({ length: 22 }, (_, i) => {
-      const t = i / 21;
-      const w = Math.round(28 + Math.sin(t * Math.PI) * (180 + (seed % 6) * 18));
-      return <rect key={i} x={(400 - w) / 2} y={185 + i * 9} width={w} height={6} fill={lo(i % 4 === seed % 4 ? 0.17 : 0.09)} />;
-    });
-  } else if (pat === 1) {
-    // Dot grid
-    const dots: React.ReactElement[] = [];
-    for (let r = 0; r < 9; r++) {
-      for (let c = 0; c < 11; c++) {
-        const v = ((r * 13 + c * 7 + seed) >>> 0) % 19;
-        if (v < 10) {
-          dots.push(
-            <circle key={`${r}-${c}`} cx={26 + c * 33} cy={185 + r * 30}
-              r={v < 3 ? 4.5 : v < 7 ? 3 : 1.8} fill={lo(v < 3 ? 0.18 : 0.09)} />
-          );
-        }
-      }
-    }
-    patternEl = dots;
-  } else if (pat === 2) {
-    // Vertical bars bottom-anchored
-    const numB = 14, bW = 18, gap = 8;
-    const totalW = numB * bW + (numB - 1) * gap;
-    const sx = (400 - totalW) / 2;
-    patternEl = Array.from({ length: numB }, (_, i) => {
-      const h = 40 + ((((i * 7 + seed) >>> 0) % 17) / 16) * 220;
-      return <rect key={i} x={sx + i * (bW + gap)} y={350 - h} width={bW} height={h} fill={lo(i % 3 === 0 ? 0.17 : 0.09)} />;
-    });
-  } else {
-    // Arcs from corner
-    const clipId = `cg-${seed}`;
-    patternEl = (
-      <>
-        <defs><clipPath id={clipId}><rect width="400" height="600" /></clipPath></defs>
-        <g clipPath={`url(#${clipId})`}>
-          {[260, 400, 545, 690].map((r, i) => (
-            <circle key={i} cx={18} cy={580} r={r} fill="none"
-              stroke={p.dark ? `rgba(255,255,255,${0.06 + i * 0.025})` : `rgba(0,0,0,${0.05 + i * 0.025})`}
-              strokeWidth={1.5 + i * 0.5}
-            />
-          ))}
-        </g>
-      </>
-    );
-  }
-
-  const titleFont = isCJK ? CJK : F;
-  const maxC = isCJK ? 13 : 20;
-  const titleLines = wrapText(title, maxC, isCJK ? 3 : 4);
-  const fs = isCJK ? 25 : (title.length > 45 ? 18 : title.length > 30 ? 21 : 24);
-  const lh = isCJK ? 37 : 30;
-  const bandY = 352;
-  const typeY = bandY + 25;
-  const titleY = typeY + 26;
-
   return (
     <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="400" height="600" fill={p.bg} />
-      {patternEl}
-      {isForthcoming && (
-        <text x="200" y="230" fontFamily={F} fontSize="36"
-          fill={p.dark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.05)"}
-          textAnchor="middle" transform="rotate(-35 200 230)" letterSpacing="1"
-        >FORTHCOMING</text>
-      )}
-      <rect y={bandY} width="400" height={600 - bandY} fill={p.band} />
-      <text x="28" y={typeY} fontFamily={F} fontSize="8" fill={p.dim} letterSpacing="2.5">
-        {bookType.toUpperCase()}
-      </text>
-      <rect x="28" y={typeY + 5} width="28" height="1" fill={p.dim} />
-      {titleLines.map((line, idx) => (
-        <text key={idx} x="28" y={titleY + idx * lh}
-          fontFamily={titleFont} fontSize={fs} fontWeight="600" fill={p.bt}
-        >{line}</text>
+      <rect width="400" height="600" fill="#ffffff" />
+      <rect x="28" y="36" width="344" height="0.8" fill="#e0e0e0" />
+      <text x="28" y="54" fontFamily={F} fontSize="7.5" fill="#aaaaaa" letterSpacing="3">EDITED VOLUME</text>
+      <text x="28" y="98"  fontFamily={F} fontSize="30" fontWeight="600" fill="#111111">Media,</text>
+      <text x="28" y="134" fontFamily={F} fontSize="30" fontWeight="600" fill="#111111">Democracy</text>
+      <text x="28" y="170" fontFamily={F} fontSize="30" fontWeight="600" fill="#111111">and the Digital</text>
+      <text x="28" y="206" fontFamily={F} fontSize="30" fontWeight="600" fill="#111111">Public Sphere</text>
+      {waves.map(({ y, amp, op }, i) => (
+        <path key={i} d={`M 0,${y} C 133,${y - amp} 267,${y + amp} 400,${y}`}
+          fill="none" stroke="#111111" strokeWidth={i === 4 ? 1.2 : 0.7} opacity={op} />
       ))}
-      <text x="28" y="553" fontFamily={titleFont} fontSize="10.5" fill={p.dim}>{credit}</text>
-      <text x="28" y="578" fontFamily={F} fontSize="7" fill={p.dim} letterSpacing="2" opacity="0.6">
-        PANORAMA SCHOLARLY GROUP LTD
-      </text>
+      <rect x="28" y="444" width="344" height="0.8" fill="#e8e8e8" />
+      <text x="28" y="465" fontFamily={F} fontSize="11" fill="#555555">Edited by {credit}</text>
+      <rect x="28" y="556" width="344" height="0.8" fill="#eeeeee" />
+      <text x="28" y="575" fontFamily={F} fontSize="7" fill="#c0c0c0" letterSpacing="2">PANORAMA SCHOLARLY GROUP LTD</text>
     </svg>
   );
 }
+
+// ─── Cover 6: Urban Governance in Transition ─────────────────────────────────
+function CoverUrbanGovernance({ credit }: { credit: string }) {
+  const blocks = [
+    { x: 28, y: 218, w: 90,  h: 50, f: true  }, { x: 126, y: 218, w: 56,  h: 50, f: false },
+    { x: 190, y: 218, w: 84, h: 50, f: true  }, { x: 282, y: 218, w: 90,  h: 50, f: false },
+    { x: 28, y: 276, w: 56,  h: 42, f: false }, { x: 92,  y: 276, w: 90,  h: 42, f: true  },
+    { x: 190, y: 276, w: 40, h: 42, f: false }, { x: 238, y: 276, w: 76,  h: 42, f: true  },
+    { x: 322, y: 276, w: 50, h: 42, f: false },
+    { x: 28, y: 326, w: 136, h: 58, f: true  }, { x: 172, y: 326, w: 76,  h: 58, f: false },
+    { x: 256, y: 326, w: 116, h: 58, f: true  },
+    { x: 28, y: 392, w: 50,  h: 38, f: false }, { x: 86,  y: 392, w: 96,  h: 38, f: true  },
+    { x: 190, y: 392, w: 58, h: 38, f: false }, { x: 256, y: 392, w: 116, h: 38, f: true  },
+  ];
+  return (
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="400" height="600" fill="#f8f8f8" />
+      <text x="200" y="330" fontFamily={F} fontSize="40" fill="#ebebeb"
+        textAnchor="middle" transform="rotate(-36 200 330)" letterSpacing="1">FORTHCOMING</text>
+      <rect x="28" y="36" width="44" height="1.5" fill="#111111" />
+      <text x="28" y="56" fontFamily={F} fontSize="8" fill="#999999" letterSpacing="3">MONOGRAPH</text>
+      <text x="28" y="100" fontFamily={F} fontSize="26" fontWeight="700" fill="#111111">Urban Governance</text>
+      <text x="28" y="132" fontFamily={F} fontSize="26" fontWeight="700" fill="#111111">in Transition</text>
+      <text x="28" y="160" fontFamily={F} fontSize="9.5" fill="#aaaaaa" fontStyle="italic">Smart Cities, Public Administration,</text>
+      <text x="28" y="175" fontFamily={F} fontSize="9.5" fill="#aaaaaa" fontStyle="italic">and Democratic Accountability</text>
+      {blocks.map(({ x, y, w, h, f }, i) => (
+        <rect key={i} x={x} y={y} width={w} height={h}
+          fill={f ? "#e0e0e0" : "#f8f8f8"} stroke="#cccccc" strokeWidth="0.8" />
+      ))}
+      <text x="28" y="554" fontFamily={F} fontSize="11" fill="#666666">{credit}</text>
+      <text x="28" y="578" fontFamily={F} fontSize="7" fill="#aaaaaa" letterSpacing="2">PANORAMA SCHOLARLY GROUP LTD</text>
+    </svg>
+  );
+}
+
+// ─── Cover 7: 数字经济与社会治理 ─────────────────────────────────────────────
+function CoverDigitalEconomyCN({ credit }: { credit: string }) {
+  const rows = [244, 180, 310, 130, 280, 200, 320, 160, 240, 100];
+  return (
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="400" height="600" fill="#181818" />
+      {rows.map((w, i) => (
+        <rect key={i} x="28" y={252 + i * 18} width={w} height="5"
+          fill="white" opacity={i === 2 || i === 6 ? 0.14 : 0.07} />
+      ))}
+      <text x="28" y="52"  fontFamily={CJK} fontSize="8"  fill="#444444" letterSpacing="2">专著</text>
+      <text x="28" y="106" fontFamily={CJK} fontSize="36" fontWeight="700" fill="#ffffff">数字经济</text>
+      <text x="28" y="152" fontFamily={CJK} fontSize="36" fontWeight="700" fill="#ffffff">与社会治理</text>
+      <text x="28" y="188" fontFamily={CJK} fontSize="11" fill="#404040">平台、数据与制度变革</text>
+      <rect x="28" y="206" width="52" height="0.8" fill="#2e2e2e" />
+      <text x="28" y="546" fontFamily={CJK} fontSize="11" fill="#555555">{credit}</text>
+      <rect x="28" y="560" width="344" height="0.6" fill="#222222" />
+      <text x="28" y="580" fontFamily={F} fontSize="7" fill="#383838" letterSpacing="2">PANORAMA SCHOLARLY GROUP LTD</text>
+    </svg>
+  );
+}
+
+// ─── Cover 8: 高等教育国际化研究 ─────────────────────────────────────────────
+function CoverHigherEdInternationalCN({ credit }: { credit: string }) {
+  return (
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <clipPath id="clip-hed">
+          <rect x="0" y="195" width="400" height="265" />
+        </clipPath>
+      </defs>
+      <rect width="400" height="600" fill="#ffffff" />
+      <rect x="28" y="36" width="344" height="0.8" fill="#e0e0e0" />
+      <text x="28" y="54"  fontFamily={CJK} fontSize="8"  fill="#aaaaaa" letterSpacing="2">文集</text>
+      <text x="28" y="102" fontFamily={CJK} fontSize="34" fontWeight="700" fill="#111111">高等教育</text>
+      <text x="28" y="148" fontFamily={CJK} fontSize="34" fontWeight="700" fill="#111111">国际化研究</text>
+      <text x="28" y="184" fontFamily={CJK} fontSize="11" fill="#999999">理论、政策与实践</text>
+      <g clipPath="url(#clip-hed)">
+        {[110, 170, 240, 320, 410].map((r, i) => (
+          <circle key={i} cx="200" cy="460" r={r} fill="none"
+            stroke="#111111" strokeWidth={i === 2 ? 1.0 : 0.7} opacity={0.06 + i * 0.018} />
+        ))}
+        <ellipse cx="200" cy="358" rx="178" ry="19" fill="none" stroke="#111111" strokeWidth="0.7" opacity="0.06" />
+        <ellipse cx="200" cy="318" rx="138" ry="15" fill="none" stroke="#111111" strokeWidth="0.7" opacity="0.05" />
+        <ellipse cx="200" cy="398" rx="198" ry="21" fill="none" stroke="#111111" strokeWidth="0.7" opacity="0.06" />
+      </g>
+      <rect x="28" y="474" width="344" height="0.8" fill="#e8e8e8" />
+      <text x="28" y="495" fontFamily={CJK} fontSize="11" fill="#555555">主编：{credit}</text>
+      <rect x="28" y="556" width="344" height="0.8" fill="#eeeeee" />
+      <text x="28" y="575" fontFamily={F} fontSize="7" fill="#c0c0c0" letterSpacing="2">PANORAMA SCHOLARLY GROUP LTD</text>
+    </svg>
+  );
+}
+
+// ─── Cover 9: 人工智能治理 ────────────────────────────────────────────────────
+function CoverAIGovernanceCN({ credit }: { credit: string }) {
+  const rules = [200, 260, 176, 290, 148, 240, 210, 280, 168, 222];
+  return (
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="400" height="600" fill="#0d0d0d" />
+      {rules.map((w, i) => (
+        <rect key={i} x="28" y={252 + i * 19} width={w} height="0.8"
+          fill="white" opacity={i % 3 === 0 ? 0.13 : 0.06} />
+      ))}
+      <text x="28" y="52"  fontFamily={CJK} fontSize="8"  fill="#333333" letterSpacing="2">专著 · 即将出版</text>
+      <text x="28" y="114" fontFamily={CJK} fontSize="46" fontWeight="700" fill="#ffffff">人工智能</text>
+      <text x="28" y="164" fontFamily={CJK} fontSize="46" fontWeight="700" fill="#ffffff">治理</text>
+      <text x="28" y="202" fontFamily={CJK} fontSize="11" fill="#3a3a3a">伦理、法律与制度框架</text>
+      <rect x="28" y="220" width="40" height="0.8" fill="#252525" />
+      <text x="28" y="546" fontFamily={CJK} fontSize="11" fill="#555555">{credit}</text>
+      <rect x="28" y="560" width="344" height="0.6" fill="#1a1a1a" />
+      <text x="28" y="580" fontFamily={F} fontSize="7" fill="#333333" letterSpacing="2">PANORAMA SCHOLARLY GROUP LTD</text>
+    </svg>
+  );
+}
+
+// ─── Cover 10: 传播、民主与数字公共领域 ──────────────────────────────────────
+function CoverCommunicationDemocracyCN({ credit }: { credit: string }) {
+  const paths = [
+    { y: 270, amp: 22, dir: 1 }, { y: 294, amp: 16, dir: -1 },
+    { y: 318, amp: 26, dir: 1 }, { y: 342, amp: 18, dir: -1 },
+    { y: 366, amp: 22, dir: 1 }, { y: 390, amp: 14, dir: -1 },
+    { y: 414, amp: 18, dir: 1 },
+  ];
+  return (
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="400" height="600" fill="#f3f3f3" />
+      <rect width="5" height="600" fill="#111111" />
+      <text x="22" y="52"  fontFamily={CJK} fontSize="8"  fill="#aaaaaa" letterSpacing="2">文集 · 即将出版</text>
+      <text x="22" y="100" fontFamily={CJK} fontSize="28" fontWeight="700" fill="#111111">传播、民主</text>
+      <text x="22" y="140" fontFamily={CJK} fontSize="28" fontWeight="700" fill="#111111">与数字公共领域</text>
+      <text x="22" y="178" fontFamily={CJK} fontSize="11" fill="#aaaaaa">理论前沿与批判视角</text>
+      {paths.map(({ y, amp, dir }, i) => (
+        <path key={i} d={`M 22,${y} C 148,${y - amp * dir} 276,${y + amp * dir} 372,${y}`}
+          fill="none" stroke="#111111" strokeWidth={i === 2 ? 1.0 : 0.7}
+          opacity={0.09 + i * 0.025} />
+      ))}
+      <rect x="22" y="450" width="354" height="0.8" fill="#cccccc" />
+      <text x="22" y="471" fontFamily={CJK} fontSize="11" fill="#555555">主编：{credit}</text>
+      <rect x="22" y="556" width="354" height="0.8" fill="#dcdcdc" />
+      <text x="22" y="575" fontFamily={F} fontSize="7" fill="#b8b8b8" letterSpacing="2">PANORAMA SCHOLARLY GROUP LTD</text>
+    </svg>
+  );
+}
+
+// ─── Cover 11: 比较教育政策 ───────────────────────────────────────────────────
+function CoverComparativeEdCN({ credit }: { credit: string }) {
+  const barsA = [116, 82, 148, 74, 108, 58];
+  const barsB = [88, 128, 66, 138, 92, 118];
+  const barH = 13, barGap = 9, y0 = 268;
+  return (
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="400" height="600" fill="#ffffff" />
+      <rect x="28" y="36" width="344" height="0.8" fill="#e0e0e0" />
+      <text x="28" y="54"  fontFamily={CJK} fontSize="8"  fill="#aaaaaa" letterSpacing="2">研究报告 · 即将出版</text>
+      <text x="28" y="112" fontFamily={CJK} fontSize="40" fontWeight="700" fill="#111111">比较教育</text>
+      <text x="28" y="160" fontFamily={CJK} fontSize="40" fontWeight="700" fill="#111111">政策</text>
+      <text x="28" y="202" fontFamily={CJK} fontSize="10.5" fill="#999999">亚太地区基础教育改革的多维分析</text>
+      <rect x="28" y="220" width="344" height="0.8" fill="#e8e8e8" />
+      {barsA.map((w, i) => (
+        <rect key={`A${i}`} x="28" y={y0 + i * (barH + barGap)} width={w} height={barH}
+          fill="#333333" opacity={0.65 + i * 0.04} />
+      ))}
+      {barsB.map((w, i) => (
+        <rect key={`B${i}`} x="200" y={y0 + i * (barH + barGap)} width={w} height={barH}
+          fill="#888888" opacity={0.5} />
+      ))}
+      <rect x="28" y="456" width="344" height="0.8" fill="#e8e8e8" />
+      <text x="28" y="476" fontFamily={CJK} fontSize="11" fill="#555555">{credit}</text>
+      <rect x="28" y="556" width="344" height="0.8" fill="#eeeeee" />
+      <text x="28" y="575" fontFamily={F} fontSize="7" fill="#c0c0c0" letterSpacing="2">PANORAMA SCHOLARLY GROUP LTD</text>
+    </svg>
+  );
+}
+
 
 // ─── Default export ───────────────────────────────────────────────────────────
 export default function BookCoverSVG(book: Props) {
@@ -344,15 +424,21 @@ export default function BookCoverSVG(book: Props) {
       return <CoverAIHigherEd credit={credit} />;
     case "public-administration-reform-post-industrial":
       return <CoverPublicAdmin credit={credit} />;
+    case "media-democracy-digital-public-sphere":
+      return <CoverMediaDemocracy credit={credit} />;
+    case "urban-governance-smart-cities":
+      return <CoverUrbanGovernance credit={credit} />;
+    case "digital-economy-social-governance-cn":
+      return <CoverDigitalEconomyCN credit={credit} />;
+    case "higher-education-internationalisation-cn":
+      return <CoverHigherEdInternationalCN credit={credit} />;
+    case "ai-governance-ethics-law-cn":
+      return <CoverAIGovernanceCN credit={credit} />;
+    case "communication-democracy-digital-cn":
+      return <CoverCommunicationDemocracyCN credit={credit} />;
+    case "comparative-education-policy-cn":
+      return <CoverComparativeEdCN credit={credit} />;
     default:
-      return (
-        <CoverGenerated
-          slug={book.slug}
-          title={book.title}
-          credit={credit}
-          bookType={book.bookType}
-          status={book.status}
-        />
-      );
+      return <CoverEducationPolicy credit={credit} />;
   }
 }
