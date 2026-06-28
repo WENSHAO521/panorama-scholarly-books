@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { books } from "@/data/books";
 import BookCard from "@/components/BookCard";
-import BookCoverSVG from "@/components/BookCoverSVG";
+import HeroBookShelf from "@/components/HeroBookShelf";
 import Container from "@/components/Container";
 
 const publishingAreas = [
@@ -54,30 +54,7 @@ export default function HomePage() {
 
         {/* Right: book covers */}
         <div className="hidden lg:flex lg:col-span-2 items-center justify-center border-l border-[#e2e2e2] bg-[#f7f7f7] px-8">
-          <div className="flex items-end justify-center gap-5">
-            {coverBooks.map((book, i) => (
-              <Link
-                key={book.slug}
-                href={`/books/${book.slug}`}
-                className={`shrink-0 hover:-translate-y-2 transition-transform duration-300 ${
-                  i === 1 ? "w-[148px]" : "w-[112px]"
-                }`}
-              >
-                <div className="border border-[#c8c8c8] overflow-hidden">
-                  <BookCoverSVG
-                    slug={book.slug}
-                    title={book.title}
-                    subtitle={book.subtitle}
-                    authors={book.authors}
-                    editors={book.editors}
-                    isEdited={book.isEdited}
-                    bookType={book.bookType}
-                    status={book.status}
-                  />
-                </div>
-              </Link>
-            ))}
-          </div>
+          <HeroBookShelf books={coverBooks} />
         </div>
       </section>
 
