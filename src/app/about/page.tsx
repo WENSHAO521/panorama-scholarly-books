@@ -39,9 +39,6 @@ export default function AboutPage() {
             <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
               As part of Panorama Scholarly Group, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services. We are committed to maintaining high scholarly standards, supporting intellectual diversity, and making serious academic work accessible to researchers, educators, and practitioners worldwide.
             </p>
-            <p className="font-serif text-base text-[#555555] leading-relaxed">
-              Panorama Scholarly Books 致力于出版具有学术价值、跨学科意义和知识传播价值的研究著作。作为 Panorama Scholarly Group 旗下图书出版平台，本平台通过规范的出版流程和专业制作服务，为学术作者、编者、研究人员及学术机构提供支持。
-            </p>
           </section>
 
           <div className="w-full h-px bg-[#e2e2e2] mb-14" />

@@ -8,34 +8,6 @@ type Props = Pick<
 const F = `var(--font-eb-garamond), Georgia, "Times New Roman", serif`;
 const CJK = `"PingFang SC", "Hiragino Sans GB", "Noto Serif SC", "Microsoft YaHei", sans-serif`;
 
-function wrapText(text: string, maxChars: number, maxLines: number): string[] {
-  if (/[一-鿿]/.test(text)) {
-    if (text.length <= maxChars) return [text];
-    const lines: string[] = [];
-    let i = 0;
-    while (i < text.length && lines.length < maxLines) {
-      const end = Math.min(i + maxChars, text.length);
-      lines.push(text.slice(i, end));
-      i = end;
-    }
-    return lines;
-  }
-  const words = text.split(" ");
-  const lines: string[] = [];
-  let current = "";
-  for (const word of words) {
-    const candidate = current ? `${current} ${word}` : word;
-    if (candidate.length > maxChars && current) {
-      lines.push(current);
-      if (lines.length >= maxLines) return lines;
-      current = word;
-    } else {
-      current = candidate;
-    }
-  }
-  if (current && lines.length < maxLines) lines.push(current);
-  return lines;
-}
 
 // ─── Cover 1: Education Policy in the Digital Age ────────────────────────────
 // Pixel grid fading into a dark title band
