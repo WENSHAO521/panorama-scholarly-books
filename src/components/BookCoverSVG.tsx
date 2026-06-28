@@ -6,6 +6,36 @@ type Props = Pick<
 >;
 
 const F = `var(--font-eb-garamond), Georgia, "Times New Roman", serif`;
+const CJK = `"PingFang SC", "Hiragino Sans GB", "Noto Serif SC", "Microsoft YaHei", sans-serif`;
+
+function wrapText(text: string, maxChars: number, maxLines: number): string[] {
+  if (/[一-鿿]/.test(text)) {
+    if (text.length <= maxChars) return [text];
+    const lines: string[] = [];
+    let i = 0;
+    while (i < text.length && lines.length < maxLines) {
+      const end = Math.min(i + maxChars, text.length);
+      lines.push(text.slice(i, end));
+      i = end;
+    }
+    return lines;
+  }
+  const words = text.split(" ");
+  const lines: string[] = [];
+  let current = "";
+  for (const word of words) {
+    const candidate = current ? `${current} ${word}` : word;
+    if (candidate.length > maxChars && current) {
+      lines.push(current);
+      if (lines.length >= maxLines) return lines;
+      current = word;
+    } else {
+      current = candidate;
+    }
+  }
+  if (current && lines.length < maxLines) lines.push(current);
+  return lines;
+}
 
 // ─── Cover 1: Education Policy in the Digital Age ────────────────────────────
 // Pixel grid fading into a dark title band
@@ -179,6 +209,126 @@ function CoverPublicAdmin({ credit }: { credit: string }) {
   );
 }
 
+// ─── Procedural cover (all other books) ──────────────────────────────────────
+function CoverGenerated({
+  slug,
+  title,
+  credit,
+  bookType,
+  status,
+}: {
+  slug: string;
+  title: string;
+  credit: string;
+  bookType: string;
+  status: string;
+}) {
+  const isCJK = /[一-鿿]/.test(title);
+  const isForthcoming = status === "Forthcoming";
+
+  const seed = (slug.split("").reduce((a, c, i) => (a * 31 + c.charCodeAt(0) + i) >>> 0, 0)) >>> 0;
+
+  const palettes = [
+    { bg: "#f5f5f5", dark: false, band: "#111111", bt: "#ffffff", dim: "#888888" },
+    { bg: "#0d0d0d", dark: true,  band: "#1a1a1a", bt: "#f0f0f0", dim: "#555555" },
+    { bg: "#f0f0f0", dark: false, band: "#222222", bt: "#eeeeee", dim: "#777777" },
+    { bg: "#1a1a1a", dark: true,  band: "#0d0d0d", bt: "#e8e8e8", dim: "#666666" },
+    { bg: "#ffffff", dark: false, band: "#333333", bt: "#ffffff", dim: "#999999" },
+    { bg: "#111111", dark: true,  band: "#1e1e1e", bt: "#f5f5f5", dim: "#555555" },
+  ];
+  const p = palettes[seed % palettes.length];
+  const pat = Math.floor(seed / 6) % 4;
+
+  const lo = (a: number) => p.dark ? `rgba(255,255,255,${a})` : `rgba(0,0,0,${a})`;
+
+  let patternEl: React.ReactNode = null;
+
+  if (pat === 0) {
+    // Horizontal bar mountain
+    patternEl = Array.from({ length: 22 }, (_, i) => {
+      const t = i / 21;
+      const w = Math.round(28 + Math.sin(t * Math.PI) * (180 + (seed % 6) * 18));
+      return <rect key={i} x={(400 - w) / 2} y={185 + i * 9} width={w} height={6} fill={lo(i % 4 === seed % 4 ? 0.17 : 0.09)} />;
+    });
+  } else if (pat === 1) {
+    // Dot grid
+    const dots: React.ReactElement[] = [];
+    for (let r = 0; r < 9; r++) {
+      for (let c = 0; c < 11; c++) {
+        const v = ((r * 13 + c * 7 + seed) >>> 0) % 19;
+        if (v < 10) {
+          dots.push(
+            <circle key={`${r}-${c}`} cx={26 + c * 33} cy={185 + r * 30}
+              r={v < 3 ? 4.5 : v < 7 ? 3 : 1.8} fill={lo(v < 3 ? 0.18 : 0.09)} />
+          );
+        }
+      }
+    }
+    patternEl = dots;
+  } else if (pat === 2) {
+    // Vertical bars bottom-anchored
+    const numB = 14, bW = 18, gap = 8;
+    const totalW = numB * bW + (numB - 1) * gap;
+    const sx = (400 - totalW) / 2;
+    patternEl = Array.from({ length: numB }, (_, i) => {
+      const h = 40 + ((((i * 7 + seed) >>> 0) % 17) / 16) * 220;
+      return <rect key={i} x={sx + i * (bW + gap)} y={350 - h} width={bW} height={h} fill={lo(i % 3 === 0 ? 0.17 : 0.09)} />;
+    });
+  } else {
+    // Arcs from corner
+    const clipId = `cg-${seed}`;
+    patternEl = (
+      <>
+        <defs><clipPath id={clipId}><rect width="400" height="600" /></clipPath></defs>
+        <g clipPath={`url(#${clipId})`}>
+          {[260, 400, 545, 690].map((r, i) => (
+            <circle key={i} cx={18} cy={580} r={r} fill="none"
+              stroke={p.dark ? `rgba(255,255,255,${0.06 + i * 0.025})` : `rgba(0,0,0,${0.05 + i * 0.025})`}
+              strokeWidth={1.5 + i * 0.5}
+            />
+          ))}
+        </g>
+      </>
+    );
+  }
+
+  const titleFont = isCJK ? CJK : F;
+  const maxC = isCJK ? 13 : 20;
+  const titleLines = wrapText(title, maxC, isCJK ? 3 : 4);
+  const fs = isCJK ? 25 : (title.length > 45 ? 18 : title.length > 30 ? 21 : 24);
+  const lh = isCJK ? 37 : 30;
+  const bandY = 352;
+  const typeY = bandY + 25;
+  const titleY = typeY + 26;
+
+  return (
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="400" height="600" fill={p.bg} />
+      {patternEl}
+      {isForthcoming && (
+        <text x="200" y="230" fontFamily={F} fontSize="36"
+          fill={p.dark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.05)"}
+          textAnchor="middle" transform="rotate(-35 200 230)" letterSpacing="1"
+        >FORTHCOMING</text>
+      )}
+      <rect y={bandY} width="400" height={600 - bandY} fill={p.band} />
+      <text x="28" y={typeY} fontFamily={F} fontSize="8" fill={p.dim} letterSpacing="2.5">
+        {bookType.toUpperCase()}
+      </text>
+      <rect x="28" y={typeY + 5} width="28" height="1" fill={p.dim} />
+      {titleLines.map((line, idx) => (
+        <text key={idx} x="28" y={titleY + idx * lh}
+          fontFamily={titleFont} fontSize={fs} fontWeight="600" fill={p.bt}
+        >{line}</text>
+      ))}
+      <text x="28" y="553" fontFamily={titleFont} fontSize="10.5" fill={p.dim}>{credit}</text>
+      <text x="28" y="578" fontFamily={F} fontSize="7" fill={p.dim} letterSpacing="2" opacity="0.6">
+        PANORAMA SCHOLARLY GROUP LTD
+      </text>
+    </svg>
+  );
+}
+
 // ─── Default export ───────────────────────────────────────────────────────────
 export default function BookCoverSVG(book: Props) {
   const credit = book.isEdited
@@ -195,6 +345,14 @@ export default function BookCoverSVG(book: Props) {
     case "public-administration-reform-post-industrial":
       return <CoverPublicAdmin credit={credit} />;
     default:
-      return null;
+      return (
+        <CoverGenerated
+          slug={book.slug}
+          title={book.title}
+          credit={credit}
+          bookType={book.bookType}
+          status={book.status}
+        />
+      );
   }
 }
