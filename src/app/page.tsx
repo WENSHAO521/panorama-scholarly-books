@@ -70,11 +70,8 @@ export default function HomePage() {
               <div className="w-8 h-px bg-[#111111] mb-6" />
             </div>
             <div>
-              <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
-                Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange. As part of Panorama Scholarly Group, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services.
-              </p>
               <p className="font-serif text-base text-[#555555] leading-relaxed">
-                Panorama Scholarly Books 是 Panorama Scholarly Group 旗下学术图书出版平台，致力于出版具有学术价值、跨学科意义和知识传播价值的研究著作。
+                Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange. As part of Panorama Scholarly Group, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services.
               </p>
             </div>
           </div>
