@@ -36,6 +36,7 @@ export interface Book {
   authorBio: AuthorBio[];
   hasSampleChapter: boolean;
   coverTone: "white" | "light" | "medium";
+  license: "All Rights Reserved" | "CC BY-NC-ND 4.0";
 }
 
 export const books: Book[] = [
@@ -80,6 +81,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: true,
     coverTone: "white",
+    license: "All Rights Reserved",
   },
   {
     slug: "global-society-governance-asia-pacific",
@@ -134,6 +136,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: false,
     coverTone: "light",
+    license: "All Rights Reserved",
   },
   {
     slug: "artificial-intelligence-higher-education",
@@ -179,6 +182,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: true,
     coverTone: "white",
+    license: "CC BY-NC-ND 4.0",
   },
   {
     slug: "public-administration-reform-post-industrial",
@@ -223,6 +227,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: false,
     coverTone: "medium",
+    license: "All Rights Reserved",
   },
   {
     slug: "media-democracy-digital-public-sphere",
@@ -273,6 +278,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: true,
     coverTone: "white",
+    license: "All Rights Reserved",
   },
   {
     slug: "urban-governance-smart-cities",
@@ -312,6 +318,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: false,
     coverTone: "medium",
+    license: "All Rights Reserved",
   },
   {
     slug: "digital-economy-social-governance-cn",
@@ -353,6 +360,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: true,
     coverTone: "light",
+    license: "All Rights Reserved",
   },
   {
     slug: "higher-education-internationalisation-cn",
@@ -402,6 +410,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: false,
     coverTone: "white",
+    license: "All Rights Reserved",
   },
   {
     slug: "ai-governance-ethics-law-cn",
@@ -442,6 +451,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: false,
     coverTone: "medium",
+    license: "All Rights Reserved",
   },
   {
     slug: "communication-democracy-digital-cn",
@@ -490,6 +500,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: false,
     coverTone: "light",
+    license: "All Rights Reserved",
   },
   {
     slug: "comparative-education-policy-cn",
@@ -528,6 +539,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: false,
     coverTone: "white",
+    license: "CC BY-NC-ND 4.0",
   },
 ];
 

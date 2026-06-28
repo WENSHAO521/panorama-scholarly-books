@@ -22,7 +22,7 @@ export default function CopyrightPage() {
         <Container narrow>
           <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">Policy</p>
           <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-3">Copyright and Licensing</h1>
-          <p className="font-serif text-sm text-[#888888]">Last updated: 2025</p>
+          <p className="font-serif text-sm text-[#888888]">Last updated: June 2026</p>
         </Container>
       </section>
       <Container narrow>

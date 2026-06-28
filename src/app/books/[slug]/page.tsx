@@ -233,6 +233,56 @@ export default async function BookDetailPage({
                 </p>
               </div>
             </section>
+
+            <div className="w-full h-px bg-[#e2e2e2] mb-10" />
+
+            {/* Copyright */}
+            <section className="mb-10">
+              <h2 className="font-serif text-xl text-[#111111] font-medium mb-4">
+                Copyright and Licensing
+              </h2>
+              {book.license === "CC BY-NC-ND 4.0" ? (
+                <div className="border border-[#e2e2e2] p-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="shrink-0 border border-[#e2e2e2] px-2 py-1">
+                      <p className="font-sans text-[10px] font-bold tracking-widest text-[#555555] uppercase">CC</p>
+                    </div>
+                    <div>
+                      <p className="font-serif text-sm text-[#111111] font-medium mb-1">
+                        Creative Commons Attribution–NonCommercial–NoDerivatives 4.0 International
+                      </p>
+                      <p className="font-serif text-xs text-[#888888] tracking-wide">CC BY-NC-ND 4.0 · Open Access</p>
+                    </div>
+                  </div>
+                  <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
+                    This work is published open access under the Creative Commons CC BY-NC-ND 4.0 licence. You are free to share and redistribute this material in any medium or format for non-commercial purposes, provided you give appropriate credit to the author(s) and publisher, and do not modify or adapt the work.
+                  </p>
+                  <a
+                    href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-serif text-xs text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
+                  >
+                    View licence terms ↗
+                  </a>
+                </div>
+              ) : (
+                <div className="border border-[#e2e2e2] p-6">
+                  <p className="font-serif text-sm text-[#111111] font-medium mb-3">
+                    © {book.publicationYear} {credit}. All rights reserved.
+                  </p>
+                  <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
+                    Published by Panorama Scholarly Group Ltd. No part of this publication may be reproduced, stored in a retrieval system, or transmitted in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — without the prior written permission of the publisher.
+                  </p>
+                  <Link
+                    href="/policies/copyright"
+                    className="font-serif text-xs text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
+                  >
+                    Copyright and licensing policy
+                  </Link>
+                </div>
+              )}
+            </section>
           </div>
         </div>
       </Container>
