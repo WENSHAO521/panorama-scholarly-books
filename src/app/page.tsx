@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { books } from "@/data/books";
 import BookCard from "@/components/BookCard";
-import HeroBookShelf from "@/components/HeroBookShelf";
+import HeroBookWall from "@/components/HeroBookWall";
 import Container from "@/components/Container";
 
 const publishingAreas = [
@@ -15,7 +15,6 @@ const publishingAreas = [
 
 export default function HomePage() {
   const featuredBooks = books.slice(0, 3);
-  const coverBooks = books.slice(0, 3);
 
   return (
     <>
@@ -52,9 +51,11 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Right: book covers */}
-        <div className="hidden lg:flex lg:col-span-2 items-center justify-center border-l border-[#e2e2e2] bg-[#f7f7f7] px-8">
-          <HeroBookShelf books={coverBooks} />
+        {/* Right: book wall */}
+        <div className="hidden lg:block lg:col-span-2 border-l border-[#e2e2e2] bg-[#f7f7f7] overflow-hidden">
+          <div className="px-6 pt-[72px]">
+            <HeroBookWall books={books} />
+          </div>
         </div>
       </section>
 
