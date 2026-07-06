@@ -554,7 +554,7 @@ export const books: Book[] = [
     isbn: "To be assigned",
     language: "Chinese (Simplified)",
     pages: 160,
-    format: ["Hardcover", "PDF eBook"],
+    format: ["Paperback", "PDF eBook"],
     subjectArea: ["Chan Buddhism", "Buddhist Studies", "Sinicization of Buddhism"],
     bookType: "Monograph",
     status: "Forthcoming",

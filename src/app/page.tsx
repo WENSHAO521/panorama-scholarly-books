@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import { books } from "@/data/books";
+import { books, getBookBySlug } from "@/data/books";
 import BookCard from "@/components/BookCard";
 import HeroBookList from "@/components/HeroBookList";
 import Container from "@/components/Container";
@@ -13,8 +13,16 @@ const publishingAreas = [
   { label: "AI and Future Society", sub: "Technology Ethics, Digital Futures, Science Studies" },
 ];
 
+const featuredSlugs = [
+  "education-policy-digital-age",
+  "global-society-governance-asia-pacific",
+  "chan-buddhism-sinicization-collected-essays-cn",
+];
+
 export default function HomePage() {
-  const featuredBooks = books.slice(0, 3);
+  const featuredBooks = featuredSlugs
+    .map((slug) => getBookBySlug(slug))
+    .filter((b): b is NonNullable<typeof b> => Boolean(b));
 
   return (
     <>
