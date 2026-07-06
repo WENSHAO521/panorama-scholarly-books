@@ -43,11 +43,15 @@ export async function generateMetadata({
   if (!book) return {};
 
   const citationAuthors = book.isEdited ? book.editors : book.authors;
-  const pageUrl = `https://books.panorama-sg.com/books/${book.slug}`;
+  const pageUrl = `https://books.panorama-sg.com/books/${book.slug}/`;
+  const isOpenAccess = book.license === "CC BY-NC-ND 4.0";
 
   return {
     title: book.title,
     description: book.abstract.slice(0, 160),
+    alternates: {
+      canonical: pageUrl,
+    },
     other: {
       // Highwire Press tags — read by Google Scholar for book indexing
       citation_title: book.title,
@@ -59,6 +63,8 @@ export async function generateMetadata({
       citation_abstract_html_url: pageUrl,
       ...(book.doi ? { citation_doi: book.doi } : {}),
       ...(book.subjectArea.length ? { citation_keywords: book.subjectArea } : {}),
+      // Signals to Google Scholar that the full text is freely readable, no login/paywall
+      ...(isOpenAccess ? { citation_fulltext_world_readable: "yes" } : {}),
     },
   };
 }
