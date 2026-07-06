@@ -24,6 +24,7 @@ export default function BookCard({ book }: { book: Book }) {
           isEdited={book.isEdited}
           bookType={book.bookType}
           status={book.status}
+          coverImage={book.coverImage}
         />
       </div>
 
@@ -36,6 +37,11 @@ export default function BookCard({ book }: { book: Book }) {
           {book.license === "CC BY-NC-ND 4.0" && (
             <span className="text-[10px] tracking-[0.12em] uppercase font-serif text-[#888888] border border-[#e2e2e2] px-2 py-0.5">
               Open Access
+            </span>
+          )}
+          {book.license === "Restricted — Not for Sale" && (
+            <span className="text-[10px] tracking-[0.12em] uppercase font-serif text-[#888888] border border-[#e2e2e2] px-2 py-0.5">
+              Not for Sale
             </span>
           )}
         </div>

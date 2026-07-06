@@ -49,6 +49,7 @@ export default function HeroBookList({ books }: { books: Book[] }) {
                     isEdited={book.isEdited}
                     bookType={book.bookType}
                     status={book.status}
+                    coverImage={book.coverImage}
                   />
                 </div>
                 <div className="flex flex-col justify-center min-w-0 gap-1">

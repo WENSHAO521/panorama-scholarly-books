@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { books, getBookBySlug } from "@/data/books";
@@ -10,6 +10,11 @@ export async function generateStaticParams() {
   return books.map((book) => ({ slug: book.slug }));
 }
 
+const languageCodes: Record<string, string> = {
+  English: "en",
+  "Chinese (Simplified)": "zh",
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -18,9 +23,25 @@ export async function generateMetadata({
   const { slug } = await params;
   const book = getBookBySlug(slug);
   if (!book) return {};
+
+  const citationAuthors = book.isEdited ? book.editors : book.authors;
+  const pageUrl = `https://books.panorama-sg.com/books/${book.slug}`;
+
   return {
     title: book.title,
     description: book.abstract.slice(0, 160),
+    other: {
+      // Highwire Press tags — read by Google Scholar for book indexing
+      citation_title: book.title,
+      citation_author: citationAuthors,
+      citation_publication_date: String(book.publicationYear),
+      citation_publisher: "Panorama Scholarly Group Limited",
+      citation_language: languageCodes[book.language] ?? "en",
+      ...(/^\d/.test(book.isbn) ? { citation_isbn: book.isbn } : {}),
+      citation_abstract_html_url: pageUrl,
+      ...(book.doi ? { citation_doi: book.doi } : {}),
+      ...(book.subjectArea.length ? { citation_keywords: book.subjectArea } : {}),
+    },
   };
 }
 
@@ -38,8 +59,8 @@ export default async function BookDetailPage({
     : book.authors.join(", ");
 
   const citationAPA = book.isEdited
-    ? `${book.editors.map((e) => e.split(" ").reverse().join(", ")).join(", ")} (Eds.). (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. Panorama Scholarly Group Ltd.${book.doi ? ` https://doi.org/${book.doi}` : ""}`
-    : `${book.authors.map((a) => a.split(" ").reverse().join(", ")).join(", ")}. (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. Panorama Scholarly Group Ltd.${book.doi ? ` https://doi.org/${book.doi}` : ""}`;
+    ? `${book.editors.map((e) => e.split(" ").reverse().join(", ")).join(", ")} (Eds.). (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. Panorama Scholarly Group Limited.${book.doi ? ` https://doi.org/${book.doi}` : ""}`
+    : `${book.authors.map((a) => a.split(" ").reverse().join(", ")).join(", ")}. (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. Panorama Scholarly Group Limited.${book.doi ? ` https://doi.org/${book.doi}` : ""}`;
 
   return (
     <>
@@ -72,6 +93,7 @@ export default async function BookDetailPage({
                 isEdited={book.isEdited}
                 bookType={book.bookType}
                 status={book.status}
+                coverImage={book.coverImage}
               />
             </div>
 
@@ -118,18 +140,27 @@ export default async function BookDetailPage({
                 <EnvelopeSimple size={14} weight="light" />
                 Request a Copy
               </a>
-              <a
-                href={`mailto:books@panorama-sg.com?subject=Order Inquiry: ${book.title}`}
-                className="flex items-center justify-center gap-2 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-4 py-3 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
-              >
-                Order Inquiry
-              </a>
-              <a
-                href={`mailto:books@panorama-sg.com?subject=Institutional Purchase: ${book.title}`}
-                className="flex items-center justify-center gap-2 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#e2e2e2] px-4 py-3 text-[#555555] hover:border-[#111111] hover:text-[#111111] transition-colors"
-              >
-                Institutional Purchase Inquiry
-              </a>
+              {book.license !== "Restricted — Not for Sale" && (
+                <>
+                  <a
+                    href={`mailto:books@panorama-sg.com?subject=Order Inquiry: ${book.title}`}
+                    className="flex items-center justify-center gap-2 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-4 py-3 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
+                  >
+                    Order Inquiry
+                  </a>
+                  <a
+                    href={`mailto:books@panorama-sg.com?subject=Institutional Purchase: ${book.title}`}
+                    className="flex items-center justify-center gap-2 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#e2e2e2] px-4 py-3 text-[#555555] hover:border-[#111111] hover:text-[#111111] transition-colors"
+                  >
+                    Institutional Purchase Inquiry
+                  </a>
+                </>
+              )}
+              {book.license === "Restricted — Not for Sale" && (
+                <p className="font-serif text-xs text-[#888888] text-center mt-1">
+                  Not for sale. Restricted, non-commercial circulation only.
+                </p>
+              )}
               {book.hasSampleChapter && (
                 <a
                   href={`mailto:books@panorama-sg.com?subject=Sample Chapter Request: ${book.title}`}
@@ -266,13 +297,28 @@ export default async function BookDetailPage({
                     View licence terms ↗
                   </a>
                 </div>
+              ) : book.license === "Restricted — Not for Sale" ? (
+                <div className="border border-[#e2e2e2] p-6">
+                  <p className="font-serif text-sm text-[#111111] font-medium mb-3">
+                    © {book.publicationYear} {credit}. All rights reserved.
+                  </p>
+                  <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
+                    This title is published by Panorama Scholarly Group Limited for restricted, non-commercial circulation only. It is not for sale and is not made available to the general public. Reproduction, distribution, or transmission in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — requires the prior written permission of the publisher.
+                  </p>
+                  <Link
+                    href="/policies/copyright"
+                    className="font-serif text-xs text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
+                  >
+                    Copyright and licensing policy
+                  </Link>
+                </div>
               ) : (
                 <div className="border border-[#e2e2e2] p-6">
                   <p className="font-serif text-sm text-[#111111] font-medium mb-3">
                     © {book.publicationYear} {credit}. All rights reserved.
                   </p>
                   <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                    Published by Panorama Scholarly Group Ltd. No part of this publication may be reproduced, stored in a retrieval system, or transmitted in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — without the prior written permission of the publisher.
+                    Published by Panorama Scholarly Group Limited. No part of this publication may be reproduced, stored in a retrieval system, or transmitted in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — without the prior written permission of the publisher.
                   </p>
                   <Link
                     href="/policies/copyright"

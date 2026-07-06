@@ -1,4 +1,4 @@
-export type BookType =
+﻿export type BookType =
   | "Monograph"
   | "Edited Volume"
   | "Textbook"
@@ -36,7 +36,8 @@ export interface Book {
   authorBio: AuthorBio[];
   hasSampleChapter: boolean;
   coverTone: "white" | "light" | "medium";
-  license: "All Rights Reserved" | "CC BY-NC-ND 4.0";
+  coverImage?: string;
+  license: "All Rights Reserved" | "CC BY-NC-ND 4.0" | "Restricted — Not for Sale";
 }
 
 export const books: Book[] = [
@@ -48,7 +49,7 @@ export const books: Book[] = [
     authors: ["Elena Richter"],
     editors: [],
     isEdited: false,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2024,
     isbn: "978-3-987650-01-3",
     eisbn: "978-3-987650-01-0",
@@ -90,7 +91,7 @@ export const books: Book[] = [
     authors: [],
     editors: ["James T. Chen", "Mei Lin Tanaka"],
     isEdited: true,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2024,
     isbn: "978-3-987650-02-0",
     eisbn: "978-3-987650-02-7",
@@ -145,7 +146,7 @@ export const books: Book[] = [
     authors: ["PSG Research Unit"],
     editors: [],
     isEdited: false,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2025,
     isbn: "978-3-987650-03-7",
     eisbn: "978-3-987650-03-4",
@@ -177,7 +178,7 @@ export const books: Book[] = [
     authorBio: [
       {
         name: "PSG Research Unit",
-        bio: "The PSG Research Unit conducts interdisciplinary research on education, technology, and public policy under the auspices of Panorama Scholarly Group.",
+        bio: "The PSG Research Unit conducts interdisciplinary research on education, technology, and public policy under the auspices of Panorama Scholarly Group Limited.",
       },
     ],
     hasSampleChapter: true,
@@ -191,7 +192,7 @@ export const books: Book[] = [
     authors: ["Klaus Hoffmann"],
     editors: [],
     isEdited: false,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2025,
     isbn: "978-3-987650-04-4",
     language: "English",
@@ -236,7 +237,7 @@ export const books: Book[] = [
     authors: [],
     editors: ["Yuki Tanigawa", "Priya Nair"],
     isEdited: true,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2024,
     isbn: "978-3-987650-05-1",
     eisbn: "978-3-987650-05-8",
@@ -287,7 +288,7 @@ export const books: Book[] = [
     authors: ["Marco Ferretti"],
     editors: [],
     isEdited: false,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2026,
     isbn: "978-3-987650-06-8",
     language: "English",
@@ -327,7 +328,7 @@ export const books: Book[] = [
     authors: ["方晓磊"],
     editors: [],
     isEdited: false,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2024,
     isbn: "978-3-987650-07-5",
     eisbn: "978-3-987650-07-2",
@@ -369,7 +370,7 @@ export const books: Book[] = [
     authors: [],
     editors: ["陈明慧", "李建平"],
     isEdited: true,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2025,
     isbn: "978-3-987650-08-2",
     eisbn: "978-3-987650-08-9",
@@ -419,7 +420,7 @@ export const books: Book[] = [
     authors: ["赵思远"],
     editors: [],
     isEdited: false,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2026,
     isbn: "978-3-987650-09-9",
     language: "Chinese (Simplified)",
@@ -460,7 +461,7 @@ export const books: Book[] = [
     authors: [],
     editors: ["林佳颖", "吴浩然"],
     isEdited: true,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2026,
     isbn: "978-3-987650-10-5",
     language: "Chinese (Simplified)",
@@ -509,7 +510,7 @@ export const books: Book[] = [
     authors: ["PSG Research Centre"],
     editors: [],
     isEdited: false,
-    publisher: "Panorama Scholarly Group Ltd",
+    publisher: "Panorama Scholarly Group Limited",
     publicationYear: 2026,
     isbn: "978-3-987650-11-2",
     language: "Chinese (Simplified)",
@@ -534,12 +535,63 @@ export const books: Book[] = [
     authorBio: [
       {
         name: "PSG Research Centre",
-        bio: "The PSG Research Centre is an interdisciplinary research unit under Panorama Scholarly Group, conducting research at the intersection of education, technology, and public policy.",
+        bio: "The PSG Research Centre is an interdisciplinary research unit under Panorama Scholarly Group Limited, conducting research at the intersection of education, technology, and public policy.",
       },
     ],
     hasSampleChapter: false,
     coverTone: "white",
     license: "CC BY-NC-ND 4.0",
+  },
+  {
+    slug: "chan-buddhism-sinicization-collected-essays-cn",
+    title: "禅宗与佛教中国化论集",
+    subtitle: "少林字辈、寺院传承与佛典翻译研究（2016—2026）",
+    authors: ["释延晗"],
+    editors: [],
+    isEdited: false,
+    publisher: "Panorama Scholarly Group Limited",
+    publicationYear: 2026,
+    isbn: "To be assigned",
+    language: "Chinese (Simplified)",
+    pages: 160,
+    format: ["Hardcover", "PDF eBook"],
+    subjectArea: ["Chan Buddhism", "Buddhist Studies", "Sinicization of Buddhism"],
+    bookType: "Monograph",
+    status: "Forthcoming",
+    abstract:
+      "《禅宗与佛教中国化论集》是释延晗法师关于禅宗与佛教中国化研究文章的结集，收录了2016年至2026年间与禅宗及佛教中国化相关的文章共计十六余篇。书中论述涉及禅宗与佛教中国化的诸多方面，包括少林七十字辈与佛教的中国化、苏州重元寺与佛教中国化、佛教经典翻译与佛教中国化等内容的探讨，对当代禅宗与佛教中国化研究而言有一定的价值。",
+    tableOfContents: [
+      "序（黄兴旺 / 如闻）",
+      "从“裕公碑”考察福裕行迹",
+      "元代政教关系视域下“佛道之争”的起因",
+      "雪庭福裕与佛道之争",
+      "雪庭福裕的家国情怀",
+      "雪庭福裕时代的佛教政策与禅宗状况",
+      "浅析雪庭福裕“菩提心”到“忠义心”",
+      "雪庭福裕的感恩观",
+      "“少林七十字辈”与佛教的中国化",
+      "法显西行对佛教的影响及其现代意义",
+      "法眼宗“圆融”及其现代价值",
+      "元代佛教政策视角中《敕修百丈清规》研究",
+      "元代高峰原妙禅学思想的守正创新",
+      "从“禅净”融合看中峰明本的守正创新",
+      "佛教典籍翻译与佛教中国化",
+      "苏州重元寺与佛教的中国化",
+      "《景德传灯录》中石头希迁禅学的守正创新",
+      "苏州圣堂寺与佛教的中国化",
+      "禅宗“圆融”及其现代价值",
+      "后记",
+    ],
+    authorBio: [
+      {
+        name: "释延晗",
+        bio: "释延晗，河南洛阳人，河南科技大学与戒幢佛学研究所研究生；祝发于嵩山少林寺；学戒于太姥山平兴寺；具戒于南海禅寺天中堂；现为江苏佛学院寒山学院讲师；主要研究方向为东亚禅宗文献与思想。",
+      },
+    ],
+    hasSampleChapter: true,
+    coverTone: "light",
+    coverImage: "/covers/CBSB.jpg",
+    license: "Restricted — Not for Sale",
   },
 ];
 

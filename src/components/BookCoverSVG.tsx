@@ -2,7 +2,7 @@ import type { Book } from "@/data/books";
 
 type Props = Pick<
   Book,
-  "slug" | "title" | "subtitle" | "authors" | "editors" | "isEdited" | "bookType" | "status"
+  "slug" | "title" | "subtitle" | "authors" | "editors" | "isEdited" | "bookType" | "status" | "coverImage"
 >;
 
 const F = `var(--font-eb-garamond), Georgia, "Times New Roman", serif`;
@@ -386,6 +386,17 @@ export default function BookCoverSVG(book: Props) {
   const credit = book.isEdited
     ? book.editors.join(", ") + (book.editors.length === 1 ? " (Ed.)" : " (Eds.)")
     : book.authors.join(", ");
+
+  if (book.coverImage) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return (
+      <img
+        src={book.coverImage}
+        alt={`${book.title} cover`}
+        className="w-full h-full object-cover"
+      />
+    );
+  }
 
   switch (book.slug) {
     case "education-policy-digital-age":

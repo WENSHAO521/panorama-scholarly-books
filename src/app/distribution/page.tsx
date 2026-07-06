@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
 
@@ -36,7 +36,7 @@ export default function DistributionPage() {
             </h2>
             <div className="border border-[#e2e2e2] p-6 md:p-8 mb-6">
               <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
-                Panorama Scholarly Group is gradually developing its book sales and distribution channels. At present, each published title may receive the following:
+                Panorama Scholarly Group Limited is gradually developing its book sales and distribution channels. At present, each published title may receive the following:
               </p>
               <ul className="flex flex-col gap-2">
                 {[
@@ -142,7 +142,7 @@ export default function DistributionPage() {
               Future Distribution Channels
             </h2>
             <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
-              Panorama Scholarly Group is working toward broader distribution arrangements that may include the following channels:
+              Panorama Scholarly Group Limited is working toward broader distribution arrangements that may include the following channels:
             </p>
             <ul className="flex flex-col gap-2">
               {[

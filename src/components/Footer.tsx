@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const quickLinks = [
   { href: "/books", label: "Books", external: false },
@@ -36,7 +36,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 mb-5 group w-fit"
-              aria-label="Panorama Scholarly Group"
+              aria-label="Panorama Scholarly Group Limited"
             >
               <svg width="32" height="36" viewBox="95 90 195 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <g transform="translate(100, 100)">
@@ -48,7 +48,7 @@ export default function Footer() {
                 </g>
               </svg>
               <span className="font-serif text-[11px] tracking-[0.14em] uppercase text-[#888888] group-hover:text-[#555555] transition-colors">
-                Panorama Scholarly Group
+                Panorama Scholarly Group Limited
               </span>
             </a>
             <p className="font-serif text-xl font-semibold text-[#111111] mb-1">
@@ -160,10 +160,10 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-[#e2e2e2] pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <p className="font-serif text-xs text-[#888888]">
-            &copy; {year} Panorama Scholarly Group Ltd. All rights reserved.
+            &copy; {year} Panorama Scholarly Group Limited. All rights reserved.
           </p>
           <p className="font-serif text-xs text-[#888888]">
-            Panorama Scholarly Books is an imprint of Panorama Scholarly Group.
+            Panorama Scholarly Books is an imprint of Panorama Scholarly Group Limited.
           </p>
         </div>
       </div>

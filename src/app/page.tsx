@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { books } from "@/data/books";
 import BookCard from "@/components/BookCard";
 import HeroBookList from "@/components/HeroBookList";
@@ -30,7 +30,7 @@ export default function HomePage() {
           </h1>
           <div className="w-10 h-px bg-[#111111] mb-8" />
           <p className="font-serif text-lg md:text-xl text-[#555555] leading-relaxed max-w-[52ch] mb-3">
-            An Academic Book Publishing Platform of Panorama Scholarly Group.
+            An Academic Book Publishing Platform of Panorama Scholarly Group Limited.
           </p>
           <p className="font-serif text-base text-[#888888] leading-relaxed max-w-[52ch] mb-12">
             We publish scholarly monographs, edited volumes, research reports, academic textbooks, and interdisciplinary works across the humanities, social sciences, education, arts, public policy, and emerging fields.
@@ -71,7 +71,7 @@ export default function HomePage() {
             </div>
             <div>
               <p className="font-serif text-base text-[#555555] leading-relaxed">
-                Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange. As part of Panorama Scholarly Group, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services.
+                Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange. As part of Panorama Scholarly Group Limited, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services.
               </p>
             </div>
           </div>
@@ -286,7 +286,7 @@ export default function HomePage() {
               Distribution channels are currently being developed.
             </p>
             <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
-              Panorama Scholarly Group is gradually developing its book sales and distribution channels. At present, each published title receives an official book webpage, publication metadata, ISBN and publication information where applicable, and digital archiving.
+              Panorama Scholarly Group Limited is gradually developing its book sales and distribution channels. At present, each published title receives an official book webpage, publication metadata, ISBN and publication information where applicable, and digital archiving.
             </p>
             <p className="font-serif text-sm text-[#888888] leading-relaxed">
               Book publishing fees do not guarantee book sales, bookstore placement, library acquisition, indexing, ranking, or commercial performance.

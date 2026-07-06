@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Container from "@/components/Container";
 import ContactForm from "./ContactForm";
 
@@ -51,7 +51,7 @@ export default function ContactPage() {
                   Location
                 </p>
                 <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                  Panorama Scholarly Group<br />
+                  Panorama Scholarly Group Limited<br />
                   Room 1508, 15/F., Office Tower Two,<br />
                   Grand Plaza, 625 Nathan Road,<br />
                   Kowloon, Hong Kong

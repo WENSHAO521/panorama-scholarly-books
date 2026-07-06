@@ -71,6 +71,7 @@ export default function HeroBookShelf({ books }: { books: Book[] }) {
                   isEdited={book.isEdited}
                   bookType={book.bookType}
                   status={book.status}
+                  coverImage={book.coverImage}
                 />
               </div>
             </Link>

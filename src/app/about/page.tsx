@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
               Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange.
             </p>
             <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
-              As part of Panorama Scholarly Group, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services. We are committed to maintaining high scholarly standards, supporting intellectual diversity, and making serious academic work accessible to researchers, educators, and practitioners worldwide.
+              As part of Panorama Scholarly Group Limited, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services. We are committed to maintaining high scholarly standards, supporting intellectual diversity, and making serious academic work accessible to researchers, educators, and practitioners worldwide.
             </p>
           </section>
 
@@ -78,8 +78,8 @@ export default function AboutPage() {
             </h2>
             <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
               {[
-                ["Publisher", "Panorama Scholarly Group Ltd"],
-                ["Parent Organisation", "Panorama Scholarly Group Ltd"],
+                ["Publisher", "Panorama Scholarly Group Limited"],
+                ["Parent Organisation", "Panorama Scholarly Group Limited"],
                 ["Type", "Academic Book Publisher"],
                 ["Registered Address", "Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong"],
                 ["Contact", "books@panorama-sg.com"],
@@ -122,10 +122,10 @@ export default function AboutPage() {
           {/* Relationship with PSG */}
           <section className="mb-14">
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
-              Relationship with Panorama Scholarly Group
+              Relationship with Panorama Scholarly Group Limited
             </h2>
             <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
-              Panorama Scholarly Books operates as the academic book publishing platform of Panorama Scholarly Group (PSG). PSG is an independent scholarly publishing organisation with activities spanning academic journals, book publishing, conference proceedings, and research communication services.
+              Panorama Scholarly Books operates as the academic book publishing platform of Panorama Scholarly Group Limited (PSG). PSG is an independent scholarly publishing organisation with activities spanning academic journals, book publishing, conference proceedings, and research communication services.
             </p>
             <p className="font-serif text-base text-[#555555] leading-relaxed">
               Panorama Scholarly Books maintains its own editorial identity, publishing policies, and author relationships, operating within the broader PSG framework for shared services including platform infrastructure, archiving, and administrative support.
