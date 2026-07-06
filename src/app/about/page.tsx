@@ -78,8 +78,8 @@ export default function AboutPage() {
             </h2>
             <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
               {[
-                ["Publisher", "Panorama Scholarly Group Limited"],
-                ["Parent Organisation", "Panorama Scholarly Group Limited"],
+                ["Publisher", "Panorama Scholarly Group Ltd"],
+                ["Parent Organisation", "Panorama Scholarly Group Ltd"],
                 ["Type", "Academic Book Publisher"],
                 ["Registered Address", "Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong"],
                 ["Contact", "books@panorama-sg.com"],

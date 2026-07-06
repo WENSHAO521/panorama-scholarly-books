@@ -51,7 +51,7 @@ export default function ContactPage() {
                   Location
                 </p>
                 <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                  Panorama Scholarly Group Limited<br />
+                  Panorama Scholarly Group Ltd<br />
                   Room 1508, 15/F., Office Tower Two,<br />
                   Grand Plaza, 625 Nathan Road,<br />
                   Kowloon, Hong Kong
