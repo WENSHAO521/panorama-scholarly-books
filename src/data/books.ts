@@ -21,6 +21,7 @@ export interface Book {
   editors: string[];
   isEdited: boolean;
   publisher: string;
+  placeOfPublication: string;
   publicationYear: number;
   isbn: string;
   eisbn?: string;
@@ -50,6 +51,7 @@ export const books: Book[] = [
     editors: [],
     isEdited: false,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2024,
     isbn: "978-3-987650-01-3",
     eisbn: "978-3-987650-01-0",
@@ -92,6 +94,7 @@ export const books: Book[] = [
     editors: ["James T. Chen", "Mei Lin Tanaka"],
     isEdited: true,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2024,
     isbn: "978-3-987650-02-0",
     eisbn: "978-3-987650-02-7",
@@ -147,6 +150,7 @@ export const books: Book[] = [
     editors: [],
     isEdited: false,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2025,
     isbn: "978-3-987650-03-7",
     eisbn: "978-3-987650-03-4",
@@ -193,6 +197,7 @@ export const books: Book[] = [
     editors: [],
     isEdited: false,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2025,
     isbn: "978-3-987650-04-4",
     language: "English",
@@ -238,6 +243,7 @@ export const books: Book[] = [
     editors: ["Yuki Tanigawa", "Priya Nair"],
     isEdited: true,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2024,
     isbn: "978-3-987650-05-1",
     eisbn: "978-3-987650-05-8",
@@ -289,6 +295,7 @@ export const books: Book[] = [
     editors: [],
     isEdited: false,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2026,
     isbn: "978-3-987650-06-8",
     language: "English",
@@ -329,6 +336,7 @@ export const books: Book[] = [
     editors: [],
     isEdited: false,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2024,
     isbn: "978-3-987650-07-5",
     eisbn: "978-3-987650-07-2",
@@ -371,6 +379,7 @@ export const books: Book[] = [
     editors: ["陈明慧", "李建平"],
     isEdited: true,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2025,
     isbn: "978-3-987650-08-2",
     eisbn: "978-3-987650-08-9",
@@ -421,6 +430,7 @@ export const books: Book[] = [
     editors: [],
     isEdited: false,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2026,
     isbn: "978-3-987650-09-9",
     language: "Chinese (Simplified)",
@@ -462,6 +472,7 @@ export const books: Book[] = [
     editors: ["林佳颖", "吴浩然"],
     isEdited: true,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2026,
     isbn: "978-3-987650-10-5",
     language: "Chinese (Simplified)",
@@ -511,6 +522,7 @@ export const books: Book[] = [
     editors: [],
     isEdited: false,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2026,
     isbn: "978-3-987650-11-2",
     language: "Chinese (Simplified)",
@@ -550,6 +562,7 @@ export const books: Book[] = [
     editors: [],
     isEdited: false,
     publisher: "Panorama Scholarly Group Limited",
+    placeOfPublication: "Hong Kong",
     publicationYear: 2026,
     isbn: "To be assigned",
     language: "Chinese (Simplified)",
