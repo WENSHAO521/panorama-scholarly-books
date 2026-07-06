@@ -15,6 +15,24 @@ const languageCodes: Record<string, string> = {
   "Chinese (Simplified)": "zh",
 };
 
+// PSG Format — Panorama Scholarly Group's house citation style
+// (Chicago-style author-date structure with APA-style digital elements)
+function invertAuthorName(name: string): string {
+  const parts = name.trim().split(" ");
+  if (parts.length < 2) return name;
+  const surname = parts.pop();
+  return `${surname}, ${parts.join(" ")}`;
+}
+
+function formatPSGAuthorList(names: string[]): string {
+  if (names.length === 0) return "";
+  if (names.length === 1) return invertAuthorName(names[0]);
+  const [first, ...rest] = names;
+  const inverted = invertAuthorName(first);
+  if (rest.length === 1) return `${inverted}, and ${rest[0]}`;
+  return `${inverted}, ${rest.slice(0, -1).join(", ")}, and ${rest[rest.length - 1]}`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -58,9 +76,11 @@ export default async function BookDetailPage({
     ? book.editors.join(", ") + (book.editors.length === 1 ? " (Ed.)" : " (Eds.)")
     : book.authors.join(", ");
 
-  const citationAPA = book.isEdited
-    ? `${book.editors.map((e) => e.split(" ").reverse().join(", ")).join(", ")} (Eds.). (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. ${book.placeOfPublication}: Panorama Scholarly Group Limited.${book.doi ? ` https://doi.org/${book.doi}` : ""}`
-    : `${book.authors.map((a) => a.split(" ").reverse().join(", ")).join(", ")}. (${book.publicationYear}). ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. ${book.placeOfPublication}: Panorama Scholarly Group Limited.${book.doi ? ` https://doi.org/${book.doi}` : ""}`;
+  const citationNames = book.isEdited ? book.editors : book.authors;
+  const citationAuthorList =
+    formatPSGAuthorList(citationNames) +
+    (book.isEdited ? (book.editors.length === 1 ? ", ed." : ", eds.") : "");
+  const citationPSG = `${citationAuthorList}. ${book.publicationYear}. ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. ${book.placeOfPublication}: Panorama Scholarly Group Limited.${book.doi ? ` https://doi.org/${book.doi}` : ""}`;
 
   return (
     <>
@@ -258,10 +278,10 @@ export default async function BookDetailPage({
               </h2>
               <div className="bg-[#f7f7f7] border border-[#e2e2e2] p-6">
                 <p className="font-serif text-xs text-[#888888] mb-2 tracking-wide">
-                  APA (7th edition)
+                  PSG Format
                 </p>
                 <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                  {citationAPA}
+                  {citationPSG}
                 </p>
               </div>
             </section>
