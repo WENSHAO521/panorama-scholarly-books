@@ -182,7 +182,7 @@ export const books: Book[] = [
     authorBio: [
       {
         name: "PSG Research Unit",
-        bio: "The PSG Research Unit conducts interdisciplinary research on education, technology, and public policy under the auspices of Panorama Scholarly Group Limited.",
+        bio: "The PSG Research Unit conducts interdisciplinary research on education, technology, and public policy under the auspices of Panorama Scholarly Group.",
       },
     ],
     hasSampleChapter: true,
@@ -547,7 +547,7 @@ export const books: Book[] = [
     authorBio: [
       {
         name: "PSG Research Centre",
-        bio: "The PSG Research Centre is an interdisciplinary research unit under Panorama Scholarly Group Limited, conducting research at the intersection of education, technology, and public policy.",
+        bio: "The PSG Research Centre is an interdisciplinary research unit under Panorama Scholarly Group, conducting research at the intersection of education, technology, and public policy.",
       },
     ],
     hasSampleChapter: false,

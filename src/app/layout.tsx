@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Panorama Scholarly Books",
   },
   description:
-    "An academic book publishing platform of Panorama Scholarly Group Limited. Publishing scholarly monographs, edited volumes, research reports, and interdisciplinary works.",
+    "An academic book publishing platform of Panorama Scholarly Group. Publishing scholarly monographs, edited volumes, research reports, and interdisciplinary works.",
   metadataBase: new URL("https://books.panorama-sg.com"),
   openGraph: {
     siteName: "Panorama Scholarly Books",
