@@ -53,18 +53,25 @@ export async function generateMetadata({
       canonical: pageUrl,
     },
     other: {
-      // Highwire Press tags — read by Google Scholar for book indexing
-      citation_title: book.title,
-      citation_author: citationAuthors,
-      citation_publication_date: String(book.publicationYear),
-      citation_publisher: "Panorama Scholarly Group Limited",
-      citation_language: languageCodes[book.language] ?? "en",
-      ...(/^\d/.test(book.isbn) ? { citation_isbn: book.isbn } : {}),
-      citation_abstract_html_url: pageUrl,
-      ...(book.doi ? { citation_doi: book.doi } : {}),
-      ...(book.subjectArea.length ? { citation_keywords: book.subjectArea } : {}),
-      // Signals to Google Scholar that the full text is freely readable, no login/paywall
-      ...(isOpenAccess ? { citation_fulltext_world_readable: "yes" } : {}),
+      // Highwire Press citation_* tags are read by Google Scholar as claims of a
+      // real, citable publication. Only emit them for verified, real titles —
+      // demo/placeholder titles must not expose fabricated authors or DOIs to
+      // a scholarly crawler, which would risk the whole domain's credibility.
+      ...(book.citationEligible
+        ? {
+            citation_title: book.title,
+            citation_author: citationAuthors,
+            citation_publication_date: String(book.publicationYear),
+            citation_publisher: "Panorama Scholarly Group Limited",
+            citation_language: languageCodes[book.language] ?? "en",
+            ...(/^\d/.test(book.isbn) ? { citation_isbn: book.isbn } : {}),
+            citation_abstract_html_url: pageUrl,
+            ...(book.doi ? { citation_doi: book.doi } : {}),
+            ...(book.subjectArea.length ? { citation_keywords: book.subjectArea } : {}),
+            // Signals to Google Scholar that the full text is freely readable, no login/paywall
+            ...(isOpenAccess ? { citation_fulltext_world_readable: "yes" } : {}),
+          }
+        : {}),
     },
   };
 }

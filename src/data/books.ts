@@ -38,6 +38,10 @@ export interface Book {
   hasSampleChapter: boolean;
   coverTone: "white" | "light" | "medium";
   coverImage?: string;
+  // Only real, published titles should expose Highwire citation_* tags to
+  // Google Scholar. Placeholder/demo titles must not, so we don't surface
+  // fabricated authors, institutions, or DOIs to a scholarly crawler.
+  citationEligible?: boolean;
   license: "All Rights Reserved" | "CC BY-NC-ND 4.0" | "Restricted — Not for Sale";
 }
 
@@ -604,6 +608,7 @@ export const books: Book[] = [
     hasSampleChapter: true,
     coverTone: "light",
     coverImage: "/covers/CBSB.jpg",
+    citationEligible: true,
     license: "Restricted — Not for Sale",
   },
 ];
