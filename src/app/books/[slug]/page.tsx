@@ -324,7 +324,7 @@ export default async function BookDetailPage({
                     © {book.publicationYear} {credit}. All rights reserved.
                   </p>
                   <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                    This title is published by Panorama Scholarly Group Limited, {book.placeOfPublication}, for restricted, non-commercial circulation only. It is not for sale and is not made available to the general public. Reproduction, distribution, or transmission in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — requires the prior written permission of the publisher.
+                    This title is published by Panorama Scholarly Group Limited for restricted, non-commercial circulation only. It is not for sale and is not made available to the general public. Reproduction, distribution, or transmission in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — requires the prior written permission of the publisher.
                   </p>
                   <Link
                     href="/policies/copyright"
@@ -339,7 +339,7 @@ export default async function BookDetailPage({
                     © {book.publicationYear} {credit}. All rights reserved.
                   </p>
                   <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                    Published by Panorama Scholarly Group Limited, {book.placeOfPublication}. No part of this publication may be reproduced, stored in a retrieval system, or transmitted in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — without the prior written permission of the publisher.
+                    Published by Panorama Scholarly Group Limited. No part of this publication may be reproduced, stored in a retrieval system, or transmitted in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — without the prior written permission of the publisher.
                   </p>
                   <Link
                     href="/policies/copyright"
