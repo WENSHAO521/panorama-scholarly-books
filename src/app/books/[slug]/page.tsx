@@ -95,8 +95,36 @@ export default async function BookDetailPage({
     (book.isEdited ? (book.editors.length === 1 ? ", ed." : ", eds.") : "");
   const citationPSG = `${citationAuthorList}. ${book.publicationYear}. ${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}. ${book.placeOfPublication}: Panorama Scholarly Group Limited.${book.doi ? ` https://doi.org/${book.doi}` : ""}`;
 
+  // Structured data is only emitted for verified, real titles — see the
+  // citationEligible guard in generateMetadata for the same rationale.
+  const jsonLd = book.citationEligible
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        name: book.title,
+        ...(book.subtitle ? { alternateName: book.subtitle } : {}),
+        author: citationNames.map((name) => ({ "@type": "Person", name })),
+        publisher: {
+          "@type": "Organization",
+          name: "Panorama Scholarly Group Limited",
+        },
+        datePublished: String(book.publicationYear),
+        inLanguage: languageCodes[book.language] ?? "en",
+        ...(/^\d/.test(book.isbn) ? { isbn: book.isbn } : {}),
+        ...(book.doi ? { sameAs: `https://doi.org/${book.doi}` } : {}),
+        url: `https://books.panorama-sg.com/books/${book.slug}/`,
+        abstract: book.abstract,
+      }
+    : null;
+
   return (
     <>
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
       {/* Breadcrumb */}
       <div className="border-b border-[#e2e2e2] py-4">
         <Container>
