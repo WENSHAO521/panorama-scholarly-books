@@ -1,7 +1,7 @@
 ﻿import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { books, getBookBySlug } from "@/data/books";
+import { books, getBookBySlug, slugifyName } from "@/data/books";
 import Container from "@/components/Container";
 import BookCoverSVG from "@/components/BookCoverSVG";
 import { ArrowLeft, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
@@ -52,6 +52,11 @@ export async function generateMetadata({
     alternates: {
       canonical: pageUrl,
     },
+    // Sample/placeholder titles are excluded from search engines entirely —
+    // they carry non-real authors, ISBNs, and DOIs, so indexing them (on
+    // Google generally or Scholar specifically) would risk the whole
+    // domain's credibility. See the citationEligible guard below.
+    ...(!book.citationEligible ? { robots: { index: false, follow: true } } : {}),
     other: {
       // Highwire Press citation_* tags are read by Google Scholar as claims of a
       // real, citable publication. Only emit them for verified, real titles —
@@ -252,7 +257,26 @@ export default async function BookDetailPage({
             )}
             <p className="font-serif text-base text-[#888888] mb-2">
               {book.isEdited ? "Edited by" : "By"}{" "}
-              <span className="text-[#555555]">{credit}</span>
+              <span className="text-[#555555]">
+                {book.citationEligible ? (
+                  <>
+                    {citationNames.map((name, i) => (
+                      <span key={name}>
+                        {i > 0 && ", "}
+                        <Link
+                          href={`/authors/${slugifyName(name)}`}
+                          className="hover:text-[#111111] underline underline-offset-2 decoration-[#c8c8c8] transition-colors"
+                        >
+                          {name}
+                        </Link>
+                      </span>
+                    ))}
+                    {book.isEdited && (book.editors.length === 1 ? " (Ed.)" : " (Eds.)")}
+                  </>
+                ) : (
+                  credit
+                )}
+              </span>
             </p>
             <p className="font-serif text-sm text-[#888888] mb-10">
               {book.publisher}, {book.publicationYear}

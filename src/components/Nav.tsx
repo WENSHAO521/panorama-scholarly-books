@@ -8,6 +8,7 @@ import { LogoMark } from "@/components/Logo";
 const links = [
   { href: "/", label: "Home" },
   { href: "/books", label: "Books" },
+  { href: "/authors", label: "Authors" },
   { href: "/book-series", label: "Book Series" },
   { href: "/for-authors", label: "For Authors" },
   { href: "/publishing-services", label: "Publishing Services" },

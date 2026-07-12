@@ -622,3 +622,48 @@ export function getBooksByType(type: BookType | "All" | "Forthcoming"): Book[] {
   if (type === "Forthcoming") return books.filter((b) => b.status === "Forthcoming");
   return books.filter((b) => b.bookType === type);
 }
+
+export interface AuthorSummary {
+  name: string;
+  slug: string;
+  bio?: string;
+  books: Book[];
+}
+
+export function slugifyName(name: string): string {
+  return name
+    .trim()
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "") // strip combining accents from Latin names
+    .replace(/[^a-z0-9一-鿿]+/g, "-") // keep CJK ideographs as-is
+    .replace(/^-+|-+$/g, "");
+}
+
+// Author pages are only built from verified, real titles — the same
+// citationEligible guard used for Highwire citation_* tags and JSON-LD.
+// Publishing a profile page for a sample/placeholder book's fabricated
+// author would expose the same credibility risk to search engines.
+export function getAllAuthors(): AuthorSummary[] {
+  const bySlug = new Map<string, AuthorSummary>();
+  for (const book of books) {
+    if (!book.citationEligible) continue;
+    const names = book.isEdited ? book.editors : book.authors;
+    for (const name of names) {
+      const slug = slugifyName(name);
+      const bio = book.authorBio.find((b) => b.name === name)?.bio;
+      const existing = bySlug.get(slug);
+      if (existing) {
+        existing.books.push(book);
+        if (!existing.bio && bio) existing.bio = bio;
+      } else {
+        bySlug.set(slug, { name, slug, bio, books: [book] });
+      }
+    }
+  }
+  return Array.from(bySlug.values()).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getAuthorBySlug(slug: string): AuthorSummary | undefined {
+  return getAllAuthors().find((a) => a.slug === slug);
+}

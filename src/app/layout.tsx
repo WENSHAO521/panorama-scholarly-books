@@ -1,8 +1,11 @@
 ﻿import type { Metadata } from "next";
+import Script from "next/script";
 import { EB_Garamond, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const ebGaramond = EB_Garamond({
   subsets: ["latin"],
@@ -44,6 +47,22 @@ export default function RootLayout({
       className={`${ebGaramond.variable} ${notoSerifSC.variable}`}
     >
       <body>
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <Nav />
         <main>{children}</main>
         <Footer />

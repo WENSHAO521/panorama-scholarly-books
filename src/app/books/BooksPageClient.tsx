@@ -5,6 +5,7 @@ import { books } from "@/data/books";
 import type { BookType } from "@/data/books";
 import BookCard from "@/components/BookCard";
 import Container from "@/components/Container";
+import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 
 type FilterTab = "All" | BookType | "Open Access" | "Forthcoming";
 
@@ -21,12 +22,24 @@ const tabs: FilterTab[] = [
 
 export default function BooksPageClient() {
   const [active, setActive] = useState<FilterTab>("All");
+  const [query, setQuery] = useState("");
 
   const filtered = (() => {
-    if (active === "All") return books;
-    if (active === "Forthcoming") return books.filter((b) => b.status === "Forthcoming");
-    if (active === "Open Access") return books.filter((b) => b.license === "CC BY-NC-ND 4.0");
-    return books.filter((b) => b.bookType === active);
+    const byTab = (() => {
+      if (active === "All") return books;
+      if (active === "Forthcoming") return books.filter((b) => b.status === "Forthcoming");
+      if (active === "Open Access") return books.filter((b) => b.license === "CC BY-NC-ND 4.0");
+      return books.filter((b) => b.bookType === active);
+    })();
+
+    const q = query.trim().toLowerCase();
+    if (!q) return byTab;
+    return byTab.filter((b) =>
+      [b.title, b.subtitle ?? "", ...b.authors, ...b.editors, ...b.subjectArea]
+        .join(" ")
+        .toLowerCase()
+        .includes(q)
+    );
   })();
 
   return (
@@ -40,9 +53,24 @@ export default function BooksPageClient() {
           <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
             Books
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[60ch]">
+          <p className="font-serif text-base text-[#888888] max-w-[60ch] mb-8">
             All published and forthcoming titles from Panorama Scholarly Books.
           </p>
+          <div className="relative max-w-[420px]">
+            <MagnifyingGlass
+              size={16}
+              weight="light"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[#888888] pointer-events-none"
+            />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by title, author, or subject"
+              aria-label="Search books"
+              className="w-full font-serif text-sm text-[#111111] border border-[#e2e2e2] pl-11 pr-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#aaaaaa]"
+            />
+          </div>
         </Container>
       </section>
 
@@ -73,10 +101,12 @@ export default function BooksPageClient() {
           {filtered.length === 0 ? (
             <div className="py-20 text-center border border-[#e2e2e2]">
               <p className="font-serif text-xl text-[#888888] mb-2">
-                No titles in this category yet.
+                {query.trim() ? "No titles match your search." : "No titles in this category yet."}
               </p>
               <p className="font-serif text-sm text-[#888888]">
-                New titles are added regularly. Please check back soon.
+                {query.trim()
+                  ? "Try a different title, author, or subject area."
+                  : "New titles are added regularly. Please check back soon."}
               </p>
             </div>
           ) : (

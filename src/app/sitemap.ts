@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { books } from "@/data/books";
+import { books, getAllAuthors } from "@/data/books";
 
 export const dynamic = "force-static";
 
@@ -8,6 +8,7 @@ const BASE_URL = "https://books.panorama-sg.com";
 const staticRoutes = [
   "",
   "/about",
+  "/authors",
   "/book-series",
   "/books",
   "/contact",
@@ -30,11 +31,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1 : route === "/books" ? 0.9 : 0.6,
   }));
 
-  const bookEntries: MetadataRoute.Sitemap = books.map((book) => ({
-    url: `${BASE_URL}/books/${book.slug}/`,
+  // Sample/placeholder titles are kept off the sitemap and noindexed on their
+  // own page (see generateMetadata in books/[slug]/page.tsx) so search
+  // engines never surface their non-real authors, ISBNs, or DOIs.
+  const bookEntries: MetadataRoute.Sitemap = books
+    .filter((book) => book.citationEligible)
+    .map((book) => ({
+      url: `${BASE_URL}/books/${book.slug}/`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }));
+
+  const authorEntries: MetadataRoute.Sitemap = getAllAuthors().map((author) => ({
+    url: `${BASE_URL}/authors/${author.slug}/`,
     changeFrequency: "monthly",
-    priority: 0.8,
+    priority: 0.5,
   }));
 
-  return [...staticEntries, ...bookEntries];
+  return [...staticEntries, ...bookEntries, ...authorEntries];
 }
