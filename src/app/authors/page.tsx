@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getAllAuthors } from "@/data/books";
 import Container from "@/components/Container";
 
@@ -37,9 +36,12 @@ export default function AuthorsPage() {
           ) : (
             <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
               {authors.map((author) => (
-                <Link
+                // Plain <a>, not next/link — see the note on the author link
+                // in books/[slug]/page.tsx: client-side transitions into a
+                // unicode author slug 404 on this static host.
+                <a
                   key={author.slug}
-                  href={`/authors/${author.slug}`}
+                  href={`/authors/${author.slug}/`}
                   className="group flex items-center justify-between gap-4 border-b border-[#e2e2e2] py-6 hover:bg-[#f7f7f7] transition-colors"
                 >
                   <div>
@@ -51,7 +53,7 @@ export default function AuthorsPage() {
                     </p>
                   </div>
                   <span className="font-serif text-[11px] text-[#111111] shrink-0">View →</span>
-                </Link>
+                </a>
               ))}
             </div>
           )}

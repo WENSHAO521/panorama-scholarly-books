@@ -263,12 +263,17 @@ export default async function BookDetailPage({
                     {citationNames.map((name, i) => (
                       <span key={name}>
                         {i > 0 && ", "}
-                        <Link
-                          href={`/authors/${slugifyName(name)}`}
+                        {/* Plain <a>, not next/link: client-side transitions
+                            into a unicode author slug 404 on static hosting
+                            (Cloudflare Pages), even though the exported HTML
+                            for that route is correct. A full navigation
+                            sidesteps it. */}
+                        <a
+                          href={`/authors/${slugifyName(name)}/`}
                           className="hover:text-[#111111] underline underline-offset-2 decoration-[#c8c8c8] transition-colors"
                         >
                           {name}
-                        </Link>
+                        </a>
                       </span>
                     ))}
                     {book.isEdited && (book.editors.length === 1 ? " (Ed.)" : " (Eds.)")}

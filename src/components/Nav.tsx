@@ -65,16 +65,20 @@ export default function Nav() {
                 link.href === "/"
                   ? pathname === "/"
                   : pathname.startsWith(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-3 py-1 text-[13px] font-serif transition-colors ${
-                    active
-                      ? "text-[#111111] underline underline-offset-4"
-                      : "text-[#555555] hover:text-[#111111]"
-                  }`}
-                >
+              const className = `px-3 py-1 text-[13px] font-serif transition-colors ${
+                active
+                  ? "text-[#111111] underline underline-offset-4"
+                  : "text-[#555555] hover:text-[#111111]"
+              }`;
+              // /authors is a newly added route; a client-side transition
+              // into it can 404 against a stale cached route manifest on
+              // this static host, so force a full navigation for it.
+              return link.href === "/authors" ? (
+                <a key={link.href} href={`${link.href}/`} className={className}>
+                  {link.label}
+                </a>
+              ) : (
+                <Link key={link.href} href={link.href} className={className}>
                   {link.label}
                 </Link>
               );
@@ -120,14 +124,15 @@ export default function Nav() {
                 link.href === "/"
                   ? pathname === "/"
                   : pathname.startsWith(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`py-2.5 text-base font-serif border-b border-[#f0f0f0] last:border-0 transition-colors ${
-                    active ? "text-[#111111]" : "text-[#555555] hover:text-[#111111]"
-                  }`}
-                >
+              const className = `py-2.5 text-base font-serif border-b border-[#f0f0f0] last:border-0 transition-colors ${
+                active ? "text-[#111111]" : "text-[#555555] hover:text-[#111111]"
+              }`;
+              return link.href === "/authors" ? (
+                <a key={link.href} href={`${link.href}/`} className={className}>
+                  {link.label}
+                </a>
+              ) : (
+                <Link key={link.href} href={link.href} className={className}>
                   {link.label}
                 </Link>
               );
