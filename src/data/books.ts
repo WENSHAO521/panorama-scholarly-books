@@ -630,13 +630,25 @@ export interface AuthorSummary {
   books: Book[];
 }
 
+// Slugs are kept ASCII-only, even for CJK names — this Next.js version has
+// a static-export bug where a raw non-ASCII generateStaticParams() value
+// doesn't reliably match back up with the params the page component
+// receives at render time, silently producing a notFound() page instead of
+// the real one. Encoding non-ASCII characters as \uXXXX code points sidesteps
+// it entirely while staying stable and human-traceable.
 export function slugifyName(name: string): string {
-  return name
+  const cleaned = name
     .trim()
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "") // strip combining accents from Latin names
-    .replace(/[^a-z0-9一-鿿]+/g, "-") // keep CJK ideographs as-is
+    .replace(/[̀-ͯ]/g, ""); // strip combining accents from Latin names
+
+  return Array.from(cleaned)
+    .map((ch) =>
+      /[a-z0-9]/.test(ch) ? ch : /[\s._]/.test(ch) ? "-" : `-u${ch.codePointAt(0)!.toString(16)}-`
+    )
+    .join("")
+    .replace(/-+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
 
