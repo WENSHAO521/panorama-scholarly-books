@@ -165,12 +165,17 @@ export default function HomePage() {
               <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
                 Package A
               </p>
-              <p className="font-serif text-2xl text-[#111111] font-medium mb-2">
+              <p className="font-serif text-2xl text-[#111111] font-medium leading-snug min-h-[68px] mb-4">
                 Author-Prepared Publication
               </p>
-              <p className="font-serif text-3xl text-[#111111] font-medium mb-6">
-                USD 999 <span className="text-base font-normal text-[#888888]">/ title, edition &amp; format</span>
-              </p>
+              <div className="mb-6">
+                <p className="font-serif text-3xl text-[#111111] font-medium">
+                  USD 999
+                </p>
+                <p className="font-serif text-xs text-[#888888] mt-1">
+                  / title, edition &amp; format
+                </p>
+              </div>
               <div className="w-full h-px bg-[#e2e2e2] mb-6" />
               <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
                 For authors who provide a fully proofread manuscript, final typeset interior file, and publication-ready cover.
@@ -202,12 +207,17 @@ export default function HomePage() {
               <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
                 Package B
               </p>
-              <p className="font-serif text-2xl text-[#111111] font-medium mb-2">
+              <p className="font-serif text-2xl text-[#111111] font-medium leading-snug min-h-[68px] mb-4">
                 Standard Academic Book Production
               </p>
-              <p className="font-serif text-3xl text-[#111111] font-medium mb-6">
-                USD 1,799 <span className="text-base font-normal text-[#888888]">/ title, edition &amp; format</span>
-              </p>
+              <div className="mb-6">
+                <p className="font-serif text-3xl text-[#111111] font-medium">
+                  USD 1,799
+                </p>
+                <p className="font-serif text-xs text-[#888888] mt-1">
+                  / title, edition &amp; format
+                </p>
+              </div>
               <div className="w-full h-px bg-[#e2e2e2] mb-6" />
               <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
                 For standard academic books requiring publisher-assisted proofreading, typesetting, and cover design.
@@ -239,12 +249,17 @@ export default function HomePage() {
               <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
                 Package C
               </p>
-              <p className="font-serif text-2xl text-[#111111] font-medium mb-2">
+              <p className="font-serif text-2xl text-[#111111] font-medium leading-snug min-h-[68px] mb-4">
                 Extended and Complex Book Production
               </p>
-              <p className="font-serif text-3xl text-[#111111] font-medium mb-6">
-                From USD 2,499 <span className="text-base font-normal text-[#888888]">/ title, edition &amp; format</span>
-              </p>
+              <div className="mb-6">
+                <p className="font-serif text-3xl text-[#111111] font-medium">
+                  From USD 2,499
+                </p>
+                <p className="font-serif text-xs text-[#888888] mt-1">
+                  / title, edition &amp; format
+                </p>
+              </div>
               <div className="w-full h-px bg-[#e2e2e2] mb-6" />
               <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
                 For longer, bilingual, multilingual, edited, illustrated, or technically complex academic books.
