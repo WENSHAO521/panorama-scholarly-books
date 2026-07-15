@@ -78,12 +78,12 @@ export default function AboutPage() {
             </h2>
             <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
               {[
-                ["Publisher", "Panorama Scholarly Group Ltd"],
-                ["Parent Organisation", "Panorama Scholarly Group Ltd"],
-                ["Type", "Academic Book Publisher"],
+                ["Legal Publisher", "Panorama Scholarly Group Limited"],
+                ["Publishing Imprint", "Panorama Scholarly Books"],
+                ["Type", "Independent Academic Book Publisher"],
                 ["Registered Address", "Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong"],
-                ["Contact", "books@panorama-sg.com"],
                 ["Website", "books.panorama-sg.com"],
+                ["Publishing Inquiries", "books@panorama-sg.com"],
               ].map(([label, value]) => (
                 <div
                   key={label}
@@ -122,13 +122,13 @@ export default function AboutPage() {
           {/* Relationship with PSG */}
           <section className="mb-14">
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
-              Relationship with Panorama Scholarly Group
+              Relationship with Panorama Scholarly Group Limited
             </h2>
             <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
-              Panorama Scholarly Books operates as the academic book publishing platform of Panorama Scholarly Group (PSG). PSG is an independent scholarly publishing organisation with activities spanning academic journals, book publishing, conference proceedings, and research communication services.
+              Panorama Scholarly Books is the academic book publishing imprint of Panorama Scholarly Group Limited. Panorama Scholarly Group Limited is the legal entity responsible for publishing agreements, publisher administration, bibliographic records, ISBN use, and publication under the Panorama Scholarly Books imprint.
             </p>
             <p className="font-serif text-base text-[#555555] leading-relaxed">
-              Panorama Scholarly Books maintains its own editorial identity, publishing policies, and author relationships, operating within the broader PSG framework for shared services including platform infrastructure, archiving, and administrative support.
+              Panorama Scholarly Books maintains its own editorial identity, author relationships, book catalogue, publishing policies, and production standards within the broader scholarly publishing activities of Panorama Scholarly Group Limited, which also spans academic journals, conference proceedings, and research communication services.
             </p>
           </section>
 

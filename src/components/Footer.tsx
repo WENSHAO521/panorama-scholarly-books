@@ -55,7 +55,7 @@ export default function Footer() {
               Panorama Scholarly Books
             </p>
             <p className="font-serif text-sm text-[#888888] mb-6 leading-relaxed">
-              Academic Book Publishing Platform
+              Academic Book Publishing Imprint
             </p>
             <p className="font-serif text-sm text-[#555555] leading-relaxed mb-1">
               Room 1508, 15/F., Office Tower Two,<br />
@@ -163,7 +163,7 @@ export default function Footer() {
             &copy; {year} Panorama Scholarly Group Limited. All rights reserved.
           </p>
           <p className="font-serif text-xs text-[#888888]">
-            Panorama Scholarly Books is an imprint of Panorama Scholarly Group.
+            Panorama Scholarly Books is the academic book publishing imprint of Panorama Scholarly Group Limited.
           </p>
         </div>
       </div>

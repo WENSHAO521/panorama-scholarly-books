@@ -3,9 +3,9 @@ import Link from "next/link";
 import Container from "@/components/Container";
 
 export const metadata: Metadata = {
-  title: "For Authors",
+  title: "Publish an Academic Book | Author Guidelines and Proposal Process",
   description:
-    "Guidelines for authors wishing to publish with Panorama Scholarly Books. Submission requirements, review process, and contact information.",
+    "Submit a scholarly monograph, edited volume, textbook, research report, conference proceedings, or interdisciplinary academic book proposal.",
 };
 
 const acceptedTypes = [
@@ -44,13 +44,16 @@ const proposalContent = [
 ];
 
 const processSteps = [
-  { step: "Submission", desc: "Submit your proposal and supporting materials by email to books@panorama-sg.com." },
-  { step: "Initial Review", desc: "The editorial team conducts an initial review of the proposal for scope, quality, and suitability. This typically takes 2-4 weeks." },
-  { step: "Editorial Evaluation", desc: "Proposals that pass initial review are forwarded for more detailed editorial evaluation, which may include external assessment." },
-  { step: "Decision", desc: "Authors receive a decision letter outlining whether the proposal is accepted, invited to revise and resubmit, or declined." },
-  { step: "Agreement", desc: "Accepted proposals proceed to a publishing agreement that sets out responsibilities, fees, timeline, and rights." },
-  { step: "Production", desc: "The manuscript proceeds through the agreed production process. The timeline depends on the package selected and the state of the manuscript." },
-  { step: "Publication", desc: "Upon completion, the book receives its official page on this website, publication metadata, and digital archiving." },
+  { step: "Proposal Submission", desc: "Submit the book proposal, author or editor CV, table of contents, sample chapters or complete manuscript, book description, target-readership statement, originality declaration, and relevant permissions information." },
+  { step: "Initial Editorial Screening", desc: "The editorial team assesses the project's subject scope, scholarly contribution, originality, ethical suitability, legal suitability, and basic production feasibility. This normally takes two to four weeks." },
+  { step: "Editorial Evaluation", desc: "Suitable proposals proceed to detailed editorial evaluation. External academic assessment may be requested where appropriate." },
+  { step: "Publication Decision", desc: "The author or editor receives one of the following decisions: accept; accept subject to revision; revise and resubmit; or decline. A fee quotation does not constitute editorial acceptance." },
+  { step: "Publishing Agreement and Payment", desc: "Accepted projects proceed to a written publishing agreement specifying publication format, services, responsibilities, fees, payment schedule, rights and licences, production scope, correction rounds, estimated schedule, and printing and distribution arrangements." },
+  { step: "Rights and Metadata Verification", desc: "The publisher verifies the final title and subtitle, author and editor names, contributor information, affiliations, copyright ownership, third-party permissions, edition and product format, publication language, book description, subject classification, and publisher information." },
+  { step: "Production", desc: "The project proceeds through the agreed proofreading, editing, typesetting, cover design, file preparation, and correction process." },
+  { step: "ISBN Assignment and Final Approval", desc: "Following approval of the publication format and bibliographic metadata, the publisher assigns the appropriate ISBN and completes the copyright-page and barcode information. ISBN assignment does not mean that unfinished or non-compliant files have received final publication approval." },
+  { step: "Publication", desc: "After final approval and payment of all outstanding fees, the book receives final publisher approval, an official publication date, final bibliographic metadata, an official book webpage, a publisher publication record, and digital archiving." },
+  { step: "Registration, Deposit, and Archiving", desc: "Where applicable, the publisher coordinates post-publication registration, statutory deposit arrangements, publisher records, and long-term digital archiving. The author or commissioning institution remains responsible for all separately invoiced printing, binding, deposit-copy, delivery, and third-party costs." },
 ];
 
 export default function ForAuthorsPage() {

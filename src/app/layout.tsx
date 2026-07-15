@@ -24,11 +24,11 @@ const notoSerifSC = Noto_Serif_SC({
 
 export const metadata: Metadata = {
   title: {
-    default: "Panorama Scholarly Books",
+    default: "Academic Book Publisher | Panorama Scholarly Books",
     template: "%s | Panorama Scholarly Books",
   },
   description:
-    "An academic book publishing platform of Panorama Scholarly Group. Publishing scholarly monographs, edited volumes, research reports, and interdisciplinary works.",
+    "Panorama Scholarly Books publishes scholarly monographs, edited volumes, academic textbooks, research reports, and interdisciplinary books under Panorama Scholarly Group Limited.",
   metadataBase: new URL("https://books.panorama-sg.com"),
   openGraph: {
     siteName: "Panorama Scholarly Books",

@@ -3,6 +3,7 @@ import { books, getBookBySlug } from "@/data/books";
 import BookCard from "@/components/BookCard";
 import HeroBookList from "@/components/HeroBookList";
 import Container from "@/components/Container";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 
 const publishingAreas = [
   { label: "Humanities", sub: "Philosophy, History, Literature, Cultural Studies" },
@@ -26,6 +27,7 @@ export default function HomePage() {
 
   return (
     <>
+      <AnnouncementBanner />
       {/* Hero */}
       <section className="min-h-[100dvh] grid grid-cols-1 lg:grid-cols-5 border-b border-[#e2e2e2]">
         {/* Left */}
@@ -38,7 +40,7 @@ export default function HomePage() {
           </h1>
           <div className="w-10 h-px bg-[#111111] mb-8" />
           <p className="font-serif text-lg md:text-xl text-[#555555] leading-relaxed max-w-[52ch] mb-3">
-            An Academic Book Publishing Platform of Panorama Scholarly Group.
+            The academic book publishing imprint of Panorama Scholarly Group Limited.
           </p>
           <p className="font-serif text-base text-[#888888] leading-relaxed max-w-[52ch] mb-12">
             We publish scholarly monographs, edited volumes, research reports, academic textbooks, and interdisciplinary works across the humanities, social sciences, education, arts, public policy, and emerging fields.
@@ -79,7 +81,7 @@ export default function HomePage() {
             </div>
             <div>
               <p className="font-serif text-base text-[#555555] leading-relaxed">
-                Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange. As part of Panorama Scholarly Group, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services.
+                Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange. As the academic book publishing imprint of Panorama Scholarly Group Limited, the imprint supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services.
               </p>
             </div>
           </div>
@@ -151,12 +153,15 @@ export default function HomePage() {
           <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
             Publishing Services
           </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium leading-[1.15] mb-12">
+          <h2 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium leading-[1.15] mb-2">
             Book Publishing Packages
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e2e2e2]">
-            {/* Package 1 */}
-            <div className="bg-white p-10">
+          <p className="font-serif text-sm text-[#888888] mb-12">
+            Fees are per title, edition, and product format. Effective 1 August 2026.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e2e2e2]">
+            {/* Package A */}
+            <div className="bg-white p-10 flex flex-col">
               <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
                 Package A
               </p>
@@ -164,18 +169,19 @@ export default function HomePage() {
                 Author-Prepared Publication
               </p>
               <p className="font-serif text-3xl text-[#111111] font-medium mb-6">
-                USD 450 <span className="text-base font-normal text-[#888888]">/ title</span>
+                USD 999 <span className="text-base font-normal text-[#888888]">/ title, edition &amp; format</span>
               </p>
               <div className="w-full h-px bg-[#e2e2e2] mb-6" />
-              <ul className="flex flex-col gap-3 mb-8">
+              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
+                For authors who provide a fully proofread manuscript, final typeset interior file, and publication-ready cover.
+              </p>
+              <ul className="flex flex-col gap-3 mb-8 flex-1">
                 {[
-                  "Author-supplied proofreading and typesetting",
-                  "Author-supplied cover design",
-                  "Publication review and approval",
-                  "Copyright page and imprint information",
-                  "ISBN and publication metadata",
-                  "Official book page on this website",
-                  "Digital archiving and record-keeping",
+                  "Editorial and publication eligibility screening",
+                  "Publishing agreement and rights review",
+                  "One ISBN for one approved edition and format",
+                  "Publisher metadata and official book webpage",
+                  "Digital archiving and publication records",
                 ].map((item) => (
                   <li key={item} className="font-serif text-sm text-[#555555] flex gap-3">
                     <span className="text-[#888888] shrink-0">-</span>
@@ -191,28 +197,65 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Package 2 */}
-            <div className="bg-white p-10">
+            {/* Package B */}
+            <div className="bg-white p-10 flex flex-col">
               <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
                 Package B
               </p>
               <p className="font-serif text-2xl text-[#111111] font-medium mb-2">
-                Publisher Production
+                Standard Academic Book Production
               </p>
               <p className="font-serif text-3xl text-[#111111] font-medium mb-6">
-                USD 980 <span className="text-base font-normal text-[#888888]">/ title</span>
+                USD 1,799 <span className="text-base font-normal text-[#888888]">/ title, edition &amp; format</span>
               </p>
               <div className="w-full h-px bg-[#e2e2e2] mb-6" />
-              <ul className="flex flex-col gap-3 mb-8">
+              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
+                For standard academic books requiring publisher-assisted proofreading, typesetting, and cover design.
+              </p>
+              <ul className="flex flex-col gap-3 mb-8 flex-1">
                 {[
-                  "Professional proofreading by the publisher",
-                  "Typesetting and interior design",
-                  "Cover design by the publisher",
-                  "Copyright page and imprint information",
-                  "ISBN and publication metadata",
-                  "Official book page on this website",
-                  "Final file production (PDF, print-ready)",
-                  "Digital archiving and record-keeping",
+                  "All services in Package A",
+                  "Basic proofreading and standard typesetting",
+                  "Standard academic cover design",
+                  "Print-ready PDF production",
+                  "One consolidated round of author corrections",
+                ].map((item) => (
+                  <li key={item} className="font-serif text-sm text-[#555555] flex gap-3">
+                    <span className="text-[#888888] shrink-0">-</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/publishing-services"
+                className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
+              >
+                Learn more
+              </Link>
+            </div>
+
+            {/* Package C */}
+            <div className="bg-white p-10 flex flex-col">
+              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
+                Package C
+              </p>
+              <p className="font-serif text-2xl text-[#111111] font-medium mb-2">
+                Extended and Complex Book Production
+              </p>
+              <p className="font-serif text-3xl text-[#111111] font-medium mb-6">
+                From USD 2,499 <span className="text-base font-normal text-[#888888]">/ title, edition &amp; format</span>
+              </p>
+              <div className="w-full h-px bg-[#e2e2e2] mb-6" />
+              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
+                For longer, bilingual, multilingual, edited, illustrated, or technically complex academic books.
+              </p>
+              <ul className="flex flex-col gap-3 mb-8 flex-1">
+                {[
+                  "All services in Package B",
+                  "Edited volumes and multi-author works",
+                  "Extended proofreading and advanced typesetting",
+                  "Customized cover and interior design",
+                  "Up to two consolidated correction rounds",
                 ].map((item) => (
                   <li key={item} className="font-serif text-sm text-[#555555] flex gap-3">
                     <span className="text-[#888888] shrink-0">-</span>
@@ -228,9 +271,16 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+
           <div className="mt-6 border border-[#e2e2e2] bg-white p-6">
+            <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-3">
+              Important Publishing Notice
+            </p>
+            <p className="font-serif text-sm text-[#555555] leading-relaxed mb-3">
+              ISBNs are assigned only to publications formally reviewed, accepted, and published by Panorama Scholarly Books under a signed publishing agreement. ISBNs are not sold, transferred, leased, or supplied as standalone numbers. Publishing fees are service charges covering editorial assessment, publisher administration, rights review, metadata management, ISBN assignment, production processing, official records, digital archiving, and compliance coordination.
+            </p>
             <p className="font-serif text-sm text-[#888888] leading-relaxed">
-              The above fees apply to standard academic books. Additional fees may apply for manuscripts with extensive tables, figures, formulas, illustrations, multilingual content, special layout requirements, or substantial language editing needs. Optional distribution setup (Amazon, IngramSpark, Google Play Books) is available on a quotation basis.
+              Printing, binding, shipping, statutory deposit copies, and third-party platform charges are not included unless expressly stated in a written quotation. Publication fees do not guarantee sales, indexing, citations, or academic promotion.
             </p>
           </div>
         </Container>
@@ -294,7 +344,7 @@ export default function HomePage() {
               Distribution channels are currently being developed.
             </p>
             <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
-              Panorama Scholarly Group is gradually developing its book sales and distribution channels. At present, each published title receives an official book webpage, publication metadata, ISBN and publication information where applicable, and digital archiving.
+              Panorama Scholarly Group Limited is gradually developing its book sales and distribution channels. At present, each published title receives an official book webpage, publisher and bibliographic metadata, an ISBN for its approved edition and product format, and digital archiving.
             </p>
             <p className="font-serif text-sm text-[#888888] leading-relaxed">
               Book publishing fees do not guarantee book sales, bookstore placement, library acquisition, indexing, ranking, or commercial performance.

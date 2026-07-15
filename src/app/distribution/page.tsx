@@ -1,5 +1,4 @@
 ﻿import type { Metadata } from "next";
-import Link from "next/link";
 import Container from "@/components/Container";
 
 export const metadata: Metadata = {
@@ -36,14 +35,14 @@ export default function DistributionPage() {
             </h2>
             <div className="border border-[#e2e2e2] p-6 md:p-8 mb-6">
               <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
-                Panorama Scholarly Group is gradually developing its book sales and distribution channels. At present, each published title may receive the following:
+                Panorama Scholarly Group Limited is gradually developing its book sales and distribution channels. Each eligible Panorama Scholarly Books title receives the following:
               </p>
               <ul className="flex flex-col gap-2">
                 {[
                   "An official book page on the Panorama Scholarly Books website",
-                  "Publication metadata (title, author, ISBN, subject classification)",
-                  "ISBN and publisher information where applicable",
-                  "Digital archiving and record-keeping",
+                  "Publisher and bibliographic metadata (title, author, subject classification)",
+                  "ISBN information for the approved edition and product format",
+                  "Digital archiving and publisher publication records",
                 ].map((item) => (
                   <li key={item} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
                     <span className="text-[#c8c8c8] shrink-0">-</span>
@@ -123,7 +122,7 @@ export default function DistributionPage() {
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
               Institutional Purchase Inquiries
             </h2>
-            <p className="font-serif text-base text-[#555500] leading-relaxed mb-6">
+            <p className="font-serif text-base text-[#555555] leading-relaxed mb-6">
               Libraries, universities, research institutes, and other institutions wishing to acquire Panorama Scholarly Books titles should contact the Books department. We can accommodate institutional purchase requests and provide invoices as required.
             </p>
             <a
@@ -168,10 +167,10 @@ export default function DistributionPage() {
               Important Notice
             </p>
             <p className="font-serif text-sm text-[#555555] leading-relaxed mb-3">
-              Book publishing fees do not guarantee book sales, bookstore placement, library acquisition, indexing, rankings, or commercial performance.
+              Commercial retailer distribution, print-on-demand, eBook-platform distribution, library supply, and third-party metadata services are optional and are not included in standard publishing packages unless expressly stated in writing. Availability of a distribution service depends on the title, publication format, territorial rights, technical files, platform requirements, and third-party approval.
             </p>
             <p className="font-serif text-sm text-[#555555] leading-relaxed">
-              Panorama Scholarly Books provides publishing and production services. Distribution outcomes depend on external platforms, purchasing decisions by libraries and institutions, and other factors outside the publisher's direct control.
+              Panorama Scholarly Books does not guarantee bookstore placement, platform acceptance, library acquisition, sales volume, ranking, indexing, reviews, citations, or commercial performance.
             </p>
           </div>
 

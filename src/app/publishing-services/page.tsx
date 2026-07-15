@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Container from "@/components/Container";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 
 export const metadata: Metadata = {
-  title: "Publishing Services",
+  title: "Academic Book Publishing Services and Fees",
   description:
-    "Book publishing service packages and fees from Panorama Scholarly Books. Author-prepared, standard production, and extended production options.",
+    "Review academic book publishing packages, production services, ISBN assignment policies, printing options, payment terms, and publication requirements.",
 };
 
 const packages = [
@@ -13,115 +13,119 @@ const packages = [
     id: "a",
     label: "Package A",
     name: "Author-Prepared Publication",
-    price: "USD 450",
-    unit: "per title",
-    desc: "For authors who provide a final proofread manuscript, final typeset file, and final book cover.",
+    price: "USD 999",
+    unit: "per title, edition, and product format",
+    desc: "For authors who provide a final, fully proofread manuscript, a final typeset interior file, and a publication-ready cover.",
     includes: [
-      "Editorial and publication eligibility screening",
-      "Final file inspection",
-      "Copyright page format check",
-      "ISBN / publication information, where applicable",
-      "Publisher metadata preparation",
+      "Initial editorial and publication eligibility screening",
+      "Publishing agreement preparation",
+      "Authorship and rights documentation review",
+      "Final interior and cover file inspection",
+      "Copyright-page format review",
+      "One ISBN for one accepted edition and product format",
+      "ISBN barcode preparation",
+      "Publisher metadata and bibliographic record preparation",
       "Official book webpage",
-      "Digital archiving",
-      "Basic citation information",
+      "Digital archiving and publication-record management",
+      "Post-publication registration and compliance coordination",
+    ],
+    notIncluded: [
+      "Proofreading, typesetting, or cover design",
+      "Printing, shipping, or statutory deposit copies",
+      "Substantive manuscript revision",
     ],
     featured: false,
   },
   {
     id: "b",
     label: "Package B",
-    name: "Standard Production",
-    price: "USD 980",
-    unit: "per title",
-    desc: "For standard academic books requiring publisher-assisted proofreading, academic typesetting, and cover design.",
+    name: "Standard Academic Book Production",
+    price: "USD 1,799",
+    unit: "per title, edition, and product format",
+    desc: "For standard academic books requiring publisher-assisted proofreading, typesetting, cover design, and final production.",
     includes: [
-      "Editorial and publication eligibility screening",
+      "All editorial, administrative, metadata, ISBN, webpage, and archiving services in Package A",
       "Basic proofreading",
-      "Academic typesetting",
-      "Standard book cover design",
-      "Copyright page preparation",
-      "Publisher metadata preparation",
-      "Final PDF preparation",
-      "Official book webpage",
-      "Digital archiving",
-      "One round of author correction after typesetting",
+      "Standard academic interior typesetting",
+      "Standard academic cover design",
+      "Standard title page and copyright-page preparation",
+      "Placement of a normal number of tables and figures",
+      "Print-ready PDF preparation",
+      "Final production quality review",
+      "One consolidated round of author corrections after typesetting",
+    ],
+    notIncluded: [
+      "Manuscripts exceeding 60,000 words / approx. 200 pages",
+      "Printing, shipping, or statutory deposit copies",
     ],
     featured: true,
   },
   {
     id: "c",
     label: "Package C",
-    name: "Extended Production",
-    price: "USD 1,480",
-    unit: "per title",
-    desc: "For longer, bilingual, edited, or more complex academic books requiring extended production work.",
+    name: "Extended and Complex Book Production",
+    price: "From USD 2,499",
+    unit: "per title, edition, and product format",
+    desc: "For longer, bilingual, multilingual, edited, illustrated, or technically complex academic books.",
     includes: [
-      "All services in the Standard Production Package",
-      "Extended proofreading",
-      "More detailed layout adjustment",
-      "Complex table and figure placement",
+      "All services in Package B",
+      "Extended proofreading and advanced academic typesetting",
+      "Complex table, figure, formula, and illustration placement",
+      "Multi-author chapter standardisation",
       "Customized academic cover design",
-      "Up to two rounds of author correction",
-      "Enhanced metadata preparation",
-      "Book description and promotional text preparation",
+      "Up to two consolidated rounds of author or editor corrections",
+      "Enhanced bibliographic metadata",
+      "Book description and promotional-text preparation",
     ],
+    notIncluded: ["Printing, shipping, or statutory deposit copies"],
     featured: false,
   },
 ];
 
 const comparisonRows = [
   ["Editorial screening", "Included", "Included", "Included"],
+  ["Publishing agreement", "Included", "Included", "Included"],
+  ["Rights-document review", "Included", "Included", "Included"],
   [
     "Proofreading",
-    "Author provides final proofread file",
-    "Basic proofreading included",
-    "Extended proofreading included",
+    "Author supplies final text",
+    "Basic proofreading",
+    "Extended or project-specific",
   ],
   [
     "Interior typesetting",
-    "Author provides final typeset file",
-    "Standard academic typesetting",
-    "Advanced academic typesetting",
+    "Author supplies final file",
+    "Standard typesetting",
+    "Advanced typesetting",
   ],
   [
     "Cover design",
-    "Author provides final cover",
-    "Standard academic cover design",
-    "Customized academic cover design",
+    "Author supplies final cover",
+    "Standard cover design",
+    "Customized cover design",
   ],
-  [
-    "Copyright page",
-    "Format check included",
-    "Preparation included",
-    "Preparation included",
-  ],
-  [
-    "ISBN / publication information",
-    "Where applicable",
-    "Where applicable",
-    "Where applicable",
-  ],
-  [
-    "Metadata preparation",
-    "Basic metadata",
-    "Standard metadata",
-    "Enhanced metadata",
-  ],
+  ["Copyright page", "Format review", "Preparation included", "Preparation included"],
+  ["ISBN", "One approved format", "One approved format", "One approved format"],
+  ["ISBN barcode", "Included", "Included", "Included"],
+  ["Publisher metadata", "Included", "Included", "Enhanced"],
   ["Official book webpage", "Included", "Included", "Included"],
   ["Digital archiving", "Included", "Included", "Included"],
   [
-    "Author correction rounds",
+    "Correction rounds",
     "Not included",
-    "One round after typesetting",
-    "Up to two rounds after typesetting",
+    "One consolidated round",
+    "Up to two consolidated rounds",
   ],
-  [
-    "Recommended for",
-    "Authors with complete final files",
-    "Standard academic books",
-    "Longer, bilingual, edited, or complex books",
-  ],
+  ["Printing and shipping", "Not included", "Not included", "Not included"],
+  ["Statutory deposit copies", "Not included", "Not included", "Not included"],
+];
+
+const additionalFormatServices = [
+  ["Additional ISBN, metadata, copyright-page and record setup for another approved product format", "From USD 399"],
+  ["EPUB preparation", "From USD 299"],
+  ["Reflowable eBook conversion", "From USD 299"],
+  ["Revised edition processing", "From USD 499"],
+  ["Translated edition processing", "Quotation-based"],
 ];
 
 const institutionalRows = [
@@ -138,7 +142,7 @@ const institutionalRows = [
   [
     "Conference Proceedings",
     "Proceedings structure, chapter formatting, contributor coordination, official publication page",
-    "From USD 1,500",
+    "Quotation-based",
   ],
   [
     "Large Edited Volume",
@@ -148,49 +152,43 @@ const institutionalRows = [
 ];
 
 const optionalServices = [
-  ["Additional proofreading beyond standard scope", "From USD 5 per 1,000 words"],
+  ["Additional proofreading beyond package scope", "From USD 8 per 1,000 words"],
   ["Academic language editing", "Quotation-based"],
-  ["Substantive editing / developmental editing", "Quotation-based"],
-  ["Complex typesetting with many tables, figures, or formulas", "USD 150 - 500"],
-  ["Heavy image processing or figure redrawing", "USD 100 - 500"],
-  ["Custom cover redesign after approval", "USD 80 - 200"],
-  ["eBook / EPUB preparation", "USD 150 - 300"],
-  ["Book DOI, where applicable", "USD 50 - 100"],
-  ["Name index or subject index preparation", "USD 150 - 500"],
-  ["Additional round of author correction", "USD 80 - 150 per round"],
-  ["Urgent production service", "Additional 20 - 30%"],
+  ["Substantive or developmental editing", "Quotation-based"],
+  ["Translation", "Quotation-based"],
+  ["Complex tables, figures, formulas, or specialist typesetting", "From USD 250"],
+  ["Image restoration, figure redrawing, or extensive image processing", "From USD 150"],
+  ["Customized cover redesign after approval", "From USD 150"],
+  ["Name or subject index preparation", "From USD 250"],
+  ["Additional consolidated author-correction round", "USD 150 - 300 per round"],
+  ["Priority production service", "Additional 25% of the applicable package fee"],
+  ["Book DOI, where available and appropriate", "From USD 100"],
+  ["Specialist legal, copyright, or permissions review", "Quotation-based"],
 ];
 
 const distributionRows = [
-  ["Official book webpage", "Included in standard packages"],
-  ["Direct order inquiry setup", "Included in standard packages"],
-  ["Amazon KDP Print setup assistance", "USD 120 - 180"],
-  ["Google Play Books eBook setup assistance", "USD 100 - 150"],
-  ["IngramSpark setup assistance", "USD 250 - 400"],
-  [
-    "German / European book trade metadata support",
-    "Actual third-party cost + USD 150 - 250 service fee",
-  ],
-  ["Full distribution setup package", "USD 500 - 800"],
-  ["Annual distribution maintenance", "USD 120 - 200 per title per year"],
+  ["Official book webpage", "Included"],
+  ["Direct-order inquiry setup", "Included"],
+  ["Amazon or print-on-demand setup assistance", "From USD 200"],
+  ["Google Play Books setup assistance", "From USD 150"],
+  ["IngramSpark setup assistance", "From USD 350"],
+  ["European book-trade metadata support", "Third-party cost plus service fee"],
+  ["Full distribution setup", "From USD 650"],
+  ["Annual distribution maintenance", "From USD 150 per title"],
 ];
 
 const paymentRows = [
   [
-    "Author-Prepared Publication Package",
-    "100% payment before final publication processing begins.",
+    "Package A — Author-Prepared Publication",
+    "100% payment is required after formal acceptance and before final publication processing begins.",
   ],
   [
-    "Publisher Production Packages",
-    "50% deposit before production begins; 50% balance before final publication or final file release.",
+    "Packages B and C",
+    "50% deposit is required before production begins. The remaining 50% is payable before final file release and publication.",
   ],
   [
-    "Institutional or large projects",
-    "Payment schedule may be agreed separately in the publishing agreement.",
-  ],
-  [
-    "Refund principle",
-    "Refunds are subject to the stage of work already completed. Fees are normally non-refundable after production begins, ISBN/publication information is assigned, or final publication is completed.",
+    "Institutional and large projects",
+    "A staged payment schedule may be specified in the project quotation and publishing agreement.",
   ],
 ];
 
@@ -221,6 +219,7 @@ function Td({ children }: { children: React.ReactNode }) {
 export default function PublishingServicesPage() {
   return (
     <>
+      <AnnouncementBanner />
       {/* Page header */}
       <section className="border-b border-[#e2e2e2] pt-16 pb-12">
         <Container>
@@ -230,8 +229,11 @@ export default function PublishingServicesPage() {
           <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
             Book Publishing Services and Fees
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[70ch] leading-relaxed">
-            Panorama Scholarly Books provides academic book publishing services for scholarly monographs, edited volumes, research reports, academic textbooks, conference proceedings, and interdisciplinary research books. Our service structure is designed to support formal academic publication, professional book production, metadata preparation, and official publisher records.
+          <p className="font-serif text-base text-[#888888] max-w-[70ch] leading-relaxed mb-4">
+            Panorama Scholarly Books provides academic book publishing and production services for scholarly monographs, edited volumes, academic textbooks, research reports, conference proceedings, institutional publications, and interdisciplinary research books.
+          </p>
+          <p className="font-serif text-sm text-[#888888] max-w-[70ch] leading-relaxed">
+            All manuscripts and proposals are subject to editorial screening. Payment of a publishing fee does not create an automatic right to publication. A project proceeds only after formal editorial acceptance and execution of a publishing agreement. The following fees are effective from 1 August 2026.
           </p>
         </Container>
       </section>
@@ -245,7 +247,7 @@ export default function PublishingServicesPage() {
               Publishing Packages
             </h2>
             <p className="font-serif text-sm text-[#888888] mb-8 max-w-[70ch]">
-              Book publishing fees are charged per title. Printing, shipping, bookstore placement, sales guarantee, and third-party platform charges are not included unless separately agreed in writing.
+              Each package covers one title, one edition, and one product format. Printing, shipping, statutory deposit copies, and third-party platform charges are not included unless separately agreed in writing.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e2e2e2]">
@@ -272,19 +274,17 @@ export default function PublishingServicesPage() {
                   </h3>
 
                   <div className="border-t border-b border-[#e2e2e2] py-4 mb-4">
-                    <p className="font-serif text-3xl text-[#111111] font-medium">
+                    <p className="font-serif text-2xl text-[#111111] font-medium">
                       {pkg.price}
-                      <span className="text-sm font-normal text-[#888888] ml-1">
-                        {pkg.unit}
-                      </span>
                     </p>
+                    <p className="text-xs font-normal text-[#888888] mt-1">{pkg.unit}</p>
                   </div>
 
                   <p className="font-serif text-sm text-[#888888] leading-relaxed mb-6">
                     {pkg.desc}
                   </p>
 
-                  <ul className="flex flex-col gap-2 mb-8 flex-1">
+                  <ul className="flex flex-col gap-2 mb-6">
                     {pkg.includes.map((item) => (
                       <li
                         key={item}
@@ -296,6 +296,20 @@ export default function PublishingServicesPage() {
                     ))}
                   </ul>
 
+                  <div className="mb-8 flex-1">
+                    <p className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888] mb-2">
+                      Not Included
+                    </p>
+                    <ul className="flex flex-col gap-1.5">
+                      {pkg.notIncluded.map((item) => (
+                        <li key={item} className="font-serif text-xs text-[#888888] flex gap-2">
+                          <span className="shrink-0">-</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   <a
                     href={`mailto:books@panorama-sg.com?subject=Publishing Inquiry: ${pkg.name}`}
                     className="font-serif text-[11px] tracking-[0.1em] uppercase border border-[#111111] px-4 py-3 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors text-center"
@@ -304,6 +318,12 @@ export default function PublishingServicesPage() {
                   </a>
                 </div>
               ))}
+            </div>
+
+            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-5 bg-[#f7f7f7]">
+              <p className="font-serif text-sm text-[#555555] leading-relaxed">
+                <strong className="text-[#111111] font-medium">Standard scope:</strong> Package B generally applies to a manuscript of up to 60,000 words or approximately 200 finished pages, in one principal language, with standard academic formatting, references, and a normal number of tables and figures. Longer or more complex manuscripts require Package C or a separate quotation. Publication-ready files submitted under Package A must meet the publisher&apos;s technical and ethical standards; files requiring substantial correction or reconstruction may be transferred to Package B or C, or quoted separately.
+              </p>
             </div>
           </section>
 
@@ -316,9 +336,9 @@ export default function PublishingServicesPage() {
               <thead>
                 <tr>
                   <Th>Service Item</Th>
-                  <Th>Author-Prepared / USD 450</Th>
-                  <Th>Standard Production / USD 980</Th>
-                  <Th>Extended Production / USD 1,480</Th>
+                  <Th>Package A / USD 999</Th>
+                  <Th>Package B / USD 1,799</Th>
+                  <Th>Package C / From USD 2,499</Th>
                 </tr>
               </thead>
               <tbody>
@@ -334,12 +354,36 @@ export default function PublishingServicesPage() {
                 ))}
               </tbody>
             </TableWrapper>
+          </section>
 
-            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-5 bg-[#f7f7f7]">
-              <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                <strong className="text-[#111111] font-medium">Standard scope:</strong> The Standard Production Package generally applies to manuscripts up to approximately 60,000 words or 200 pages, with one main language, standard academic layout, and a normal number of tables and figures. Longer or more complex manuscripts may require the Extended Production Package or a separate quotation.
-              </p>
-            </div>
+          {/* Additional editions and product formats */}
+          <section className="mb-16">
+            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
+              Additional Editions and Product Formats
+            </h2>
+            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
+              Each package covers one title, one edition, and one product format. Paperback, hardback, PDF, EPUB, Kindle-compatible editions, revised editions, translated editions, and other separately distributed versions may require separate ISBNs, separate metadata, and additional production work. An additional ISBN will not be assigned unless the additional edition or format has been formally approved and is intended for genuine publication.
+            </p>
+            <TableWrapper>
+              <thead>
+                <tr>
+                  <Th>Additional Service</Th>
+                  <Th>Fee</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {additionalFormatServices.map(([service, fee]) => (
+                  <tr key={service} className="even:bg-[#fafafa]">
+                    <Td>
+                      <span className="text-[#111111]">{service}</span>
+                    </Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">
+                      {fee}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
           </section>
 
           {/* Institutional / Series / Proceedings */}
@@ -348,7 +392,7 @@ export default function PublishingServicesPage() {
               Institutional, Series, and Proceedings Publishing
             </h2>
             <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
-              Institutional publications, book series, conference proceedings, annual reports, research collections, and large edited volumes are quoted separately according to project scale and production complexity.
+              Institutional publications, book series, conference proceedings, annual reports, multi-volume works, large edited collections, and sponsored open-access books are quoted separately according to project size, manuscript complexity, number of contributors, languages, production requirements, publication formats, distribution requirements, and expected administrative workload.
             </p>
             <TableWrapper>
               <thead>
@@ -380,7 +424,7 @@ export default function PublishingServicesPage() {
               Optional Additional Services
             </h2>
             <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
-              The following services are not included in the standard packages unless expressly stated. Additional charges may apply depending on manuscript length, language, complexity, tables, figures, formulas, image quality, and production requirements.
+              These services are not included in the standard packages unless expressly stated. All additional services require written approval before work begins.
             </p>
             <TableWrapper>
               <thead>
@@ -404,13 +448,64 @@ export default function PublishingServicesPage() {
             </TableWrapper>
           </section>
 
-          {/* Distribution setup */}
+          {/* ISBN and Publisher-of-Record Policy */}
+          <section className="mb-16">
+            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
+              ISBN and Publisher-of-Record Policy
+            </h2>
+            <p className="font-serif text-sm text-[#888888] mb-4 max-w-[70ch]">
+              ISBNs are assigned only to publications that have been:
+            </p>
+            <ul className="flex flex-col gap-2 mb-6">
+              {[
+                "Submitted to Panorama Scholarly Books",
+                "Reviewed and formally accepted",
+                "Covered by a signed publishing agreement",
+                "Approved for publication under the Panorama Scholarly Books imprint",
+                "Supported by complete authorship, rights, and bibliographic information",
+                "Prepared for a genuine and identifiable edition and product format",
+              ].map((item) => (
+                <li key={item} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
+                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mb-5 bg-[#f7f7f7]">
+              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-3">
+                ISBNs are not sold, transferred, leased, licensed as standalone numbers, or supplied for use by another publisher. The publisher name displayed in the book must correspond with the publisher information recorded for the ISBN.
+              </p>
+              <p className="font-serif text-sm text-[#555555] leading-relaxed">
+                Publishing fees are not government ISBN application fees. They are fees for publisher services, editorial assessment, project administration, rights review, bibliographic metadata, ISBN assignment, production processing, official publication records, digital archiving, and post-publication compliance coordination.
+              </p>
+            </div>
+            <p className="font-serif text-sm text-[#888888] leading-relaxed max-w-[70ch] mb-2">
+              Assignment of an ISBN does not constitute:
+            </p>
+            <ul className="flex flex-col gap-1.5">
+              {[
+                "Copyright registration",
+                "Government approval of the content",
+                "Academic accreditation or degree recognition",
+                "Indexing or peer-review certification",
+                "Commercial distribution",
+                "A guarantee of sales or citations",
+              ].map((item) => (
+                <li key={item} className="font-serif text-sm text-[#888888] flex gap-3">
+                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Sales and distribution setup */}
           <section className="mb-16">
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
               Sales and Distribution Setup
             </h2>
             <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
-              Book publishing fees do not automatically include sales channel setup. Sales and distribution services may be provided separately where available.
+              Standard publishing fees do not include commercial distribution. Optional distribution services may be available for eligible titles, subject to the rules, approval processes, territorial limitations, technical requirements, and fees of the relevant platform.
             </p>
             <TableWrapper>
               <thead>
@@ -435,15 +530,15 @@ export default function PublishingServicesPage() {
 
             <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-5 bg-[#f7f7f7]">
               <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                <strong className="text-[#111111] font-medium">Important notice:</strong> Book publishing fees do not guarantee book sales, bookstore placement, library acquisition, indexing, ranking, citations, institutional recognition, academic promotion, commercial performance, or third-party platform approval.
+                <strong className="text-[#111111] font-medium">Important notice:</strong> Publishing or distribution fees do not guarantee book sales, bookstore placement, library acquisition, platform approval, indexing, ranking, reviews, citations, academic promotion, institutional recognition, or commercial performance.
               </p>
             </div>
           </section>
 
-          {/* Printing and shipping */}
+          {/* Printing, binding, deposit copies and shipping */}
           <section className="mb-16">
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
-              Printing and Shipping
+              Printing, Binding, Deposit Copies, and Shipping
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e2e2e2]">
               <div className="bg-white p-8">
@@ -451,17 +546,16 @@ export default function PublishingServicesPage() {
                   Not Included in Publishing Fees
                 </h3>
                 <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                  Printing and shipping are not included in the publishing service fees. If printed copies are requested, costs will be calculated separately based on:
+                  Where printed copies are requested, costs are calculated according to:
                 </p>
                 <ul className="flex flex-col gap-1.5">
                   {[
-                    "Book size and format",
-                    "Page count",
-                    "Color or black-and-white printing",
-                    "Binding type",
-                    "Number of copies",
-                    "Destination country or region",
-                    "Shipping method",
+                    "Finished book size and page count",
+                    "Black-and-white or colour printing",
+                    "Paper specification and binding type",
+                    "Cover finish and number of copies",
+                    "Proof-copy requirements",
+                    "Delivery destination and shipping method",
                   ].map((item) => (
                     <li key={item} className="font-serif text-sm text-[#555555] flex gap-3">
                       <span className="text-[#c8c8c8] shrink-0">-</span>
@@ -472,18 +566,15 @@ export default function PublishingServicesPage() {
               </div>
               <div className="bg-white p-8">
                 <h3 className="font-serif text-base text-[#111111] font-medium mb-3">
-                  Pricing Principle
+                  Pricing Principle and Statutory Deposit
                 </h3>
-                <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                  Printed copies are charged according to the following principle:
-                </p>
                 <div className="border border-[#e2e2e2] p-4 mb-4">
                   <p className="font-serif text-sm text-[#111111] text-center">
-                    Printing cost + shipping cost + handling fee
+                    Printing cost + binding cost + shipping cost + handling fee
                   </p>
                 </div>
                 <p className="font-serif text-sm text-[#888888] leading-relaxed">
-                  Authors may request printed proof copies, author copies, or institutional copies. Final costs depend on production specifications and shipping destination.
+                  Where Hong Kong book-registration requirements apply, the author or commissioning institution must fund and arrange the required statutory deposit copies, binding, packaging, delivery, and handling. Deposit copies are not returnable. No physical publication project is treated as administratively complete until the required deposit or registration arrangements have been confirmed.
                 </p>
               </div>
             </div>
@@ -492,7 +583,7 @@ export default function PublishingServicesPage() {
           {/* Payment and refund */}
           <section className="mb-16">
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
-              Payment and Refund Policy
+              Payment Terms
             </h2>
             <TableWrapper>
               <thead>
@@ -512,19 +603,67 @@ export default function PublishingServicesPage() {
                 ))}
               </tbody>
             </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-4 max-w-[70ch]">
+              All prices are stated in United States dollars unless otherwise specified. Bank, payment-gateway, currency-conversion, intermediary-bank, tax, printing, shipping, and third-party platform charges are not included unless expressly stated. Additional services are invoiced separately where applicable.
+            </p>
+          </section>
+
+          {/* Cancellation and refund */}
+          <section className="mb-16">
+            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-4">
+              Cancellation and Refund Principles
+            </h2>
+            <p className="font-serif text-sm text-[#888888] mb-5 leading-relaxed max-w-[70ch]">
+              Fees reflect editorial, administrative, metadata, production, design, archiving, and publisher work already performed. Fees paid before work begins may be refundable subject to documented administrative costs.
+            </p>
+            <ul className="flex flex-col gap-2 mb-5">
+              {[
+                "Once editorial administration, rights review, metadata preparation, production, design, typesetting, or proofreading has begun, the completed portion of the work is non-refundable.",
+                "Fees are normally non-refundable after an ISBN has been assigned or reserved for the accepted publication.",
+                "Fees are non-refundable after final files have been released or publication has been completed.",
+                "Author-requested cancellation does not create an entitlement to a refund of work already completed.",
+                "Where the publisher terminates a project because of plagiarism, rights infringement, undisclosed authorship disputes, unlawful content, false information, ethical violations, or breach of agreement, completed work and incurred costs remain payable.",
+              ].map((item) => (
+                <li key={item} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
+                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed">
+              Detailed cancellation and refund provisions are governed by the signed publishing agreement.
+            </p>
           </section>
 
           {/* Manuscript review notice */}
           <section className="mb-16">
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-4">
-              Manuscript Review and Publisher&apos;s Right to Decline
+              Review and Publisher&apos;s Right to Decline
             </h2>
             <p className="font-serif text-sm text-[#888888] mb-5 leading-relaxed max-w-[70ch]">
-              All manuscripts are subject to editorial screening. Panorama Scholarly Books reserves the right to decline manuscripts that do not meet academic, ethical, legal, technical, or publication standards.
+              All proposals and manuscripts are subject to editorial, ethical, legal, and technical review. Panorama Scholarly Books may decline or discontinue a project that:
             </p>
+            <ul className="flex flex-col gap-2 mb-5">
+              {[
+                "Falls outside the publisher's scope",
+                "Does not meet academic or production standards",
+                "Contains plagiarism or duplicate publication",
+                "Contains unresolved authorship or copyright disputes",
+                "Uses third-party material without permission",
+                "Contains unlawful, defamatory, deceptive, or materially misleading content",
+                "Provides false author, affiliation, funding, or publication information",
+                "Cannot be brought to publication standard within the agreed scope",
+                "Creates an unacceptable legal, ethical, reputational, or operational risk",
+              ].map((item) => (
+                <li key={item} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
+                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
             <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 bg-[#f7f7f7]">
               <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                The publishing fee is a service fee for academic book publishing and production. It does not represent or guarantee sales outcomes, bookstore listing, library purchase, indexing, ranking, citations, academic promotion, degree recognition, institutional approval, or commercial revenue.
+                Payment does not override the publisher&apos;s editorial independence or publication standards. The publishing fee does not represent or guarantee sales outcomes, bookstore listing, library purchase, indexing, ranking, citations, academic promotion, degree recognition, institutional approval, or commercial revenue.
               </p>
             </div>
           </section>
@@ -533,10 +672,10 @@ export default function PublishingServicesPage() {
           <div className="border border-[#e2e2e2] bg-[#111111] p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <h2 className="font-serif text-2xl text-white font-medium mb-3">
-                Request a Publishing Quote
+                Request a Publishing Assessment
               </h2>
               <p className="font-serif text-sm text-white/70 leading-relaxed max-w-[60ch]">
-                Authors, editors, and institutions may contact Panorama Scholarly Books to discuss manuscript suitability, production requirements, publication timeline, and available publishing packages.
+                Authors, editors, and institutions may contact Panorama Scholarly Books to discuss manuscript suitability, production requirements, publication timeline, and available publishing packages. Submission of an inquiry does not constitute acceptance or create a publishing agreement.
               </p>
             </div>
             <a

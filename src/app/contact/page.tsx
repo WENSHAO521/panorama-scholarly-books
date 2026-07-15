@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Container from "@/components/Container";
 import ContactForm from "./ContactForm";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <AnnouncementBanner />
       <section className="border-b border-[#e2e2e2] pt-16 pb-12">
         <Container>
           <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
@@ -51,7 +53,7 @@ export default function ContactPage() {
                   Location
                 </p>
                 <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                  Panorama Scholarly Group Ltd<br />
+                  Panorama Scholarly Group Limited<br />
                   Room 1508, 15/F., Office Tower Two,<br />
                   Grand Plaza, 625 Nathan Road,<br />
                   Kowloon, Hong Kong
