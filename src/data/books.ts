@@ -571,11 +571,11 @@ export const books: Book[] = [
     isbn: "978-988-72442-0-2",
     eisbn: "978-988-72442-1-9",
     language: "Chinese (Simplified)",
-    pages: 160,
+    pages: 172,
     format: ["Paperback", "PDF eBook"],
     subjectArea: ["Chan Buddhism", "Buddhist Studies", "Sinicization of Buddhism"],
     bookType: "Monograph",
-    status: "Forthcoming",
+    status: "Published",
     abstract:
       "《禅宗与佛教中国化论集》是释延晗法师关于禅宗与佛教中国化研究文章的结集，收录了2016年至2026年间与禅宗及佛教中国化相关的文章共计十六余篇。书中论述涉及禅宗与佛教中国化的诸多方面，包括少林七十字辈与佛教的中国化、苏州重元寺与佛教中国化、佛教经典翻译与佛教中国化等内容的探讨，对当代禅宗与佛教中国化研究而言有一定的价值。",
     tableOfContents: [
