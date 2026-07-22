@@ -1,27 +1,78 @@
-﻿import Link from "next/link";
+"use client";
+
+import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 const quickLinks = [
-  { href: "/books", label: "Books", external: false },
-  { href: "/book-series", label: "Book Series", external: false },
-  { href: "/for-authors", label: "For Authors", external: false },
-  { href: "/publishing-services", label: "Publishing Services", external: false },
-  { href: "/distribution", label: "Distribution", external: false },
-  { href: "/about", label: "About", external: false },
-  { href: "/contact", label: "Contact", external: false },
-  { href: "https://posi.panorama-sg.com", label: "POSI · Scholarly Index", external: true },
+  { href: "/books", label: { en: "Books", "zh-Hant": "書目" }, external: false },
+  { href: "/book-series", label: { en: "Book Series", "zh-Hant": "書系" }, external: false },
+  { href: "/for-authors", label: { en: "For Authors", "zh-Hant": "作者專區" }, external: false },
+  {
+    href: "/publishing-services",
+    label: { en: "Publishing Services", "zh-Hant": "出版服務" },
+    external: false,
+  },
+  { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊" }, external: false },
+  { href: "/about", label: { en: "About", "zh-Hant": "關於我們" }, external: false },
+  { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們" }, external: false },
+  {
+    href: "https://posi.panorama-sg.com",
+    label: { en: "POSI · Scholarly Index", "zh-Hant": "POSI · 學術索引" },
+    external: true,
+  },
 ];
 
 const policyLinks = [
-  { href: "/policies/publishing-ethics", label: "Publishing Ethics" },
-  { href: "/policies/copyright", label: "Copyright and Licensing" },
-  { href: "/policies/open-access", label: "Open Access Books" },
-  { href: "/policies/ai-use-policy", label: "AI Use Policy" },
-  { href: "/policies/plagiarism", label: "Plagiarism Policy" },
-  { href: "/policies/authorship", label: "Authorship Policy" },
-  { href: "/policies", label: "All Policies" },
+  { href: "/policies/publishing-ethics", label: { en: "Publishing Ethics", "zh-Hant": "出版倫理" } },
+  {
+    href: "/policies/copyright",
+    label: { en: "Copyright and Licensing", "zh-Hant": "版權與授權" },
+  },
+  { href: "/policies/open-access", label: { en: "Open Access Books", "zh-Hant": "開放獲取圖書" } },
+  { href: "/policies/ai-use-policy", label: { en: "AI Use Policy", "zh-Hant": "人工智能使用政策" } },
+  { href: "/policies/plagiarism", label: { en: "Plagiarism Policy", "zh-Hant": "抄襲政策" } },
+  { href: "/policies/authorship", label: { en: "Authorship Policy", "zh-Hant": "著作權歸屬政策" } },
+  { href: "/policies", label: { en: "All Policies", "zh-Hant": "所有政策" } },
 ];
 
+const copy = {
+  en: {
+    imprint: "Academic Book Publishing Imprint",
+    address: (
+      <>
+        Room 1508, 15/F., Office Tower Two,
+        <br />
+        Grand Plaza, 625 Nathan Road,
+        <br />
+        Mong Kok, Kowloon, Hong Kong
+      </>
+    ),
+    quickLinksHeading: "Quick Links",
+    policiesHeading: "Policies",
+    contactHeading: "Contact",
+    generalInquiries: "General Inquiries",
+    publishingInquiries: "Publishing Inquiries",
+    submitInquiry: "Submit Inquiry",
+    rights: "All rights reserved.",
+    tagline: "Panorama Scholarly Books is the academic book publishing imprint of Panorama Scholarly Group Limited.",
+  },
+  "zh-Hant": {
+    imprint: "學術圖書出版品牌",
+    address: <>香港旺角彌敦道625號雅蘭中心辦公樓二期15樓1508室</>,
+    quickLinksHeading: "快速連結",
+    policiesHeading: "政策",
+    contactHeading: "聯絡方式",
+    generalInquiries: "一般查詢",
+    publishingInquiries: "出版洽詢",
+    submitInquiry: "提交詢問",
+    rights: "版權所有。",
+    tagline: "Panorama Scholarly Books 是 Panorama Scholarly Group Limited 旗下的學術圖書出版品牌。",
+  },
+} as const;
+
 export default function Footer() {
+  const { locale } = useLanguage();
+  const t = copy[locale];
   const year = new Date().getFullYear();
 
   return (
@@ -55,12 +106,10 @@ export default function Footer() {
               Panorama Scholarly Books
             </p>
             <p className="font-serif text-sm text-[#888888] mb-6 leading-relaxed">
-              Academic Book Publishing Imprint
+              {t.imprint}
             </p>
             <p className="font-serif text-sm text-[#555555] leading-relaxed mb-1">
-              Room 1508, 15/F., Office Tower Two,<br />
-              Grand Plaza, 625 Nathan Road,<br />
-              Kowloon, Hong Kong
+              {t.address}
             </p>
             <a
               href="mailto:books@panorama-sg.com"
@@ -73,7 +122,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <p className="text-[11px] tracking-[0.2em] uppercase text-[#888888] font-serif mb-4">
-              Quick Links
+              {t.quickLinksHeading}
             </p>
             <ul className="flex flex-col gap-2">
               {quickLinks.map((link) =>
@@ -85,7 +134,7 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
                     >
-                      {link.label} ↗
+                      {link.label[locale]} ↗
                     </a>
                   </li>
                 ) : (
@@ -94,7 +143,7 @@ export default function Footer() {
                       href={link.href}
                       className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
                     >
-                      {link.label}
+                      {link.label[locale]}
                     </Link>
                   </li>
                 )
@@ -105,7 +154,7 @@ export default function Footer() {
           {/* Policies */}
           <div>
             <p className="text-[11px] tracking-[0.2em] uppercase text-[#888888] font-serif mb-4">
-              Policies
+              {t.policiesHeading}
             </p>
             <ul className="flex flex-col gap-2">
               {policyLinks.map((link) => (
@@ -114,7 +163,7 @@ export default function Footer() {
                     href={link.href}
                     className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
                   >
-                    {link.label}
+                    {link.label[locale]}
                   </Link>
                 </li>
               ))}
@@ -124,11 +173,11 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <p className="text-[11px] tracking-[0.2em] uppercase text-[#888888] font-serif mb-4">
-              Contact
+              {t.contactHeading}
             </p>
             <div className="flex flex-col gap-3">
               <div>
-                <p className="font-serif text-xs text-[#888888] mb-0.5">General Inquiries</p>
+                <p className="font-serif text-xs text-[#888888] mb-0.5">{t.generalInquiries}</p>
                 <a
                   href="mailto:books@panorama-sg.com"
                   className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
@@ -137,7 +186,7 @@ export default function Footer() {
                 </a>
               </div>
               <div>
-                <p className="font-serif text-xs text-[#888888] mb-0.5">Publishing Inquiries</p>
+                <p className="font-serif text-xs text-[#888888] mb-0.5">{t.publishingInquiries}</p>
                 <a
                   href="mailto:books@panorama-sg.com"
                   className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
@@ -150,7 +199,7 @@ export default function Footer() {
                   href="/contact"
                   className="font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-4 py-2 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors inline-block"
                 >
-                  Submit Inquiry
+                  {t.submitInquiry}
                 </Link>
               </div>
             </div>
@@ -160,10 +209,10 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-[#e2e2e2] pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <p className="font-serif text-xs text-[#888888]">
-            &copy; {year} Panorama Scholarly Group Limited. All rights reserved.
+            &copy; {year} Panorama Scholarly Group Limited. {t.rights}
           </p>
           <p className="font-serif text-xs text-[#888888]">
-            Panorama Scholarly Books is the academic book publishing imprint of Panorama Scholarly Group Limited.
+            {t.tagline}
           </p>
         </div>
       </div>

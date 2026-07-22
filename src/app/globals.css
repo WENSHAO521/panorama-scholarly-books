@@ -11,6 +11,7 @@
 
   --font-serif: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
   --font-serif-cn: var(--font-noto-serif-sc), var(--font-eb-garamond), Georgia, serif;
+  --font-serif-tc: var(--font-noto-serif-tc), var(--font-eb-garamond), Georgia, serif;
 }
 
 html {
@@ -23,6 +24,10 @@ body {
   font-family: var(--font-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html[lang="zh-Hant"] body {
+  font-family: var(--font-serif-tc);
 }
 
 ::selection {

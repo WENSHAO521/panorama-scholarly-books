@@ -1,9 +1,10 @@
 ﻿import type { Metadata } from "next";
 import Script from "next/script";
-import { EB_Garamond, Noto_Serif_SC } from "next/font/google";
+import { EB_Garamond, Noto_Serif_SC, Noto_Serif_TC } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
@@ -19,6 +20,13 @@ const notoSerifSC = Noto_Serif_SC({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-noto-serif-sc",
+  display: "swap",
+});
+
+const notoSerifTC = Noto_Serif_TC({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-noto-serif-tc",
   display: "swap",
 });
 
@@ -44,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ebGaramond.variable} ${notoSerifSC.variable}`}
+      className={`${ebGaramond.variable} ${notoSerifSC.variable} ${notoSerifTC.variable}`}
     >
       <body>
         {GA_MEASUREMENT_ID && (
@@ -63,9 +71,11 @@ export default function RootLayout({
             </Script>
           </>
         )}
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

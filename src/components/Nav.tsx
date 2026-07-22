@@ -4,22 +4,31 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { LogoMark } from "@/components/Logo";
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/books", label: "Books" },
-  { href: "/authors", label: "Authors" },
-  { href: "/book-series", label: "Book Series" },
-  { href: "/for-authors", label: "For Authors" },
-  { href: "/publishing-services", label: "Publishing Services" },
-  { href: "/distribution", label: "Distribution" },
-  { href: "/policies", label: "Policies" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: { en: "Home", "zh-Hant": "首頁" } },
+  { href: "/books", label: { en: "Books", "zh-Hant": "書目" } },
+  { href: "/authors", label: { en: "Authors", "zh-Hant": "作者" } },
+  { href: "/book-series", label: { en: "Book Series", "zh-Hant": "書系" } },
+  { href: "/for-authors", label: { en: "For Authors", "zh-Hant": "作者專區" } },
+  { href: "/publishing-services", label: { en: "Publishing Services", "zh-Hant": "出版服務" } },
+  { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊" } },
+  { href: "/policies", label: { en: "Policies", "zh-Hant": "政策" } },
+  { href: "/about", label: { en: "About", "zh-Hant": "關於我們" } },
+  { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們" } },
 ];
+
+const copy = {
+  en: { tagline: "Academic Book Publishing", submitInquiry: "Submit Inquiry" },
+  "zh-Hant": { tagline: "學術圖書出版", submitInquiry: "提交詢問" },
+} as const;
 
 export default function Nav() {
   const pathname = usePathname();
+  const { locale } = useLanguage();
+  const t = copy[locale];
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -53,7 +62,7 @@ export default function Nav() {
                 Panorama Scholarly Books
               </span>
               <span className="text-[10px] tracking-[0.15em] uppercase text-[#888888] font-serif mt-0.5">
-                Academic Book Publishing
+                {t.tagline}
               </span>
             </div>
           </Link>
@@ -75,27 +84,32 @@ export default function Nav() {
               // this static host, so force a full navigation for it.
               return link.href === "/authors" ? (
                 <a key={link.href} href={`${link.href}/`} className={className}>
-                  {link.label}
+                  {link.label[locale]}
                 </a>
               ) : (
                 <Link key={link.href} href={link.href} className={className}>
-                  {link.label}
+                  {link.label[locale]}
                 </Link>
               );
             })}
           </nav>
 
           {/* Submit Inquiry CTA (desktop) */}
-          <Link
-            href="/contact"
-            className="hidden xl:inline-block text-[12px] tracking-[0.08em] uppercase font-serif border border-[#111111] px-4 py-2 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
-          >
-            Submit Inquiry
-          </Link>
+          <div className="hidden xl:flex items-center gap-3">
+            <LanguageToggle />
+            <Link
+              href="/contact"
+              className="inline-block text-[12px] tracking-[0.08em] uppercase font-serif border border-[#111111] px-4 py-2 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
+            >
+              {t.submitInquiry}
+            </Link>
+          </div>
 
           {/* Mobile hamburger */}
+          <div className="xl:hidden flex items-center gap-2">
+          <LanguageToggle />
           <button
-            className="xl:hidden p-2 text-[#111111]"
+            className="p-2 text-[#111111]"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Close menu" : "Open menu"}
           >
@@ -112,6 +126,7 @@ export default function Nav() {
               </svg>
             )}
           </button>
+          </div>
         </div>
       </div>
 
@@ -129,11 +144,11 @@ export default function Nav() {
               }`;
               return link.href === "/authors" ? (
                 <a key={link.href} href={`${link.href}/`} className={className}>
-                  {link.label}
+                  {link.label[locale]}
                 </a>
               ) : (
                 <Link key={link.href} href={link.href} className={className}>
-                  {link.label}
+                  {link.label[locale]}
                 </Link>
               );
             })}
@@ -141,7 +156,7 @@ export default function Nav() {
               href="/contact"
               className="mt-3 text-[12px] tracking-[0.08em] uppercase font-serif border border-[#111111] px-4 py-3 text-center text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
             >
-              Submit Inquiry
+              {t.submitInquiry}
             </Link>
           </nav>
         </div>
