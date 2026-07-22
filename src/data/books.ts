@@ -561,7 +561,7 @@ export const books: Book[] = [
   {
     slug: "chan-buddhism-sinicization-collected-essays-cn",
     title: "禅宗与佛教中国化论集",
-    subtitle: "少林字辈、寺院传承与佛典翻译研究（2016—2026）",
+    subtitle: "少林七十字辈、寺院传承与佛典翻译研究（2016—2026）",
     authors: ["释延晗"],
     editors: [],
     isEdited: false,

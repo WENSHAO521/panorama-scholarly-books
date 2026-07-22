@@ -64,7 +64,7 @@ export async function generateMetadata({
       // a scholarly crawler, which would risk the whole domain's credibility.
       ...(book.citationEligible
         ? {
-            citation_title: book.title,
+            citation_title: book.title + (book.subtitle ? `: ${book.subtitle}` : ""),
             citation_author: citationAuthors,
             citation_publication_date: String(book.publicationYear),
             citation_publisher: "Panorama Scholarly Group Limited",
