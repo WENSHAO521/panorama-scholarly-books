@@ -608,7 +608,7 @@ export const books: Book[] = [
     ],
     hasSampleChapter: true,
     coverTone: "light",
-    coverImage: "/covers/CBSB.png",
+    coverImage: "/covers/CBSB.jpg",
     citationEligible: true,
     license: "Restricted — Not for Sale",
   },
