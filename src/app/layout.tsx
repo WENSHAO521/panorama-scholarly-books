@@ -1,6 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Script from "next/script";
-import { EB_Garamond, Noto_Serif_SC, Noto_Serif_TC } from "next/font/google";
+import { EB_Garamond, Noto_Serif_SC, Noto_Serif_TC, Noto_Sans_SC, Noto_Sans_TC } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -30,6 +30,20 @@ const notoSerifTC = Noto_Serif_TC({
   display: "swap",
 });
 
+const notoSansSC = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-noto-sans-sc",
+  display: "swap",
+});
+
+const notoSansTC = Noto_Sans_TC({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-noto-sans-tc",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Academic Book Publisher | Panorama Scholarly Books",
@@ -52,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ebGaramond.variable} ${notoSerifSC.variable} ${notoSerifTC.variable}`}
+      className={`${ebGaramond.variable} ${notoSerifSC.variable} ${notoSerifTC.variable} ${notoSansSC.variable} ${notoSansTC.variable}`}
     >
       <body>
         {GA_MEASUREMENT_ID && (
