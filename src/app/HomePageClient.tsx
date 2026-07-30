@@ -72,7 +72,8 @@ const bookTypesAccepted = [
 const printBundles = [
   {
     id: "essential",
-    name: { en: "Essential Print Publication", "zh-Hant": "Essential Print Publication 基礎紙質出版組合" },
+    name: "Essential Print Publication",
+    nameZh: "基礎紙質出版組合",
     price: "USD 1,999",
     desc: {
       en: "Package A (author-prepared digital publication) combined with the Standard Physical Publication Pack.",
@@ -86,7 +87,8 @@ const printBundles = [
   },
   {
     id: "standard",
-    name: { en: "Standard Academic Print Publication", "zh-Hant": "Standard Academic Print Publication 標準學術紙質出版組合" },
+    name: "Standard Academic Print Publication",
+    nameZh: "標準學術紙質出版組合",
     price: "USD 2,799",
     desc: {
       en: "Package B (publisher-assisted proofreading, typesetting, and cover design) combined with the Standard Physical Publication Pack.",
@@ -100,7 +102,8 @@ const printBundles = [
   },
   {
     id: "extended",
-    name: { en: "Extended Academic Print Publication", "zh-Hant": "Extended Academic Print Publication 延伸學術紙質出版組合" },
+    name: "Extended Academic Print Publication",
+    nameZh: "延伸學術紙質出版組合",
     price: "From USD 3,499",
     desc: {
       en: "Package C (extended and complex book production) combined with the Standard Physical Publication Pack.",
@@ -331,9 +334,16 @@ export default function HomePageClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e2e2e2]">
             {printBundles.map((bundle) => (
               <div key={bundle.id} className="bg-white p-10 flex flex-col">
-                <p className="font-serif text-2xl text-[#111111] font-medium leading-snug min-h-[68px] mb-4">
-                  {bundle.name[locale]}
-                </p>
+                <div className="min-h-[100px] mb-4">
+                  <p className="font-serif text-2xl text-[#111111] font-medium leading-snug">
+                    {bundle.name}
+                  </p>
+                  {locale === "zh-Hant" && (
+                    <p className="font-serif text-base text-[#555555] leading-snug mt-1">
+                      {bundle.nameZh}
+                    </p>
+                  )}
+                </div>
                 <div className="mb-6">
                   <p className="font-serif text-3xl text-[#111111] font-medium">
                     {bundle.price}
