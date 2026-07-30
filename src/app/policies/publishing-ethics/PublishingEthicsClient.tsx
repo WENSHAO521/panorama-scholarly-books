@@ -10,7 +10,7 @@ const mailLink = (
 
 const content: PolicyContent = {
   title: { en: "Publishing Ethics", "zh-Hant": "出版倫理" },
-  updated: { en: "2025", "zh-Hant": "2025年" },
+  updated: { en: "2026", "zh-Hant": "2026年" },
   sections: [
     {
       heading: { en: "1. Overview", "zh-Hant": "一、概述" },

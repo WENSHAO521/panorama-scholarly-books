@@ -12,7 +12,7 @@ const policies = [
       en: "Standards of conduct for authors, editors, reviewers, and the publisher. Responsibilities and obligations of all parties in the publication process.",
       "zh-Hant": "作者、編者、審稿人及出版者之行為準則，以及出版過程中各方的責任與義務。",
     },
-    updated: "2025",
+    updated: "2026",
   },
   {
     href: "/policies/authorship",
@@ -21,7 +21,7 @@ const policies = [
       en: "Criteria for authorship and editorship of published works. Acknowledgement of contributions and management of authorship disputes.",
       "zh-Hant": "已出版著作之作者及編者資格標準，貢獻之致謝，以及著作權歸屬爭議之處理。",
     },
-    updated: "2025",
+    updated: "2026",
   },
   {
     href: "/policies/plagiarism",
@@ -30,7 +30,7 @@ const policies = [
       en: "Policy on text similarity, self-plagiarism, and duplicate publication. Processes for identification and handling of plagiarism concerns.",
       "zh-Hant": "有關文字相似度、自我抄襲及重複出版之政策，以及識別與處理抄襲疑慮之流程。",
     },
-    updated: "2025",
+    updated: "2026",
   },
   {
     href: "/policies/copyright",
@@ -39,7 +39,7 @@ const policies = [
       en: "Ownership of copyright in published works, licensing arrangements, and rights retained by authors.",
       "zh-Hant": "已出版著作之版權歸屬、授權安排，以及作者保留之權利。",
     },
-    updated: "2025",
+    updated: "2026",
   },
   {
     href: "/policies/open-access",
@@ -48,7 +48,7 @@ const policies = [
       en: "Policy on open access publication, Creative Commons licensing, and conditions under which titles may be made freely available.",
       "zh-Hant": "有關開放獲取出版、創用CC授權，以及書目得以免費公開之條件的政策。",
     },
-    updated: "2025",
+    updated: "2026",
   },
   {
     href: "/policies/ai-use-policy",
@@ -57,7 +57,7 @@ const policies = [
       en: "Policy on the use of artificial intelligence tools in the preparation of manuscripts submitted to Panorama Scholarly Books.",
       "zh-Hant": "有關投稿予 Panorama Scholarly Books 之書稿在撰寫過程中使用人工智能工具之政策。",
     },
-    updated: "2025",
+    updated: "2026",
   },
 ];
 

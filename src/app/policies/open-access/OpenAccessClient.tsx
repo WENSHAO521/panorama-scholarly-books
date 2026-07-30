@@ -13,7 +13,7 @@ const mailLink = (
 
 const content: PolicyContent = {
   title: { en: "Open Access Books", "zh-Hant": "開放獲取圖書" },
-  updated: { en: "2025", "zh-Hant": "2025年" },
+  updated: { en: "2026", "zh-Hant": "2026年" },
   sections: [
     {
       heading: { en: "1. Open Access at Panorama Scholarly Books", "zh-Hant": "一、Panorama Scholarly Books 之開放獲取" },
