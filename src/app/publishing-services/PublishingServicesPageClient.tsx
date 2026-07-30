@@ -121,19 +121,19 @@ const comparisonRows: [Bi, Bi, Bi, Bi][] = [
 ];
 
 // Section 十四 — recommended print-bundle combos (also shown on the home page)
-const printBundles: { name: Bi; includes: Bi; price: string }[] = [
+const printBundles: { name: string; includes: Bi; price: string }[] = [
   {
-    name: { en: "Essential Print Publication", "zh-Hant": "Essential Print Publication 基礎紙質出版組合" },
+    name: "Essential Print Publication",
     includes: { en: "Package A + Standard Physical Publication Pack", "zh-Hant": "方案 A ＋ 標準實體出版及法定送存套餐" },
     price: "USD 1,999",
   },
   {
-    name: { en: "Standard Academic Print Publication", "zh-Hant": "Standard Academic Print Publication 標準學術紙質出版組合" },
+    name: "Standard Academic Print Publication",
     includes: { en: "Package B + Standard Physical Publication Pack", "zh-Hant": "方案 B ＋ 標準實體出版及法定送存套餐" },
     price: "USD 2,799",
   },
   {
-    name: { en: "Extended Academic Print Publication", "zh-Hant": "Extended Academic Print Publication 延伸學術紙質出版組合" },
+    name: "Extended Academic Print Publication",
     includes: { en: "Package C + Standard Physical Publication Pack", "zh-Hant": "方案 C ＋ 標準實體出版及法定送存套餐" },
     price: "From USD 3,499",
   },
@@ -157,29 +157,29 @@ const timelinePreconditions: Bi[] = [
 
 // Section 三 — manuscript assessment priority
 const assessmentTiers: [Bi, Bi, Bi][] = [
-  [{ en: "Standard Assessment", "zh-Hant": "Standard Assessment 標準評估" }, { en: "2–4 weeks", "zh-Hant": "2—4週" }, { en: "No extra charge", "zh-Hant": "不另收費" }],
-  [{ en: "Priority Assessment", "zh-Hant": "Priority Assessment 優先評估" }, { en: "5 business days", "zh-Hant": "5個工作日" }, { en: "USD 199", "zh-Hant": "USD 199" }],
-  [{ en: "Express Assessment", "zh-Hant": "Express Assessment 特快評估" }, { en: "2 business days", "zh-Hant": "2個工作日" }, { en: "USD 399", "zh-Hant": "USD 399" }],
+  [{ en: "Standard Assessment", "zh-Hant": "標準評估" }, { en: "2–4 weeks", "zh-Hant": "2—4週" }, { en: "No extra charge", "zh-Hant": "不另收費" }],
+  [{ en: "Priority Assessment", "zh-Hant": "優先評估" }, { en: "5 business days", "zh-Hant": "5個工作日" }, { en: "USD 199", "zh-Hant": "USD 199" }],
+  [{ en: "Express Assessment", "zh-Hant": "特快評估" }, { en: "2 business days", "zh-Hant": "2個工作日" }, { en: "USD 399", "zh-Hant": "USD 399" }],
 ];
 
 // Section 四 — production rush per package
 const rushPackageA: [Bi, Bi, string][] = [
-  [{ en: "Standard", "zh-Hant": "Standard 標準" }, { en: "Approx. 15 business days", "zh-Hant": "約15個工作日" }, "USD 999"],
-  [{ en: "Priority", "zh-Hant": "Priority 優先" }, { en: "Approx. 10 business days", "zh-Hant": "約10個工作日" }, "USD 1,249"],
-  [{ en: "Express", "zh-Hant": "Express 特快" }, { en: "Approx. 5–7 business days", "zh-Hant": "約5—7個工作日" }, "USD 1,499"],
-  [{ en: "Critical Fast-Track", "zh-Hant": "Critical Fast-Track 緊急" }, { en: "As fast as approx. 3 business days", "zh-Hant": "最快約3個工作日" }, "USD 1,999"],
+  [{ en: "Standard", "zh-Hant": "標準" }, { en: "Approx. 15 business days", "zh-Hant": "約15個工作日" }, "USD 999"],
+  [{ en: "Priority", "zh-Hant": "優先" }, { en: "Approx. 10 business days", "zh-Hant": "約10個工作日" }, "USD 1,249"],
+  [{ en: "Express", "zh-Hant": "特快" }, { en: "Approx. 5–7 business days", "zh-Hant": "約5—7個工作日" }, "USD 1,499"],
+  [{ en: "Critical Fast-Track", "zh-Hant": "緊急" }, { en: "As fast as approx. 3 business days", "zh-Hant": "最快約3個工作日" }, "USD 1,999"],
 ];
 
 const rushPackageB: [Bi, Bi, string][] = [
-  [{ en: "Standard", "zh-Hant": "Standard 標準" }, { en: "Approx. 6–8 weeks", "zh-Hant": "約6—8週" }, "USD 1,799"],
-  [{ en: "Priority", "zh-Hant": "Priority 優先" }, { en: "Approx. 4–6 weeks", "zh-Hant": "約4—6週" }, "USD 2,249"],
-  [{ en: "Express", "zh-Hant": "Express 特快" }, { en: "Approx. 15–20 business days", "zh-Hant": "約15—20個工作日" }, "USD 2,699"],
+  [{ en: "Standard", "zh-Hant": "標準" }, { en: "Approx. 6–8 weeks", "zh-Hant": "約6—8週" }, "USD 1,799"],
+  [{ en: "Priority", "zh-Hant": "優先" }, { en: "Approx. 4–6 weeks", "zh-Hant": "約4—6週" }, "USD 2,249"],
+  [{ en: "Express", "zh-Hant": "特快" }, { en: "Approx. 15–20 business days", "zh-Hant": "約15—20個工作日" }, "USD 2,699"],
 ];
 
 const rushPackageC: [Bi, Bi][] = [
-  [{ en: "Standard", "zh-Hant": "Standard 標準" }, { en: "From USD 2,499", "zh-Hant": "USD 2,499起" }],
-  [{ en: "Priority", "zh-Hant": "Priority 優先" }, { en: "+25% of the standard project price", "zh-Hant": "標準項目價格加收25%" }],
-  [{ en: "Express or Critical production", "zh-Hant": "Express 或緊急制作" }, { en: "Assessed and quoted individually", "zh-Hant": "單獨評估及報價" }],
+  [{ en: "Standard", "zh-Hant": "標準" }, { en: "From USD 2,499", "zh-Hant": "USD 2,499起" }],
+  [{ en: "Priority", "zh-Hant": "優先" }, { en: "+25% of the standard project price", "zh-Hant": "標準項目價格加收25%" }],
+  [{ en: "Express or Critical production", "zh-Hant": "特快或緊急製作" }, { en: "Assessed and quoted individually", "zh-Hant": "單獨評估及報價" }],
 ];
 
 const rushRules: Bi[] = [
@@ -216,12 +216,12 @@ const physicalPackNotIncluded: Bi = {
   "zh-Hant": "20本作者副本寄往作者地址的運輸費用",
 };
 
-const pageSurchargeRows: [string, Bi, string][] = [
-  ["Up to 200 pages / 200頁以內", { en: "None", "zh-Hant": "無" }, "USD 999"],
-  ["201–300 pages / 201—300頁", { en: "+USD 150", "zh-Hant": "加USD 150" }, "USD 1,149"],
-  ["301–400 pages / 301—400頁", { en: "+USD 300", "zh-Hant": "加USD 300" }, "USD 1,299"],
-  ["401–500 pages / 401—500頁", { en: "+USD 500", "zh-Hant": "加USD 500" }, "USD 1,499"],
-  ["Over 500 pages / 超過500頁", { en: "Quotation-based", "zh-Hant": "單獨報價" }, ""],
+const pageSurchargeRows: [Bi, Bi, string][] = [
+  [{ en: "Up to 200 pages", "zh-Hant": "200頁以內" }, { en: "None", "zh-Hant": "無" }, "USD 999"],
+  [{ en: "201–300 pages", "zh-Hant": "201—300頁" }, { en: "+USD 150", "zh-Hant": "加USD 150" }, "USD 1,149"],
+  [{ en: "301–400 pages", "zh-Hant": "301—400頁" }, { en: "+USD 300", "zh-Hant": "加USD 300" }, "USD 1,299"],
+  [{ en: "401–500 pages", "zh-Hant": "401—500頁" }, { en: "+USD 500", "zh-Hant": "加USD 500" }, "USD 1,499"],
+  [{ en: "Over 500 pages", "zh-Hant": "超過500頁" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }, ""],
 ];
 
 // Section 六 — standalone printing & deposit-coordination services
@@ -259,10 +259,10 @@ const printUpgrades: [Bi, Bi][] = [
 
 // Section 九 — printing rush
 const printingRushRows: [Bi, Bi, Bi][] = [
-  [{ en: "Standard Printing", "zh-Hant": "Standard Printing 標準印刷" }, { en: "7–12 business days", "zh-Hant": "7—12個工作日" }, { en: "No extra charge", "zh-Hant": "無" }],
-  [{ en: "Priority Printing", "zh-Hant": "Priority Printing 優先印刷" }, { en: "4–6 business days", "zh-Hant": "4—6個工作日" }, { en: "+25% of printing fee", "zh-Hant": "印刷費加收25%" }],
-  [{ en: "Express Printing", "zh-Hant": "Express Printing 特快印刷" }, { en: "2–3 business days", "zh-Hant": "2—3個工作日" }, { en: "+50% of printing fee", "zh-Hant": "印刷費加收50%" }],
-  [{ en: "Emergency Printing", "zh-Hant": "Emergency Printing 緊急印刷" }, { en: "As fast as 1 business day", "zh-Hant": "最快1個工作日" }, { en: "From +100% of printing fee", "zh-Hant": "印刷費加收100%起" }],
+  [{ en: "Standard Printing", "zh-Hant": "標準印刷" }, { en: "7–12 business days", "zh-Hant": "7—12個工作日" }, { en: "No extra charge", "zh-Hant": "無" }],
+  [{ en: "Priority Printing", "zh-Hant": "優先印刷" }, { en: "4–6 business days", "zh-Hant": "4—6個工作日" }, { en: "+25% of printing fee", "zh-Hant": "印刷費加收25%" }],
+  [{ en: "Express Printing", "zh-Hant": "特快印刷" }, { en: "2–3 business days", "zh-Hant": "2—3個工作日" }, { en: "+50% of printing fee", "zh-Hant": "印刷費加收50%" }],
+  [{ en: "Emergency Printing", "zh-Hant": "緊急印刷" }, { en: "As fast as 1 business day", "zh-Hant": "最快1個工作日" }, { en: "From +100% of printing fee", "zh-Hant": "印刷費加收100%起" }],
 ];
 
 const printingRushNotes: Bi[] = [
@@ -349,8 +349,8 @@ const distributionRows: [Bi, Bi][] = [
 
 // Section 十五 — payment & quotation rules
 const paymentRules: Bi[] = [
-  { en: "Package A and physical-printing items are generally payable in full in advance.", "zh-Hant": "Package A及實體印刷項目原則上須全額預付。" },
-  { en: "Packages B and C are generally 50% deposit to begin, with the remaining 50% due before final file delivery or publication.", "zh-Hant": "Package B及Package C原則上為50%啟動款，剩餘50%在最終文件交付或出版前支付。" },
+  { en: "Package A and physical-printing items are generally payable in full in advance.", "zh-Hant": "方案 A及實體印刷項目原則上須全額預付。" },
+  { en: "Packages B and C are generally 50% deposit to begin, with the remaining 50% due before final file delivery or publication.", "zh-Hant": "方案 B及方案 C原則上為50%啟動款，剩餘50%在最終文件交付或出版前支付。" },
   { en: "All rush fees must be paid in full before rush scheduling begins.", "zh-Hant": "所有加急費須在安排加急排期前全額支付。" },
   { en: "Wire transfers should be arranged so the payer bears all outgoing and intermediary-bank charges.", "zh-Hant": "電匯應選擇由付款人承擔全部匯出行及中間行費用。" },
   { en: "Credit card, PayPal, Stripe, Wise, and other platform fees are charged at actual cost, subject to applicable law.", "zh-Hant": "信用卡、PayPal、Stripe、Wise及其他平台費用按照實際發生金額收取，並以適用法律允許為前提。" },
@@ -624,8 +624,8 @@ const copy = {
     packageBLabel: "方案 B",
     packageCLabel: "方案 C",
     rushPackageAFootnote: "緊急服務僅適用於作者已經提供完全校對、排版完成且符合出版技術標準的成品文件。",
-    rushPackageBFootnote: "Package B原則上不提供3個工作日緊急製作。",
-    rushPackageCFootnote: "雙語、多語種、大型論文集、複雜公式、彩色圖表、多作者統稿及超過約300頁的項目，不承諾固定加急周期。Package C僅公開Priority層級，不公開承諾Express或緊急交付，須單獨評估。",
+    rushPackageBFootnote: "方案 B原則上不提供3個工作日緊急製作。",
+    rushPackageCFootnote: "雙語、多語種、大型論文集、複雜公式、彩色圖表、多作者統稿及超過約300頁的項目，不承諾固定加急周期。方案 C僅公開優先層級，不公開承諾特快或緊急交付，須單獨評估。",
     rushRulesHeading: "加急服務規則",
     printingRushFootnote: "僅適用於技術合格的最終PDF，不包括運輸時間。",
 
@@ -787,9 +787,9 @@ export default function PublishingServicesPageClient() {
               <thead>
                 <tr>
                   <Th>{t.serviceItem}</Th>
-                  <Th>Package A / USD 999</Th>
-                  <Th>Package B / USD 1,799</Th>
-                  <Th>Package C / From USD 2,499</Th>
+                  {packages.map((pkg) => (
+                    <Th key={pkg.id}>{L(pkg.label)} / {pkg.price}</Th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
@@ -823,9 +823,9 @@ export default function PublishingServicesPageClient() {
               </thead>
               <tbody>
                 {printBundles.map((b) => (
-                  <tr key={b.name.en} className="even:bg-[#fafafa]">
+                  <tr key={b.name} className="even:bg-[#fafafa]">
                     <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top">
-                      {L(b.name)}
+                      {b.name}
                     </td>
                     <Td>{L(b.includes)}</Td>
                     <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
@@ -913,13 +913,13 @@ export default function PublishingServicesPageClient() {
               </thead>
               <tbody>
                 {pageSurchargeRows.map(([range, surcharge, total]) => (
-                  <tr key={range} className="even:bg-[#fafafa]">
+                  <tr key={range.en} className="even:bg-[#fafafa]">
                     <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
-                      {range}
+                      {L(range)}
                     </td>
                     <Td>{L(surcharge)}</Td>
                     <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">
-                      {total || (locale === "zh-Hant" ? "另行報價" : "Quotation-based")}
+                      {total || L(surcharge)}
                     </td>
                   </tr>
                 ))}
