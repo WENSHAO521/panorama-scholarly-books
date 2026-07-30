@@ -74,7 +74,7 @@ export default function Nav() {
                 link.href === "/"
                   ? pathname === "/"
                   : pathname.startsWith(link.href);
-              const className = `px-3 py-1 text-[13px] font-serif transition-colors ${
+              const className = `px-3 py-1 text-[13px] font-serif whitespace-nowrap transition-colors ${
                 active
                   ? "text-[#111111] underline underline-offset-4"
                   : "text-[#555555] hover:text-[#111111]"

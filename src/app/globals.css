@@ -9,11 +9,11 @@
   --color-border: #e2e2e2;
   --color-border-dark: #c0c0c0;
 
-  /* Source Han Serif / Sans (Noto Serif/Sans SC+TC) drive typography in every
-     locale — including English copy and Chinese proper nouns shown in the
-     English UI — so CJK text is never silently handed off to whatever CJK
-     font the visitor's OS happens to ship. */
-  --font-serif: var(--font-noto-serif-sc), var(--font-eb-garamond), Georgia, "Times New Roman", serif;
+  /* EB Garamond stays first so Latin glyphs keep their elegant, editorial
+     look; it has no CJK glyphs at all, so the browser falls through to
+     Noto Serif SC/TC per character for Chinese text — same element, same
+     sentence, each script rendered by the right font automatically. */
+  --font-serif: var(--font-eb-garamond), var(--font-noto-serif-sc), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-noto-sans-sc), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -22,7 +22,7 @@
    Traditional-Chinese-specific glyphs too, not only text that inherits
    font-family from body. */
 html[lang="zh-Hant"] {
-  --font-serif: var(--font-noto-serif-tc), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-eb-garamond), var(--font-noto-serif-tc), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-noto-sans-tc), ui-sans-serif, system-ui, sans-serif;
 }
 
