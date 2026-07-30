@@ -353,11 +353,11 @@ const paymentRules: Bi[] = [
   { en: "Packages B and C are generally 50% deposit to begin, with the remaining 50% due before final file delivery or publication.", "zh-Hant": "方案 B及方案 C原則上為50%啟動款，剩餘50%在最終文件交付或出版前支付。" },
   { en: "All rush fees must be paid in full before rush scheduling begins.", "zh-Hant": "所有加急費須在安排加急排期前全額支付。" },
   { en: "Wire transfers should be arranged so the payer bears all outgoing and intermediary-bank charges.", "zh-Hant": "電匯應選擇由付款人承擔全部匯出行及中間行費用。" },
-  { en: "Credit card, PayPal, Stripe, Wise, and other platform fees are charged at actual cost, subject to applicable law.", "zh-Hant": "信用卡、PayPal、Stripe、Wise及其他平台費用按照實際發生金額收取，並以適用法律允許為前提。" },
-  { en: "A blanket 10% “administrative fee” is not applied uniformly to all orders.", "zh-Hant": "不建議對所有訂單統一收取10%的模糊「行政手續費」。" },
+  { en: "An international payment and bank-handling surcharge of 12% applies to payments made by credit card, PayPal, Stripe, wire transfer, or other overseas payment channels, covering cross-border processing, correspondent-bank, and currency-conversion costs.", "zh-Hant": "透過信用卡、PayPal、Stripe、電匯或其他海外付款渠道付款時，將加收12%之國際付款及銀行手續處理費，用以支付跨境處理、中間行及匯兌相關成本。" },
+  { en: "This international payment surcharge is disclosed upfront in the quotation and invoice — it is not a hidden or subsequently added fee.", "zh-Hant": "國際付款附加費將於報價及發票中預先明確列明，並非事後追加或隱藏費用。" },
   { en: "Quotations are generally valid for 14 days.", "zh-Hant": "報價有效期原則上為14日。" },
   { en: "Printing and logistics quotations may be adjusted for changes in paper, fuel, exchange rates, carrier, or supplier pricing.", "zh-Hant": "印刷及物流報價可因紙張、燃油、匯率、承運商和供應商價格變化而調整。" },
-  { en: "Taxes, duties, bank fees, payment-platform fees, and third-party service fees are not included unless expressly stated in the quotation.", "zh-Hant": "稅費、關稅、銀行費、支付平台費和第三方服務費，除非報價明確寫明，否則均不包含。" },
+  { en: "Taxes, duties, and third-party service fees are not included unless expressly stated in the quotation. International bank and payment-platform costs are covered by the 12% surcharge above, not charged again separately.", "zh-Hant": "稅費、關稅及第三方服務費，除非報價明確寫明，否則均不包含。國際銀行及支付平台成本已涵蓋於上述12%附加費內，不會再另行收取。" },
   { en: "Final scope of service is governed by the written quotation, publishing agreement, and any confirmed project specification.", "zh-Hant": "最終服務範圍以書面報價、出版合同及雙方確認的項目說明為準。" },
 ];
 
