@@ -1,15 +1,9 @@
-<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .b1 { fill: #1A1A1A; }
-    .b2 { fill: #4A4A4A; }
-    .b3 { fill: #8E8E8E; }
-    @media (prefers-color-scheme: dark) {
-      .b1 { fill: #f0f0f0; }
-      .b2 { fill: #aaaaaa; }
-      .b3 { fill: #666666; }
-    }
-  </style>
-  <rect x="100" y="80" width="120" height="160" class="b1"/>
-  <rect x="130" y="110" width="120" height="160" class="b2" opacity="0.8"/>
-  <rect x="160" y="140" width="120" height="160" class="b3" opacity="0.6"/>
+<svg width="400" height="400" viewBox="70 70 260 260" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="30" height="200" fill="#000000"/>
+    <path d="M30 0 H120 C150 0, 150 70, 120 70 H30 Z" fill="#E30613"/>
+    <path d="M0 100 H120 V130 H30 V150 H120 V200 H0 V170 H90 V150 H0 Z" fill="#000000"/>
+    <path d="M150 200 H50 V170 H150 V50 H180 V200 Z" fill="#000000"/>
+    <rect x="160" y="10" width="30" height="30" fill="#E30613"/>
+  </g>
 </svg>
