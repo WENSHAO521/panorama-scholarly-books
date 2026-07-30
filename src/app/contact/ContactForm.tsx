@@ -38,9 +38,12 @@ const productFormatOptions = [
 ];
 
 const publishingPackageOptions = [
-  { en: "Package A — Author-Prepared Publication (USD 999)", "zh-Hant": "方案 A — 作者自備稿件出版（USD 999）" },
-  { en: "Package B — Standard Academic Book Production (USD 1,799)", "zh-Hant": "方案 B — 標準學術圖書製作（USD 1,799）" },
-  { en: "Package C — Extended and Complex Book Production (From USD 2,499)", "zh-Hant": "方案 C — 延伸與複雜圖書製作（USD 2,499 起）" },
+  { en: "Package A — Author-Prepared Publication, digital only (USD 999)", "zh-Hant": "方案 A — 作者自備稿件出版，僅數位版（USD 999）" },
+  { en: "Package B — Standard Academic Book Production, digital only (USD 1,799)", "zh-Hant": "方案 B — 標準學術圖書製作，僅數位版（USD 1,799）" },
+  { en: "Package C — Extended and Complex Book Production, digital only (From USD 2,499)", "zh-Hant": "方案 C — 延伸與複雜圖書製作，僅數位版（USD 2,499 起）" },
+  { en: "Essential Print Publication — Package A + printed copies (USD 1,999)", "zh-Hant": "Essential Print Publication — 方案 A ＋紙質出版（USD 1,999）" },
+  { en: "Standard Academic Print Publication — Package B + printed copies (USD 2,799)", "zh-Hant": "Standard Academic Print Publication — 方案 B ＋紙質出版（USD 2,799）" },
+  { en: "Extended Academic Print Publication — Package C + printed copies (From USD 3,499)", "zh-Hant": "Extended Academic Print Publication — 方案 C ＋紙質出版（USD 3,499 起）" },
   { en: "Not sure — please advise", "zh-Hant": "尚未確定 — 請提供建議" },
 ];
 

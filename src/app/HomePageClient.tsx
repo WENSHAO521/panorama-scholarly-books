@@ -69,28 +69,49 @@ const bookTypesAccepted = [
   { en: "Interdisciplinary Research Books", "zh-Hant": "跨學科研究專書" },
 ];
 
-const packageAFeatures = [
-  { en: "Editorial and publication eligibility screening", "zh-Hant": "編輯與出版資格審查" },
-  { en: "Publishing agreement and rights review", "zh-Hant": "出版協議與版權審查" },
-  { en: "One ISBN for one approved edition and format", "zh-Hant": "為一個核准版次及格式提供一組 ISBN" },
-  { en: "Publisher metadata and official book webpage", "zh-Hant": "出版者元數據與官方圖書網頁" },
-  { en: "Digital archiving and publication records", "zh-Hant": "數位典藏與出版紀錄" },
-];
-
-const packageBFeatures = [
-  { en: "All services in Package A", "zh-Hant": "涵蓋方案 A 所有服務" },
-  { en: "Basic proofreading and standard typesetting", "zh-Hant": "基礎校對與標準排版" },
-  { en: "Standard academic cover design", "zh-Hant": "標準學術封面設計" },
-  { en: "Print-ready PDF production", "zh-Hant": "印刷用 PDF 製作" },
-  { en: "One consolidated round of author corrections", "zh-Hant": "一輪整合式作者校訂" },
-];
-
-const packageCFeatures = [
-  { en: "All services in Package B", "zh-Hant": "涵蓋方案 B 所有服務" },
-  { en: "Edited volumes and multi-author works", "zh-Hant": "編著文集與多作者著作" },
-  { en: "Extended proofreading and advanced typesetting", "zh-Hant": "延伸校對與進階排版" },
-  { en: "Customized cover and interior design", "zh-Hant": "客製化封面與內文設計" },
-  { en: "Up to two consolidated correction rounds", "zh-Hant": "最多兩輪整合式校訂" },
+const printBundles = [
+  {
+    id: "essential",
+    name: { en: "Essential Print Publication", "zh-Hant": "Essential Print Publication 基礎紙質出版組合" },
+    price: "USD 1,999",
+    desc: {
+      en: "Package A (author-prepared digital publication) combined with the Standard Physical Publication Pack.",
+      "zh-Hant": "方案 A（作者自備稿件出版）結合標準實體出版及法定送存套餐。",
+    },
+    features: [
+      { en: "One ISBN, publisher metadata, and official book webpage", "zh-Hant": "一組 ISBN、出版者元數據及官方圖書網頁" },
+      { en: "25 paperback copies: 20 author copies + 5 statutory deposit copies", "zh-Hant": "25本平裝本：20本作者副本＋5本法定送存本" },
+      { en: "Hong Kong statutory deposit coordination and hand-delivery", "zh-Hant": "香港法定送存協調及遞交" },
+    ],
+  },
+  {
+    id: "standard",
+    name: { en: "Standard Academic Print Publication", "zh-Hant": "Standard Academic Print Publication 標準學術紙質出版組合" },
+    price: "USD 2,799",
+    desc: {
+      en: "Package B (publisher-assisted proofreading, typesetting, and cover design) combined with the Standard Physical Publication Pack.",
+      "zh-Hant": "方案 B（出版社協助校對、排版及封面設計）結合標準實體出版及法定送存套餐。",
+    },
+    features: [
+      { en: "All services in Essential, plus proofreading and standard typesetting", "zh-Hant": "涵蓋 Essential 所有服務，另加校對與標準排版" },
+      { en: "25 paperback copies: 20 author copies + 5 statutory deposit copies", "zh-Hant": "25本平裝本：20本作者副本＋5本法定送存本" },
+      { en: "One consolidated round of author corrections", "zh-Hant": "一輪整合式作者校訂" },
+    ],
+  },
+  {
+    id: "extended",
+    name: { en: "Extended Academic Print Publication", "zh-Hant": "Extended Academic Print Publication 延伸學術紙質出版組合" },
+    price: "From USD 3,499",
+    desc: {
+      en: "Package C (extended and complex book production) combined with the Standard Physical Publication Pack.",
+      "zh-Hant": "方案 C（延伸與複雜圖書製作）結合標準實體出版及法定送存套餐。",
+    },
+    features: [
+      { en: "All services in Standard, plus advanced typesetting for complex manuscripts", "zh-Hant": "涵蓋 Standard 所有服務，另加複雜書稿之進階排版" },
+      { en: "25 paperback copies: 20 author copies + 5 statutory deposit copies", "zh-Hant": "25本平裝本：20本作者副本＋5本法定送存本" },
+      { en: "Up to two consolidated correction rounds", "zh-Hant": "最多兩輪整合式校訂" },
+    ],
+  },
 ];
 
 const copy = {
@@ -108,25 +129,13 @@ const copy = {
     featuredBooks: "Featured Books",
     browseAllBooks: "Browse all books",
     publishingServicesEyebrow: "Publishing Services",
-    publishingServicesHeading: "Book Publishing Packages",
-    publishingServicesNote: "Fees are per title, edition, and product format. Effective 1 August 2026.",
-    packageA: "Package A",
-    packageATitle: "Author-Prepared Publication",
-    packageAPrice: "USD 999",
-    packageB: "Package B",
-    packageBTitle: "Standard Academic Book Production",
-    packageBPrice: "USD 1,799",
-    packageC: "Package C",
-    packageCTitle: "Extended and Complex Book Production",
-    packageCPrice: "From USD 2,499",
-    perTitle: "/ title, edition & format",
-    packageADesc: "For authors who provide a fully proofread manuscript, final typeset interior file, and publication-ready cover.",
-    packageBDesc: "For standard academic books requiring publisher-assisted proofreading, typesetting, and cover design.",
-    packageCDesc: "For longer, bilingual, multilingual, edited, illustrated, or technically complex academic books.",
+    publishingServicesHeading: "Recommended Print Publication Bundles",
+    publishingServicesNote: "Combined digital-production and print-publication pricing. Effective 1 August 2026.",
+    perTitle: "combined price",
     learnMore: "Learn more",
     noticeHeading: "Important Publishing Notice",
     noticeP1: "ISBNs are assigned only to publications formally reviewed, accepted, and published by Panorama Scholarly Books under a signed publishing agreement. ISBNs are not sold, transferred, leased, or supplied as standalone numbers. Publishing fees are service charges covering editorial assessment, publisher administration, rights review, metadata management, ISBN assignment, production processing, official records, digital archiving, and compliance coordination.",
-    noticeP2: "Printing, binding, shipping, statutory deposit copies, and third-party platform charges are not included unless expressly stated in a written quotation. Publication fees do not guarantee sales, indexing, citations, or academic promotion.",
+    noticeP2: "Bundle prices exclude shipping of the 20 author copies to the author's address, taxes, payment-platform fees, and third-party platform charges. Hong Kong book registration itself carries no government fee — the fee covers the publisher's deposit-copy coordination, paperwork, packaging, and hand-delivery service, never a \"registration fee.\" See Publishing Services for the full price list, including rush tiers and additional formats.",
     forAuthorsEyebrow: "For Authors",
     forAuthorsHeading: "Publish with Panorama Scholarly Books",
     forAuthorsBody: "We welcome proposals from academic authors, editors, and research teams working across a broad range of disciplines. Submissions are evaluated on scholarly merit, originality, clarity of argument, and relevance to academic discourse.",
@@ -155,25 +164,13 @@ const copy = {
     featuredBooks: "精選圖書",
     browseAllBooks: "瀏覽所有書目",
     publishingServicesEyebrow: "出版服務",
-    publishingServicesHeading: "圖書出版方案",
-    publishingServicesNote: "費用按每一書名、版次及產品格式計算，自2026年8月1日起生效。",
-    packageA: "方案 A",
-    packageATitle: "作者自備稿件出版",
-    packageAPrice: "USD 999",
-    packageB: "方案 B",
-    packageBTitle: "標準學術圖書製作",
-    packageBPrice: "USD 1,799",
-    packageC: "方案 C",
-    packageCTitle: "延伸與複雜圖書製作",
-    packageCPrice: "USD 2,499 起",
-    perTitle: "/ 每一書名、版次及格式",
-    packageADesc: "適合已備妥完整校對稿件、最終排版內文檔案及出版用封面的作者。",
-    packageBDesc: "適合需要出版社協助校對、排版及封面設計的標準學術圖書。",
-    packageCDesc: "適合篇幅較長、雙語、多語、編著、附插圖或技術上較複雜的學術圖書。",
+    publishingServicesHeading: "推薦對外紙質出版組合",
+    publishingServicesNote: "數位製作與紙質出版之組合定價，自2026年8月1日起生效。",
+    perTitle: "組合價",
     learnMore: "了解更多",
     noticeHeading: "重要出版須知",
     noticeP1: "ISBN 僅分配予經 Panorama Scholarly Books 正式審查、接受並依簽署出版協議出版的著作。ISBN 不作出售、轉讓、租借，亦不會單獨提供編號。出版費用為服務費，涵蓋編輯評估、出版管理、版權審查、元數據管理、ISBN 分配、製作處理、正式紀錄、數位典藏及合規協調工作。",
-    noticeP2: "除非書面報價中另有明確說明，否則印刷、裝訂、運送、法定送存本及第三方平台費用均不包含在內。出版費用並不保證銷售、索引收錄、引用次數或學術推廣成效。",
+    noticeP2: "組合價格不包括20本作者副本寄往作者地址的運輸費、稅費、支付平台費用及第三方平台費用。香港書刊登記本身不收取政府費用——費用涵蓋的是出版者之送存本協調、文件處理、包裝及遞交服務，絕非「登記費」。完整價目表（含加急服務及額外格式）請參閱出版服務頁面。",
     forAuthorsEyebrow: "作者專區",
     forAuthorsHeading: "與 Panorama Scholarly Books 一同出版",
     forAuthorsBody: "我們歡迎來自各學科領域的學術作者、編者及研究團隊提交提案。投稿將依學術價值、原創性、論述清晰度及與學術論述的相關性進行評估。",
@@ -332,113 +329,39 @@ export default function HomePageClient() {
             {t.publishingServicesNote}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e2e2e2]">
-            {/* Package A */}
-            <div className="bg-white p-10 flex flex-col">
-              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
-                {t.packageA}
-              </p>
-              <p className="font-serif text-2xl text-[#111111] font-medium leading-snug min-h-[68px] mb-4">
-                {t.packageATitle}
-              </p>
-              <div className="mb-6">
-                <p className="font-serif text-3xl text-[#111111] font-medium">
-                  {t.packageAPrice}
+            {printBundles.map((bundle) => (
+              <div key={bundle.id} className="bg-white p-10 flex flex-col">
+                <p className="font-serif text-2xl text-[#111111] font-medium leading-snug min-h-[68px] mb-4">
+                  {bundle.name[locale]}
                 </p>
-                <p className="font-serif text-xs text-[#888888] mt-1">
-                  {t.perTitle}
+                <div className="mb-6">
+                  <p className="font-serif text-3xl text-[#111111] font-medium">
+                    {bundle.price}
+                  </p>
+                  <p className="font-serif text-xs text-[#888888] mt-1">
+                    {t.perTitle}
+                  </p>
+                </div>
+                <div className="w-full h-px bg-[#e2e2e2] mb-6" />
+                <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
+                  {bundle.desc[locale]}
                 </p>
+                <ul className="flex flex-col gap-3 mb-8 flex-1">
+                  {bundle.features.map((item) => (
+                    <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3">
+                      <span className="text-[#888888] shrink-0">-</span>
+                      {item[locale]}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/publishing-services"
+                  className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
+                >
+                  {t.learnMore}
+                </Link>
               </div>
-              <div className="w-full h-px bg-[#e2e2e2] mb-6" />
-              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
-                {t.packageADesc}
-              </p>
-              <ul className="flex flex-col gap-3 mb-8 flex-1">
-                {packageAFeatures.map((item) => (
-                  <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3">
-                    <span className="text-[#888888] shrink-0">-</span>
-                    {item[locale]}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/publishing-services"
-                className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-              >
-                {t.learnMore}
-              </Link>
-            </div>
-
-            {/* Package B */}
-            <div className="bg-white p-10 flex flex-col">
-              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
-                {t.packageB}
-              </p>
-              <p className="font-serif text-2xl text-[#111111] font-medium leading-snug min-h-[68px] mb-4">
-                {t.packageBTitle}
-              </p>
-              <div className="mb-6">
-                <p className="font-serif text-3xl text-[#111111] font-medium">
-                  {t.packageBPrice}
-                </p>
-                <p className="font-serif text-xs text-[#888888] mt-1">
-                  {t.perTitle}
-                </p>
-              </div>
-              <div className="w-full h-px bg-[#e2e2e2] mb-6" />
-              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
-                {t.packageBDesc}
-              </p>
-              <ul className="flex flex-col gap-3 mb-8 flex-1">
-                {packageBFeatures.map((item) => (
-                  <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3">
-                    <span className="text-[#888888] shrink-0">-</span>
-                    {item[locale]}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/publishing-services"
-                className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-              >
-                {t.learnMore}
-              </Link>
-            </div>
-
-            {/* Package C */}
-            <div className="bg-white p-10 flex flex-col">
-              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-6">
-                {t.packageC}
-              </p>
-              <p className="font-serif text-2xl text-[#111111] font-medium leading-snug min-h-[68px] mb-4">
-                {t.packageCTitle}
-              </p>
-              <div className="mb-6">
-                <p className="font-serif text-3xl text-[#111111] font-medium">
-                  {t.packageCPrice}
-                </p>
-                <p className="font-serif text-xs text-[#888888] mt-1">
-                  {t.perTitle}
-                </p>
-              </div>
-              <div className="w-full h-px bg-[#e2e2e2] mb-6" />
-              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
-                {t.packageCDesc}
-              </p>
-              <ul className="flex flex-col gap-3 mb-8 flex-1">
-                {packageCFeatures.map((item) => (
-                  <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3">
-                    <span className="text-[#888888] shrink-0">-</span>
-                    {item[locale]}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/publishing-services"
-                className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-              >
-                {t.learnMore}
-              </Link>
-            </div>
+            ))}
           </div>
 
           <div className="mt-6 border border-[#e2e2e2] bg-white p-6">

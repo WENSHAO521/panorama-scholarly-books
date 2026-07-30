@@ -103,107 +103,213 @@ const packages: {
 ];
 
 const comparisonRows: [Bi, Bi, Bi, Bi][] = [
-  [
-    { en: "Editorial screening", "zh-Hant": "編輯審查" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-  ],
-  [
-    { en: "Publishing agreement", "zh-Hant": "出版協議" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-  ],
-  [
-    { en: "Rights-document review", "zh-Hant": "版權文件審查" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-  ],
-  [
-    { en: "Proofreading", "zh-Hant": "校對" },
-    { en: "Author supplies final text", "zh-Hant": "作者提供最終文本" },
-    { en: "Basic proofreading", "zh-Hant": "基礎校對" },
-    { en: "Extended or project-specific", "zh-Hant": "延伸或依專案而定" },
-  ],
-  [
-    { en: "Interior typesetting", "zh-Hant": "內文排版" },
-    { en: "Author supplies final file", "zh-Hant": "作者提供最終檔案" },
-    { en: "Standard typesetting", "zh-Hant": "標準排版" },
-    { en: "Advanced typesetting", "zh-Hant": "進階排版" },
-  ],
-  [
-    { en: "Cover design", "zh-Hant": "封面設計" },
-    { en: "Author supplies final cover", "zh-Hant": "作者提供最終封面" },
-    { en: "Standard cover design", "zh-Hant": "標準封面設計" },
-    { en: "Customized cover design", "zh-Hant": "客製化封面設計" },
-  ],
-  [
-    { en: "Copyright page", "zh-Hant": "版權頁" },
-    { en: "Format review", "zh-Hant": "格式審查" },
-    { en: "Preparation included", "zh-Hant": "包含準備服務" },
-    { en: "Preparation included", "zh-Hant": "包含準備服務" },
-  ],
-  [
-    { en: "ISBN", "zh-Hant": "ISBN" },
-    { en: "One approved format", "zh-Hant": "一個核准格式" },
-    { en: "One approved format", "zh-Hant": "一個核准格式" },
-    { en: "One approved format", "zh-Hant": "一個核准格式" },
-  ],
-  [
-    { en: "ISBN barcode", "zh-Hant": "ISBN 條碼" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-  ],
-  [
-    { en: "Publisher metadata", "zh-Hant": "出版者元數據" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Enhanced", "zh-Hant": "強化版" },
-  ],
-  [
-    { en: "Official book webpage", "zh-Hant": "官方圖書網頁" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-  ],
-  [
-    { en: "Digital archiving", "zh-Hant": "數位典藏" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-    { en: "Included", "zh-Hant": "包含" },
-  ],
-  [
-    { en: "Correction rounds", "zh-Hant": "校訂輪次" },
-    { en: "Not included", "zh-Hant": "不包含" },
-    { en: "One consolidated round", "zh-Hant": "一輪整合式校訂" },
-    { en: "Up to two consolidated rounds", "zh-Hant": "最多兩輪整合式校訂" },
-  ],
-  [
-    { en: "Printing and shipping", "zh-Hant": "印刷與運送" },
-    { en: "Not included", "zh-Hant": "不包含" },
-    { en: "Not included", "zh-Hant": "不包含" },
-    { en: "Not included", "zh-Hant": "不包含" },
-  ],
-  [
-    { en: "Statutory deposit copies", "zh-Hant": "法定送存本" },
-    { en: "Not included", "zh-Hant": "不包含" },
-    { en: "Not included", "zh-Hant": "不包含" },
-    { en: "Not included", "zh-Hant": "不包含" },
-  ],
+  [{ en: "Editorial screening", "zh-Hant": "編輯審查" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }],
+  [{ en: "Publishing agreement", "zh-Hant": "出版協議" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }],
+  [{ en: "Rights-document review", "zh-Hant": "版權文件審查" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }],
+  [{ en: "Proofreading", "zh-Hant": "校對" }, { en: "Author supplies final text", "zh-Hant": "作者提供最終文本" }, { en: "Basic proofreading", "zh-Hant": "基礎校對" }, { en: "Extended or project-specific", "zh-Hant": "延伸或依專案而定" }],
+  [{ en: "Interior typesetting", "zh-Hant": "內文排版" }, { en: "Author supplies final file", "zh-Hant": "作者提供最終檔案" }, { en: "Standard typesetting", "zh-Hant": "標準排版" }, { en: "Advanced typesetting", "zh-Hant": "進階排版" }],
+  [{ en: "Cover design", "zh-Hant": "封面設計" }, { en: "Author supplies final cover", "zh-Hant": "作者提供最終封面" }, { en: "Standard cover design", "zh-Hant": "標準封面設計" }, { en: "Customized cover design", "zh-Hant": "客製化封面設計" }],
+  [{ en: "Copyright page", "zh-Hant": "版權頁" }, { en: "Format review", "zh-Hant": "格式審查" }, { en: "Preparation included", "zh-Hant": "包含準備服務" }, { en: "Preparation included", "zh-Hant": "包含準備服務" }],
+  [{ en: "ISBN", "zh-Hant": "ISBN" }, { en: "One approved format", "zh-Hant": "一個核准格式" }, { en: "One approved format", "zh-Hant": "一個核准格式" }, { en: "One approved format", "zh-Hant": "一個核准格式" }],
+  [{ en: "ISBN barcode", "zh-Hant": "ISBN 條碼" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }],
+  [{ en: "Publisher metadata", "zh-Hant": "出版者元數據" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }, { en: "Enhanced", "zh-Hant": "強化版" }],
+  [{ en: "Official book webpage", "zh-Hant": "官方圖書網頁" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }],
+  [{ en: "Digital archiving", "zh-Hant": "數位典藏" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }, { en: "Included", "zh-Hant": "包含" }],
+  [{ en: "Correction rounds", "zh-Hant": "校訂輪次" }, { en: "Not included", "zh-Hant": "不包含" }, { en: "One consolidated round", "zh-Hant": "一輪整合式校訂" }, { en: "Up to two consolidated rounds", "zh-Hant": "最多兩輪整合式校訂" }],
+  [{ en: "Printing and shipping", "zh-Hant": "印刷與運送" }, { en: "Not included", "zh-Hant": "不包含" }, { en: "Not included", "zh-Hant": "不包含" }, { en: "Not included", "zh-Hant": "不包含" }],
+  [{ en: "Statutory deposit copies", "zh-Hant": "法定送存本" }, { en: "Not included", "zh-Hant": "不包含" }, { en: "Not included", "zh-Hant": "不包含" }, { en: "Not included", "zh-Hant": "不包含" }],
 ];
 
+// Section 十四 — recommended print-bundle combos (also shown on the home page)
+const printBundles: { name: Bi; includes: Bi; price: string }[] = [
+  {
+    name: { en: "Essential Print Publication", "zh-Hant": "Essential Print Publication 基礎紙質出版組合" },
+    includes: { en: "Package A + Standard Physical Publication Pack", "zh-Hant": "方案 A ＋ 標準實體出版及法定送存套餐" },
+    price: "USD 1,999",
+  },
+  {
+    name: { en: "Standard Academic Print Publication", "zh-Hant": "Standard Academic Print Publication 標準學術紙質出版組合" },
+    includes: { en: "Package B + Standard Physical Publication Pack", "zh-Hant": "方案 B ＋ 標準實體出版及法定送存套餐" },
+    price: "USD 2,799",
+  },
+  {
+    name: { en: "Extended Academic Print Publication", "zh-Hant": "Extended Academic Print Publication 延伸學術紙質出版組合" },
+    includes: { en: "Package C + Standard Physical Publication Pack", "zh-Hant": "方案 C ＋ 標準實體出版及法定送存套餐" },
+    price: "From USD 3,499",
+  },
+];
+
+// Section 二 — standard production timeline
+const timelineRows: [Bi, Bi][] = [
+  [{ en: "Package A", "zh-Hant": "方案 A" }, { en: "Approx. 15 business days", "zh-Hant": "約15個工作日" }],
+  [{ en: "Package B", "zh-Hant": "方案 B" }, { en: "Approx. 6–8 weeks", "zh-Hant": "約6—8週" }],
+  [{ en: "Package C", "zh-Hant": "方案 C" }, { en: "Approx. 8–16 weeks, project-dependent", "zh-Hant": "約8—16週，按項目確定" }],
+];
+
+const timelinePreconditions: Bi[] = [
+  { en: "The manuscript has been formally accepted.", "zh-Hant": "稿件已經正式錄用。" },
+  { en: "The publishing agreement has been signed.", "zh-Hant": "出版合同已經簽署。" },
+  { en: "The required payment has been received.", "zh-Hant": "所需款項已經到賬。" },
+  { en: "Authorship, copyright, and permission materials are complete.", "zh-Hant": "作者身份、版權及授權材料完整。" },
+  { en: "The final manuscript, images, and attachments have been submitted.", "zh-Hant": "最終稿件、圖片及附件已經提交。" },
+  { en: "No outstanding revisions remain pending from the author.", "zh-Hant": "作者不存在尚未確認的修改事項。" },
+];
+
+// Section 三 — manuscript assessment priority
+const assessmentTiers: [Bi, Bi, Bi][] = [
+  [{ en: "Standard Assessment", "zh-Hant": "Standard Assessment 標準評估" }, { en: "2–4 weeks", "zh-Hant": "2—4週" }, { en: "No extra charge", "zh-Hant": "不另收費" }],
+  [{ en: "Priority Assessment", "zh-Hant": "Priority Assessment 優先評估" }, { en: "5 business days", "zh-Hant": "5個工作日" }, { en: "USD 199", "zh-Hant": "USD 199" }],
+  [{ en: "Express Assessment", "zh-Hant": "Express Assessment 特快評估" }, { en: "2 business days", "zh-Hant": "2個工作日" }, { en: "USD 399", "zh-Hant": "USD 399" }],
+];
+
+// Section 四 — production rush per package
+const rushPackageA: [Bi, Bi, string][] = [
+  [{ en: "Standard", "zh-Hant": "Standard 標準" }, { en: "Approx. 15 business days", "zh-Hant": "約15個工作日" }, "USD 999"],
+  [{ en: "Priority", "zh-Hant": "Priority 優先" }, { en: "Approx. 10 business days", "zh-Hant": "約10個工作日" }, "USD 1,249"],
+  [{ en: "Express", "zh-Hant": "Express 特快" }, { en: "Approx. 5–7 business days", "zh-Hant": "約5—7個工作日" }, "USD 1,499"],
+  [{ en: "Critical Fast-Track", "zh-Hant": "Critical Fast-Track 緊急" }, { en: "As fast as approx. 3 business days", "zh-Hant": "最快約3個工作日" }, "USD 1,999"],
+];
+
+const rushPackageB: [Bi, Bi, string][] = [
+  [{ en: "Standard", "zh-Hant": "Standard 標準" }, { en: "Approx. 6–8 weeks", "zh-Hant": "約6—8週" }, "USD 1,799"],
+  [{ en: "Priority", "zh-Hant": "Priority 優先" }, { en: "Approx. 4–6 weeks", "zh-Hant": "約4—6週" }, "USD 2,249"],
+  [{ en: "Express", "zh-Hant": "Express 特快" }, { en: "Approx. 15–20 business days", "zh-Hant": "約15—20個工作日" }, "USD 2,699"],
+];
+
+const rushPackageC: [Bi, Bi][] = [
+  [{ en: "Standard", "zh-Hant": "Standard 標準" }, { en: "From USD 2,499", "zh-Hant": "USD 2,499起" }],
+  [{ en: "Priority", "zh-Hant": "Priority 優先" }, { en: "+25% of the standard project price", "zh-Hant": "標準項目價格加收25%" }],
+  [{ en: "Express or Critical production", "zh-Hant": "Express 或緊急制作" }, { en: "Assessed and quoted individually", "zh-Hant": "單獨評估及報價" }],
+];
+
+const rushRules: Bi[] = [
+  { en: "Rush fees must be paid in full before scheduling.", "zh-Hant": "加急費須在排期前全額支付。" },
+  { en: "Rush fees are non-refundable once the rush slot has begun.", "zh-Hant": "加急排期開始後，加急費不予退還。" },
+  { en: "Rush only shortens the publisher's internal processing time.", "zh-Hant": "加急僅縮短出版社內部處理周期。" },
+  { en: "Rush does not waive editorial, ethical, rights, or technical review.", "zh-Hant": "加急不免除編輯、倫理、版權和技術審查。" },
+  { en: "New author revisions, delayed confirmations, or replaced files automatically reset the original rush timeline.", "zh-Hant": "作者新增修改、延遲確認或更換文件後，原加急周期自動重新計算。" },
+  { en: "Rush does not include printing rush, courier rush, or third-party platform processing rush.", "zh-Hant": "加急不包括印刷加急、快遞加急及第三方平台處理加急。" },
+  { en: "The publisher may decline a rush request based on project complexity or scheduling capacity.", "zh-Hant": "出版社有權因項目複雜程度或排期容量拒絕加急申請。" },
+];
+
+// Section 五 — Standard Physical Publication Pack
+const physicalPackIncludes: Bi[] = [
+  { en: "25 paperback print copies in total", "zh-Hant": "共25本平裝紙質圖書" },
+  { en: "20 of which are author copies", "zh-Hant": "其中20本為作者副本" },
+  { en: "5 of which are for Hong Kong statutory deposit and book registration", "zh-Hant": "其中5本用於香港法定送存及書刊登記" },
+  { en: "Black-and-white interior", "zh-Hant": "黑白內文" },
+  { en: "Colour cover", "zh-Hant": "彩色封面" },
+  { en: "Standard perfect binding", "zh-Hant": "普通膠裝" },
+  { en: "Approx. 80gsm standard interior paper", "zh-Hant": "80克左右標準內文紙" },
+  { en: "Approx. 250gsm cover stock", "zh-Hant": "250克左右封面紙" },
+  { en: "Matte or gloss lamination", "zh-Hant": "啞膜或光膜" },
+  { en: "Finished size up to 185mm × 260mm", "zh-Hant": "成品尺寸不超過185 mm × 260 mm" },
+  { en: "Technical inspection of the final print files", "zh-Hant": "最終印刷文件技術檢查" },
+  { en: "Packaging of the 5 deposit copies", "zh-Hant": "5本送存副本的包裝" },
+  { en: "Book registration form preparation and data verification", "zh-Hant": "書刊登記表格準備及資料核對" },
+  { en: "Local Hong Kong hand-delivery", "zh-Hant": "香港本地遞送" },
+  { en: "Deposit and delivery record archiving", "zh-Hant": "送存及遞交記錄歸檔" },
+];
+
+const physicalPackNotIncluded: Bi = {
+  en: "Shipping of the 20 author copies to the author's address",
+  "zh-Hant": "20本作者副本寄往作者地址的運輸費用",
+};
+
+const pageSurchargeRows: [string, Bi, string][] = [
+  ["Up to 200 pages / 200頁以內", { en: "None", "zh-Hant": "無" }, "USD 999"],
+  ["201–300 pages / 201—300頁", { en: "+USD 150", "zh-Hant": "加USD 150" }, "USD 1,149"],
+  ["301–400 pages / 301—400頁", { en: "+USD 300", "zh-Hant": "加USD 300" }, "USD 1,299"],
+  ["401–500 pages / 401—500頁", { en: "+USD 500", "zh-Hant": "加USD 500" }, "USD 1,499"],
+  ["Over 500 pages / 超過500頁", { en: "Quotation-based", "zh-Hant": "單獨報價" }, ""],
+];
+
+// Section 六 — standalone printing & deposit-coordination services
+const standaloneServices: [Bi, string][] = [
+  [{ en: "25 standard paperback copies, up to 200 pages", "zh-Hant": "25本標準平裝印刷，200頁以內" }, "USD 749"],
+  [{ en: "Statutory deposit & delivery coordination, ordered with printing", "zh-Hant": "法定送存及遞交協調，與印刷同時訂購" }, "USD 250"],
+  [{ en: "Deposit coordination for 5 author-supplied compliant copies", "zh-Hant": "作者自行印刷並提供5本合格副本後的送存協調" }, "USD 299"],
+  [{ en: "Printing of 5 deposit copies only, plus delivery coordination", "zh-Hant": "僅印製5本送存副本並辦理遞交" }, "From USD 449"],
+];
+
+// Section 七 — additional author copies
+const additionalCopyRows: [string, string][] = [
+  ["5", "USD 149"],
+  ["10", "USD 249"],
+  ["25", "USD 499"],
+  ["50", "USD 799"],
+  ["100", "USD 1,299"],
+  ["200", "USD 2,199"],
+];
+
+// Section 八 — print upgrades
+const printUpgrades: [Bi, Bi][] = [
+  [{ en: "Hardcover upgrade, 25 copies", "zh-Hant": "精裝升級，25本" }, { en: "From USD 399", "zh-Hant": "USD 399起" }],
+  [{ en: "Cover with flaps, 25 copies", "zh-Hant": "帶勒口封面，25本" }, { en: "+From USD 120", "zh-Hant": "加USD 120起" }],
+  [{ en: "Hardcover with dust jacket, 25 copies", "zh-Hant": "精裝護封，25本" }, { en: "+From USD 180", "zh-Hant": "加USD 180起" }],
+  [{ en: "Colour interior", "zh-Hant": "彩色內文" }, { en: "From USD 0.20 per colour page per copy, USD 300 minimum", "zh-Hant": "每彩色頁、每本USD 0.20起，最低USD 300" }],
+  [{ en: "Coated or premium image paper", "zh-Hant": "銅版紙或高質量圖片紙" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }],
+  [{ en: "Specialty paper", "zh-Hant": "特種紙" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }],
+  [{ en: "Foil stamping, embossing, or spot UV", "zh-Hant": "燙金、燙銀、擊凸或局部UV" }, { en: "From USD 250", "zh-Hant": "USD 250起" }],
+  [{ en: "Non-standard trim size or landscape format", "zh-Hant": "特殊尺寸或橫向開本" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }],
+  [{ en: "Sewn, stitched, flexibound, or other special binding", "zh-Hant": "線裝、鎖線、軟精裝等特殊裝訂" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }],
+  [{ en: "One paperback physical proof", "zh-Hant": "平裝實體校樣一本" }, { en: "USD 99, shipping separate", "zh-Hant": "USD 99，運輸另計" }],
+  [{ en: "One hardcover physical proof", "zh-Hant": "精裝實體校樣一本" }, { en: "USD 149, shipping separate", "zh-Hant": "USD 149，運輸另計" }],
+];
+
+// Section 九 — printing rush
+const printingRushRows: [Bi, Bi, Bi][] = [
+  [{ en: "Standard Printing", "zh-Hant": "Standard Printing 標準印刷" }, { en: "7–12 business days", "zh-Hant": "7—12個工作日" }, { en: "No extra charge", "zh-Hant": "無" }],
+  [{ en: "Priority Printing", "zh-Hant": "Priority Printing 優先印刷" }, { en: "4–6 business days", "zh-Hant": "4—6個工作日" }, { en: "+25% of printing fee", "zh-Hant": "印刷費加收25%" }],
+  [{ en: "Express Printing", "zh-Hant": "Express Printing 特快印刷" }, { en: "2–3 business days", "zh-Hant": "2—3個工作日" }, { en: "+50% of printing fee", "zh-Hant": "印刷費加收50%" }],
+  [{ en: "Emergency Printing", "zh-Hant": "Emergency Printing 緊急印刷" }, { en: "As fast as 1 business day", "zh-Hant": "最快1個工作日" }, { en: "From +100% of printing fee", "zh-Hant": "印刷費加收100%起" }],
+];
+
+const printingRushNotes: Bi[] = [
+  { en: "Applies only to technically compliant final PDF files.", "zh-Hant": "僅適用於技術合格的最終PDF。" },
+  { en: "Excludes shipping time.", "zh-Hant": "不包括運輸時間。" },
+  { en: "Not all paper stocks, bindings, and finishes can be rushed.", "zh-Hant": "不保證所有紙張、裝訂及工藝均可加急。" },
+  { en: "Hardcover, special paper, colour interior, and special finishes usually require separate confirmation.", "zh-Hant": "精裝、特殊紙張、彩色內文及特殊工藝通常需要另行確認。" },
+  { en: "Printer scheduling, equipment maintenance, and public holidays may affect availability.", "zh-Hant": "印刷廠排期、設備維護和公共假期可能影響可接受性。" },
+];
+
+// Section 十 — author copy delivery & logistics
+const logisticsExtraRows: [Bi, Bi][] = [
+  [{ en: "Each additional delivery address", "zh-Hant": "每增加一個收貨地址" }, { en: "USD 45 + actual shipping", "zh-Hant": "USD 45＋實際運費" }],
+  [{ en: "Non-standard customs or commercial-invoice documentation", "zh-Hant": "非標準報關或商業發票文件" }, { en: "From USD 60", "zh-Hant": "USD 60起" }],
+  [{ en: "Incorrect address, refusal, or redelivery", "zh-Hant": "地址錯誤、拒收或重新派送" }, { en: "Actual cost + USD 35", "zh-Hant": "實際費用＋USD 35" }],
+  [{ en: "Storage beyond 14 days", "zh-Hant": "超過14日的倉儲" }, { en: "USD 35 per box per 30 days", "zh-Hant": "USD 35／箱／每30日" }],
+  [{ en: "Special, waterproof, or reinforced packaging", "zh-Hant": "特殊包裝、防水或加固包裝" }, { en: "From USD 30", "zh-Hant": "USD 30起" }],
+  [{ en: "Shipping insurance", "zh-Hant": "運輸保險" }, { en: "At actual carrier cost", "zh-Hant": "按承運商實際費用" }],
+  [{ en: "Customs duties, import tax, and clearance fees", "zh-Hant": "關稅、進口稅及清關費用" }, { en: "Borne by the recipient", "zh-Hant": "由收件人承擔" }],
+];
+
+// Section 十一 — additional editing & production services (replaces old optionalServices)
+const editingServices: [Bi, Bi][] = [
+  [{ en: "Basic proofreading beyond package scope", "zh-Hant": "超出套餐範圍的基礎校對" }, { en: "From USD 12 per 1,000 words, USD 250 minimum", "zh-Hant": "USD 12／每1,000詞起，最低USD 250" }],
+  [{ en: "Academic language editing", "zh-Hant": "學術語言編輯" }, { en: "From USD 25 per 1,000 words, USD 500 minimum", "zh-Hant": "USD 25／每1,000詞起，最低USD 500" }],
+  [{ en: "Substantive or developmental editing", "zh-Hant": "實質性或發展性編輯" }, { en: "From USD 45 per 1,000 words, USD 900 minimum", "zh-Hant": "USD 45／每1,000詞起，最低USD 900" }],
+  [{ en: "Reference-style unification and verification", "zh-Hant": "參考文獻格式統一及核查" }, { en: "From USD 3 per entry, USD 150 minimum", "zh-Hant": "USD 3／條起，最低USD 150" }],
+  [{ en: "Complex tables, formulas, or specialist typesetting", "zh-Hant": "複雜表格、公式或專業排版" }, { en: "From USD 300", "zh-Hant": "USD 300起" }],
+  [{ en: "Figure redrawing or image restoration", "zh-Hant": "圖表重繪或圖片修復" }, { en: "From USD 180", "zh-Hant": "USD 180起" }],
+  [{ en: "Name or subject index", "zh-Hant": "主題索引或人名索引" }, { en: "From USD 350", "zh-Hant": "USD 350起" }],
+  [{ en: "Additional consolidated correction round", "zh-Hant": "額外一輪集中修改" }, { en: "From USD 250 per round", "zh-Hant": "USD 250起／輪" }],
+  [{ en: "Retypesetting after style approval", "zh-Hant": "樣式批准後的重新排版" }, { en: "USD 125 per hour, 2-hour minimum", "zh-Hant": "USD 125／小時，最低2小時" }],
+  [{ en: "Cover redesign after approval", "zh-Hant": "封面批准後的重新設計" }, { en: "From USD 200", "zh-Hant": "USD 200起" }],
+  [{ en: "Book DOI, where applicable", "zh-Hant": "DOI配置，適用時" }, { en: "From USD 100", "zh-Hant": "USD 100起" }],
+  [{ en: "Specialist copyright, permissions, or legal review", "zh-Hant": "專業版權、許可或法律審查" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }],
+  [{ en: "Translation", "zh-Hant": "翻譯服務" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }],
+];
+
+// Section 十二 — additional editions & digital formats (replaces old additionalFormatServices)
 const additionalFormatServices: [Bi, Bi][] = [
-  [
-    { en: "Additional ISBN, metadata, copyright-page and record setup for another approved product format", "zh-Hant": "為另一核准產品格式提供額外 ISBN、元數據、版權頁及紀錄建置" },
-    { en: "USD 999", "zh-Hant": "USD 999" },
-  ],
+  [{ en: "ISBN, metadata, copyright-page, and record setup for another approved format", "zh-Hant": "另一經批准載體的ISBN、元數據、版權頁及出版記錄配置" }, { en: "USD 999", "zh-Hant": "USD 999" }],
   [{ en: "EPUB preparation", "zh-Hant": "EPUB 製作" }, { en: "From USD 299", "zh-Hant": "USD 299起" }],
   [{ en: "Reflowable eBook conversion", "zh-Hant": "可重排電子書轉換" }, { en: "From USD 299", "zh-Hant": "USD 299起" }],
-  [{ en: "Revised edition processing", "zh-Hant": "修訂版處理" }, { en: "From USD 499", "zh-Hant": "USD 499起" }],
-  [{ en: "Translated edition processing", "zh-Hant": "翻譯版處理" }, { en: "Quotation-based", "zh-Hant": "另行報價" }],
+  [{ en: "Minor revised-edition processing", "zh-Hant": "小範圍修訂版處理" }, { en: "From USD 499", "zh-Hant": "USD 499起" }],
+  [{ en: "Substantive revised edition requiring a new ISBN", "zh-Hant": "需要新ISBN的實質性修訂版" }, { en: "Quoted as a new publication project", "zh-Hant": "按新版本出版項目報價" }],
+  [{ en: "Translated edition", "zh-Hant": "翻譯版本" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }],
+  [{ en: "Multilingual edition", "zh-Hant": "多語種版本" }, { en: "Quotation-based", "zh-Hant": "單獨報價" }],
 ];
 
 const institutionalRows: [Bi, Bi, Bi][] = [
@@ -229,54 +335,30 @@ const institutionalRows: [Bi, Bi, Bi][] = [
   ],
 ];
 
-const optionalServices: [Bi, Bi][] = [
-  [{ en: "Additional proofreading beyond package scope", "zh-Hant": "超出方案範圍之額外校對" }, { en: "From USD 8 per 1,000 words", "zh-Hant": "每1,000字起USD 8" }],
-  [{ en: "Academic language editing", "zh-Hant": "學術語言潤飾" }, { en: "Quotation-based", "zh-Hant": "另行報價" }],
-  [{ en: "Substantive or developmental editing", "zh-Hant": "實質性或發展性編輯" }, { en: "Quotation-based", "zh-Hant": "另行報價" }],
-  [{ en: "Translation", "zh-Hant": "翻譯" }, { en: "Quotation-based", "zh-Hant": "另行報價" }],
-  [{ en: "Complex tables, figures, formulas, or specialist typesetting", "zh-Hant": "複雜圖表、公式或專業排版" }, { en: "From USD 250", "zh-Hant": "USD 250起" }],
-  [{ en: "Image restoration, figure redrawing, or extensive image processing", "zh-Hant": "圖像修復、圖形重繪或大量影像處理" }, { en: "From USD 150", "zh-Hant": "USD 150起" }],
-  [{ en: "Customized cover redesign after approval", "zh-Hant": "核准後之客製化封面重新設計" }, { en: "From USD 150", "zh-Hant": "USD 150起" }],
-  [{ en: "Name or subject index preparation", "zh-Hant": "人名或主題索引製作" }, { en: "From USD 250", "zh-Hant": "USD 250起" }],
-  [{ en: "Additional consolidated author-correction round", "zh-Hant": "額外整合式作者校訂輪次" }, { en: "USD 150 - 300 per round", "zh-Hant": "每輪 USD 150 - 300" }],
-  [{ en: "Priority production service", "zh-Hant": "優先製作服務" }, { en: "Additional 25% of the applicable package fee", "zh-Hant": "另加相應方案費用之25%" }],
-  [{ en: "Book DOI, where available and appropriate", "zh-Hant": "圖書 DOI（如適用及可提供）" }, { en: "From USD 100", "zh-Hant": "USD 100起" }],
-  [{ en: "Specialist legal, copyright, or permissions review", "zh-Hant": "專業法律、版權或授權審查" }, { en: "Quotation-based", "zh-Hant": "另行報價" }],
-];
-
+// Section 十三 — distribution & sales setup (updated figures)
 const distributionRows: [Bi, Bi][] = [
   [{ en: "Official book webpage", "zh-Hant": "官方圖書網頁" }, { en: "Included", "zh-Hant": "包含" }],
   [{ en: "Direct-order inquiry setup", "zh-Hant": "直接訂購洽詢建置" }, { en: "Included", "zh-Hant": "包含" }],
-  [{ en: "Amazon or print-on-demand setup assistance", "zh-Hant": "Amazon 或隨需印刷建置協助" }, { en: "From USD 200", "zh-Hant": "USD 200起" }],
-  [{ en: "Google Play Books setup assistance", "zh-Hant": "Google Play Books 建置協助" }, { en: "From USD 150", "zh-Hant": "USD 150起" }],
-  [{ en: "IngramSpark setup assistance", "zh-Hant": "IngramSpark 建置協助" }, { en: "From USD 350", "zh-Hant": "USD 350起" }],
-  [{ en: "European book-trade metadata support", "zh-Hant": "歐洲圖書貿易元數據支援" }, { en: "Third-party cost plus service fee", "zh-Hant": "第三方費用另加服務費" }],
-  [{ en: "Full distribution setup", "zh-Hant": "完整發行建置" }, { en: "From USD 650", "zh-Hant": "USD 650起" }],
-  [{ en: "Annual distribution maintenance", "zh-Hant": "年度發行維護" }, { en: "From USD 150 per title", "zh-Hant": "每書名 USD 150起" }],
+  [{ en: "Amazon or other POD platform setup assistance", "zh-Hant": "Amazon或其他POD平台設置協助" }, { en: "From USD 250", "zh-Hant": "USD 250起" }],
+  [{ en: "Google Play Books setup assistance", "zh-Hant": "Google Play Books設置協助" }, { en: "From USD 200", "zh-Hant": "USD 200起" }],
+  [{ en: "IngramSpark setup assistance", "zh-Hant": "IngramSpark設置協助" }, { en: "From USD 399", "zh-Hant": "USD 399起" }],
+  [{ en: "European book-trade metadata support", "zh-Hant": "歐洲書業元數據支持" }, { en: "Third-party cost plus service fee", "zh-Hant": "第三方成本＋服務費" }],
+  [{ en: "Full distribution setup", "zh-Hant": "綜合發行配置" }, { en: "From USD 799", "zh-Hant": "USD 799起" }],
+  [{ en: "Annual distribution maintenance", "zh-Hant": "年度發行維護" }, { en: "From USD 199 per title per year", "zh-Hant": "USD 199起／書名／年" }],
 ];
 
-const paymentRows: [Bi, Bi][] = [
-  [
-    { en: "Package A — Author-Prepared Publication", "zh-Hant": "方案 A — 作者自備稿件出版" },
-    {
-      en: "100% payment is required after formal acceptance and before final publication processing begins.",
-      "zh-Hant": "須於正式接受後、最終出版處理開始前繳付全額款項。",
-    },
-  ],
-  [
-    { en: "Packages B and C", "zh-Hant": "方案 B 及 C" },
-    {
-      en: "50% deposit is required before production begins. The remaining 50% is payable before final file release and publication.",
-      "zh-Hant": "須於製作開始前繳付50%訂金，餘額50%須於最終檔案發布及出版前繳付。",
-    },
-  ],
-  [
-    { en: "Institutional and large projects", "zh-Hant": "機構及大型專案" },
-    {
-      en: "A staged payment schedule may be specified in the project quotation and publishing agreement.",
-      "zh-Hant": "分階段付款時程可能於專案報價及出版協議中另行載明。",
-    },
-  ],
+// Section 十五 — payment & quotation rules
+const paymentRules: Bi[] = [
+  { en: "Package A and physical-printing items are generally payable in full in advance.", "zh-Hant": "Package A及實體印刷項目原則上須全額預付。" },
+  { en: "Packages B and C are generally 50% deposit to begin, with the remaining 50% due before final file delivery or publication.", "zh-Hant": "Package B及Package C原則上為50%啟動款，剩餘50%在最終文件交付或出版前支付。" },
+  { en: "All rush fees must be paid in full before rush scheduling begins.", "zh-Hant": "所有加急費須在安排加急排期前全額支付。" },
+  { en: "Wire transfers should be arranged so the payer bears all outgoing and intermediary-bank charges.", "zh-Hant": "電匯應選擇由付款人承擔全部匯出行及中間行費用。" },
+  { en: "Credit card, PayPal, Stripe, Wise, and other platform fees are charged at actual cost, subject to applicable law.", "zh-Hant": "信用卡、PayPal、Stripe、Wise及其他平台費用按照實際發生金額收取，並以適用法律允許為前提。" },
+  { en: "A blanket 10% “administrative fee” is not applied uniformly to all orders.", "zh-Hant": "不建議對所有訂單統一收取10%的模糊「行政手續費」。" },
+  { en: "Quotations are generally valid for 14 days.", "zh-Hant": "報價有效期原則上為14日。" },
+  { en: "Printing and logistics quotations may be adjusted for changes in paper, fuel, exchange rates, carrier, or supplier pricing.", "zh-Hant": "印刷及物流報價可因紙張、燃油、匯率、承運商和供應商價格變化而調整。" },
+  { en: "Taxes, duties, bank fees, payment-platform fees, and third-party service fees are not included unless expressly stated in the quotation.", "zh-Hant": "稅費、關稅、銀行費、支付平台費和第三方服務費，除非報價明確寫明，否則均不包含。" },
+  { en: "Final scope of service is governed by the written quotation, publishing agreement, and any confirmed project specification.", "zh-Hant": "最終服務範圍以書面報價、出版合同及雙方確認的項目說明為準。" },
 ];
 
 const isbnRequirements: Bi[] = [
@@ -295,15 +377,6 @@ const isbnNotConstitute: Bi[] = [
   { en: "Indexing or peer-review certification", "zh-Hant": "索引收錄或同行評審認證" },
   { en: "Commercial distribution", "zh-Hant": "商業發行" },
   { en: "A guarantee of sales or citations", "zh-Hant": "銷售或引用之保證" },
-];
-
-const printingNotIncluded: Bi[] = [
-  { en: "Finished book size and page count", "zh-Hant": "成書尺寸及頁數" },
-  { en: "Black-and-white or colour printing", "zh-Hant": "黑白或彩色印刷" },
-  { en: "Paper specification and binding type", "zh-Hant": "紙張規格及裝訂方式" },
-  { en: "Cover finish and number of copies", "zh-Hant": "封面工藝及印製冊數" },
-  { en: "Proof-copy requirements", "zh-Hant": "打樣需求" },
-  { en: "Delivery destination and shipping method", "zh-Hant": "送達地點及運送方式" },
 ];
 
 const cancellationPoints: Bi[] = [
@@ -370,8 +443,9 @@ const copy = {
     eyebrow: "Publishing Services",
     heading: "Book Publishing Services and Fees",
     intro1: "Panorama Scholarly Books provides academic book publishing and production services for scholarly monographs, edited volumes, academic textbooks, research reports, conference proceedings, institutional publications, and interdisciplinary research books.",
-    intro2: "All manuscripts and proposals are subject to editorial screening. Payment of a publishing fee does not create an automatic right to publication. A project proceeds only after formal editorial acceptance and execution of a publishing agreement. The following fees are effective from 1 August 2026.",
-    packagesHeading: "Publishing Packages",
+    intro2: "All projects are subject to editorial, academic-ethics, copyright, technical, and publication-eligibility review. Payment of any fee does not guarantee publication, and does not represent or guarantee sales, indexing, citations, promotion or tenure outcomes, academic recognition, or commercial revenue. The following fees are effective from 1 August 2026.",
+
+    coreHeading: "1. Core Publishing Packages",
     packagesIntro: "Each package covers one title, one edition, and one product format. Printing, shipping, statutory deposit copies, and third-party platform charges are not included unless separately agreed in writing.",
     recommended: "Recommended",
     notIncluded: "Not Included",
@@ -380,36 +454,93 @@ const copy = {
     standardScopeBody: "Package B generally applies to a manuscript of up to 60,000 words or approximately 200 finished pages, in one principal language, with standard academic formatting, references, and a normal number of tables and figures. Longer or more complex manuscripts require Package C or a separate quotation. Publication-ready files submitted under Package A must meet the publisher's technical and ethical standards; files requiring substantial correction or reconstruction may be transferred to Package B or C, or quoted separately.",
     comparisonHeading: "Package Comparison",
     serviceItem: "Service Item",
-    additionalFormatsHeading: "Additional Editions and Product Formats",
-    additionalFormatsIntro: "Each package covers one title, one edition, and one product format. Paperback, hardback, PDF, EPUB, Kindle-compatible editions, revised editions, translated editions, and other separately distributed versions may require separate ISBNs, separate metadata, and additional production work. An additional ISBN will not be assigned unless the additional edition or format has been formally approved and is intended for genuine publication.",
+
+    bundleHeading: "Recommended Print Publication Bundles",
+    bundleIntro: "For authors who want a printed edition, the following bundles combine a core package with the Standard Physical Publication Pack (Section 2) at a combined price:",
+    bundleFootnote: "Bundle prices exclude shipping of the 20 author copies to the author's address, taxes, payment-platform fees, and third-party platform charges.",
+    bundleName: "Bundle",
+    bundleIncludes: "Includes",
+
+    timelineHeading: "Standard Production Timeline",
+    timelineIntro: "The timelines below run from the next business day after all of the following are satisfied:",
+    timelinePackage: "Package",
+    timelineTarget: "Target Timeline",
+    timelineFootnote: "These are target production timelines only. They exclude author revision time, third-party permission wait times, government or public-body processing time, printing time, international shipping time, and delays caused by force majeure.",
+
+    physicalHeading: "2. Physical Publication and Statutory Deposit",
+    physicalPackName: "Standard Physical Publication Pack",
+    physicalPackPrice: "USD 999",
+    physicalPackIntro: "For standard black-and-white academic books up to 200 finished pages, this pack includes:",
+    physicalPackNotIncludedLabel: "Not included:",
+    pageSurchargeHeading: "Page-Count Surcharge",
+    pageRange: "Finished Pages",
+    surcharge: "Surcharge",
+    packageTotal: "Package Total",
+
+    standaloneHeading: "Standalone Printing and Deposit-Coordination Services",
+    standaloneFootnote: "“Statutory deposit & delivery coordination” covers data verification, form preparation, packaging, local Hong Kong hand-delivery, progress tracking, and record archiving. Hong Kong book registration itself carries no government fee — this is a publisher service and coordination fee, never a “registration fee.”",
+
+    additionalCopiesHeading: "Additional Author Copies",
+    additionalCopiesIntro: "Prices below apply when ordered with the first print run, up to 200 pages, black-and-white paperback.",
+    additionalCopiesFootnote: "Over 200 pages, colour interior, special paper, special binding, or a separate later reprint are quoted separately.",
+    copies: "Copies",
+
+    printUpgradesHeading: "Print Upgrades",
+    printUpgradesFootnote: "Changes requested after the author approves the final proof may incur replating, re-proofing, or reprinting charges.",
+
+    printingRushHeading: "Printing Rush",
+    printingRushIntro: "Printing lead time is counted from the business day after the final print files and proofs are formally approved. Shipping time is calculated separately.",
+
+    logisticsHeading: "Author Copy Delivery and International Logistics",
+    logisticsIntro: "Shipping of author copies is not included in any publishing package or the Standard Physical Publication Pack.",
+    logisticsFormulaLabel: "Pricing formula:",
+    logisticsFormula: "Actual carrier shipping cost + 10% logistics coordination and handling fee",
+    logisticsMinimumLabel: "Minimum logistics coordination and handling fee:",
+    logisticsMinimum: "USD 35 per shipment",
+    logisticsOtherHeading: "Other Logistics Charges",
+    logisticsFootnote: "The publisher does not guarantee customs clearance time, carrier delivery time, or destination postal processing time. Expedited publication, expedited printing, and international courier are three independent services.",
+
+    rushHeading: "3. Rush Tiers",
+    assessmentRushHeading: "Manuscript Assessment Priority",
+    assessmentRushFootnote: "Assessment fees cover priority scheduling only and do not guarantee acceptance. Non-refundable once assessment work has begun.",
+    level: "Service Level",
+    targetTime: "Target Time",
+    price: "Price",
+
+    productionRushHeading: "Production Rush by Package",
+    packageALabel: "Package A",
+    packageBLabel: "Package B",
+    packageCLabel: "Package C",
+    rushPackageAFootnote: "Critical Fast-Track applies only to fully proofread, typeset, publication-ready files that already meet technical standards.",
+    rushPackageBFootnote: "Package B does not offer a 3-business-day critical production option.",
+    rushPackageCFootnote: "Bilingual, multilingual, large edited volumes, complex formulas, colour figures, multi-author unification work, and manuscripts over approximately 300 pages are not guaranteed a fixed rush timeline. Package C only publishes a Priority tier — Express or Critical delivery is not publicly committed and is assessed individually.",
+    rushRulesHeading: "Rush Service Rules",
+    printingRushFootnote: "Applies only to technically compliant final PDF files and excludes shipping time.",
+
+    additionalHeading: "4. Additional Services",
+    editingHeading: "Additional Editing and Production Services",
+    editingFootnote: "“One consolidated round” means the author or editor submits all revision comments in a single document at once. Scattered, repeated, or cross-file revisions are billed as additional rounds or by the hour.",
+    additionalFormatsHeading: "Additional Editions and Digital Formats",
+    additionalFormatsIntro: "Each package covers one title, one edition, and one product format. Paperback, hardback, PDF, EPUB, Kindle-compatible editions, revised editions, translated editions, and other separately distributed versions each require their own ISBN, metadata, and production work — an additional edition or format is never covered by a single flat “ISBN fee.” An additional ISBN will not be assigned unless the additional edition or format has been formally approved and is intended for genuine publication.",
     additionalService: "Additional Service",
     fee: "Fee",
     institutionalHeading: "Institutional, Series, and Proceedings Publishing",
     institutionalIntro: "Institutional publications, book series, conference proceedings, annual reports, multi-volume works, large edited collections, and sponsored open-access books are quoted separately according to project size, manuscript complexity, number of contributors, languages, production requirements, publication formats, distribution requirements, and expected administrative workload.",
     projectType: "Project Type",
     typicalServices: "Typical Services",
-    optionalHeading: "Optional Additional Services",
-    optionalIntro: "These services are not included in the standard packages unless expressly stated. All additional services require written approval before work begins.",
-    isbnHeading: "ISBN and Publisher-of-Record Policy",
-    isbnIntro: "ISBNs are assigned only to publications that have been:",
-    isbnBody1: "ISBNs are not sold, transferred, leased, licensed as standalone numbers, or supplied for use by another publisher. The publisher name displayed in the book must correspond with the publisher information recorded for the ISBN.",
-    isbnBody2: "Publishing fees are not government ISBN application fees. They are fees for publisher services, editorial assessment, project administration, rights review, bibliographic metadata, ISBN assignment, production processing, official publication records, digital archiving, and post-publication compliance coordination.",
-    isbnNotConstituteIntro: "Assignment of an ISBN does not constitute:",
     distributionHeading: "Sales and Distribution Setup",
     distributionIntro: "Standard publishing fees do not include commercial distribution. Optional distribution services may be available for eligible titles, subject to the rules, approval processes, territorial limitations, technical requirements, and fees of the relevant platform.",
     distributionService: "Distribution Service",
     importantNoticeLabel: "Important notice:",
     importantNoticeBody: "Publishing or distribution fees do not guarantee book sales, bookstore placement, library acquisition, platform approval, indexing, ranking, reviews, citations, academic promotion, institutional recognition, or commercial performance.",
-    printingHeading: "Printing, Binding, Deposit Copies, and Shipping",
-    printingNotIncludedHeading: "Not Included in Publishing Fees",
-    printingIntro: "Where printed copies are requested, costs are calculated according to:",
-    pricingPrincipleHeading: "Pricing Principle and Statutory Deposit",
-    pricingFormula: "Printing cost + binding cost + shipping cost + handling fee",
-    depositBody: "Where Hong Kong book-registration requirements apply, the author or commissioning institution must fund and arrange the required statutory deposit copies, binding, packaging, delivery, and handling. Deposit copies are not returnable. No physical publication project is treated as administratively complete until the required deposit or registration arrangements have been confirmed.",
-    paymentHeading: "Payment Terms",
-    item: "Item",
-    policy: "Policy",
-    paymentFootnote: "All prices are stated in United States dollars unless otherwise specified. Bank, payment-gateway, currency-conversion, intermediary-bank, tax, printing, shipping, and third-party platform charges are not included unless expressly stated. Additional services are invoiced separately where applicable.",
+
+    isbnHeading: "ISBN and Publisher-of-Record Policy",
+    isbnIntro: "ISBNs are assigned only to publications that have been:",
+    isbnBody1: "ISBNs are not sold, transferred, leased, licensed as standalone numbers, or supplied for use by another publisher. The publisher name displayed in the book must correspond with the publisher information recorded for the ISBN.",
+    isbnBody2: "Publishing fees are not government ISBN application fees. They are fees for publisher services, editorial assessment, project administration, rights review, bibliographic metadata, ISBN assignment, production processing, official publication records, digital archiving, and post-publication compliance coordination.",
+    isbnNotConstituteIntro: "Assignment of an ISBN does not constitute:",
+
+    paymentHeading: "5. Payment and Quotation Rules",
     cancellationHeading: "Cancellation and Refund Principles",
     cancellationIntro: "Fees reflect editorial, administrative, metadata, production, design, archiving, and publisher work already performed. Fees paid before work begins may be refundable subject to documented administrative costs.",
     cancellationFootnote: "Detailed cancellation and refund provisions are governed by the signed publishing agreement.",
@@ -424,8 +555,9 @@ const copy = {
     eyebrow: "出版服務",
     heading: "圖書出版服務與費用",
     intro1: "Panorama Scholarly Books 為學術專著、編著文集、學術教材、研究報告、會議論文集、機構出版物及跨學科研究專書提供學術圖書出版與製作服務。",
-    intro2: "所有提案及書稿均須經編輯審查。繳付出版費用並不代表自動獲得出版權利。專案僅於正式編輯接受並簽署出版協議後方可進行。以下費用自2026年8月1日起生效。",
-    packagesHeading: "出版方案",
+    intro2: "所有項目均須經過編輯、學術倫理、版權、技術及出版適格性審查。支付任何費用均不代表稿件必然獲得出版，也不構成對銷售、檢索、引用、職稱評審、學術認可或商業收益的保證。以下費用自2026年8月1日起生效。",
+
+    coreHeading: "一、核心出版套餐",
     packagesIntro: "各方案均涵蓋一個書名、一個版次及一種產品格式。除非另有書面協議，否則印刷、運送、法定送存本及第三方平台費用均不包含在內。",
     recommended: "推薦方案",
     notIncluded: "不包含項目",
@@ -434,36 +566,93 @@ const copy = {
     standardScopeBody: "方案 B 一般適用於單一主要語言、字數不超過60,000字或約200頁完稿、採標準學術格式、含參考文獻及一般數量圖表之書稿。篇幅較長或較複雜之書稿須採用方案 C 或另行報價。以方案 A 提交之出版用檔案須符合出版者之技術及倫理標準；需大幅修正或重建之檔案，可能轉為方案 B 或 C 處理，或另行報價。",
     comparisonHeading: "方案比較",
     serviceItem: "服務項目",
-    additionalFormatsHeading: "額外版次與產品格式",
-    additionalFormatsIntro: "各方案均涵蓋一個書名、一個版次及一種產品格式。平裝本、精裝本、PDF、EPUB、Kindle 相容版、修訂版、翻譯版及其他另行發行之版本，可能需要額外 ISBN、額外元數據及額外製作工作。除非額外版次或格式已正式核准並確為真實出版用途，否則不會分配額外 ISBN。",
+
+    bundleHeading: "推薦對外組合價格",
+    bundleIntro: "如作者需要紙質出版，以下組合將核心套餐與「標準實體出版及法定送存套餐」（見第二部分）合併計價：",
+    bundleFootnote: "組合價格均不包括20本作者副本寄往作者地址的運輸費、稅費、支付平台費用及第三方平台費用。",
+    bundleName: "組合",
+    bundleIncludes: "內容",
+
+    timelineHeading: "出版項目標準周期",
+    timelineIntro: "下列周期從以下條件全部滿足後的下一個工作日起計算：",
+    timelinePackage: "套餐",
+    timelineTarget: "標準目標周期",
+    timelineFootnote: "上述時間屬於目標製作周期，不包括作者修改時間、第三方授權等待時間、政府或公共機構處理時間、印刷時間、國際物流時間以及不可抗力造成的延誤。",
+
+    physicalHeading: "二、實體出版及法定送存",
+    physicalPackName: "標準實體出版及法定送存套餐",
+    physicalPackPrice: "USD 999",
+    physicalPackIntro: "適用於不超過200個成品頁的普通黑白學術圖書，包括：",
+    physicalPackNotIncludedLabel: "不包括：",
+    pageSurchargeHeading: "頁數附加費",
+    pageRange: "成品頁數",
+    surcharge: "附加價格",
+    packageTotal: "套餐總價",
+
+    standaloneHeading: "單獨印刷及法定送存服務",
+    standaloneFootnote: "「法定送存及遞交協調」涵蓋資料核對、表格準備、包裝、香港本地遞交、進度跟進及記錄歸檔。香港書刊登記本身不收取政府費用——此項為出版社的服務及協調費用，絕非「登記費」。",
+
+    additionalCopiesHeading: "追加作者副本",
+    additionalCopiesIntro: "以下價格適用於與首次印刷同時下單、不超過200頁的黑白平裝圖書。",
+    additionalCopiesFootnote: "超過200頁、彩色內文、特殊紙張、特殊裝幀或後續單獨重印，重新報價。",
+    copies: "數量",
+
+    printUpgradesHeading: "印刷升級項目",
+    printUpgradesFootnote: "作者批准最終校樣後提出的修改，可能產生重新製版、重新打樣或重新印刷費用。",
+
+    printingRushHeading: "印刷加急服務",
+    printingRushIntro: "印刷周期從最終印刷文件和校樣正式獲批後的下一個工作日起計算，運輸時間另計。",
+
+    logisticsHeading: "作者副本遞送和國際物流",
+    logisticsIntro: "作者副本運輸不包含在出版套餐或標準實體出版套餐內。",
+    logisticsFormulaLabel: "計價方式：",
+    logisticsFormula: "承運商實際運費＋10%物流協調及行政處理費",
+    logisticsMinimumLabel: "物流協調及行政處理費最低為：",
+    logisticsMinimum: "USD 35／每票貨件",
+    logisticsOtherHeading: "其他物流費用",
+    logisticsFootnote: "出版社不保證海關放行時間、承運商派送時間或目的地郵政處理時間。特快出版、特快印刷和國際快遞屬於三個獨立服務。",
+
+    rushHeading: "三、加急服務",
+    assessmentRushHeading: "稿件優先評估服務",
+    assessmentRushFootnote: "評估費僅用於安排優先審查，不保證錄用。評估工作開始後不予退還。",
+    level: "服務級別",
+    targetTime: "目標時間",
+    price: "價格",
+
+    productionRushHeading: "出版制作加急服務",
+    packageALabel: "方案 A",
+    packageBLabel: "方案 B",
+    packageCLabel: "方案 C",
+    rushPackageAFootnote: "緊急服務僅適用於作者已經提供完全校對、排版完成且符合出版技術標準的成品文件。",
+    rushPackageBFootnote: "Package B原則上不提供3個工作日緊急製作。",
+    rushPackageCFootnote: "雙語、多語種、大型論文集、複雜公式、彩色圖表、多作者統稿及超過約300頁的項目，不承諾固定加急周期。Package C僅公開Priority層級，不公開承諾Express或緊急交付，須單獨評估。",
+    rushRulesHeading: "加急服務規則",
+    printingRushFootnote: "僅適用於技術合格的最終PDF，不包括運輸時間。",
+
+    additionalHeading: "四、附加服務",
+    editingHeading: "額外編輯及製作服務",
+    editingFootnote: "「集中修改一輪」是指作者或編輯在一份文件中一次性提交全部修改意見。零散、多次或跨文件修改可以按額外修改輪次或小時費計價。",
+    additionalFormatsHeading: "額外版本和數字載體",
+    additionalFormatsIntro: "各方案均涵蓋一個書名、一個版次及一種產品格式。平裝本、精裝本、PDF、EPUB、Kindle相容版、修訂版、翻譯版及其他另行發行之版本，均各自需要獨立的ISBN、元數據及製作工作——額外版本及載體不能僅收一個低價「書號費」帶過。除非額外版次或格式已正式核准並確為真實出版用途，否則不會分配額外 ISBN。",
     additionalService: "額外服務",
     fee: "費用",
     institutionalHeading: "機構、書系與論文集出版",
     institutionalIntro: "機構出版物、書系、會議論文集、年度報告、多卷本著作、大型編著文集及贊助之開放獲取圖書，將依專案規模、書稿複雜度、撰稿人數、語言、製作需求、出版格式、發行需求及預期行政工作量另行報價。",
     projectType: "專案類型",
     typicalServices: "一般服務內容",
-    optionalHeading: "選用附加服務",
-    optionalIntro: "除非另有明確說明，否則以下服務不包含於標準方案內。所有附加服務均須於開始工作前取得書面核准。",
+    distributionHeading: "銷售與發行配置",
+    distributionIntro: "標準出版費用不包含商業發行。符合資格之書目可選用發行服務，惟須遵循相關平台之規則、核准流程、地域限制、技術要求及費用。",
+    distributionService: "發行服務",
+    importantNoticeLabel: "重要須知：",
+    importantNoticeBody: "出版或發行費用並不保證圖書銷售、書店上架、圖書館採購、平台核准、索引收錄、排名、書評、引用次數、學術推廣、機構認可或商業表現。",
+
     isbnHeading: "ISBN 與出版者登記政策",
     isbnIntro: "ISBN 僅分配予符合以下條件之出版物：",
     isbnBody1: "ISBN 不作出售、轉讓、租借、以單獨編號授權，亦不供其他出版者使用。書中顯示之出版者名稱須與該 ISBN 登記之出版者資訊相符。",
     isbnBody2: "出版費用並非政府 ISBN 申請費，而是出版者服務費，涵蓋編輯評估、專案管理、版權審查、書目元數據、ISBN 分配、製作處理、正式出版紀錄、數位典藏及出版後合規協調。",
     isbnNotConstituteIntro: "分配 ISBN 並不代表：",
-    distributionHeading: "銷售與發行建置",
-    distributionIntro: "標準出版費用不包含商業發行。符合資格之書目可選用發行服務，惟須遵循相關平台之規則、核准流程、地域限制、技術要求及費用。",
-    distributionService: "發行服務",
-    importantNoticeLabel: "重要須知：",
-    importantNoticeBody: "出版或發行費用並不保證圖書銷售、書店上架、圖書館採購、平台核准、索引收錄、排名、書評、引用次數、學術推廣、機構認可或商業表現。",
-    printingHeading: "印刷、裝訂、送存本與運送",
-    printingNotIncludedHeading: "出版費用不包含項目",
-    printingIntro: "如需印刷樣書，費用將依以下項目計算：",
-    pricingPrincipleHeading: "定價原則與法定送存",
-    pricingFormula: "印刷成本 + 裝訂成本 + 運送成本 + 處理費",
-    depositBody: "凡適用香港圖書登記要求者，所需之法定送存本、裝訂、包裝、送遞及處理，須由作者或委託機構自行出資安排。送存本概不退還。任何實體出版專案，須待完成所需送存或登記安排後，方視為行政上完成。",
-    paymentHeading: "付款條款",
-    item: "項目",
-    policy: "政策",
-    paymentFootnote: "除另有說明外，所有價格均以美元列示。銀行、支付閘道、貨幣兌換、中介銀行、稅項、印刷、運送及第三方平台費用，除非另有明確說明，否則不包含在內。適用之附加服務將另行開立發票。",
+
+    paymentHeading: "五、付款及報價規則",
     cancellationHeading: "取消與退款原則",
     cancellationIntro: "費用反映已進行之編輯、行政、元數據、製作、設計、典藏及出版者工作。於工作開始前繳付之費用，可能依已記錄之行政成本予以退還。",
     cancellationFootnote: "詳細取消與退款條款以簽署之出版協議為準。",
@@ -505,10 +694,10 @@ export default function PublishingServicesPageClient() {
       <Container>
         <div className="py-12 lg:py-16">
 
-          {/* Packages */}
+          {/* ───────────── 1. Core Packages ───────────── */}
           <section className="mb-16">
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
-              {t.packagesHeading}
+              {t.coreHeading}
             </h2>
             <p className="font-serif text-sm text-[#888888] mb-8 max-w-[70ch]">
               {t.packagesIntro}
@@ -589,13 +778,11 @@ export default function PublishingServicesPageClient() {
                 <strong className="text-[#111111] font-medium">{t.standardScopeLabel}</strong> {t.standardScopeBody}
               </p>
             </div>
-          </section>
 
-          {/* Comparison table */}
-          <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            {/* Package comparison */}
+            <h3 className="font-serif text-xl text-[#111111] font-medium mt-12 mb-4">
               {t.comparisonHeading}
-            </h2>
+            </h3>
             <TableWrapper>
               <thead>
                 <tr>
@@ -618,108 +805,408 @@ export default function PublishingServicesPageClient() {
                 ))}
               </tbody>
             </TableWrapper>
+
+            {/* Recommended print bundles */}
+            <h3 className="font-serif text-xl text-[#111111] font-medium mt-12 mb-3">
+              {t.bundleHeading}
+            </h3>
+            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
+              {t.bundleIntro}
+            </p>
+            <TableWrapper>
+              <thead>
+                <tr>
+                  <Th>{t.bundleName}</Th>
+                  <Th>{t.bundleIncludes}</Th>
+                  <Th>{t.fee}</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {printBundles.map((b) => (
+                  <tr key={b.name.en} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top">
+                      {L(b.name)}
+                    </td>
+                    <Td>{L(b.includes)}</Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
+                      {b.price}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3 max-w-[70ch]">
+              {t.bundleFootnote}
+            </p>
+
+            {/* Standard timeline */}
+            <h3 className="font-serif text-xl text-[#111111] font-medium mt-12 mb-3">
+              {t.timelineHeading}
+            </h3>
+            <p className="font-serif text-sm text-[#888888] mb-4 max-w-[70ch]">
+              {t.timelineIntro}
+            </p>
+            <ul className="flex flex-col gap-2 mb-6">
+              {timelinePreconditions.map((item) => (
+                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
+                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                  {L(item)}
+                </li>
+              ))}
+            </ul>
+            <TableWrapper>
+              <thead>
+                <tr>
+                  <Th>{t.timelinePackage}</Th>
+                  <Th>{t.timelineTarget}</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {timelineRows.map(([pkg, target]) => (
+                  <tr key={pkg.en} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
+                      {L(pkg)}
+                    </td>
+                    <Td>{L(target)}</Td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3 max-w-[70ch]">
+              {t.timelineFootnote}
+            </p>
           </section>
 
-          {/* Additional editions and product formats */}
+          {/* ───────────── 2. Physical Publication & Deposit ───────────── */}
           <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
-              {t.additionalFormatsHeading}
+            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              {t.physicalHeading}
             </h2>
-            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
-              {t.additionalFormatsIntro}
-            </p>
+
+            <div className="border border-[#e2e2e2] p-6 md:p-8 mb-3">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-serif text-lg text-[#111111] font-medium">{t.physicalPackName}</h3>
+                <span className="font-serif text-xl text-[#111111] font-medium">{t.physicalPackPrice}</span>
+              </div>
+              <p className="font-serif text-sm text-[#888888] mb-4">{t.physicalPackIntro}</p>
+              <ul className="flex flex-col gap-2 mb-4">
+                {physicalPackIncludes.map((item) => (
+                  <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f7f7f7] pb-2 last:border-0">
+                    <span className="text-[#c8c8c8] shrink-0">-</span>
+                    {L(item)}
+                  </li>
+                ))}
+              </ul>
+              <p className="font-serif text-xs text-[#888888]">
+                <strong className="text-[#555555] font-medium">{t.physicalPackNotIncludedLabel}</strong> {L(physicalPackNotIncluded)}
+              </p>
+            </div>
+
+            <h3 className="font-serif text-base text-[#111111] font-medium mt-8 mb-3">{t.pageSurchargeHeading}</h3>
+            <TableWrapper>
+              <thead>
+                <tr>
+                  <Th>{t.pageRange}</Th>
+                  <Th>{t.surcharge}</Th>
+                  <Th>{t.packageTotal}</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {pageSurchargeRows.map(([range, surcharge, total]) => (
+                  <tr key={range} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
+                      {range}
+                    </td>
+                    <Td>{L(surcharge)}</Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">
+                      {total || (locale === "zh-Hant" ? "另行報價" : "Quotation-based")}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+
+            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.standaloneHeading}</h3>
             <TableWrapper>
               <thead>
                 <tr>
                   <Th>{t.additionalService}</Th>
                   <Th>{t.fee}</Th>
                 </tr>
+              </thead>
+              <tbody>
+                {standaloneServices.map(([service, fee]) => (
+                  <tr key={service.en} className="even:bg-[#fafafa]">
+                    <Td><span className="text-[#111111]">{L(service)}</span></Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{fee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-3 bg-[#f7f7f7]">
+              <p className="font-serif text-sm text-[#555555] leading-relaxed">{t.standaloneFootnote}</p>
+            </div>
+
+            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.additionalCopiesHeading}</h3>
+            <p className="font-serif text-sm text-[#888888] mb-4">{t.additionalCopiesIntro}</p>
+            <TableWrapper>
+              <thead>
+                <tr>
+                  <Th>{t.copies}</Th>
+                  <Th>{t.fee}</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {additionalCopyRows.map(([qty, fee]) => (
+                  <tr key={qty} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top">{qty}</td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{fee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3">{t.additionalCopiesFootnote}</p>
+
+            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.printUpgradesHeading}</h3>
+            <TableWrapper>
+              <thead>
+                <tr>
+                  <Th>{t.additionalService}</Th>
+                  <Th>{t.fee}</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {printUpgrades.map(([item, fee]) => (
+                  <tr key={item.en} className="even:bg-[#fafafa]">
+                    <Td><span className="text-[#111111]">{L(item)}</span></Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3">{t.printUpgradesFootnote}</p>
+
+            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.logisticsHeading}</h3>
+            <p className="font-serif text-sm text-[#888888] mb-4">{t.logisticsIntro}</p>
+            <div className="border border-[#e2e2e2] p-5 mb-4 bg-[#f7f7f7]">
+              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-1">{t.logisticsFormulaLabel}</p>
+              <p className="font-serif text-base text-[#111111] mb-3">{t.logisticsFormula}</p>
+              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-1">{t.logisticsMinimumLabel}</p>
+              <p className="font-serif text-base text-[#111111]">{t.logisticsMinimum}</p>
+            </div>
+            <h4 className="font-serif text-sm text-[#111111] font-medium mb-3">{t.logisticsOtherHeading}</h4>
+            <TableWrapper>
+              <thead>
+                <tr>
+                  <Th>{t.additionalService}</Th>
+                  <Th>{t.fee}</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {logisticsExtraRows.map(([item, fee]) => (
+                  <tr key={item.en} className="even:bg-[#fafafa]">
+                    <Td><span className="text-[#111111]">{L(item)}</span></Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3 max-w-[70ch]">{t.logisticsFootnote}</p>
+          </section>
+
+          {/* ───────────── 3. Rush Tiers ───────────── */}
+          <section className="mb-16">
+            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              {t.rushHeading}
+            </h2>
+
+            <h3 className="font-serif text-lg text-[#111111] font-medium mb-3">{t.assessmentRushHeading}</h3>
+            <TableWrapper>
+              <thead>
+                <tr>
+                  <Th>{t.level}</Th>
+                  <Th>{t.targetTime}</Th>
+                  <Th>{t.price}</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {assessmentTiers.map(([level, time, price]) => (
+                  <tr key={level.en} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                    <Td>{L(time)}</Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(price)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3">{t.assessmentRushFootnote}</p>
+
+            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.productionRushHeading}</h3>
+
+            <p className="font-serif text-sm tracking-[0.1em] uppercase text-[#888888] mb-2">{t.packageALabel}</p>
+            <TableWrapper>
+              <thead>
+                <tr><Th>{t.level}</Th><Th>{t.targetTime}</Th><Th>{t.price}</Th></tr>
+              </thead>
+              <tbody>
+                {rushPackageA.map(([level, time, price]) => (
+                  <tr key={level.en} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                    <Td>{L(time)}</Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-2 mb-8">{t.rushPackageAFootnote}</p>
+
+            <p className="font-serif text-sm tracking-[0.1em] uppercase text-[#888888] mb-2">{t.packageBLabel}</p>
+            <TableWrapper>
+              <thead>
+                <tr><Th>{t.level}</Th><Th>{t.targetTime}</Th><Th>{t.price}</Th></tr>
+              </thead>
+              <tbody>
+                {rushPackageB.map(([level, time, price]) => (
+                  <tr key={level.en} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                    <Td>{L(time)}</Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-2 mb-8">{t.rushPackageBFootnote}</p>
+
+            <p className="font-serif text-sm tracking-[0.1em] uppercase text-[#888888] mb-2">{t.packageCLabel}</p>
+            <TableWrapper>
+              <thead>
+                <tr><Th>{t.level}</Th><Th>{t.price}</Th></tr>
+              </thead>
+              <tbody>
+                {rushPackageC.map(([level, price]) => (
+                  <tr key={level.en} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                    <Td>{L(price)}</Td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-2">{t.rushPackageCFootnote}</p>
+
+            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.rushRulesHeading}</h3>
+            <ul className="flex flex-col gap-2 mb-4">
+              {rushRules.map((item) => (
+                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
+                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                  {L(item)}
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.printingRushHeading}</h3>
+            <p className="font-serif text-sm text-[#888888] mb-4">{t.printingRushIntro}</p>
+            <TableWrapper>
+              <thead>
+                <tr><Th>{t.level}</Th><Th>{t.targetTime}</Th><Th>{t.fee}</Th></tr>
+              </thead>
+              <tbody>
+                {printingRushRows.map(([level, time, fee]) => (
+                  <tr key={level.en} className="even:bg-[#fafafa]">
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                    <Td>{L(time)}</Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <ul className="flex flex-col gap-2 mt-4">
+              {printingRushNotes.map((item) => (
+                <li key={item.en} className="font-serif text-xs text-[#888888] flex gap-3">
+                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                  {L(item)}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* ───────────── 4. Additional Services ───────────── */}
+          <section className="mb-16">
+            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              {t.additionalHeading}
+            </h2>
+
+            <h3 className="font-serif text-lg text-[#111111] font-medium mb-3">{t.editingHeading}</h3>
+            <TableWrapper>
+              <thead>
+                <tr><Th>{t.additionalService}</Th><Th>{t.fee}</Th></tr>
+              </thead>
+              <tbody>
+                {editingServices.map(([service, fee]) => (
+                  <tr key={service.en} className="even:bg-[#fafafa]">
+                    <Td><span className="text-[#111111]">{L(service)}</span></Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </TableWrapper>
+            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3 max-w-[70ch]">{t.editingFootnote}</p>
+
+            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.additionalFormatsHeading}</h3>
+            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">{t.additionalFormatsIntro}</p>
+            <TableWrapper>
+              <thead>
+                <tr><Th>{t.additionalService}</Th><Th>{t.fee}</Th></tr>
               </thead>
               <tbody>
                 {additionalFormatServices.map(([service, fee]) => (
                   <tr key={service.en} className="even:bg-[#fafafa]">
-                    <Td>
-                      <span className="text-[#111111]">{L(service)}</span>
-                    </Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">
-                      {L(fee)}
-                    </td>
+                    <Td><span className="text-[#111111]">{L(service)}</span></Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-          </section>
 
-          {/* Institutional / Series / Proceedings */}
-          <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
-              {t.institutionalHeading}
-            </h2>
-            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
-              {t.institutionalIntro}
-            </p>
+            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.institutionalHeading}</h3>
+            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">{t.institutionalIntro}</p>
             <TableWrapper>
               <thead>
-                <tr>
-                  <Th>{t.projectType}</Th>
-                  <Th>{t.typicalServices}</Th>
-                  <Th>{t.fee}</Th>
-                </tr>
+                <tr><Th>{t.projectType}</Th><Th>{t.typicalServices}</Th><Th>{t.fee}</Th></tr>
               </thead>
               <tbody>
                 {institutionalRows.map(([type, services, fee]) => (
                   <tr key={type.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
-                      {L(type)}
-                    </td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(type)}</td>
                     <Td>{L(services)}</Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">
-                      {L(fee)}
-                    </td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-          </section>
 
-          {/* Optional additional services */}
-          <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
-              {t.optionalHeading}
-            </h2>
-            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
-              {t.optionalIntro}
-            </p>
+            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.distributionHeading}</h3>
+            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">{t.distributionIntro}</p>
             <TableWrapper>
               <thead>
-                <tr>
-                  <Th>{t.additionalService}</Th>
-                  <Th>{t.fee}</Th>
-                </tr>
+                <tr><Th>{t.distributionService}</Th><Th>{t.fee}</Th></tr>
               </thead>
               <tbody>
-                {optionalServices.map(([service, fee]) => (
+                {distributionRows.map(([service, fee]) => (
                   <tr key={service.en} className="even:bg-[#fafafa]">
-                    <Td>
-                      <span className="text-[#111111]">{L(service)}</span>
-                    </Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">
-                      {L(fee)}
-                    </td>
+                    <Td><span className="text-[#111111]">{L(service)}</span></Td>
+                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-          </section>
+            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-5 bg-[#f7f7f7]">
+              <p className="font-serif text-sm text-[#555555] leading-relaxed">
+                <strong className="text-[#111111] font-medium">{t.importantNoticeLabel}</strong> {t.importantNoticeBody}
+              </p>
+            </div>
 
-          {/* ISBN and Publisher-of-Record Policy */}
-          <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
-              {t.isbnHeading}
-            </h2>
-            <p className="font-serif text-sm text-[#888888] mb-4 max-w-[70ch]">
-              {t.isbnIntro}
-            </p>
+            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.isbnHeading}</h3>
+            <p className="font-serif text-sm text-[#888888] mb-4 max-w-[70ch]">{t.isbnIntro}</p>
             <ul className="flex flex-col gap-2 mb-6">
               {isbnRequirements.map((item) => (
                 <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
@@ -729,16 +1216,10 @@ export default function PublishingServicesPageClient() {
               ))}
             </ul>
             <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mb-5 bg-[#f7f7f7]">
-              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-3">
-                {t.isbnBody1}
-              </p>
-              <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                {t.isbnBody2}
-              </p>
+              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-3">{t.isbnBody1}</p>
+              <p className="font-serif text-sm text-[#555555] leading-relaxed">{t.isbnBody2}</p>
             </div>
-            <p className="font-serif text-sm text-[#888888] leading-relaxed max-w-[70ch] mb-2">
-              {t.isbnNotConstituteIntro}
-            </p>
+            <p className="font-serif text-sm text-[#888888] leading-relaxed max-w-[70ch] mb-2">{t.isbnNotConstituteIntro}</p>
             <ul className="flex flex-col gap-1.5">
               {isbnNotConstitute.map((item) => (
                 <li key={item.en} className="font-serif text-sm text-[#888888] flex gap-3">
@@ -749,106 +1230,19 @@ export default function PublishingServicesPageClient() {
             </ul>
           </section>
 
-          {/* Sales and distribution setup */}
-          <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
-              {t.distributionHeading}
-            </h2>
-            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
-              {t.distributionIntro}
-            </p>
-            <TableWrapper>
-              <thead>
-                <tr>
-                  <Th>{t.distributionService}</Th>
-                  <Th>{t.fee}</Th>
-                </tr>
-              </thead>
-              <tbody>
-                {distributionRows.map(([service, fee]) => (
-                  <tr key={service.en} className="even:bg-[#fafafa]">
-                    <Td>
-                      <span className="text-[#111111]">{L(service)}</span>
-                    </Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top">
-                      {L(fee)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </TableWrapper>
-
-            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-5 bg-[#f7f7f7]">
-              <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                <strong className="text-[#111111] font-medium">{t.importantNoticeLabel}</strong> {t.importantNoticeBody}
-              </p>
-            </div>
-          </section>
-
-          {/* Printing, binding, deposit copies and shipping */}
-          <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
-              {t.printingHeading}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e2e2e2]">
-              <div className="bg-white p-8">
-                <h3 className="font-serif text-base text-[#111111] font-medium mb-3">
-                  {t.printingNotIncludedHeading}
-                </h3>
-                <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                  {t.printingIntro}
-                </p>
-                <ul className="flex flex-col gap-1.5">
-                  {printingNotIncluded.map((item) => (
-                    <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3">
-                      <span className="text-[#c8c8c8] shrink-0">-</span>
-                      {L(item)}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-white p-8">
-                <h3 className="font-serif text-base text-[#111111] font-medium mb-3">
-                  {t.pricingPrincipleHeading}
-                </h3>
-                <div className="border border-[#e2e2e2] p-4 mb-4">
-                  <p className="font-serif text-sm text-[#111111] text-center">
-                    {t.pricingFormula}
-                  </p>
-                </div>
-                <p className="font-serif text-sm text-[#888888] leading-relaxed">
-                  {t.depositBody}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Payment and refund */}
+          {/* ───────────── 5. Payment & Quotation Rules ───────────── */}
           <section className="mb-16">
             <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
               {t.paymentHeading}
             </h2>
-            <TableWrapper>
-              <thead>
-                <tr>
-                  <Th>{t.item}</Th>
-                  <Th>{t.policy}</Th>
-                </tr>
-              </thead>
-              <tbody>
-                {paymentRows.map(([item, policy]) => (
-                  <tr key={item.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
-                      {L(item)}
-                    </td>
-                    <Td>{L(policy)}</Td>
-                  </tr>
-                ))}
-              </tbody>
-            </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-4 max-w-[70ch]">
-              {t.paymentFootnote}
-            </p>
+            <ul className="flex flex-col gap-2 mb-4">
+              {paymentRules.map((item, i) => (
+                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
+                  <span className="text-[#c8c8c8] shrink-0 tabular-nums text-xs pt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                  {L(item)}
+                </li>
+              ))}
+            </ul>
           </section>
 
           {/* Cancellation and refund */}
