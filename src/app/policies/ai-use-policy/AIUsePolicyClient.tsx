@@ -13,7 +13,7 @@ const mailLink = (
 
 const content: PolicyContent = {
   title: { en: "AI Use Policy", "zh-Hant": "人工智能使用政策" },
-  updated: "2025",
+  updated: { en: "2025", "zh-Hant": "2025年" },
   sections: [
     {
       heading: { en: "1. Scope and Purpose", "zh-Hant": "一、範圍與目的" },

@@ -13,7 +13,7 @@ const mailLink = (
 
 const content: PolicyContent = {
   title: { en: "Copyright and Licensing", "zh-Hant": "版權與授權" },
-  updated: "June 2026",
+  updated: { en: "June 2026", "zh-Hant": "2026年6月" },
   sections: [
     {
       heading: { en: "1. Copyright Ownership", "zh-Hant": "一、版權歸屬" },

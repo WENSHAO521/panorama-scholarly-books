@@ -18,7 +18,7 @@ export interface PolicySection {
 
 export interface PolicyContent {
   title: Bi;
-  updated: string;
+  updated: { en: string; "zh-Hant": string };
   sections: PolicySection[];
 }
 
@@ -44,7 +44,7 @@ export default function PolicyLayout({ content }: { content: PolicyContent }) {
         <Container narrow>
           <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">{c.policy}</p>
           <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-3">{content.title[locale]}</h1>
-          <p className="font-serif text-sm text-[#888888]">{c.lastUpdated} {content.updated}</p>
+          <p className="font-serif text-sm text-[#888888]">{c.lastUpdated} {content.updated[locale]}</p>
         </Container>
       </section>
       <Container narrow>

@@ -10,7 +10,7 @@ const mailLink = (
 
 const content: PolicyContent = {
   title: { en: "Authorship and Contributorship", "zh-Hant": "著作權歸屬與貢獻" },
-  updated: "2025",
+  updated: { en: "2025", "zh-Hant": "2025年" },
   sections: [
     {
       heading: { en: "1. Criteria for Authorship", "zh-Hant": "一、作者資格標準" },

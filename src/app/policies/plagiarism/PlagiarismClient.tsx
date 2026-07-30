@@ -10,7 +10,7 @@ const mailLink = (
 
 const content: PolicyContent = {
   title: { en: "Plagiarism and Similarity Check", "zh-Hant": "抄襲與相似度檢查" },
-  updated: "2025",
+  updated: { en: "2025", "zh-Hant": "2025年" },
   sections: [
     {
       heading: { en: "1. Definition of Plagiarism", "zh-Hant": "一、抄襲之定義" },
