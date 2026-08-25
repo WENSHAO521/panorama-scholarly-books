@@ -1,38 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useLanguage } from "@/context/LanguageContext";
+import { usePathname } from "next/navigation";
+import { getLocaleFromPathname, localeHref } from "@/lib/locale";
 
 const quickLinks = [
-  { href: "/books", label: { en: "Books", "zh-Hant": "書目" }, external: false },
-  { href: "/book-series", label: { en: "Book Series", "zh-Hant": "書系" }, external: false },
-  { href: "/for-authors", label: { en: "For Authors", "zh-Hant": "作者專區" }, external: false },
+  { href: "/books", label: { en: "Books", "zh-Hant": "書目", "zh-Hans": "书目" }, external: false },
+  { href: "/book-series", label: { en: "Book Series", "zh-Hant": "書系", "zh-Hans": "书系" }, external: false },
+  { href: "/for-authors", label: { en: "For Authors", "zh-Hant": "作者專區", "zh-Hans": "作者专区" }, external: false },
   {
     href: "/publishing-services",
-    label: { en: "Publishing Services", "zh-Hant": "出版服務" },
+    label: { en: "Publishing Services", "zh-Hant": "出版服務", "zh-Hans": "出版服务" },
     external: false,
   },
-  { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊" }, external: false },
-  { href: "/about", label: { en: "About", "zh-Hant": "關於我們" }, external: false },
-  { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們" }, external: false },
+  { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊", "zh-Hans": "发行信息" }, external: false },
+  { href: "/about", label: { en: "About", "zh-Hant": "關於我們", "zh-Hans": "关于我们" }, external: false },
+  { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們", "zh-Hans": "联系我们" }, external: false },
   {
     href: "https://posi.panorama-sg.com",
-    label: { en: "POSI · Scholarly Index", "zh-Hant": "POSI · 學術索引" },
+    label: { en: "POSI · Scholarly Index", "zh-Hant": "POSI · 學術索引", "zh-Hans": "POSI · 学术索引" },
     external: true,
   },
 ];
 
 const policyLinks = [
-  { href: "/policies/publishing-ethics", label: { en: "Publishing Ethics", "zh-Hant": "出版倫理" } },
+  { href: "/policies/publishing-ethics", label: { en: "Publishing Ethics", "zh-Hant": "出版倫理", "zh-Hans": "出版伦理" } },
   {
     href: "/policies/copyright",
-    label: { en: "Copyright and Licensing", "zh-Hant": "版權與授權" },
+    label: { en: "Copyright and Licensing", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" },
   },
-  { href: "/policies/open-access", label: { en: "Open Access Books", "zh-Hant": "開放獲取圖書" } },
-  { href: "/policies/ai-use-policy", label: { en: "AI Use Policy", "zh-Hant": "人工智能使用政策" } },
-  { href: "/policies/plagiarism", label: { en: "Plagiarism Policy", "zh-Hant": "抄襲政策" } },
-  { href: "/policies/authorship", label: { en: "Authorship Policy", "zh-Hant": "著作權歸屬政策" } },
-  { href: "/policies", label: { en: "All Policies", "zh-Hant": "所有政策" } },
+  { href: "/policies/open-access", label: { en: "Open Access Books", "zh-Hant": "開放獲取圖書", "zh-Hans": "开放获取图书" } },
+  { href: "/policies/ai-use-policy", label: { en: "AI Use Policy", "zh-Hant": "人工智能使用政策", "zh-Hans": "人工智能使用政策" } },
+  { href: "/policies/plagiarism", label: { en: "Plagiarism Policy", "zh-Hant": "抄襲政策", "zh-Hans": "抄袭政策" } },
+  { href: "/policies/authorship", label: { en: "Authorship Policy", "zh-Hant": "著作權歸屬政策", "zh-Hans": "著作权归属政策" } },
+  { href: "/policies", label: { en: "All Policies", "zh-Hant": "所有政策", "zh-Hans": "所有政策" } },
 ];
 
 const copy = {
@@ -68,10 +69,23 @@ const copy = {
     rights: "版權所有。",
     tagline: "Panorama Scholarly Books 是 Panorama Scholarly Group Limited 旗下的學術圖書出版品牌。",
   },
+  "zh-Hans": {
+    imprint: "学术图书出版品牌",
+    address: <>香港旺角弥敦道625号雅兰中心办公楼二期15楼1508室</>,
+    quickLinksHeading: "快速链接",
+    policiesHeading: "政策",
+    contactHeading: "联系方式",
+    generalInquiries: "一般咨询",
+    publishingInquiries: "出版咨询",
+    submitInquiry: "提交咨询",
+    rights: "版权所有。",
+    tagline: "Panorama Scholarly Books 是 Panorama Scholarly Group Limited 旗下的学术图书出版品牌。",
+  },
 } as const;
 
 export default function Footer() {
-  const { locale } = useLanguage();
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   const t = copy[locale];
   const year = new Date().getFullYear();
 
@@ -140,7 +154,7 @@ export default function Footer() {
                 ) : (
                   <li key={link.href}>
                     <Link
-                      href={link.href}
+                      href={localeHref(link.href, locale)}
                       className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
                     >
                       {link.label[locale]}
@@ -160,7 +174,7 @@ export default function Footer() {
               {policyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={localeHref(link.href, locale)}
                     className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
                   >
                     {link.label[locale]}
@@ -196,7 +210,7 @@ export default function Footer() {
               </div>
               <div className="mt-2">
                 <Link
-                  href="/contact"
+                  href={localeHref("/contact", locale)}
                   className="font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-4 py-2 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors inline-block"
                 >
                   {t.submitInquiry}

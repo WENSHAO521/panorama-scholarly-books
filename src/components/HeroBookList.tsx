@@ -3,8 +3,9 @@ import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import type { Book } from "@/data/books";
 import BookCoverSVG from "@/components/BookCoverSVG";
+import { localeHref, type Locale } from "@/lib/locale";
 
-export default function HeroBookList({ books }: { books: Book[] }) {
+export default function HeroBookList({ books, locale }: { books: Book[]; locale: Locale }) {
   const reduce = useReducedMotion();
   const display = books.slice(0, 5);
 
@@ -36,7 +37,7 @@ export default function HeroBookList({ books }: { books: Book[] }) {
               }}
             >
               <Link
-                href={`/books/${book.slug}`}
+                href={localeHref(`/books/${book.slug}`, locale)}
                 className="flex gap-4 py-4 -mx-2 px-2 group hover:bg-[#fafafa] transition-colors duration-150"
               >
                 <div className="shrink-0 w-[72px] border border-[#e8e8e8] overflow-hidden group-hover:border-[#cccccc] transition-colors duration-200">
@@ -72,7 +73,7 @@ export default function HeroBookList({ books }: { books: Book[] }) {
 
       <div className="pt-4 border-t border-[#eeeeee]">
         <Link
-          href="/books"
+          href={localeHref("/books", locale)}
           className="font-serif text-[10px] text-[#999999] hover:text-[#111111] transition-colors group inline-flex items-center gap-1"
         >
           Browse all {books.length} titles

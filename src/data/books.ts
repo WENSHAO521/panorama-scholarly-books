@@ -12,6 +12,7 @@ export interface AuthorBio {
   name: string;
   bio: string;
   bioZh?: string;
+  bioZhHans?: string;
 }
 
 export interface Book {
@@ -35,8 +36,10 @@ export interface Book {
   status: BookStatus;
   abstract: string;
   abstractZh?: string;
+  abstractZhHans?: string;
   tableOfContents: string[];
   tableOfContentsZh?: string[];
+  tableOfContentsZhHans?: string[];
   authorBio: AuthorBio[];
   hasSampleChapter: boolean;
   coverTone: "white" | "light" | "medium";
@@ -73,6 +76,8 @@ export const books: Book[] = [
       "This monograph examines the intersection of education policy and digital transformation across national and regional governance systems. Drawing on comparative analysis from fifteen countries, Elena Richter argues that structural inequities in digital access are both reflected in and reproduced by existing policy frameworks, and that meaningful reform requires rethinking the foundational premises of educational governance in the networked era. The book offers a rigorous theoretical framework alongside empirical case studies from Europe, East Asia, and the Global South.",
     abstractZh:
       "本專著探討教育政策與數位轉型在國家及區域治理體系中的交會。艾琳娜．里希特透過對十五個國家的比較分析指出，數位近用上的結構性不平等既反映於既有政策框架之中，也被其不斷再生產；而真正有意義的改革，必須重新思考網絡時代教育治理的根本前提。本書提供嚴謹的理論框架，並輔以來自歐洲、東亞與全球南方的實證案例研究。",
+    abstractZhHans:
+      "本专著探讨教育政策与数字化转型在国家及区域治理体系中的交汇。伊莲娜·里希特通过对十五个国家的比较分析指出，数字获取方面的结构性不平等既反映在现有政策框架之中，也被其不断再生产；而真正有意义的改革，必须重新思考网络时代教育治理的根本前提。本书提供严谨的理论框架，并辅以来自欧洲、东亚与全球南方的实证案例研究。",
     tableOfContents: [
       "Preface",
       "1. Introduction: Policy at the Threshold",
@@ -97,12 +102,26 @@ export const books: Book[] = [
       "參考書目",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "序言",
+      "第一章 导论：政策的门槛时刻",
+      "第二章 教育中的数字治理图景",
+      "第三章 获取、公平与基础设施问题",
+      "第四章 课程、标准化与数字鸿沟",
+      "第五章 数字治理学校中的教师能动性",
+      "第六章 比较案例研究：十五国框架",
+      "第七章 迈向批判性政策议程",
+      "参考文献",
+      "索引",
+    ],
     authorBio: [
       {
         name: "Elena Richter",
         bio: "Dr. Elena Richter is an independent researcher specialising in education governance and digital policy. She holds a doctorate in Education from Westlake International University and has contributed to policy consultations with the International Education Research Consortium and the European Education Policy Forum. Her previous work has appeared in Comparative Education Policy Review and the International Journal of Educational Governance.",
         bioZh:
           "艾琳娜．里希特博士為獨立研究者，專長於教育治理與數位政策研究。她於西湖國際大學取得教育學博士學位，並曾參與國際教育研究聯盟與歐洲教育政策論壇的政策諮詢工作。其著作曾刊載於《比較教育政策評論》與《國際教育治理期刊》。",
+        bioZhHans:
+          "伊莲娜·里希特博士为独立研究者，专长于教育治理与数字政策研究。她于西湖国际大学取得教育学博士学位，并曾参与国际教育研究联盟与欧洲教育政策论坛的政策咨询工作。其著作曾刊载于《比较教育政策评论》与《国际教育治理期刊》。",
       },
     ],
     hasSampleChapter: true,
@@ -136,6 +155,8 @@ export const books: Book[] = [
       "This edited volume brings together eighteen scholars from across the Asia-Pacific region to examine evolving questions of governance, sovereignty, and social change in a period of profound geopolitical reconfiguration. The contributors interrogate the limits of existing global governance frameworks, explore emerging regional architectures, and assess the implications of shifting power dynamics for civil society, international law, and human rights. The volume makes a distinctive contribution by foregrounding Asia-Pacific voices and frameworks often marginalised in Euro-Atlantic scholarship.",
     abstractZh:
       "本文集匯集了來自亞太地區十八位學者的研究成果，探討在地緣政治深刻重組時期，治理、主權與社會變遷所面臨的演變議題。各篇論文檢視現行全球治理框架的侷限、探索新興的區域架構，並評估權力格局變化對公民社會、國際法與人權的影響。本書的獨特貢獻在於凸顯常被歐美學界邊緣化的亞太觀點與分析框架。",
+    abstractZhHans:
+      "本文集汇集了来自亚太地区十八位学者的研究成果，探讨在地缘政治深刻重组时期，治理、主权与社会变迁所面临的演变议题。各篇论文检视现行全球治理框架的局限、探索新兴的区域架构，并评估权力格局变化对公民社会、国际法与人权的影响。本书的独特贡献在于凸显常被欧美学界边缘化的亚太观点与分析框架。",
     tableOfContents: [
       "Introduction: Rethinking Global Society from the Asia-Pacific",
       "Part I: Governance Architectures in Transition",
@@ -170,16 +191,35 @@ export const books: Book[] = [
       "作者簡介",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "导论：从亚太地区重新思考全球社会",
+      "第一部分：转型中的治理架构",
+      "第一章 压力下的多边主义：东南亚的视角",
+      "第二章 中国、东盟与新区域秩序",
+      "第三章 太平洋岛国与气候治理缺口",
+      "第二部分：社会、身份认同与权利",
+      "第四章 争议民主中的公民社会韧性",
+      "第五章 性别、公民身份与社会政策改革",
+      "第六章 少数群体权利与宪政框架",
+      "第三部分：经济、科技与发展",
+      "第七章 全球南方的平台经济与劳动",
+      "第八章 数字基础设施与发展型国家",
+      "结论：迈向亚太研究议程",
+      "作者简介",
+      "索引",
+    ],
     authorBio: [
       {
         name: "James T. Chen",
         bio: "Prof. James T. Chen is Professor of International Studies at Meridian University. He has published extensively on regional governance and Asian political economy.",
         bioZh: "陳姓教授（James T. Chen）為子午大學國際研究教授，於區域治理與亞洲政治經濟領域發表大量著作。",
+        bioZhHans: "陈姓教授（James T. Chen）为子午大学国际研究教授，于区域治理与亚洲政治经济领域发表大量著作。",
       },
       {
         name: "Mei Lin Tanaka",
         bio: "Dr. Mei Lin Tanaka is Associate Professor of Global Studies at Nishimura University, Tokyo. Her research addresses gender, governance, and transnational civil society in the Asia-Pacific.",
         bioZh: "田中美玲博士為東京西村大學全球研究副教授，研究專長為性別、治理與亞太地區的跨國公民社會。",
+        bioZhHans: "田中美玲博士为东京西村大学全球研究副教授，研究专长为性别、治理与亚太地区的跨国公民社会。",
       },
     ],
     hasSampleChapter: false,
@@ -212,6 +252,8 @@ export const books: Book[] = [
       "This research report synthesises findings from a two-year investigation into the institutional adoption of artificial intelligence technologies across forty higher education institutions in twelve countries. The report examines pedagogical implications, academic integrity frameworks, staff preparedness, and the governance challenges posed by large language models and generative AI tools. It concludes with a set of evidence-based recommendations for institutional policymakers, academic staff, and national education authorities.",
     abstractZh:
       "本研究報告彙整了一項為期兩年、涵蓋十二個國家四十所高等教育機構之人工智能技術採用情況的調查成果。報告檢視其教學意涵、學術誠信框架、教職員的準備程度，以及大型語言模型與生成式人工智能工具所帶來的治理挑戰，並於結尾提出一系列以實證為基礎的建議，供機構決策者、教職人員與各國教育主管機關參考。",
+    abstractZhHans:
+      "本研究报告汇总了一项为期两年、涵盖十二个国家四十所高等教育机构人工智能技术应用情况的调查成果。报告考察了其教学意涵、学术诚信框架、教职员的准备程度，以及大型语言模型与生成式人工智能工具带来的治理挑战，并在结尾提出一系列基于实证的建议，供机构决策者、教职人员与各国教育主管部门参考。",
     tableOfContents: [
       "Executive Summary",
       "1. Background and Research Design",
@@ -238,11 +280,25 @@ export const books: Book[] = [
       "附錄乙：研究方法",
       "參考文獻",
     ],
+    tableOfContentsZhHans: [
+      "执行摘要",
+      "第一章 背景与研究设计",
+      "第二章 不同机构类型的人工智能应用模式",
+      "第三章 教学意涵与课程整合",
+      "第四章 生成式人工智能时代的学术诚信",
+      "第五章 教职员观点与机构支持",
+      "第六章 治理框架与政策回应",
+      "第七章 结论与建议",
+      "附录一：参与机构",
+      "附录二：研究方法",
+      "参考文献",
+    ],
     authorBio: [
       {
         name: "PSG Research Unit",
         bio: "The PSG Research Unit conducts interdisciplinary research on education, technology, and public policy under the auspices of Panorama Scholarly Group.",
         bioZh: "PSG 研究組隸屬於 Panorama Scholarly Group，從事教育、科技與公共政策相關的跨學科研究。",
+        bioZhHans: "PSG 研究组隶属于 Panorama Scholarly Group，从事教育、科技与公共政策相关的跨学科研究。",
       },
     ],
     hasSampleChapter: true,
@@ -274,6 +330,8 @@ export const books: Book[] = [
       "Drawing on three decades of administrative reform across Western Europe and North America, Klaus Hoffmann offers a systematic comparative analysis of how post-industrial states have attempted to restructure public administration in response to fiscal pressure, technological change, and declining public trust. The monograph situates administrative reform within broader narratives of state transformation and challenges both managerialist and neo-institutionalist accounts with an original framework centred on democratic legitimacy.",
     abstractZh:
       "克勞斯．霍夫曼綜覽西歐與北美三十年來的行政改革歷程，對後工業國家如何因應財政壓力、科技變遷與公眾信任下滑而嘗試重構公共行政，提出系統性的比較分析。本書將行政改革置於國家轉型的宏觀敘事之中，並以聚焦民主正當性的原創框架，同時挑戰管理主義與新制度主義兩種既有論述。",
+    abstractZhHans:
+      "克劳斯·霍夫曼综览西欧与北美三十年来的行政改革历程，对后工业国家如何应对财政压力、科技变迁与公众信任下滑而尝试重构公共行政，提出系统性的比较分析。本书将行政改革置于国家转型的宏观叙事之中，并以聚焦民主正当性的原创框架，同时挑战管理主义与新制度主义两种既有论述。",
     tableOfContents: [
       "Preface",
       "1. The Reformation Imperative: Why States Reform Administration",
@@ -300,12 +358,27 @@ export const books: Book[] = [
       "參考書目",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "序言",
+      "第一章 改革的必要性：国家为何进行行政改革",
+      "第二章 理论框架：从新公共管理到后新公共管理",
+      "第三章 财政压力与结构调整",
+      "第四章 数字化与公共服务的重构",
+      "第五章 民主正当性与行政变革",
+      "第六章 案例研究：德国、法国、英国、加拿大",
+      "第七章 跨国比较与可推广的发现",
+      "第八章 结论：改革评估框架",
+      "参考文献",
+      "索引",
+    ],
     authorBio: [
       {
         name: "Klaus Hoffmann",
         bio: "Prof. Klaus Hoffmann is Professor of Public Administration at the Leinburg School of Governance. He is the author of The Administrative State in Transition: A Comparative Analysis (2017) and has advised public sector reform commissions in several European governments.",
         bioZh:
           "克勞斯．霍夫曼教授為萊恩堡治理學院公共行政學教授，著有《轉型中的行政國家：一項比較分析》（2017年），並曾為多個歐洲國家政府的公部門改革委員會提供諮詢。",
+        bioZhHans:
+          "克劳斯·霍夫曼教授为莱恩堡治理学院公共行政学教授，著有《转型中的行政国家：一项比较分析》（2017年），并曾为多个欧洲国家政府的公共部门改革委员会提供咨询。",
       },
     ],
     hasSampleChapter: false,
@@ -335,6 +408,8 @@ export const books: Book[] = [
       "This edited volume brings together leading scholars to examine how digital media are reshaping democratic practice, public discourse, and political participation across diverse national contexts. The contributors investigate platform governance, misinformation ecosystems, digital activism, and the reconfiguration of the public sphere under conditions of algorithmic mediation. Drawing on empirical research from Europe, Asia, and the Americas, the volume offers a comparative and theoretically grounded account of media's evolving role in contemporary democratic life.",
     abstractZh:
       "本文集匯聚多位頂尖學者，探討數位媒體如何在不同國家脈絡中重塑民主實踐、公共論述與政治參與。各篇論文探討平台治理、假訊息生態系統、數位行動主義，以及公共領域在演算法中介條件下的重構。本書結合來自歐洲、亞洲與美洲的實證研究，對媒體在當代民主生活中不斷演變的角色，提出兼具比較視野與理論基礎的論述。",
+    abstractZhHans:
+      "本文集汇聚多位顶尖学者，探讨数字媒体如何在不同国家语境中重塑民主实践、公共话语与政治参与。各篇论文探讨平台治理、虚假信息生态系统、数字行动主义，以及公共领域在算法中介条件下的重构。本书结合来自欧洲、亚洲与美洲的实证研究，对媒体在当代民主生活中不断演变的角色，提出兼具比较视野与理论基础的论述。",
     tableOfContents: [
       "Introduction: Democracy in the Age of Digital Media",
       "Part I: Platforms, Power, and Public Discourse",
@@ -369,16 +444,35 @@ export const books: Book[] = [
       "作者簡介",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "导论：数字媒体时代的民主",
+      "第一部分：平台、权力与公共话语",
+      "第一章 算法公众与共同现实的碎片化",
+      "第二章 平台治理与民主问责",
+      "第三章 虚假信息、信任与数字新闻的知识论",
+      "第二部分：政治传播与参与",
+      "第四章 数字行动主义与网络化社会运动",
+      "第五章 社交媒体时代的选举传播",
+      "第六章 民粹主义、情感与网络政治的情绪逻辑",
+      "第三部分：比较视角",
+      "第七章 东亚的数字公共领域",
+      "第八章 全球南方的平台资本主义与民主侵蚀",
+      "结论：为数字时代重新思考媒体理论",
+      "作者简介",
+      "索引",
+    ],
     authorBio: [
       {
         name: "Yuki Tanigawa",
         bio: "Dr. Yuki Tanigawa is Associate Professor of Media Studies at Ashford Pacific University. Her research examines platform politics, digital media, and democratic governance in East Asian contexts.",
         bioZh: "谷川由紀博士為阿什福德太平洋大學媒體研究副教授，研究聚焦於東亞脈絡下的平台政治、數位媒體與民主治理。",
+        bioZhHans: "谷川由纪博士为阿什福德太平洋大学媒体研究副教授，研究聚焦于东亚语境下的平台政治、数字媒体与民主治理。",
       },
       {
         name: "Priya Nair",
         bio: "Dr. Priya Nair is Senior Lecturer in Political Communication at the Kelbourne Institute for Global Studies. She specialises in misinformation, digital activism, and media policy.",
         bioZh: "普里雅．奈爾博士為凱爾伯恩全球研究學院政治傳播高級講師，專長為假訊息、數位行動主義與媒體政策。",
+        bioZhHans: "普里娅·奈尔博士为凯尔伯恩全球研究学院政治传播高级讲师，专长为虚假信息、数字行动主义与媒体政策。",
       },
     ],
     hasSampleChapter: true,
@@ -406,6 +500,8 @@ export const books: Book[] = [
       "Drawing on fieldwork conducted across twelve metropolitan regions in Europe and East Asia, Marco Ferretti examines how the adoption of smart city technologies is reshaping the governance structures and democratic accountability of urban administrations. The monograph argues that smart urbanism is not merely a technological project but a political one, and that its implications for civic participation, data sovereignty, and administrative legitimacy demand sustained scholarly and policy attention.",
     abstractZh:
       "馬可．費雷蒂根據在歐洲與東亞十二個都會區進行的實地調查，探討智慧城市技術的採用如何重塑城市行政的治理結構與民主課責。本書主張智慧城市主義並非單純的技術專案，而是一項政治工程，其對公民參與、資料主權與行政正當性所帶來的影響，值得學界與政策界持續關注。",
+    abstractZhHans:
+      "马可·费雷蒂根据在欧洲与东亚十二个都市圈进行的实地调查，探讨智慧城市技术的应用如何重塑城市行政的治理结构与民主问责。本书主张智慧城市主义并非单纯的技术项目，而是一项政治工程，其对公民参与、数据主权与行政正当性带来的影响，值得学界与政策界持续关注。",
     tableOfContents: [
       "Preface",
       "1. Introduction: The Governance Turn in Smart Urbanism",
@@ -430,11 +526,24 @@ export const books: Book[] = [
       "參考書目",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "序言",
+      "第一章 导论：智慧城市主义中的治理转向",
+      "第二章 智慧城市技术与行政转型",
+      "第三章 数据、监控与新型城市官僚体制",
+      "第四章 数字治理城市中的民主问责",
+      "第五章 平台城市中的公民参与",
+      "第六章 比较分析：十二个都市案例",
+      "第七章 结论：迈向批判性治理框架",
+      "参考文献",
+      "索引",
+    ],
     authorBio: [
       {
         name: "Marco Ferretti",
         bio: "Dr. Marco Ferretti is Assistant Professor of Urban Politics at the Rhenish Academy of Social Sciences. His research focuses on digital governance, urban policy, and public sector innovation.",
         bioZh: "馬可．費雷蒂博士為萊茵社會科學院城市政治學助理教授，研究聚焦於數位治理、城市政策與公部門創新。",
+        bioZhHans: "马可·费雷蒂博士为莱茵社会科学院城市政治学助理教授，研究聚焦于数字治理、城市政策与公共部门创新。",
       },
     ],
     hasSampleChapter: false,
@@ -464,6 +573,8 @@ export const books: Book[] = [
       "This monograph offers a systematic examination of the profound transformation of social governance models against the backdrop of the digital economy's rise. Organised around three thematic lines — platform power, data governance, and institutional innovation — the author provides an in-depth analysis of digital economy governance practices in China and the Asia-Pacific region. Drawing on comparative policy research, the book explores the pathways and mechanisms through which state governance capacity is being reconstructed in the digital age. It is recommended for scholars and graduate students in public administration, political science, and digital society studies.",
     abstractZh:
       "本書系統探討在數位經濟崛起背景下，社會治理模式所經歷的深刻轉型。全書圍繞平台權力、資料治理與制度創新三條主軸，深入分析中國及亞太地區的數位經濟治理實踐。作者結合比較政策研究，探討國家治理能力在數位時代重構的路徑與機制，適合公共行政、政治學及數位社會研究領域之學者與研究生參考。",
+    abstractZhHans:
+      "本书系统探讨在数字经济崛起背景下，社会治理模式所经历的深刻转型。全书围绕平台权力、数据治理与制度创新三条主线，深入分析中国及亚太地区的数字经济治理实践。作者结合比较政策研究，探讨国家治理能力在数字时代重构的路径与机制，适合公共行政、政治学及数字社会研究领域的学者与研究生参考。",
     tableOfContents: [
       "Preface",
       "Chapter 1  The Rise of the Digital Economy and the Challenges of Governance",
@@ -488,12 +599,26 @@ export const books: Book[] = [
       "參考書目",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "序言",
+      "第一章 数字经济的崛起与治理挑战",
+      "第二章 平台经济与市场规范",
+      "第三章 数据所有权、数据安全与数字主权",
+      "第四章 数字经济时代的劳动关系",
+      "第五章 电子政务与公共服务的数字化转型",
+      "第六章 比较视野下的数字治理制度",
+      "第七章 结论：数字时代的国家治理能力",
+      "参考文献",
+      "索引",
+    ],
     authorBio: [
       {
         name: "方晓磊",
         bio: "Fang Xiaolei, PhD, is Associate Professor in the School of Public Administration at Dongling International Academic University. His research focuses on digital economy policy, platform governance, and comparative public administration. He has published in several international journals in public policy and Asian studies.",
         bioZh:
           "方曉磊博士為東嶺國際學術大學公共行政學院副教授，研究專長為數位經濟政策、平台治理與比較公共行政，其研究成果曾發表於多份公共政策與亞洲研究國際期刊。",
+        bioZhHans:
+          "方晓磊博士为东岭国际学术大学公共行政学院副教授，研究专长为数字经济政策、平台治理与比较公共行政，其研究成果曾发表于多份公共政策与亚洲研究国际期刊。",
       },
     ],
     hasSampleChapter: true,
@@ -522,6 +647,8 @@ export const books: Book[] = [
       "This edited volume brings together more than twenty scholars from the Asia-Pacific, Europe, and North America to provide a systematic survey of theoretical frameworks, policy developments, and practical approaches to higher education internationalisation. Contributors address core themes including international student mobility, curriculum internationalisation, academic collaboration, and quality assurance, drawing on case studies from diverse national and regional contexts to illuminate the multiple dimensions of internationalisation and its far-reaching implications for institutional governance.",
     abstractZh:
       "本文集匯集了來自亞太、歐洲與北美二十餘位學者的研究成果，系統性地梳理高等教育國際化的理論框架、政策發展與實務作法。各篇論文探討國際學生流動、課程國際化、學術合作與品質保證等核心議題，並透過不同國家與區域的案例研究，闡明國際化的多重面向及其對機構治理的深遠影響。",
+    abstractZhHans:
+      "本文集汇集了来自亚太、欧洲与北美二十余位学者的研究成果，系统性地梳理高等教育国际化的理论框架、政策发展与实践做法。各篇论文探讨国际学生流动、课程国际化、学术合作与质量保障等核心议题，并通过不同国家与区域的案例研究，阐明国际化的多重面向及其对机构治理的深远影响。",
     tableOfContents: [
       "Editors' Preface",
       "Part I  Theoretical Perspectives",
@@ -556,16 +683,35 @@ export const books: Book[] = [
       "作者簡介",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "编者序",
+      "第一部分 理论视角",
+      "第一章 高等教育国际化：概念演变与理论框架",
+      "第二章 跨国教育与高等教育的市场化",
+      "第二部分 政策分析",
+      "第三章 亚太地区高等教育国际化政策比较",
+      "第四章 欧洲高等教育区与博洛尼亚进程",
+      "第五章 中国高校国际化策略的演变",
+      "第三部分 案例研究",
+      "第六章 国际学生融入与校园多元文化",
+      "第七章 课程国际化与授课语言政策",
+      "第八章 国际学术合作的机制与挑战",
+      "后记",
+      "作者简介",
+      "索引",
+    ],
     authorBio: [
       {
         name: "陈明慧",
         bio: "Chen Minghui, PhD, is Professor in the Faculty of Education at Beian International University. Her research addresses comparative higher education policy and educational governance.",
         bioZh: "陳明慧博士為北岸國際大學教育學院教授，研究專長為比較高等教育政策與教育治理。",
+        bioZhHans: "陈明慧博士为北岸国际大学教育学院教授，研究专长为比较高等教育政策与教育治理。",
       },
       {
         name: "李建平",
         bio: "Li Jianping, PhD, is Associate Researcher at the East Alliance Academic Research Institute. He specialises in higher education internationalisation and international student policy.",
         bioZh: "李建平博士為東盟學術研究院副研究員，專長為高等教育國際化與國際學生政策。",
+        bioZhHans: "李建平博士为东盟学术研究院副研究员，专长为高等教育国际化与国际学生政策。",
       },
     ],
     hasSampleChapter: false,
@@ -593,6 +739,8 @@ export const books: Book[] = [
       "This monograph offers a systematic analysis of artificial intelligence governance from the interrelated dimensions of ethics, law, and institutional design. The author surveys AI regulatory frameworks and legislative developments across major jurisdictions, and provides an in-depth examination of core issues including algorithmic accountability, automated decision-making, data privacy, and AI safety. The book is an important reference for public policymakers, legal scholars, and researchers working in science and technology governance.",
     abstractZh:
       "本書從倫理、法律與制度設計三個相互關聯的面向，系統分析人工智能治理議題。作者綜覽各主要法域的人工智能監管框架與立法發展，並深入探討演算法課責、自動化決策、資料隱私與人工智能安全等核心問題。本書為公共政策制定者、法學學者及科技治理研究人員提供重要參考。",
+    abstractZhHans:
+      "本书从伦理、法律与制度设计三个相互关联的面向，系统分析人工智能治理议题。作者综览各主要法域的人工智能监管框架与立法发展，并深入探讨算法问责、自动化决策、数据隐私与人工智能安全等核心问题。本书为公共政策制定者、法学学者及科技治理研究人员提供重要参考。",
     tableOfContents: [
       "Preface",
       "Chapter 1  AI Governance: Framing the Problem",
@@ -619,11 +767,25 @@ export const books: Book[] = [
       "參考書目",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "序言",
+      "第一章 人工智能治理：问题的界定",
+      "第二章 主要法域人工智能监管框架比较",
+      "第三章 算法问责与透明机制",
+      "第四章 自动化决策与行政法律责任",
+      "第五章 数据治理与个人信息保护",
+      "第六章 生成式人工智能的内容安全规范",
+      "第七章 迈向国际人工智能治理协调的路径",
+      "第八章 结论与政策建议",
+      "参考文献",
+      "索引",
+    ],
     authorBio: [
       {
         name: "赵思远",
         bio: "Zhao Siyuan, PhD, is Researcher at the Centre for Technology Law and Policy at Xian School of Politics and Law. His research focuses on AI law, data governance, and science and technology regulatory policy.",
         bioZh: "趙思遠博士為西安政法學院科技法律與政策研究中心研究員，研究專長為人工智能法、資料治理與科技監管政策。",
+        bioZhHans: "赵思远博士为西安政法学院科技法律与政策研究中心研究员，研究专长为人工智能法、数据治理与科技监管政策。",
       },
     ],
     hasSampleChapter: false,
@@ -651,6 +813,8 @@ export const books: Book[] = [
       "This edited volume examines the theoretical evolution and contemporary challenges of the digital public sphere from the intersecting perspectives of communication studies and political science. Contributions address core themes including platform mediatisation, opinion formation, digital populism, and networked civic participation, offering a critical theoretical assessment of the deep impact of digital communication on democratic politics. The volume is intended for researchers and advanced students in communication studies, political science, and sociology.",
     abstractZh:
       "本文集從傳播學與政治學交叉視角，探討數位公共領域的理論演變與當代挑戰。各篇論文涵蓋平台媒介化、輿論形成、數位民粹主義與網絡公民參與等核心議題，對數位傳播如何深刻影響民主政治提出批判性的理論評估。本書適合傳播學、政治學與社會學領域之研究人員及高年級學生參考。",
+    abstractZhHans:
+      "本文集从传播学与政治学交叉视角，探讨数字公共领域的理论演变与当代挑战。各篇论文涵盖平台媒介化、舆论形成、数字民粹主义与网络公民参与等核心议题，对数字传播如何深刻影响民主政治提出批判性的理论评估。本书适合传播学、政治学与社会学领域的研究人员及高年级学生参考。",
     tableOfContents: [
       "Editors' Introduction",
       "Part I  Theoretical Frameworks",
@@ -685,16 +849,35 @@ export const books: Book[] = [
       "作者簡介",
       "索引",
     ],
+    tableOfContentsZhHans: [
+      "编者导言",
+      "第一部分 理论框架",
+      "第一章 哈贝马斯公共领域理论的数字重构",
+      "第二章 批判传播研究的当代转向",
+      "第二部分 平台、算法与公共话语",
+      "第三章 平台媒介化与话语权力的重构",
+      "第四章 算法推荐与舆论极化",
+      "第五章 数字民粹主义的传播逻辑",
+      "第三部分 参与、动员与民主实践",
+      "第六章 网络公民参与的局限与潜能",
+      "第七章 数字新闻业与公众信任危机",
+      "第八章 跨平台信息环境与知识社群",
+      "后记",
+      "作者简介",
+      "索引",
+    ],
     authorBio: [
       {
         name: "林佳颖",
         bio: "Lin Jiaying, PhD, is Associate Professor at the Nanyang Institute of Media and Political Studies. Her research centres on digital communication, media politics, and public opinion.",
         bioZh: "林佳穎博士為南洋媒體與政治研究學院副教授，研究聚焦於數位傳播、媒體政治與公眾輿論。",
+        bioZhHans: "林佳颖博士为南洋媒体与政治研究学院副教授，研究聚焦于数字传播、媒体政治与公众舆论。",
       },
       {
         name: "吴浩然",
         bio: "Wu Haoran, PhD, is Researcher at the Centre for Communication and Democracy Research, Hengchuan Institute for Social Sciences. He specialises in networked public sphere and digital democracy.",
         bioZh: "吳浩然博士為恆川社會科學院傳播與民主研究中心研究員，專長為網絡公共領域與數位民主。",
+        bioZhHans: "吴浩然博士为恒川社会科学院传播与民主研究中心研究员，专长为网络公共领域与数字民主。",
       },
     ],
     hasSampleChapter: false,
@@ -722,6 +905,8 @@ export const books: Book[] = [
       "This research report presents the findings of a comparative study by the PSG Research Centre examining primary and secondary education policy across eight countries and regions in the Asia-Pacific. The report focuses on core policy domains including curriculum reform, teacher professional development, educational equity, and the integration of digital technologies into classrooms. It maps common trends and divergent pathways in policy development across the region and concludes with forward-looking policy recommendations.",
     abstractZh:
       "本研究報告呈現 PSG 研究中心一項比較研究的成果，檢視亞太地區八個國家與地區的中小學教育政策。報告聚焦於課程改革、教師專業發展、教育公平及課堂數位科技整合等核心政策領域，梳理該地區政策發展的共同趨勢與分歧路徑，並於結尾提出前瞻性的政策建議。",
+    abstractZhHans:
+      "本研究报告呈现 PSG 研究中心一项比较研究的成果，考察亚太地区八个国家与地区的中小学教育政策。报告聚焦于课程改革、教师专业发展、教育公平及课堂数字技术整合等核心政策领域，梳理该地区政策发展的共同趋势与分歧路径，并在结尾提出前瞻性的政策建议。",
     tableOfContents: [
       "Executive Summary",
       "Chapter 1  Background and Methodology",
@@ -744,11 +929,23 @@ export const books: Book[] = [
       "附錄：參與國家與地區",
       "參考書目",
     ],
+    tableOfContentsZhHans: [
+      "执行摘要",
+      "第一章 背景与研究方法",
+      "第二章 课程改革的区域比较",
+      "第三章 教师专业发展政策",
+      "第四章 教育公平：机会平等与资源分配",
+      "第五章 科技整合与数字教育政策",
+      "第六章 结论与政策建议",
+      "附录：参与国家与地区",
+      "参考文献",
+    ],
     authorBio: [
       {
         name: "PSG Research Centre",
         bio: "The PSG Research Centre is an interdisciplinary research unit under Panorama Scholarly Group, conducting research at the intersection of education, technology, and public policy.",
         bioZh: "PSG 研究中心為 Panorama Scholarly Group 旗下的跨學科研究單位，從事教育、科技與公共政策交叉領域的研究。",
+        bioZhHans: "PSG 研究中心为 Panorama Scholarly Group 旗下的跨学科研究单位，从事教育、科技与公共政策交叉领域的研究。",
       },
     ],
     hasSampleChapter: false,
@@ -774,29 +971,53 @@ export const books: Book[] = [
     bookType: "Monograph",
     status: "Published",
     abstract:
-      "《禅宗与佛教中国化论集》是释延晗法师关于禅宗与佛教中国化研究文章的结集，收录了2016年至2026年间与禅宗及佛教中国化相关的文章共计十六余篇。书中论述涉及禅宗与佛教中国化的诸多方面，包括少林七十字辈与佛教的中国化、苏州重元寺与佛教中国化、佛教经典翻译与佛教中国化等内容的探讨，对当代禅宗与佛教中国化研究而言有一定的价值。",
+      "Essays on Chan Buddhism and the Sinicization of Buddhism is a collection of research articles by the monastic scholar Shi Yanhan on Chan Buddhism and the sinicization of Buddhism, bringing together more than sixteen essays written between 2016 and 2026. The essays address a range of topics within this field, including the Shaolin seventy-character generational lineage and the sinicization of Buddhism, Chongyuan Monastery in Suzhou and the sinicization of Buddhism, and the translation of Buddhist scriptures and its role in sinicization. The collection offers a valuable contribution to contemporary scholarship on Chan Buddhism and the sinicization of Buddhism.",
     abstractZh:
       "《禪宗與佛教中國化論集》是釋延晗法師關於禪宗與佛教中國化研究文章的結集，收錄了2016年至2026年間與禪宗及佛教中國化相關的文章共計十六餘篇。書中論述涉及禪宗與佛教中國化的諸多方面，包括少林七十字輩與佛教的中國化、蘇州重元寺與佛教中國化、佛教經典翻譯與佛教中國化等內容的探討，對當代禪宗與佛教中國化研究而言有一定的價值。",
+    abstractZhHans:
+      "《禅宗与佛教中国化论集》是释延晗法师关于禅宗与佛教中国化研究文章的结集，收录了2016年至2026年间与禅宗及佛教中国化相关的文章共计十六余篇。书中论述涉及禅宗与佛教中国化的诸多方面，包括少林七十字辈与佛教的中国化、苏州重元寺与佛教中国化、佛教经典翻译与佛教中国化等内容的探讨，对当代禅宗与佛教中国化研究而言有一定的价值。",
     tableOfContents: [
+      "Foreword (Huang Xingwang / Ruwen)",
+      "Examining the Life and Deeds of Fuyu through the 'Stele of Master Yu'",
+      "The Origins of the 'Buddhist-Daoist Controversy' from the Perspective of Yuan-Dynasty Church-State Relations",
+      "Xueting Fuyu and the Buddhist-Daoist Controversy",
+      "Xueting Fuyu's Sense of Family and Nation",
+      "Buddhist Policy and the State of Chan Buddhism in the Era of Xueting Fuyu",
+      "A Brief Analysis of Xueting Fuyu's Path from 'Bodhicitta' to 'Loyalty and Righteousness'",
+      "Xueting Fuyu's View of Gratitude",
+      "The Shaolin 'Seventy-Character Generational Lineage' and the Sinicization of Buddhism",
+      "The Influence of Faxian's Journey to the West on Buddhism and Its Modern Significance",
+      "'Perfect Interfusion' in the Fayan School and Its Modern Value",
+      "A Study of the Imperially Revised Baizhang Pure Rules from the Perspective of Yuan-Dynasty Buddhist Policy",
+      "Continuity and Innovation in the Chan Thought of Gaofeng Yuanmiao of the Yuan Dynasty",
+      "Continuity and Innovation in Zhongfeng Mingben's Thought through the Lens of Chan-Pure Land Syncretism",
+      "The Translation of Buddhist Texts and the Sinicization of Buddhism",
+      "Chongyuan Monastery in Suzhou and the Sinicization of Buddhism",
+      "Continuity and Innovation in Shitou Xiqian's Chan Thought in the Jingde Chuandeng Lu",
+      "Shengtang Monastery in Suzhou and the Sinicization of Buddhism",
+      "'Perfect Interfusion' in Chan Buddhism and Its Modern Value",
+      "Afterword",
+    ],
+    tableOfContentsZhHans: [
       "序（黄兴旺 / 如闻）",
-      "从“裕公碑”考察福裕行迹",
-      "元代政教关系视域下“佛道之争”的起因",
+      "从\"裕公碑\"考察福裕行迹",
+      "元代政教关系视域下\"佛道之争\"的起因",
       "雪庭福裕与佛道之争",
       "雪庭福裕的家国情怀",
       "雪庭福裕时代的佛教政策与禅宗状况",
-      "浅析雪庭福裕“菩提心”到“忠义心”",
+      "浅析雪庭福裕\"菩提心\"到\"忠义心\"",
       "雪庭福裕的感恩观",
-      "“少林七十字辈”与佛教的中国化",
+      "\"少林七十字辈\"与佛教的中国化",
       "法显西行对佛教的影响及其现代意义",
-      "法眼宗“圆融”及其现代价值",
+      "法眼宗\"圆融\"及其现代价值",
       "元代佛教政策视角中《敕修百丈清规》研究",
       "元代高峰原妙禅学思想的守正创新",
-      "从“禅净”融合看中峰明本的守正创新",
+      "从\"禅净\"融合看中峰明本的守正创新",
       "佛教典籍翻译与佛教中国化",
       "苏州重元寺与佛教的中国化",
       "《景德传灯录》中石头希迁禅学的守正创新",
       "苏州圣堂寺与佛教的中国化",
-      "禅宗“圆融”及其现代价值",
+      "禅宗\"圆融\"及其现代价值",
       "后记",
     ],
     tableOfContentsZh: [
@@ -824,9 +1045,11 @@ export const books: Book[] = [
     authorBio: [
       {
         name: "释延晗",
-        bio: "释延晗，河南洛阳人，河南科技大学与戒幢佛学研究所研究生；祝发于嵩山少林寺；学戒于太姥山平兴寺；具戒于南海禅寺天中堂；现为江苏佛学院寒山学院讲师；主要研究方向为东亚禅宗文献与思想。",
+        bio: "Shi Yanhan is a native of Luoyang, Henan Province, and a postgraduate of Henan University of Science and Technology and the Jiechuang Buddhist Studies Institute. He took monastic vows at Shaolin Monastery on Mount Song, received novice precepts at Pingxing Monastery on Mount Taimu, and received full ordination at the Tianzhong Hall of Nanhai Chan Monastery. He currently lectures at Hanshan College, Jiangsu Buddhist Academy. His research focuses on East Asian Chan Buddhist literature and thought.",
         bioZh:
           "釋延晗，河南洛陽人，河南科技大學與戒幢佛學研究所研究生；祝髮於嵩山少林寺；學戒於太姥山平興寺；具戒於南海禪寺天中堂；現為江蘇佛學院寒山學院講師；主要研究方向為東亞禪宗文獻與思想。",
+        bioZhHans:
+          "释延晗，河南洛阳人，河南科技大学与戒幢佛学研究所研究生；祝发于嵩山少林寺；学戒于太姥山平兴寺；具戒于南海禅寺天中堂；现为江苏佛学院寒山学院讲师；主要研究方向为东亚禅宗文献与思想。",
       },
     ],
     hasSampleChapter: true,
@@ -852,6 +1075,7 @@ export interface AuthorSummary {
   slug: string;
   bio?: string;
   bioZh?: string;
+  bioZhHans?: string;
   books: Book[];
 }
 
@@ -891,13 +1115,15 @@ export function getAllAuthors(): AuthorSummary[] {
       const authorBio = book.authorBio.find((b) => b.name === name);
       const bio = authorBio?.bio;
       const bioZh = authorBio?.bioZh;
+      const bioZhHans = authorBio?.bioZhHans;
       const existing = bySlug.get(slug);
       if (existing) {
         existing.books.push(book);
         if (!existing.bio && bio) existing.bio = bio;
         if (!existing.bioZh && bioZh) existing.bioZh = bioZh;
+        if (!existing.bioZhHans && bioZhHans) existing.bioZhHans = bioZhHans;
       } else {
-        bySlug.set(slug, { name, slug, bio, bioZh, books: [book] });
+        bySlug.set(slug, { name, slug, bio, bioZh, bioZhHans, books: [book] });
       }
     }
   }

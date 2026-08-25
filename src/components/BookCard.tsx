@@ -3,15 +3,13 @@
 import Link from "next/link";
 import type { Book } from "@/data/books";
 import BookCoverSVG from "@/components/BookCoverSVG";
-import { useLanguage } from "@/context/LanguageContext";
+import { localeHref, type Locale } from "@/lib/locale";
 import { bookTypeLabel, licenseLabel, commonLabel, statusLabel } from "@/lib/i18nLabels";
 
-export default function BookCard({ book }: { book: Book }) {
-  const { locale } = useLanguage();
-
+export default function BookCard({ book, locale }: { book: Book; locale: Locale }) {
   return (
     <Link
-      href={`/books/${book.slug}`}
+      href={localeHref(`/books/${book.slug}`, locale)}
       className="group flex flex-col border border-[#e2e2e2] hover:border-[#111111] transition-colors bg-white"
     >
       {/* Cover */}

@@ -4,30 +4,31 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { LogoMark } from "@/components/Logo";
-import { useLanguage } from "@/context/LanguageContext";
+import { getLocaleFromPathname, localeHref } from "@/lib/locale";
 import LanguageToggle from "@/components/LanguageToggle";
 
 const links = [
-  { href: "/", label: { en: "Home", "zh-Hant": "首頁" } },
-  { href: "/books", label: { en: "Books", "zh-Hant": "書目" } },
-  { href: "/authors", label: { en: "Authors", "zh-Hant": "作者" } },
-  { href: "/book-series", label: { en: "Book Series", "zh-Hant": "書系" } },
-  { href: "/for-authors", label: { en: "For Authors", "zh-Hant": "作者專區" } },
-  { href: "/publishing-services", label: { en: "Publishing Services", "zh-Hant": "出版服務" } },
-  { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊" } },
-  { href: "/policies", label: { en: "Policies", "zh-Hant": "政策" } },
-  { href: "/about", label: { en: "About", "zh-Hant": "關於我們" } },
-  { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們" } },
+  { href: "/", label: { en: "Home", "zh-Hant": "首頁", "zh-Hans": "首页" } },
+  { href: "/books", label: { en: "Books", "zh-Hant": "書目", "zh-Hans": "书目" } },
+  { href: "/authors", label: { en: "Authors", "zh-Hant": "作者", "zh-Hans": "作者" } },
+  { href: "/book-series", label: { en: "Book Series", "zh-Hant": "書系", "zh-Hans": "书系" } },
+  { href: "/for-authors", label: { en: "For Authors", "zh-Hant": "作者專區", "zh-Hans": "作者专区" } },
+  { href: "/publishing-services", label: { en: "Publishing Services", "zh-Hant": "出版服務", "zh-Hans": "出版服务" } },
+  { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊", "zh-Hans": "发行信息" } },
+  { href: "/policies", label: { en: "Policies", "zh-Hant": "政策", "zh-Hans": "政策" } },
+  { href: "/about", label: { en: "About", "zh-Hant": "關於我們", "zh-Hans": "关于我们" } },
+  { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們", "zh-Hans": "联系我们" } },
 ];
 
 const copy = {
   en: { tagline: "Academic Book Publishing", submitInquiry: "Submit Inquiry" },
   "zh-Hant": { tagline: "學術圖書出版", submitInquiry: "提交詢問" },
+  "zh-Hans": { tagline: "学术图书出版", submitInquiry: "提交咨询" },
 } as const;
 
 export default function Nav() {
   const pathname = usePathname();
-  const { locale } = useLanguage();
+  const locale = getLocaleFromPathname(pathname);
   const t = copy[locale];
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +53,7 @@ export default function Nav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
-            href="/"
+            href={localeHref("/", locale)}
             className="flex items-center gap-3 group shrink-0"
             aria-label="Panorama Scholarly Books — Home"
           >
@@ -70,10 +71,11 @@ export default function Nav() {
           {/* Desktop nav */}
           <nav className="hidden xl:flex items-center gap-0" aria-label="Main navigation">
             {links.map((link) => {
+              const href = localeHref(link.href, locale);
               const active =
                 link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
+                  ? pathname === href
+                  : pathname.startsWith(href);
               const className = `px-3 py-1 text-[13px] font-serif whitespace-nowrap transition-colors ${
                 active
                   ? "text-[#111111] underline underline-offset-4"
@@ -83,11 +85,11 @@ export default function Nav() {
               // into it can 404 against a stale cached route manifest on
               // this static host, so force a full navigation for it.
               return link.href === "/authors" ? (
-                <a key={link.href} href={`${link.href}/`} className={className}>
+                <a key={link.href} href={`${href}/`} className={className}>
                   {link.label[locale]}
                 </a>
               ) : (
-                <Link key={link.href} href={link.href} className={className}>
+                <Link key={link.href} href={href} className={className}>
                   {link.label[locale]}
                 </Link>
               );
@@ -98,7 +100,7 @@ export default function Nav() {
           <div className="hidden xl:flex items-center gap-3">
             <LanguageToggle />
             <Link
-              href="/contact"
+              href={localeHref("/contact", locale)}
               className="inline-block text-[12px] tracking-[0.08em] uppercase font-serif border border-[#111111] px-4 py-2 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
             >
               {t.submitInquiry}
@@ -135,25 +137,26 @@ export default function Nav() {
         <div className="xl:hidden border-t border-[#e2e2e2] bg-white">
           <nav className="max-w-[1400px] mx-auto px-6 py-4 flex flex-col gap-1" aria-label="Mobile navigation">
             {links.map((link) => {
+              const href = localeHref(link.href, locale);
               const active =
                 link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
+                  ? pathname === href
+                  : pathname.startsWith(href);
               const className = `py-2.5 text-base font-serif border-b border-[#f0f0f0] last:border-0 transition-colors ${
                 active ? "text-[#111111]" : "text-[#555555] hover:text-[#111111]"
               }`;
               return link.href === "/authors" ? (
-                <a key={link.href} href={`${link.href}/`} className={className}>
+                <a key={link.href} href={`${href}/`} className={className}>
                   {link.label[locale]}
                 </a>
               ) : (
-                <Link key={link.href} href={link.href} className={className}>
+                <Link key={link.href} href={href} className={className}>
                   {link.label[locale]}
                 </Link>
               );
             })}
             <Link
-              href="/contact"
+              href={localeHref("/contact", locale)}
               className="mt-3 text-[12px] tracking-[0.08em] uppercase font-serif border border-[#111111] px-4 py-3 text-center text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
             >
               {t.submitInquiry}

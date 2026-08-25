@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
-import { useLanguage } from "@/context/LanguageContext";
+import { localeHref, type Locale } from "@/lib/locale";
 
-export type Bi = { en: React.ReactNode; "zh-Hant": React.ReactNode };
+export type Bi = { en: React.ReactNode; "zh-Hant": React.ReactNode; "zh-Hans": React.ReactNode };
 
 export type PolicyBlock =
   | { type: "p"; content: Bi }
@@ -18,24 +18,24 @@ export interface PolicySection {
 
 export interface PolicyContent {
   title: Bi;
-  updated: { en: string; "zh-Hant": string };
+  updated: { en: string; "zh-Hant": string; "zh-Hans": string };
   sections: PolicySection[];
 }
 
 const chrome = {
   en: { allPolicies: "All Policies", policy: "Policy", lastUpdated: "Last updated:" },
   "zh-Hant": { allPolicies: "所有政策", policy: "政策", lastUpdated: "最後更新：" },
+  "zh-Hans": { allPolicies: "所有政策", policy: "政策", lastUpdated: "最后更新：" },
 } as const;
 
-export default function PolicyLayout({ content }: { content: PolicyContent }) {
-  const { locale } = useLanguage();
+export default function PolicyLayout({ content, locale }: { content: PolicyContent; locale: Locale }) {
   const c = chrome[locale];
 
   return (
     <>
       <div className="border-b border-[#e2e2e2] py-4">
         <Container>
-          <Link href="/policies" className="font-serif text-sm text-[#888888] hover:text-[#111111] transition-colors flex items-center gap-2">
+          <Link href={localeHref("/policies", locale)} className="font-serif text-sm text-[#888888] hover:text-[#111111] transition-colors flex items-center gap-2">
             <ArrowLeft size={14} weight="light" /> {c.allPolicies}
           </Link>
         </Container>
