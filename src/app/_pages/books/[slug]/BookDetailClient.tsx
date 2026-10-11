@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import Container from "@/components/Container";
-import BookCoverSVG from "@/components/BookCoverSVG";
-import { ArrowLeft, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
+import BookCover from "@/components/BookCover";
+import BookCard from "@/components/BookCard";
+import CiteBlock from "@/components/CiteBlock";
+import Monogram from "@/components/Monogram";
+import SampleBadge from "@/components/SampleBadge";
+import { ArrowLeft, DownloadSimple, EnvelopeSimple, Quotes } from "@phosphor-icons/react/dist/ssr";
 import type { Book } from "@/data/books";
-import { slugifyName } from "@/data/books";
+import { slugifyName, bookLangTag, getRelatedBooks, nameRomanizations } from "@/data/books";
 import { pickLocale, pickLocaleList, localeHref, type Locale } from "@/lib/locale";
-import { bookTypeLabel, statusLabel, metadataFieldLabel, commonLabel } from "@/lib/i18nLabels";
+import { bookTypeLabel, statusLabel, metadataFieldLabel, commonLabel, licenseLabel } from "@/lib/i18nLabels";
+import { apaCitation, bibtexCitation } from "@/lib/citation";
 
 const formatLabels: Record<string, { zhHant: string; zhHans: string }> = {
   Hardcover: { zhHant: "精裝本", zhHans: "精装本" },
@@ -36,6 +41,22 @@ function languageLabel(key: string, locale: Locale) {
 
 const copy = {
   en: {
+    books: "Books",
+    breadcrumb: "Breadcrumb",
+    onThisPage: "On this page",
+    description: "Description",
+    publicationDetails: "Publication Details",
+    citeThisBook: "Cite This Book",
+    related: "Related Publications",
+    accessHeading: "Formats & access",
+    restrictedAccess: "Not for sale. This title circulates on a restricted, non-commercial basis; copies may be requested from the Books department.",
+    openAccessNote: "Open access under CC BY-NC-ND 4.0.",
+    rightsNote: "Available through order and institutional inquiries.",
+    downloadPdf: "Download PDF",
+    downloadEpub: "Download EPUB",
+    readMore: "Read the full description",
+    published: "Published",
+    and: "and",
     backToBooks: "Back to Books",
     forthcoming: "Forthcoming",
     notForSale: "Not for sale. Restricted, non-commercial circulation only.",
@@ -63,6 +84,22 @@ const copy = {
     copyrightPolicy: "Copyright and licensing policy",
   },
   "zh-Hant": {
+    books: "書目",
+    breadcrumb: "導覽路徑",
+    onThisPage: "本頁內容",
+    description: "內容簡介",
+    publicationDetails: "出版資料",
+    citeThisBook: "引用本書",
+    related: "相關出版品",
+    accessHeading: "版本與取得方式",
+    restrictedAccess: "非賣品。本書僅作限量、非商業性流通，可向圖書部門來信索取。",
+    openAccessNote: "依 CC BY-NC-ND 4.0 授權開放獲取。",
+    rightsNote: "可透過訂購洽詢或機構採購洽詢取得。",
+    downloadPdf: "下載 PDF",
+    downloadEpub: "下載 EPUB",
+    readMore: "閱讀完整簡介",
+    published: "出版",
+    and: "及",
     backToBooks: "返回書目",
     forthcoming: "即將出版",
     notForSale: "非賣品，僅限非商業性限量流通。",
@@ -90,6 +127,22 @@ const copy = {
     copyrightPolicy: "版權與授權政策",
   },
   "zh-Hans": {
+    books: "书目",
+    breadcrumb: "导航路径",
+    onThisPage: "本页内容",
+    description: "内容简介",
+    publicationDetails: "出版信息",
+    citeThisBook: "引用本书",
+    related: "相关出版物",
+    accessHeading: "版本与获取方式",
+    restrictedAccess: "非卖品。本书仅作限量、非商业性流通，可向图书部门来信索取。",
+    openAccessNote: "依据 CC BY-NC-ND 4.0 许可开放获取。",
+    rightsNote: "可通过订购咨询或机构采购咨询获取。",
+    downloadPdf: "下载 PDF",
+    downloadEpub: "下载 EPUB",
+    readMore: "阅读完整简介",
+    published: "出版",
+    and: "及",
     backToBooks: "返回书目",
     forthcoming: "即将出版",
     notForSale: "非卖品，仅限非商业性限量流通。",
@@ -118,10 +171,19 @@ const copy = {
   },
 } as const;
 
+function firstSentences(text: string, max = 280): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const end = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("。"));
+  return end > 80 ? text.slice(0, end + 1) : `${cut.trimEnd()}…`;
+}
+
+const sections = ["description", "contents", "contributors", "details", "cite", "related"] as const;
+type SectionId = (typeof sections)[number];
+
 export default function BookDetailClient({
   book,
   credit,
-  citationNames,
   citationPSG,
   locale,
 }: {
@@ -132,306 +194,327 @@ export default function BookDetailClient({
   locale: Locale;
 }) {
   const t = copy[locale];
-
-  const title = book.title;
-  const subtitle = book.subtitle;
+  const lang = bookLangTag(book);
   const abstract = pickLocale(book.abstract, book.abstractZh, book.abstractZhHans, locale);
   const toc = pickLocaleList(book.tableOfContents, book.tableOfContentsZh, book.tableOfContentsZhHans, locale);
+  const related = getRelatedBooks(book);
+  const isRestricted = book.license === "Restricted — Not for Sale";
+  const isOpenAccess = book.license === "CC BY-NC-ND 4.0";
+  const mail = (subject: string) => `mailto:books@panorama-sg.com?subject=${encodeURIComponent(`${subject}: ${book.title}`)}`;
+
+  const sectionLabel: Record<SectionId, string> = {
+    description: t.description,
+    contents: t.tableOfContents,
+    contributors: book.isEdited ? t.aboutEditors : t.aboutAuthor,
+    details: t.publicationDetails,
+    cite: t.citeThisBook,
+    related: t.related,
+  };
+  const visibleSections = sections.filter(
+    (id) => (id !== "contents" || toc.length > 0) && (id !== "contributors" || book.authorBio.length > 0) && (id !== "related" || related.length > 0)
+  );
+
+  const keyFacts: [string, React.ReactNode][] = [
+    [t.published, `${book.publicationYear}`],
+    [metadataFieldLabel("ISBN", locale), <span key="isbn" className="tabular-nums">{book.isbn}</span>],
+    ...(book.eisbn ? [[metadataFieldLabel("eISBN", locale), <span key="eisbn" className="tabular-nums">{book.eisbn}</span>] as [string, React.ReactNode]] : []),
+    ...(book.doi
+      ? [[metadataFieldLabel("DOI", locale), <a key="doi" href={`https://doi.org/${book.doi}`} className="link break-all">{book.doi}</a>] as [string, React.ReactNode]]
+      : []),
+    [metadataFieldLabel("Pages", locale), `${book.pages}`],
+    [metadataFieldLabel("Language", locale), languageLabel(book.language, locale)],
+  ];
+
+  const fullDetails: [string, React.ReactNode][] = [
+    [metadataFieldLabel("Publisher", locale), book.publisher],
+    [metadataFieldLabel("Place of Publication", locale), book.placeOfPublication],
+    [metadataFieldLabel("Year", locale), `${book.publicationYear}`],
+    ...keyFacts.slice(1),
+    [metadataFieldLabel("Format", locale), book.format.map((f) => formatLabel(f, locale)).join(", ")],
+    [metadataFieldLabel("Type", locale), bookTypeLabel(book.bookType, locale)],
+    [metadataFieldLabel("Status", locale), statusLabel(book.status, locale)],
+    [metadataFieldLabel("Subject Area", locale), book.subjectArea.join(" · ")],
+  ];
+
+  const contributorNames = (book.isEdited ? book.editors : book.authors).map((name) => ({
+    name,
+    latin: locale === "en" ? nameRomanizations[name] : undefined,
+  }));
 
   return (
     <>
       {/* Breadcrumb */}
-      <div className="border-b border-[#e2e2e2] py-4">
-        <Container>
-          <Link
-            href={localeHref("/books", locale)}
-            className="font-serif text-sm text-[#888888] hover:text-[#111111] transition-colors flex items-center gap-2"
-          >
-            <ArrowLeft size={14} weight="light" />
-            {t.backToBooks}
-          </Link>
-        </Container>
-      </div>
-
-      {/* Main */}
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 py-12 lg:py-16">
-          {/* Left: Book cover + metadata */}
-          <div className="lg:col-span-1 lg:border-r border-[#e2e2e2] lg:pr-10 mb-12 lg:mb-0">
-            {/* Book cover */}
-            <div className="mb-8 max-w-[280px] border border-[#c8c8c8] overflow-hidden">
-              <BookCoverSVG
-                slug={book.slug}
-                title={book.title}
-                subtitle={book.subtitle}
-                authors={book.authors}
-                editors={book.editors}
-                isEdited={book.isEdited}
-                bookType={book.bookType}
-                status={book.status}
-                coverImage={book.coverImage}
-              />
+        <nav aria-label={t.breadcrumb} className="pt-6 lg:pt-8">
+          <ol className="flex items-center gap-2 font-sans text-[14px] text-ink-3 min-w-0">
+            <li>
+              <Link href={localeHref("/books", locale)} className="inline-flex items-center gap-1.5 hover:text-forest hover:underline underline-offset-4">
+                <ArrowLeft size={14} aria-hidden="true" />
+                {t.books}
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li className="truncate text-ink-2" aria-current="page" lang={lang}>{book.title}</li>
+          </ol>
+        </nav>
+      </Container>
+
+      {/* ── Overview ─────────────────────────────────────────────────── */}
+      <Container>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-12 gap-y-10 pt-8 pb-16 lg:pt-12 lg:pb-24 border-b border-line">
+          <div className="md:col-span-5 lg:col-span-4">
+            <div className="max-w-[300px] sm:max-w-[340px] mx-auto md:mx-0 md:max-w-none">
+              <BookCover book={book} alt={`${locale === "en" ? "Cover of" : ""} ${book.title}`.trim()} eager />
             </div>
 
-            {/* Metadata table */}
-            <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
-              {[
-                [metadataFieldLabel("Publisher", locale), book.publisher],
-                [metadataFieldLabel("Place of Publication", locale), book.placeOfPublication],
-                [metadataFieldLabel("Year", locale), String(book.publicationYear)],
-                [metadataFieldLabel("ISBN", locale), book.isbn],
-                ...(book.eisbn ? [[metadataFieldLabel("eISBN", locale), book.eisbn]] : []),
-                ...(book.doi ? [[metadataFieldLabel("DOI", locale), book.doi]] : []),
-                [metadataFieldLabel("Language", locale), languageLabel(book.language, locale)],
-                [metadataFieldLabel("Pages", locale), String(book.pages)],
-                [metadataFieldLabel("Format", locale), book.format.map((f) => formatLabel(f, locale)).join(", ")],
-                [metadataFieldLabel("Type", locale), bookTypeLabel(book.bookType, locale)],
-                [metadataFieldLabel("Status", locale), statusLabel(book.status, locale)],
-              ].map(([label, value]) => (
-                <div
-                  key={label}
-                  className="grid grid-cols-2 border-b border-[#e2e2e2] py-3"
-                >
-                  <span className="font-serif text-xs text-[#888888]">{label}</span>
-                  <span className="font-serif text-xs text-[#555555]">{value}</span>
+            {/* Formats & access — reflects the book's real licence. */}
+            <div className="mt-8 border-t border-line pt-5">
+              <h2 className="eyebrow !text-ink-2 mb-3">{t.accessHeading}</h2>
+              <ul className="flex flex-wrap gap-1.5 mb-3">
+                {book.format.map((f) => (
+                  <li key={f} className="tag">{formatLabel(f, locale)}</li>
+                ))}
+              </ul>
+              <p className="meta">
+                {isRestricted ? t.restrictedAccess : isOpenAccess ? t.openAccessNote : t.rightsNote}
+              </p>
+              {(book.pdfUrl || book.epubUrl) && (
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {book.pdfUrl && (
+                    <a href={book.pdfUrl} download className="btn btn-secondary btn-sm">
+                      <DownloadSimple size={16} aria-hidden="true" /> {t.downloadPdf}
+                    </a>
+                  )}
+                  {book.epubUrl && (
+                    <a href={book.epubUrl} download className="btn btn-secondary btn-sm">
+                      <DownloadSimple size={16} aria-hidden="true" /> {t.downloadEpub}
+                    </a>
+                  )}
                 </div>
-              ))}
-              <div className="py-3 border-b border-[#e2e2e2]">
-                <span className="font-serif text-xs text-[#888888] block mb-1">
-                  {metadataFieldLabel("Subject Area", locale)}
-                </span>
-                <div className="flex flex-wrap gap-1">
-                  {book.subjectArea.map((s) => (
-                    <span key={s} className="font-serif text-xs text-[#555555] border border-[#e2e2e2] px-2 py-0.5">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CTA buttons */}
-            <div className="flex flex-col gap-3 mt-8">
-              <a
-                href={`mailto:books@panorama-sg.com?subject=Request a Copy: ${book.title}`}
-                className="flex items-center justify-center gap-2 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] bg-[#111111] text-white px-4 py-3 hover:bg-transparent hover:text-[#111111] transition-colors"
-              >
-                <EnvelopeSimple size={14} weight="light" />
-                {t.requestCopy}
-              </a>
-              {book.license !== "Restricted — Not for Sale" && (
-                <>
-                  <a
-                    href={`mailto:books@panorama-sg.com?subject=Order Inquiry: ${book.title}`}
-                    className="flex items-center justify-center gap-2 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-4 py-3 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
-                  >
-                    {t.orderInquiry}
-                  </a>
-                  <a
-                    href={`mailto:books@panorama-sg.com?subject=Institutional Purchase: ${book.title}`}
-                    className="flex items-center justify-center gap-2 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#e2e2e2] px-4 py-3 text-[#555555] hover:border-[#111111] hover:text-[#111111] transition-colors"
-                  >
-                    {t.institutionalInquiry}
-                  </a>
-                </>
-              )}
-              {book.license === "Restricted — Not for Sale" && (
-                <p className="font-serif text-xs text-[#888888] text-center mt-1">
-                  {t.notForSale}
-                </p>
-              )}
-              {book.hasSampleChapter && (
-                <a
-                  href={`mailto:books@panorama-sg.com?subject=Sample Chapter Request: ${book.title}`}
-                  className="flex items-center justify-center gap-2 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#e2e2e2] px-4 py-3 text-[#555555] hover:border-[#111111] hover:text-[#111111] transition-colors"
-                >
-                  {t.requestSample}
-                </a>
               )}
             </div>
           </div>
 
-          {/* Right: Content */}
-          <div className="lg:col-span-2 lg:pl-10">
-            {/* Title */}
-            {book.status === "Forthcoming" && (
-              <span className="inline-block font-serif text-[11px] tracking-[0.15em] uppercase border border-[#c8c8c8] text-[#888888] px-3 py-1 mb-6">
-                {t.forthcoming}
-              </span>
-            )}
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-[42px] text-[#111111] font-medium leading-[1.15] mb-3">
-              {title}
-            </h1>
-            {subtitle && (
-              <p className="font-serif text-lg md:text-xl text-[#555555] italic leading-snug mb-6">
-                {subtitle}
+          <div className="md:col-span-7 lg:col-span-7 lg:col-start-6">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <p className="eyebrow">{bookTypeLabel(book.bookType, locale)}</p>
+              {book.status === "Forthcoming" && <span className="tag">{t.forthcoming}</span>}
+              {isOpenAccess && <span className="tag">{licenseLabel("Open Access", locale)}</span>}
+              {isRestricted && <span className="tag">{licenseLabel("Not for Sale", locale)}</span>}
+              <SampleBadge book={book} />
+            </div>
+
+            <h1 className="type-h1 mt-4" lang={lang}>{book.title}</h1>
+            {book.subtitle && (
+              <p className="font-serif italic text-[clamp(1.125rem,1rem+0.6vw,1.5rem)] leading-snug text-ink-2 mt-3" lang={lang}>
+                {book.subtitle}
               </p>
             )}
-            <p className="font-serif text-base text-[#888888] mb-2">
-              {book.isEdited ? commonLabel("Edited by", locale) : commonLabel("By", locale)}{" "}
-              <span className="text-[#555555]">
-                {book.citationEligible ? (
-                  <>
-                    {citationNames.map((name, i) => (
-                      <span key={name}>
-                        {i > 0 && ", "}
-                        {/* Plain <a>, not next/link: client-side transitions
-                            into a unicode author slug 404 on static hosting
-                            (Cloudflare Pages), even though the exported HTML
-                            for that route is correct. A full navigation
-                            sidesteps it. */}
-                        <a
-                          href={`${localeHref(`/authors/${slugifyName(name)}`, locale)}/`}
-                          className="hover:text-[#111111] underline underline-offset-2 decoration-[#c8c8c8] transition-colors"
-                        >
-                          {name}
-                        </a>
-                      </span>
-                    ))}
-                    {book.isEdited && commonLabel(book.editors.length === 1 ? "(Ed.)" : "(Eds.)", locale)}
-                  </>
-                ) : (
-                  credit
-                )}
-              </span>
-            </p>
-            <p className="font-serif text-sm text-[#888888] mb-10">
-              {book.publisher}, {book.publicationYear}
+            {locale === "en" && book.titleTranslation && (
+              <p className="font-serif text-[17px] text-ink-3 mt-3">[{book.titleTranslation}]</p>
+            )}
+
+            <p className="font-sans text-[16px] text-ink-2 mt-6">
+              <span className="text-ink-3">{book.isEdited ? commonLabel("Edited by", locale) : commonLabel("By", locale)}</span>{" "}
+              {contributorNames.map(({ name, latin }, i) => (
+                <span key={name}>
+                  {i > 0 && (i === contributorNames.length - 1 ? ` ${t.and} ` : ", ")}
+                  {book.citationEligible ? (
+                    // Plain <a>, not next/link: client-side transitions into a
+                    // unicode author slug 404 on static hosting.
+                    <a href={`${localeHref(`/authors/${slugifyName(name)}`, locale)}/`} className="link font-semibold">
+                      <span lang={lang}>{name}</span>
+                      {latin && <span className="font-normal"> ({latin})</span>}
+                    </a>
+                  ) : (
+                    <span className="font-semibold">{name}</span>
+                  )}
+                </span>
+              ))}
+              {!book.citationEligible && contributorNames.length === 0 && credit}
             </p>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-10" />
+            <ul className="flex flex-wrap gap-1.5 mt-5" aria-label={metadataFieldLabel("Subject Area", locale)}>
+              {book.subjectArea.map((s) => (
+                <li key={s} className="tag !bg-transparent">{s}</li>
+              ))}
+            </ul>
 
-            {/* Abstract */}
-            <section className="mb-10">
-              <h2 className="font-serif text-xl text-[#111111] font-medium mb-4">
-                {t.bookDescription}
-              </h2>
-              <p className="font-serif text-base text-[#555555] leading-relaxed">
-                {abstract}
-              </p>
-            </section>
+            <p className="lede mt-8 max-w-[60ch]" lang={locale === "en" ? "en" : undefined}>
+              {firstSentences(abstract)}
+            </p>
+            {abstract.length > 280 && (
+              <a href="#description" className="link-arrow mt-3">
+                {t.readMore} <span aria-hidden="true">↓</span>
+              </a>
+            )}
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-10" />
+            <dl className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-5 mt-10 pt-6 border-t border-line">
+              {keyFacts.map(([label, value]) => (
+                <div key={label} className="min-w-0">
+                  <dt className="meta">{label}</dt>
+                  <dd className="font-sans text-[16px] text-ink mt-0.5 break-words">{value}</dd>
+                </div>
+              ))}
+            </dl>
 
-            {/* Table of Contents */}
-            <section className="mb-10">
-              <h2 className="font-serif text-xl text-[#111111] font-medium mb-4">
-                {t.tableOfContents}
-              </h2>
-              <ol className="flex flex-col gap-2">
-                {toc.map((entry, i) => (
-                  <li
-                    key={i}
-                    className="font-serif text-sm text-[#555555] border-b border-[#f0f0f0] pb-2 last:border-0"
-                  >
-                    {entry}
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mt-10">
+              {book.pdfUrl ? (
+                <a href={book.pdfUrl} download className="btn btn-primary">
+                  <DownloadSimple size={16} aria-hidden="true" /> {t.downloadPdf}
+                </a>
+              ) : (
+                <a href={mail("Request a Copy")} className="btn btn-primary">
+                  <EnvelopeSimple size={16} aria-hidden="true" /> {t.requestCopy}
+                </a>
+              )}
+              <a href="#cite" className="btn btn-secondary">
+                <Quotes size={16} aria-hidden="true" /> {t.citeThisBook}
+              </a>
+              {book.hasSampleChapter && (
+                <a href={mail("Sample Chapter Request")} className="btn btn-quiet">{t.requestSample}</a>
+              )}
+              {!isRestricted && (
+                <a href={mail("Order Inquiry")} className="btn btn-quiet">{t.orderInquiry}</a>
+              )}
+            </div>
+          </div>
+        </div>
+      </Container>
+
+      {/* ── Sections ─────────────────────────────────────────────────── */}
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 pt-10 lg:pt-16">
+          <aside className="lg:col-span-3">
+            <nav aria-label={t.onThisPage} className="lg:sticky lg:top-28 mb-10 lg:mb-0">
+              <p className="eyebrow !text-ink-3 mb-3">{t.onThisPage}</p>
+              <ul className="flex lg:flex-col gap-x-1 gap-y-0.5 overflow-x-auto -mx-1 px-1 pb-2 lg:pb-0 lg:border-l lg:border-line">
+                {visibleSections.map((id) => (
+                  <li key={id} className="shrink-0">
+                    <a
+                      href={`#${id}`}
+                      className="block whitespace-nowrap lg:whitespace-normal px-3 py-2 lg:py-1.5 lg:-ml-px lg:border-l-2 border-transparent font-sans text-[15px] text-ink-2 hover:text-forest hover:border-forest rounded-sm lg:rounded-none bg-stone-soft lg:bg-transparent"
+                    >
+                      {sectionLabel[id]}
+                    </a>
                   </li>
                 ))}
-              </ol>
+              </ul>
+            </nav>
+          </aside>
+
+          <div className="lg:col-span-8 lg:col-start-5 space-y-16 lg:space-y-20">
+            <section id="description" aria-labelledby="h-description">
+              <h2 id="h-description" className="type-h2 mb-6">{t.description}</h2>
+              <div className="prose-reading">
+                <p>{abstract}</p>
+              </div>
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-10" />
+            {toc.length > 0 && (
+              <section id="contents" aria-labelledby="h-contents">
+                <h2 id="h-contents" className="type-h2 mb-6">{t.tableOfContents}</h2>
+                <ol className="border-t border-line" lang={locale === "en" ? "en" : undefined}>
+                  {toc.map((entry, i) => {
+                    const isPart = /^(Part\s|第[一二三四五六七八九十]+部分)/.test(entry);
+                    return (
+                      <li
+                        key={i}
+                        className={`grid grid-cols-[2.25rem_1fr] gap-3 py-3 border-b border-line-soft ${
+                          isPart ? "pt-6 font-semibold text-ink" : "text-ink-2"
+                        }`}
+                      >
+                        <span className="font-sans text-[13px] tabular-nums text-ink-3 pt-1">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="font-serif text-[16.5px] leading-snug">{entry}</span>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </section>
+            )}
 
-            {/* Author Bio */}
-            <section className="mb-10">
-              <h2 className="font-serif text-xl text-[#111111] font-medium mb-6">
-                {book.isEdited ? t.aboutEditors : t.aboutAuthor}
-              </h2>
-              <div className="flex flex-col gap-6">
-                {book.authorBio.map((bio) => (
-                  <div key={bio.name}>
-                    <p className="font-serif text-base text-[#111111] font-medium mb-2">
-                      {bio.name}
-                    </p>
-                    <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                      {pickLocale(bio.bio, bio.bioZh, bio.bioZhHans, locale)}
-                    </p>
+            {book.authorBio.length > 0 && (
+              <section id="contributors" aria-labelledby="h-contributors">
+                <h2 id="h-contributors" className="type-h2 mb-6">{sectionLabel.contributors}</h2>
+                <div className="space-y-8">
+                  {book.authorBio.map((bio) => (
+                    <div key={bio.name} className="grid grid-cols-[3.5rem_1fr] gap-5">
+                      <Monogram name={bio.name} />
+                      <div>
+                        <p className="type-h3" lang={lang}>
+                          {bio.name}
+                          {locale === "en" && nameRomanizations[bio.name] && (
+                            <span className="font-normal text-ink-3"> ({nameRomanizations[bio.name]})</span>
+                          )}
+                        </p>
+                        <p className="prose-reading mt-2">{pickLocale(bio.bio, bio.bioZh, bio.bioZhHans, locale)}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            <section id="details" aria-labelledby="h-details">
+              <h2 id="h-details" className="type-h2 mb-6">{t.publicationDetails}</h2>
+              <dl className="border-t border-line">
+                {fullDetails.map(([label, value]) => (
+                  <div key={label} className="grid grid-cols-1 sm:grid-cols-[13rem_1fr] gap-x-6 gap-y-0.5 py-3 border-b border-line-soft">
+                    <dt className="meta">{label}</dt>
+                    <dd className="font-sans text-[16px] text-ink break-words">{value}</dd>
                   </div>
                 ))}
+              </dl>
+
+              <h3 className="type-h3 mt-10 mb-4">{t.copyrightLicensing}</h3>
+              <div className="border-l-2 border-gold pl-5 prose-reading !text-[16px]">
+                {isOpenAccess ? (
+                  <>
+                    <p className="font-semibold text-ink">{t.ccTitle}</p>
+                    <p className="meta">{t.ccSub}</p>
+                    <p>{t.ccBody}</p>
+                    <p>
+                      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer" className="link">
+                        {t.viewLicence}
+                      </a>
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="font-semibold text-ink">
+                      © {book.publicationYear} <span lang={lang}>{credit}</span>. {t.allRightsReserved}
+                    </p>
+                    <p>{isRestricted ? t.restrictedBody : t.defaultBody}</p>
+                    <p>
+                      <Link href={localeHref("/policies/copyright", locale)} className="link">{t.copyrightPolicy}</Link>
+                    </p>
+                  </>
+                )}
               </div>
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-10" />
-
-            {/* Citation */}
-            <section className="mb-10">
-              <h2 className="font-serif text-xl text-[#111111] font-medium mb-4">
-                {t.howToCite}
-              </h2>
-              <div className="bg-[#f7f7f7] border border-[#e2e2e2] p-6">
-                <p className="font-serif text-xs text-[#888888] mb-2 tracking-wide">
-                  {t.psgFormat}
-                </p>
-                <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                  {citationPSG}
-                </p>
-              </div>
+            <section id="cite" aria-labelledby="h-cite">
+              <h2 id="h-cite" className="type-h2 mb-6">{t.citeThisBook}</h2>
+              <CiteBlock
+                locale={locale}
+                formats={[
+                  { id: "psg", label: t.psgFormat, text: citationPSG },
+                  { id: "apa", label: "APA 7", text: apaCitation(book) },
+                  { id: "bibtex", label: "BibTeX", text: bibtexCitation(book), mono: true },
+                ]}
+              />
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-10" />
-
-            {/* Copyright */}
-            <section className="mb-10">
-              <h2 className="font-serif text-xl text-[#111111] font-medium mb-4">
-                {t.copyrightLicensing}
-              </h2>
-              {book.license === "CC BY-NC-ND 4.0" ? (
-                <div className="border border-[#e2e2e2] p-6">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="shrink-0 border border-[#e2e2e2] px-2 py-1">
-                      <p className="font-sans text-[10px] font-bold tracking-widest text-[#555555] uppercase">CC</p>
-                    </div>
-                    <div>
-                      <p className="font-serif text-sm text-[#111111] font-medium mb-1">
-                        {t.ccTitle}
-                      </p>
-                      <p className="font-serif text-xs text-[#888888] tracking-wide">{t.ccSub}</p>
-                    </div>
-                  </div>
-                  <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                    {t.ccBody}
-                  </p>
-                  <a
-                    href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-serif text-xs text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-                  >
-                    {t.viewLicence}
-                  </a>
+            {related.length > 0 && (
+              <section id="related" aria-labelledby="h-related">
+                <h2 id="h-related" className="type-h2 mb-8">{t.related}</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10">
+                  {related.map((b) => (
+                    <BookCard key={b.slug} book={b} locale={locale} />
+                  ))}
                 </div>
-              ) : book.license === "Restricted — Not for Sale" ? (
-                <div className="border border-[#e2e2e2] p-6">
-                  <p className="font-serif text-sm text-[#111111] font-medium mb-3">
-                    © {book.publicationYear} {credit}. {t.allRightsReserved}
-                  </p>
-                  <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                    {t.restrictedBody}
-                  </p>
-                  <Link
-                    href={localeHref("/policies/copyright", locale)}
-                    className="font-serif text-xs text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-                  >
-                    {t.copyrightPolicy}
-                  </Link>
-                </div>
-              ) : (
-                <div className="border border-[#e2e2e2] p-6">
-                  <p className="font-serif text-sm text-[#111111] font-medium mb-3">
-                    © {book.publicationYear} {credit}. {t.allRightsReserved}
-                  </p>
-                  <p className="font-serif text-sm text-[#555555] leading-relaxed mb-4">
-                    {t.defaultBody}
-                  </p>
-                  <Link
-                    href={localeHref("/policies/copyright", locale)}
-                    className="font-serif text-xs text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-                  >
-                    {t.copyrightPolicy}
-                  </Link>
-                </div>
-              )}
-            </section>
+              </section>
+            )}
           </div>
         </div>
       </Container>

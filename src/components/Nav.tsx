@@ -2,168 +2,214 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { List, MagnifyingGlass, X } from "@phosphor-icons/react/dist/ssr";
 import { LogoMark } from "@/components/Logo";
-import { getLocaleFromPathname, localeHref } from "@/lib/locale";
-import LanguageToggle from "@/components/LanguageToggle";
-
-const links = [
-  { href: "/", label: { en: "Home", "zh-Hant": "首頁", "zh-Hans": "首页" } },
-  { href: "/books", label: { en: "Books", "zh-Hant": "書目", "zh-Hans": "书目" } },
-  { href: "/authors", label: { en: "Authors", "zh-Hant": "作者", "zh-Hans": "作者" } },
-  { href: "/book-series", label: { en: "Book Series", "zh-Hant": "書系", "zh-Hans": "书系" } },
-  { href: "/for-authors", label: { en: "For Authors", "zh-Hant": "作者專區", "zh-Hans": "作者专区" } },
-  { href: "/publishing-services", label: { en: "Publishing Services", "zh-Hant": "出版服務", "zh-Hans": "出版服务" } },
-  { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊", "zh-Hans": "发行信息" } },
-  { href: "/policies", label: { en: "Policies", "zh-Hant": "政策", "zh-Hans": "政策" } },
-  { href: "/about", label: { en: "About", "zh-Hant": "關於我們", "zh-Hans": "关于我们" } },
-  { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們", "zh-Hans": "联系我们" } },
-];
+import LanguageMenu from "@/components/LanguageMenu";
+import SearchDialog from "@/components/SearchDialog";
+import { getLocaleFromPathname, localeHref, stripLocalePrefix } from "@/lib/locale";
+import { primaryNav, secondaryNav, isActive, type NavItem } from "@/lib/nav";
 
 const copy = {
-  en: { tagline: "Academic Book Publishing", submitInquiry: "Submit Inquiry" },
-  "zh-Hant": { tagline: "學術圖書出版", submitInquiry: "提交詢問" },
-  "zh-Hans": { tagline: "学术图书出版", submitInquiry: "提交咨询" },
+  en: { tagline: "Academic Book Publishing", search: "Search", menu: "Menu", close: "Close menu", skip: "Skip to content", more: "More" },
+  "zh-Hant": { tagline: "學術圖書出版", search: "搜尋", menu: "選單", close: "關閉選單", skip: "跳至主要內容", more: "更多" },
+  "zh-Hans": { tagline: "学术图书出版", search: "搜索", menu: "菜单", close: "关闭菜单", skip: "跳至主要内容", more: "更多" },
 } as const;
 
+// /authors is a route added after the first deploy; a client-side transition
+// into it can 404 against a stale cached route manifest on this static host,
+// so it uses a full navigation.
+function NavLink({ item, href, className, children, current }: {
+  item: NavItem;
+  href: string;
+  className: string;
+  children: ReactNode;
+  current: boolean;
+}) {
+  const props = { className, "aria-current": current ? ("page" as const) : undefined };
+  return item.hardNav ? (
+    <a href={`${href}/`} {...props}>{children}</a>
+  ) : (
+    <Link href={href} {...props}>{children}</Link>
+  );
+}
+
 export default function Nav() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
   const locale = getLocaleFromPathname(pathname);
+  const path = stripLocalePrefix(pathname).replace(/\/$/, "") || "/";
   const t = copy[locale];
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 8);
+    const handler = () => setScrolled(window.scrollY > 4);
+    handler();
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  // Close overlays on navigation (adjusting state during render, not in an effect).
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    setMenuOpen(false);
+    setSearchOpen(false);
+  }
+
+  // "/" opens search from anywhere except while typing in a field.
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    const onKey = (e: KeyboardEvent) => {
+      const el = e.target as HTMLElement;
+      const typing = el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName);
+      if (e.key === "/" && !typing && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.documentElement.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 bg-white transition-shadow duration-200 ${
-        scrolled ? "shadow-[0_1px_0_#e2e2e2]" : "border-b border-[#e2e2e2]"
-      }`}
-    >
-      <div className="max-w-[1400px] mx-auto px-6 xl:px-12">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link
-            href={localeHref("/", locale)}
-            className="flex items-center gap-3 group shrink-0"
-            aria-label="Panorama Scholarly Books — Home"
-          >
-            <LogoMark height={38} className="transition-opacity group-hover:opacity-70" />
-            <div className="flex flex-col leading-none">
-              <span className="font-serif text-[15px] font-semibold tracking-tight text-[#111111] group-hover:text-[#444444] transition-colors">
-                Panorama Scholarly Books
+    <>
+      <a href="#main" className="skip-link">{t.skip}</a>
+      <header
+        className={`sticky top-0 z-40 bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85 border-b transition-colors duration-200 ${
+          scrolled || menuOpen ? "border-line" : "border-transparent"
+        }`}
+      >
+        <div className="site-container">
+          <div className="flex items-center justify-between gap-6 h-16 lg:h-[76px]">
+            <Link
+              href={localeHref("/", locale)}
+              className="flex items-center gap-3 shrink-0 group rounded-sm"
+              aria-label="Panorama Scholarly Books — Home"
+            >
+              <LogoMark height={34} />
+              <span className="flex flex-col leading-none">
+                <span className="font-serif text-[17px] lg:text-[18px] font-semibold tracking-[-0.005em] text-forest">
+                  Panorama Scholarly Books
+                </span>
+                <span className="hidden sm:block font-sans text-[11px] tracking-[0.14em] uppercase text-ink-3 mt-1.5">
+                  {t.tagline}
+                </span>
               </span>
-              <span className="text-[10px] tracking-[0.15em] uppercase text-[#888888] font-serif mt-0.5">
-                {t.tagline}
-              </span>
+            </Link>
+
+            <nav className="hidden xl:block" aria-label="Main">
+              <ul className="flex items-center gap-1 xl:gap-2">
+                {primaryNav.map((item) => {
+                  const active = isActive(item, path);
+                  return (
+                    <li key={item.href}>
+                      <NavLink
+                        item={item}
+                        href={localeHref(item.href, locale)}
+                        current={active}
+                        className={`relative inline-flex items-center h-10 px-3 font-sans text-[15px] whitespace-nowrap transition-colors rounded-sm after:absolute after:left-3 after:right-3 after:-bottom-[1px] after:h-[2px] after:transition-colors ${
+                          active
+                            ? "text-forest font-semibold after:bg-gold"
+                            : "text-ink-2 font-medium hover:text-forest after:bg-transparent hover:after:bg-line-strong"
+                        }`}
+                      >
+                        {item.label[locale]}
+                      </NavLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                className="inline-flex items-center gap-2 h-9 px-2.5 rounded-sm font-sans text-[14px] font-medium text-ink-2 hover:text-forest hover:bg-stone-soft transition-colors"
+                aria-haspopup="dialog"
+                aria-keyshortcuts="/"
+              >
+                <MagnifyingGlass size={18} aria-hidden="true" />
+                <span className="hidden xl:inline">{t.search}</span>
+                <span className="sr-only xl:hidden">{t.search}</span>
+                <kbd className="hidden xl:inline-flex items-center justify-center w-5 h-5 text-[11px] font-sans border border-line rounded-sm text-ink-3">/</kbd>
+              </button>
+              <div className="hidden sm:block">
+                <LanguageMenu />
+              </div>
+              <button
+                type="button"
+                className="xl:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-sm text-ink hover:bg-stone-soft"
+                onClick={() => setMenuOpen((v) => !v)}
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
+                aria-label={menuOpen ? t.close : t.menu}
+              >
+                {menuOpen ? <X size={22} aria-hidden="true" /> : <List size={22} aria-hidden="true" />}
+              </button>
             </div>
-          </Link>
-
-          {/* Desktop nav */}
-          <nav className="hidden xl:flex items-center gap-0" aria-label="Main navigation">
-            {links.map((link) => {
-              const href = localeHref(link.href, locale);
-              const active =
-                link.href === "/"
-                  ? pathname === href
-                  : pathname.startsWith(href);
-              const className = `px-3 py-1 text-[13px] font-serif whitespace-nowrap transition-colors ${
-                active
-                  ? "text-[#111111] underline underline-offset-4"
-                  : "text-[#555555] hover:text-[#111111]"
-              }`;
-              // /authors is a newly added route; a client-side transition
-              // into it can 404 against a stale cached route manifest on
-              // this static host, so force a full navigation for it.
-              return link.href === "/authors" ? (
-                <a key={link.href} href={`${href}/`} className={className}>
-                  {link.label[locale]}
-                </a>
-              ) : (
-                <Link key={link.href} href={href} className={className}>
-                  {link.label[locale]}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Submit Inquiry CTA (desktop) */}
-          <div className="hidden xl:flex items-center gap-3">
-            <LanguageToggle />
-            <Link
-              href={localeHref("/contact", locale)}
-              className="inline-block text-[12px] tracking-[0.08em] uppercase font-serif border border-[#111111] px-4 py-2 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
-            >
-              {t.submitInquiry}
-            </Link>
-          </div>
-
-          {/* Mobile hamburger */}
-          <div className="xl:hidden flex items-center gap-2">
-          <LanguageToggle />
-          <button
-            className="p-2 text-[#111111]"
-            onClick={() => setOpen(!open)}
-            aria-label={open ? "Close menu" : "Open menu"}
-          >
-            {open ? (
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
-                <line x1="4" y1="4" x2="18" y2="18" />
-                <line x1="18" y1="4" x2="4" y2="18" />
-              </svg>
-            ) : (
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
-                <line x1="3" y1="6" x2="19" y2="6" />
-                <line x1="3" y1="11" x2="19" y2="11" />
-                <line x1="3" y1="16" x2="19" y2="16" />
-              </svg>
-            )}
-          </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <div className="xl:hidden border-t border-[#e2e2e2] bg-white">
-          <nav className="max-w-[1400px] mx-auto px-6 py-4 flex flex-col gap-1" aria-label="Mobile navigation">
-            {links.map((link) => {
-              const href = localeHref(link.href, locale);
-              const active =
-                link.href === "/"
-                  ? pathname === href
-                  : pathname.startsWith(href);
-              const className = `py-2.5 text-base font-serif border-b border-[#f0f0f0] last:border-0 transition-colors ${
-                active ? "text-[#111111]" : "text-[#555555] hover:text-[#111111]"
-              }`;
-              return link.href === "/authors" ? (
-                <a key={link.href} href={`${href}/`} className={className}>
-                  {link.label[locale]}
-                </a>
-              ) : (
-                <Link key={link.href} href={href} className={className}>
-                  {link.label[locale]}
-                </Link>
-              );
-            })}
-            <Link
-              href={localeHref("/contact", locale)}
-              className="mt-3 text-[12px] tracking-[0.08em] uppercase font-serif border border-[#111111] px-4 py-3 text-center text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
-            >
-              {t.submitInquiry}
-            </Link>
+        {/* Mobile / tablet menu: full-height sheet under the bar. The inline
+            nav needs ≥1280px so longer languages (e.g. German) never overflow. */}
+        <div
+          id="mobile-menu"
+          hidden={!menuOpen}
+          className="xl:hidden fixed inset-x-0 top-16 lg:top-[76px] bottom-0 bg-paper border-t border-line overflow-y-auto"
+        >
+          <nav className="site-container py-6" aria-label="Main">
+            <ul>
+              {primaryNav.map((item) => {
+                const active = isActive(item, path);
+                return (
+                  <li key={item.href} className="border-b border-line">
+                    <NavLink
+                      item={item}
+                      href={localeHref(item.href, locale)}
+                      current={active}
+                      className={`flex items-center justify-between min-h-[56px] font-serif text-[22px] ${
+                        active ? "text-forest" : "text-ink"
+                      }`}
+                    >
+                      {item.label[locale]}
+                      {active && <span className="rule-gold !w-6" aria-hidden="true" />}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="eyebrow mt-8 mb-2">{t.more}</p>
+            <ul className="grid grid-cols-2 gap-x-6">
+              {secondaryNav.map((item) => (
+                <li key={item.href}>
+                  <NavLink
+                    item={item}
+                    href={localeHref(item.href, locale)}
+                    current={isActive(item, path)}
+                    className="flex items-center min-h-[44px] font-sans text-[16px] text-ink-2 hover:text-forest aria-[current=page]:text-forest aria-[current=page]:font-semibold"
+                  >
+                    {item.label[locale]}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <LanguageMenu inline />
+            </div>
           </nav>
         </div>
-      )}
-    </header>
+      </header>
+      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} locale={locale} />
+    </>
   );
 }

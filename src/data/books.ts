@@ -44,6 +44,14 @@ export interface Book {
   hasSampleChapter: boolean;
   coverTone: "white" | "light" | "medium";
   coverImage?: string;
+  /** English rendering of a non-English title, shown on English pages. */
+  titleTranslation?: string;
+  /** Public file URLs. Only set when the file actually exists and the
+      licence allows open download — the page shows download actions only then. */
+  pdfUrl?: string;
+  epubUrl?: string;
+  /** Intrinsic pixel size of coverImage — reserves layout space, never crops. */
+  coverSize?: [number, number];
   // Only real, published titles should expose Highwire citation_* tags to
   // Google Scholar. Placeholder/demo titles must not, so we don't surface
   // fabricated authors, institutions, or DOIs to a scholarly crawler.
@@ -955,6 +963,7 @@ export const books: Book[] = [
   {
     slug: "chan-buddhism-sinicization-collected-essays-cn",
     title: "禅宗与佛教中国化论集",
+    titleTranslation: "Essays on Chan Buddhism and the Sinicization of Buddhism",
     subtitle: "少林七十字辈、寺院传承与佛典翻译研究（2016—2026）",
     authors: ["释延晗"],
     editors: [],
@@ -1054,20 +1063,73 @@ export const books: Book[] = [
     ],
     hasSampleChapter: true,
     coverTone: "light",
-    coverImage: "/covers/CBSB.jpg",
+    coverImage: "/covers/CBSB-1200.jpg",
+    coverSize: [1200, 1687],
     citationEligible: true,
     license: "Restricted — Not for Sale",
   },
 ];
 
+// ─── Public catalogue ───────────────────────────────────────────────────────
+// Every entry above without `citationEligible: true` is a development
+// fixture (non-real authors, ISBNs and DOIs). Fixtures are never built into
+// the public site: they would present sample data as real publications.
+// Set NEXT_PUBLIC_SHOW_SAMPLE_BOOKS=1 at build time to include them, clearly
+// labelled "Sample", for testing how layouts behave with a larger list.
+export const SHOW_SAMPLE_BOOKS = process.env.NEXT_PUBLIC_SHOW_SAMPLE_BOOKS === "1";
+
+export function isSampleBook(book: Book): boolean {
+  return !book.citationEligible;
+}
+
+// Newest first, then by title.
+export const catalogue: Book[] = books
+  .filter((b) => SHOW_SAMPLE_BOOKS || !isSampleBook(b))
+  .sort((a, b) => {
+    const real = Number(isSampleBook(a)) - Number(isSampleBook(b));
+    if (real !== 0) return real;
+    if (a.status !== b.status) return a.status === "Published" ? -1 : 1;
+    return b.publicationYear - a.publicationYear || a.title.localeCompare(b.title);
+  });
+
 export function getBookBySlug(slug: string): Book | undefined {
-  return books.find((b) => b.slug === slug);
+  return catalogue.find((b) => b.slug === slug);
+}
+
+export function getRelatedBooks(book: Book, limit = 3): Book[] {
+  const subjects = new Set(book.subjectArea);
+  return catalogue
+    .filter((b) => b.slug !== book.slug)
+    .map((b) => ({ b, score: b.subjectArea.filter((s) => subjects.has(s)).length + (b.bookType === book.bookType ? 0.5 : 0) }))
+    .filter(({ score }) => score > 0)
+    .sort((x, y) => y.score - x.score)
+    .slice(0, limit)
+    .map(({ b }) => b);
+}
+
+export function bookCredit(book: Book): string {
+  return (book.isEdited ? book.editors : book.authors).join(", ");
+}
+
+// Latin-script forms of CJK contributor names, taken from the published
+// author biographies. Shown alongside the original on English pages.
+export const nameRomanizations: Record<string, string> = {
+  释延晗: "Shi Yanhan",
+};
+
+// BCP 47 tag for the language a book is written in, so titles and abstracts
+// get correct glyphs, hyphenation and screen-reader pronunciation.
+export function bookLangTag(book: Book): string {
+  if (book.language === "Chinese (Simplified)") return "zh-Hans";
+  if (book.language === "Chinese (Traditional)") return "zh-Hant";
+  if (book.language === "German") return "de";
+  return "en";
 }
 
 export function getBooksByType(type: BookType | "All" | "Forthcoming"): Book[] {
-  if (type === "All") return books;
-  if (type === "Forthcoming") return books.filter((b) => b.status === "Forthcoming");
-  return books.filter((b) => b.bookType === type);
+  if (type === "All") return catalogue;
+  if (type === "Forthcoming") return catalogue.filter((b) => b.status === "Forthcoming");
+  return catalogue.filter((b) => b.bookType === type);
 }
 
 export interface AuthorSummary {

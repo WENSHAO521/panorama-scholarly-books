@@ -135,15 +135,15 @@ export default function DistributionPageClient({ locale }: { locale: Locale }) {
   return (
     <>
       {/* Page header */}
-      <section className="border-b border-[#e2e2e2] pt-16 pb-12">
+      <section className="border-b border-line pt-16 pb-12">
         <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
+          <p className="eyebrow mb-4">
             {t.eyebrow}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
+          <h1 className="type-h1 mb-4">
             {t.heading}
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[60ch]">
+          <p className="lede max-w-[62ch]">
             {t.subheading}
           </p>
         </Container>
@@ -154,118 +154,118 @@ export default function DistributionPageClient({ locale }: { locale: Locale }) {
 
           {/* Current status */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.currentStatusHeading}
             </h2>
-            <div className="border border-[#e2e2e2] p-6 md:p-8 mb-6">
-              <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
+            <div className="border border-line p-6 md:p-8 mb-6">
+              <p className="font-serif text-base text-ink-2 leading-relaxed mb-4">
                 {t.currentStatusIntro}
               </p>
               <ul className="flex flex-col gap-2">
                 {t.currentStatusItems.map((item) => (
-                  <li key={item} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
-                    <span className="text-[#c8c8c8] shrink-0">-</span>
+                  <li key={item} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
+                    <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
-            <p className="font-serif text-sm text-[#888888] leading-relaxed">
+            <p className="font-serif text-sm text-ink-3 leading-relaxed">
               {t.currentStatusNote}
             </p>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* Direct order */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.directOrderHeading}
             </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-6">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-6">
               {t.directOrderBody}
             </p>
-            <div className="border border-[#e2e2e2] p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="border border-line p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <p className="font-serif text-sm text-[#888888] mb-1">{t.booksDepartment}</p>
+                <p className="font-serif text-sm text-ink-3 mb-1">{t.booksDepartment}</p>
                 <a
                   href="mailto:books@panorama-sg.com?subject=Book Order Inquiry"
-                  className="font-serif text-base text-[#111111] hover:text-[#555555] transition-colors"
+                  className="font-serif text-base text-ink hover:text-forest transition-colors"
                 >
                   books@panorama-sg.com
                 </a>
               </div>
               <a
                 href="mailto:books@panorama-sg.com?subject=Book Order Inquiry"
-                className="shrink-0 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-6 py-3 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors text-center"
+                className="btn btn-secondary shrink-0 text-center"
               >
                 {t.orderInquiry}
               </a>
             </div>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* POD */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.podHeading}
             </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-4">
               {t.podBody1}
             </p>
-            <p className="font-serif text-sm text-[#888888] leading-relaxed">
+            <p className="font-serif text-sm text-ink-3 leading-relaxed">
               {t.podBody2}
             </p>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* eBook */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.ebookHeading}
             </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-4">
               {t.ebookBody1}
             </p>
-            <p className="font-serif text-sm text-[#888888] leading-relaxed">
+            <p className="font-serif text-sm text-ink-3 leading-relaxed">
               {t.ebookBody2}
             </p>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* Institutional */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.institutionalHeading}
             </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-6">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-6">
               {t.institutionalBody}
             </p>
             <a
               href="mailto:books@panorama-sg.com?subject=Institutional Purchase Inquiry"
-              className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
+              className="link-arrow"
             >
               {t.institutionalSubmit}
             </a>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* Future channels */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.futureHeading}
             </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-4">
               {t.futureIntro}
             </p>
             <ul className="flex flex-col gap-2">
               {t.futureItems.map((item) => (
-                <li key={item} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
-                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                <li key={item} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
+                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                   {item}
                 </li>
               ))}
@@ -273,14 +273,14 @@ export default function DistributionPageClient({ locale }: { locale: Locale }) {
           </section>
 
           {/* Disclaimer */}
-          <div className="border border-[#e2e2e2] bg-[#f7f7f7] p-6 md:p-8">
-            <p className="font-serif text-xs tracking-[0.2em] uppercase text-[#888888] mb-4">
+          <div className="border border-line bg-stone-soft p-6 md:p-8">
+            <p className="eyebrow mb-4">
               {t.noticeHeading}
             </p>
-            <p className="font-serif text-sm text-[#555555] leading-relaxed mb-3">
+            <p className="font-serif text-sm text-ink-2 leading-relaxed mb-3">
               {t.noticeP1}
             </p>
-            <p className="font-serif text-sm text-[#555555] leading-relaxed">
+            <p className="font-serif text-sm text-ink-2 leading-relaxed">
               {t.noticeP2}
             </p>
           </div>

@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { books, getBookBySlug } from "@/data/books";
+import { catalogue, getBookBySlug } from "@/data/books";
 import BookDetailClient from "@/app/_pages/books/[slug]/BookDetailClient";
 import { localeAlternates } from "@/lib/seo";
 
 export async function generateStaticParams() {
-  return books.map((book) => ({ slug: book.slug }));
+  return catalogue.map((book) => ({ slug: book.slug }));
 }
 
 const languageCodes: Record<string, string> = {

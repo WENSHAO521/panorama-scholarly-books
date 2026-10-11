@@ -267,14 +267,14 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
   if (status === "success") {
     return (
-      <div className="border border-[#e2e2e2] p-8 md:p-12">
-        <p className="font-serif text-2xl text-[#111111] font-medium mb-3">{t.successTitle}</p>
-        <p className="font-serif text-base text-[#555555] mb-6 leading-relaxed">
+      <div className="border border-line p-8 md:p-12">
+        <p className="font-serif text-2xl text-ink font-medium mb-3">{t.successTitle}</p>
+        <p className="font-serif text-base text-ink-2 mb-6 leading-relaxed">
           {t.successBody}
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-6 py-2 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
+          className="btn btn-secondary"
         >
           {t.submitAnother}
         </button>
@@ -286,19 +286,19 @@ export default function ContactForm({ locale }: { locale: Locale }) {
     <>
       {/* Inquiry type quick-links */}
       <section className="mb-12">
-        <h2 className="font-serif text-xl text-[#111111] font-medium mb-6">
+        <h2 className="type-h3 mb-6">
           {t.selectInquiryHeading}
         </h2>
-        <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
+        <div className="flex flex-col gap-0 border-t border-line">
           {inquiryTypes.map((item) => (
             <div
               key={item.subject}
-              className="border-b border-[#e2e2e2] py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+              className="border-b border-line py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             >
-              <p className="font-serif text-base text-[#111111] font-medium">{item.label[locale]}</p>
+              <p className="font-serif text-base text-ink font-medium">{item.label[locale]}</p>
               <a
                 href={`mailto:books@panorama-sg.com?subject=${encodeURIComponent(item.subject)}`}
-                className="shrink-0 font-serif text-[11px] tracking-[0.12em] uppercase border border-[#e2e2e2] px-4 py-2 text-[#555555] hover:border-[#111111] hover:text-[#111111] transition-colors whitespace-nowrap"
+                className="btn btn-quiet shrink-0"
               >
                 {t.sendEmail}
               </a>
@@ -309,34 +309,34 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
       {/* Contact form */}
       <section>
-        <h2 className="font-serif text-xl text-[#111111] font-medium mb-2">{t.contactFormHeading}</h2>
-        <p className="font-serif text-sm text-[#888888] mb-6">
+        <h2 className="type-h3 mb-2">{t.contactFormHeading}</h2>
+        <p className="font-serif text-sm text-ink-3 mb-6">
           {t.contactFormNote}
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="flex flex-col gap-1.5">
-              <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+              <label className="eyebrow">
                 {t.name}
               </label>
               <input
                 type="text"
                 name="name"
                 required
-                className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                className="field"
                 placeholder={t.namePlaceholder}
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+              <label className="eyebrow">
                 {t.email}
               </label>
               <input
                 type="email"
                 name="email"
                 required
-                className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                className="field"
                 placeholder={t.emailPlaceholder}
               />
             </div>
@@ -344,31 +344,31 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="flex flex-col gap-1.5">
-              <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+              <label className="eyebrow">
                 {t.institution}
               </label>
               <input
                 type="text"
                 name="institution"
-                className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                className="field"
                 placeholder={t.institutionPlaceholder}
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+              <label className="eyebrow">
                 {t.country}
               </label>
               <input
                 type="text"
                 name="country"
-                className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                className="field"
                 placeholder={t.countryPlaceholder}
               />
             </div>
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+            <label className="eyebrow">
               {t.inquiryType}
             </label>
             <select
@@ -376,7 +376,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
               required
               value={inquiryType}
               onChange={(e) => setInquiryType(e.target.value)}
-              className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors appearance-none"
+              className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
             >
               <option value="">{t.selectInquiryType}</option>
               {inquiryTypes.map((item) => (
@@ -388,31 +388,31 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           </div>
 
           {isPublishingInquiry && (
-            <div className="border border-[#e2e2e2] bg-[#f7f7f7] p-5 md:p-6 flex flex-col gap-5">
-              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888]">
+            <div className="border border-line bg-stone-soft p-5 md:p-6 flex flex-col gap-5">
+              <p className="eyebrow">
                 {t.publishingDetailsHeading}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.bookTitle}
                   </label>
                   <input
                     type="text"
                     name="book_title"
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                    className="field"
                     placeholder={t.bookTitlePlaceholder}
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.bookType}
                   </label>
                   <select
                     name="book_type"
                     defaultValue=""
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors appearance-none"
+                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
                   >
                     <option value="">{t.selectBookType}</option>
                     {bookTypeOptions.map((opt) => (
@@ -424,24 +424,24 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.subjectArea}
                   </label>
                   <input
                     type="text"
                     name="subject_area"
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                    className="field"
                     placeholder={t.subjectAreaPlaceholder}
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.manuscriptLanguage}
                   </label>
                   <input
                     type="text"
                     name="manuscript_language"
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                    className="field"
                     placeholder={t.manuscriptLanguagePlaceholder}
                   />
                 </div>
@@ -449,35 +449,35 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.wordCount}
                   </label>
                   <input
                     type="text"
                     name="word_count"
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                    className="field"
                     placeholder={t.wordCountPlaceholder}
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.pageCount}
                   </label>
                   <input
                     type="text"
                     name="page_count"
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                    className="field"
                     placeholder={t.pageCountPlaceholder}
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.tablesFigures}
                   </label>
                   <input
                     type="text"
                     name="tables_figures_count"
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                    className="field"
                     placeholder={t.tablesFiguresPlaceholder}
                   />
                 </div>
@@ -485,13 +485,13 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.manuscriptStatus}
                   </label>
                   <select
                     name="manuscript_status"
                     defaultValue=""
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors appearance-none"
+                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
                   >
                     <option value="">{t.selectStatus}</option>
                     {manuscriptStatusOptions.map((opt) => (
@@ -500,13 +500,13 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                   </select>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.productFormat}
                   </label>
                   <select
                     name="product_format"
                     defaultValue=""
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors appearance-none"
+                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
                   >
                     <option value="">{t.selectFormat}</option>
                     {productFormatOptions.map((opt) => (
@@ -518,13 +518,13 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.publishingPackage}
                   </label>
                   <select
                     name="publishing_package"
                     defaultValue=""
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors appearance-none"
+                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
                   >
                     <option value="">{t.selectPackage}</option>
                     {publishingPackageOptions.map((opt) => (
@@ -533,81 +533,81 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                   </select>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.requiredDate}
                   </label>
                   <input
                     type="text"
                     name="required_publication_date"
-                    className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                    className="field"
                     placeholder={t.requiredDatePlaceholder}
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                <label className="eyebrow">
                   {t.previouslyPublished}
                 </label>
                 <input
                   type="text"
                   name="previously_published"
-                  className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                  className="field"
                   placeholder={t.previouslyPublishedPlaceholder}
                 />
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                <label className="eyebrow">
                   {t.thirdPartyCopyright}
                 </label>
                 <input
                   type="text"
                   name="third_party_copyright"
-                  className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8]"
+                  className="field"
                   placeholder={t.thirdPartyCopyrightPlaceholder}
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.uploadProposal}
                   </label>
                   <input
                     type="file"
                     name="proposal_file"
                     accept=".pdf,.doc,.docx"
-                    className="font-serif text-xs text-[#555555] border border-[#e2e2e2] px-4 py-3 bg-white file:mr-3 file:border-0 file:bg-[#111111] file:text-white file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
+                    className="font-serif text-xs text-ink-2 border border-line px-4 py-3 bg-surface file:mr-3 file:border-0 file:bg-forest file:text-on-forest file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+                  <label className="eyebrow">
                     {t.uploadManuscript}
                   </label>
                   <input
                     type="file"
                     name="manuscript_file"
                     accept=".pdf,.doc,.docx"
-                    className="font-serif text-xs text-[#555555] border border-[#e2e2e2] px-4 py-3 bg-white file:mr-3 file:border-0 file:bg-[#111111] file:text-white file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
+                    className="font-serif text-xs text-ink-2 border border-line px-4 py-3 bg-surface file:mr-3 file:border-0 file:bg-forest file:text-on-forest file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
                   />
                 </div>
               </div>
-              <p className="font-serif text-xs text-[#888888] leading-relaxed">
+              <p className="font-serif text-xs text-ink-3 leading-relaxed">
                 {t.fileNote}
               </p>
             </div>
           )}
 
           <div className="flex flex-col gap-1.5">
-            <label className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888]">
+            <label className="eyebrow">
               {t.message}
             </label>
             <textarea
               name="message"
               required
               rows={6}
-              className="font-serif text-sm text-[#111111] border border-[#e2e2e2] px-4 py-3 bg-white focus:outline-none focus:border-[#111111] transition-colors placeholder:text-[#c8c8c8] resize-none"
+              className="field resize-none"
               placeholder={t.messagePlaceholder}
             />
           </div>
@@ -617,9 +617,9 @@ export default function ContactForm({ locale }: { locale: Locale }) {
               type="checkbox"
               id="consent"
               required
-              className="mt-1 shrink-0 border-[#e2e2e2]"
+              className="mt-1 shrink-0 border-line"
             />
-            <label htmlFor="consent" className="font-serif text-xs text-[#888888] leading-relaxed">
+            <label htmlFor="consent" className="font-serif text-xs text-ink-3 leading-relaxed">
               {t.consent}
             </label>
           </div>
@@ -630,15 +630,15 @@ export default function ContactForm({ locale }: { locale: Locale }) {
               id="declaration"
               name="declaration"
               required
-              className="mt-1 shrink-0 border-[#e2e2e2]"
+              className="mt-1 shrink-0 border-line"
             />
-            <label htmlFor="declaration" className="font-serif text-xs text-[#888888] leading-relaxed">
+            <label htmlFor="declaration" className="font-serif text-xs text-ink-3 leading-relaxed">
               {t.declaration}
             </label>
           </div>
 
           {status === "error" && (
-            <p className="font-serif text-sm text-[#c00000]">
+            <p className="font-serif text-sm text-[#9b1c1c]">
               {t.errorMessage}
             </p>
           )}
@@ -647,16 +647,16 @@ export default function ContactForm({ locale }: { locale: Locale }) {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] bg-[#111111] text-white px-8 py-3 hover:bg-transparent hover:text-[#111111] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-primary"
             >
               {status === "submitting" ? t.submitting : t.submit}
             </button>
           </div>
         </form>
 
-        <p className="font-serif text-xs text-[#888888] mt-6 leading-relaxed">
+        <p className="font-serif text-xs text-ink-3 mt-6 leading-relaxed">
           {t.alternative}{" "}
-          <a href="mailto:books@panorama-sg.com" className="text-[#555555] underline underline-offset-2">
+          <a href="mailto:books@panorama-sg.com" className="text-ink-2 underline underline-offset-2">
             books@panorama-sg.com
           </a>
           .

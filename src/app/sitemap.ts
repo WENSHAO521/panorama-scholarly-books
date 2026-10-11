@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { books, getAllAuthors } from "@/data/books";
+import { catalogue, getAllAuthors } from "@/data/books";
 import { LOCALES } from "@/lib/locale";
 import { urlFor, localeAlternates } from "@/lib/seo";
 
@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Sample/placeholder titles are kept off the sitemap and noindexed on their
   // own page (see generateMetadata in books/[slug]/page.tsx) so search
   // engines never surface their non-real authors, ISBNs, or DOIs.
-  const bookEntries: MetadataRoute.Sitemap = books
+  const bookEntries: MetadataRoute.Sitemap = catalogue
     .filter((book) => book.citationEligible)
     .flatMap((book) =>
       LOCALES.map((locale) => ({

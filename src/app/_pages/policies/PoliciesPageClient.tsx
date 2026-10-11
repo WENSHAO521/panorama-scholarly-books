@@ -105,15 +105,15 @@ export default function PoliciesPageClient({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <section className="border-b border-[#e2e2e2] pt-16 pb-12">
+      <section className="border-b border-line pt-16 pb-12">
         <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
+          <p className="eyebrow mb-4">
             {t.eyebrow}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
+          <h1 className="type-h1 mb-4">
             {t.heading}
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[60ch]">
+          <p className="lede max-w-[62ch]">
             {t.subheading}
           </p>
         </Container>
@@ -121,30 +121,30 @@ export default function PoliciesPageClient({ locale }: { locale: Locale }) {
 
       <Container narrow>
         <div className="py-12 lg:py-16">
-          <p className="font-serif text-base text-[#555555] leading-relaxed mb-12">
+          <p className="font-serif text-base text-ink-2 leading-relaxed mb-12">
             {t.intro}
           </p>
 
-          <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
+          <div className="flex flex-col gap-0 border-t border-line">
             {policies.map((policy) => (
               <Link
                 key={policy.href}
                 href={localeHref(policy.href, locale)}
-                className="group border-b border-[#e2e2e2] py-8 grid grid-cols-1 sm:grid-cols-4 gap-4 hover:bg-[#f7f7f7] transition-colors px-0 -mx-0"
+                className="group border-b border-line py-8 grid grid-cols-1 sm:grid-cols-4 gap-4 hover:bg-stone-soft transition-colors px-0 -mx-0"
               >
                 <div className="sm:col-span-3">
-                  <p className="font-serif text-xl text-[#111111] font-medium mb-2 group-hover:underline underline-offset-4">
+                  <p className="type-h3 mb-2 group-hover:underline underline-offset-4">
                     {policy.title[locale]}
                   </p>
-                  <p className="font-serif text-sm text-[#888888] leading-relaxed">
+                  <p className="font-serif text-sm text-ink-3 leading-relaxed">
                     {policy.desc[locale]}
                   </p>
                 </div>
                 <div className="sm:col-span-1 flex sm:flex-col sm:items-end justify-between sm:justify-start gap-2">
-                  <span className="font-serif text-xs text-[#888888]">
+                  <span className="font-serif text-xs text-ink-3">
                     {t.updated} {policy.updated}
                   </span>
-                  <span className="font-serif text-xs text-[#111111] group-hover:underline underline-offset-2">
+                  <span className="font-serif text-xs text-ink group-hover:underline underline-offset-2">
                     {t.readPolicy}
                   </span>
                 </div>
@@ -152,12 +152,12 @@ export default function PoliciesPageClient({ locale }: { locale: Locale }) {
             ))}
           </div>
 
-          <div className="border border-[#e2e2e2] bg-[#f7f7f7] p-6 mt-12">
-            <p className="font-serif text-sm text-[#555555] leading-relaxed">
+          <div className="border border-line bg-stone-soft p-6 mt-12">
+            <p className="font-serif text-sm text-ink-2 leading-relaxed">
               {t.contactPrefix}{" "}
               <a
                 href="mailto:books@panorama-sg.com?subject=Policy Inquiry"
-                className="text-[#111111] underline underline-offset-2 hover:text-[#555555] transition-colors"
+                className="link"
               >
                 books@panorama-sg.com
               </a>

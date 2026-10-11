@@ -341,15 +341,15 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
   return (
     <>
       {/* Page header */}
-      <section className="border-b border-[#e2e2e2] pt-16 pb-12">
+      <section className="border-b border-line pt-16 pb-12">
         <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
+          <p className="eyebrow mb-4">
             {t.eyebrow}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
+          <h1 className="type-h1 mb-4">
             {t.heading}
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[60ch]">
+          <p className="lede max-w-[62ch]">
             {t.subheading}
           </p>
         </Container>
@@ -358,9 +358,9 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 py-12 lg:py-16">
           {/* Sidebar */}
-          <aside className="lg:col-span-1 lg:border-r border-[#e2e2e2] lg:pr-10 mb-12 lg:mb-0">
+          <aside className="lg:col-span-1 lg:border-r border-line lg:pr-10 mb-12 lg:mb-0">
             <div className="sticky top-24">
-              <p className="text-[11px] tracking-[0.2em] uppercase text-[#888888] font-serif mb-4">
+              <p className="eyebrow mb-4">
                 {t.onThisPage}
               </p>
               <ul className="flex flex-col gap-2">
@@ -368,20 +368,20 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
                   <li key={item.href}>
                     <a
                       href={item.href}
-                      className="font-serif text-sm text-[#555555] hover:text-[#111111] transition-colors"
+                      className="font-serif text-sm text-ink-2 hover:text-forest transition-colors"
                     >
                       {item.label[locale]}
                     </a>
                   </li>
                 ))}
               </ul>
-              <div className="border-t border-[#e2e2e2] mt-8 pt-8">
-                <p className="font-serif text-sm text-[#888888] mb-3">
+              <div className="border-t border-line mt-8 pt-8">
+                <p className="font-serif text-sm text-ink-3 mb-3">
                   {t.readyToSubmit}
                 </p>
                 <a
                   href="mailto:books@panorama-sg.com?subject=Book Proposal Inquiry"
-                  className="inline-block font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] bg-[#111111] text-white px-4 py-3 hover:bg-transparent hover:text-[#111111] transition-colors"
+                  className="btn btn-primary"
                 >
                   {t.contactEditorialTeam}
                 </a>
@@ -394,22 +394,22 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
 
             {/* What we publish */}
             <section id="what-we-publish" className="mb-14 scroll-mt-24">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              <h2 className="type-h2 mb-6">
                 {t.whatWePublish}
               </h2>
-              <p className="font-serif text-base text-[#555555] leading-relaxed mb-8">
+              <p className="font-serif text-base text-ink-2 leading-relaxed mb-8">
                 {t.whatWePublishIntro}
               </p>
-              <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
+              <div className="flex flex-col gap-0 border-t border-line">
                 {acceptedTypes.map((item) => (
                   <div
                     key={item.type.en}
-                    className="border-b border-[#e2e2e2] py-5 grid grid-cols-1 sm:grid-cols-3 gap-2"
+                    className="border-b border-line py-5 grid grid-cols-1 sm:grid-cols-3 gap-2"
                   >
-                    <p className="font-serif text-sm text-[#111111] font-medium sm:col-span-1">
+                    <p className="font-serif text-sm text-ink font-medium sm:col-span-1">
                       {item.type[locale]}
                     </p>
-                    <p className="font-serif text-sm text-[#555555] leading-relaxed sm:col-span-2">
+                    <p className="font-serif text-sm text-ink-2 leading-relaxed sm:col-span-2">
                       {item.desc[locale]}
                     </p>
                   </div>
@@ -417,45 +417,45 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
               </div>
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+            <div className="w-full h-px bg-line mb-14" />
 
             {/* Who can submit */}
             <section id="who-can-submit" className="mb-14 scroll-mt-24">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              <h2 className="type-h2 mb-6">
                 {t.whoCanSubmit}
               </h2>
-              <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
+              <p className="font-serif text-base text-ink-2 leading-relaxed mb-4">
                 {t.whoCanSubmitIntro}
               </p>
               <ul className="flex flex-col gap-2">
                 {whoCanSubmit.map((item) => (
-                  <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-3 last:border-0">
-                    <span className="text-[#c8c8c8] shrink-0">-</span>
+                  <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-3 last:border-0">
+                    <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                     {item[locale]}
                   </li>
                 ))}
               </ul>
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+            <div className="w-full h-px bg-line mb-14" />
 
             {/* Required documents */}
             <section id="required-documents" className="mb-14 scroll-mt-24">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              <h2 className="type-h2 mb-6">
                 {t.requiredDocuments}
               </h2>
-              <div className="bg-[#f7f7f7] border border-[#e2e2e2] p-6 mb-6">
-                <p className="font-serif text-sm text-[#888888] mb-1">
+              <div className="bg-stone-soft border border-line p-6 mb-6">
+                <p className="font-serif text-sm text-ink-3 mb-1">
                   {t.submissionsMustInclude}
                 </p>
               </div>
-              <ul className="flex flex-col gap-0 border-t border-[#e2e2e2]">
+              <ul className="flex flex-col gap-0 border-t border-line">
                 {requiredDocs.map((doc, i) => (
                   <li
                     key={i}
-                    className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#e2e2e2] py-4"
+                    className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line py-4"
                   >
-                    <span className="text-[#c8c8c8] shrink-0 tabular-nums text-xs pt-0.5">
+                    <span className="text-line-strong shrink-0 tabular-nums text-xs pt-0.5">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {doc[locale]}
@@ -464,45 +464,45 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
               </ul>
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+            <div className="w-full h-px bg-line mb-14" />
 
             {/* Proposal content */}
             <section id="proposal-content" className="mb-14 scroll-mt-24">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              <h2 className="type-h2 mb-6">
                 {t.bookProposalContent}
               </h2>
-              <p className="font-serif text-base text-[#555555] leading-relaxed mb-6">
+              <p className="font-serif text-base text-ink-2 leading-relaxed mb-6">
                 {t.proposalContentIntro}
               </p>
               <ul className="flex flex-col gap-2">
                 {proposalContent.map((item) => (
-                  <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-3 last:border-0">
-                    <span className="text-[#c8c8c8] shrink-0">-</span>
+                  <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-3 last:border-0">
+                    <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                     {item[locale]}
                   </li>
                 ))}
               </ul>
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+            <div className="w-full h-px bg-line mb-14" />
 
             {/* Review process */}
             <section id="review-process" className="mb-14 scroll-mt-24">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              <h2 className="type-h2 mb-6">
                 {t.reviewProcess}
               </h2>
-              <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
+              <div className="flex flex-col gap-0 border-t border-line">
                 {processSteps.map((item, i) => (
-                  <div key={item.step.en} className="border-b border-[#e2e2e2] py-5 grid grid-cols-1 sm:grid-cols-4 gap-2 items-start">
+                  <div key={item.step.en} className="border-b border-line py-5 grid grid-cols-1 sm:grid-cols-4 gap-2 items-start">
                     <div className="sm:col-span-1 flex items-start gap-3">
-                      <span className="font-serif text-xs text-[#c8c8c8] tabular-nums shrink-0 pt-0.5">
+                      <span className="font-serif text-xs text-line-strong tabular-nums shrink-0 pt-0.5">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <p className="font-serif text-sm text-[#111111] font-medium">
+                      <p className="font-serif text-sm text-ink font-medium">
                         {item.step[locale]}
                       </p>
                     </div>
-                    <p className="font-serif text-sm text-[#555555] leading-relaxed sm:col-span-3">
+                    <p className="font-serif text-sm text-ink-2 leading-relaxed sm:col-span-3">
                       {item.desc[locale]}
                     </p>
                   </div>
@@ -510,54 +510,54 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
               </div>
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+            <div className="w-full h-px bg-line mb-14" />
 
             {/* Manuscript requirements */}
             <section id="manuscript-requirements" className="mb-14 scroll-mt-24">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              <h2 className="type-h2 mb-6">
                 {t.manuscriptRequirementsHeading}
               </h2>
               <div className="flex flex-col gap-4">
                 {manuscriptRequirements.map((item) => (
-                  <div key={item.label.en} className="border border-[#e2e2e2] p-5">
-                    <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-2">{item.label[locale]}</p>
-                    <p className="font-serif text-sm text-[#555555] leading-relaxed">{item.text[locale]}</p>
+                  <div key={item.label.en} className="border border-line p-5">
+                    <p className="eyebrow mb-2">{item.label[locale]}</p>
+                    <p className="font-serif text-sm text-ink-2 leading-relaxed">{item.text[locale]}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+            <div className="w-full h-px bg-line mb-14" />
 
             {/* Submit */}
             <section id="submit" className="scroll-mt-24">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+              <h2 className="type-h2 mb-6">
                 {t.submitInquiry}
               </h2>
-              <p className="font-serif text-base text-[#555555] leading-relaxed mb-8">
+              <p className="font-serif text-base text-ink-2 leading-relaxed mb-8">
                 {t.submitIntro}
               </p>
-              <div className="border border-[#e2e2e2] p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="border border-line p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <p className="font-serif text-sm text-[#888888] mb-1">{t.booksEditorialTeam}</p>
+                  <p className="font-serif text-sm text-ink-3 mb-1">{t.booksEditorialTeam}</p>
                   <a
                     href="mailto:books@panorama-sg.com"
-                    className="font-serif text-base text-[#111111] hover:text-[#555555] transition-colors"
+                    className="font-serif text-base text-ink hover:text-forest transition-colors"
                   >
                     books@panorama-sg.com
                   </a>
                 </div>
                 <a
                   href="mailto:books@panorama-sg.com?subject=Book Proposal Submission"
-                  className="shrink-0 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] bg-[#111111] text-white px-6 py-3 hover:bg-transparent hover:text-[#111111] transition-colors text-center"
+                  className="btn btn-primary shrink-0 text-center"
                 >
                   {t.submitProposal}
                 </a>
               </div>
-              <div className="mt-4 border border-[#e2e2e2] bg-[#f7f7f7] p-5">
-                <p className="font-serif text-xs text-[#888888] leading-relaxed">
+              <div className="mt-4 border border-line bg-stone-soft p-5">
+                <p className="font-serif text-xs text-ink-3 leading-relaxed">
                   {t.allowResponse}{" "}
-                  <Link href={localeHref("/publishing-services", locale)} className="underline underline-offset-2 hover:text-[#555555] transition-colors">
+                  <Link href={localeHref("/publishing-services", locale)} className="link">
                     {t.publishingServicesPage}
                   </Link>{" "}
                   {t.pageSuffix}

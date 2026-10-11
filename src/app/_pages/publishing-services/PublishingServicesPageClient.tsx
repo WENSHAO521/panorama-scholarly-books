@@ -424,7 +424,7 @@ const declinePoints: Bi[] = [
 
 function TableWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-x-auto border border-[#e2e2e2]">
+    <div className="overflow-x-auto border border-line">
       <table className="w-full border-collapse min-w-[640px]">{children}</table>
     </div>
   );
@@ -432,7 +432,7 @@ function TableWrapper({ children }: { children: React.ReactNode }) {
 
 function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className="bg-[#111111] text-white text-left px-5 py-4 font-serif text-sm font-normal">
+    <th className="bg-forest text-on-forest text-left px-5 py-4 font-serif text-sm font-normal">
       {children}
     </th>
   );
@@ -440,7 +440,7 @@ function Th({ children }: { children: React.ReactNode }) {
 
 function Td({ children }: { children: React.ReactNode }) {
   return (
-    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top last-of-type:border-b-0">
+    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top last-of-type:border-b-0">
       {children}
     </td>
   );
@@ -793,18 +793,18 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
     <>
       <AnnouncementBanner locale={locale} />
       {/* Page header */}
-      <section className="border-b border-[#e2e2e2] pt-16 pb-12">
+      <section className="border-b border-line pt-16 pb-12">
         <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
+          <p className="eyebrow mb-4">
             {t.eyebrow}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
+          <h1 className="type-h1 mb-4">
             {t.heading}
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[70ch] leading-relaxed mb-4">
+          <p className="font-serif text-base text-ink-3 max-w-[70ch] leading-relaxed mb-4">
             {t.intro1}
           </p>
-          <p className="font-serif text-sm text-[#888888] max-w-[70ch] leading-relaxed">
+          <p className="font-serif text-sm text-ink-3 max-w-[70ch] leading-relaxed">
             {t.intro2}
           </p>
         </Container>
@@ -815,44 +815,44 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
 
           {/* ───────────── 1. Core Packages ───────────── */}
           <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-3">
+            <h2 className="type-h2 mb-3">
               {t.coreHeading}
             </h2>
-            <p className="font-serif text-sm text-[#888888] mb-8 max-w-[70ch]">
+            <p className="font-serif text-sm text-ink-3 mb-8 max-w-[70ch]">
               {t.packagesIntro}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e2e2e2]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-line">
               {packages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className={`bg-white p-8 flex flex-col ${
-                    pkg.featured ? "ring-1 ring-inset ring-[#111111]" : ""
+                  className={`bg-surface p-8 flex flex-col ${
+                    pkg.featured ? "ring-1 ring-inset ring-forest" : ""
                   }`}
                 >
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-serif text-xs tracking-[0.18em] uppercase text-[#888888]">
+                    <span className="eyebrow">
                       {L(pkg.label)}
                     </span>
                     {pkg.featured && (
-                      <span className="font-serif text-[10px] tracking-[0.12em] uppercase border border-[#111111] bg-[#111111] text-white px-2 py-0.5">
+                      <span className="btn btn-primary">
                         {t.recommended}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="font-serif text-xl text-[#111111] font-medium mb-3 leading-snug">
+                  <h3 className="type-h3 mb-3 leading-snug">
                     {L(pkg.name)}
                   </h3>
 
-                  <div className="border-t border-b border-[#e2e2e2] py-4 mb-4">
-                    <p className="font-serif text-2xl text-[#111111] font-medium">
+                  <div className="border-t border-b border-line py-4 mb-4">
+                    <p className="font-serif text-2xl text-ink font-medium">
                       {pkg.price}
                     </p>
-                    <p className="text-xs font-normal text-[#888888] mt-1">{L(pkg.unit)}</p>
+                    <p className="text-xs font-normal text-ink-3 mt-1">{L(pkg.unit)}</p>
                   </div>
 
-                  <p className="font-serif text-sm text-[#888888] leading-relaxed mb-6">
+                  <p className="font-serif text-sm text-ink-3 leading-relaxed mb-6">
                     {L(pkg.desc)}
                   </p>
 
@@ -860,21 +860,21 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
                     {pkg.includes.map((item) => (
                       <li
                         key={item.en}
-                        className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f7f7f7] pb-2 last:border-0"
+                        className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2 last:border-0"
                       >
-                        <span className="text-[#c8c8c8] shrink-0">-</span>
+                        <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                         {L(item)}
                       </li>
                     ))}
                   </ul>
 
                   <div className="mb-8 flex-1">
-                    <p className="font-serif text-xs tracking-[0.12em] uppercase text-[#888888] mb-2">
+                    <p className="eyebrow mb-2">
                       {t.notIncluded}
                     </p>
                     <ul className="flex flex-col gap-1.5">
                       {pkg.notIncluded.map((item) => (
-                        <li key={item.en} className="font-serif text-xs text-[#888888] flex gap-2">
+                        <li key={item.en} className="font-serif text-xs text-ink-3 flex gap-2">
                           <span className="shrink-0">-</span>
                           {L(item)}
                         </li>
@@ -884,7 +884,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
 
                   <a
                     href={`mailto:books@panorama-sg.com?subject=Publishing Inquiry: ${pkg.name.en}`}
-                    className="font-serif text-[11px] tracking-[0.1em] uppercase border border-[#111111] px-4 py-3 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors text-center"
+                    className="btn btn-secondary text-center"
                   >
                     {t.inquireAbout} {L(pkg.label)}
                   </a>
@@ -892,14 +892,14 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               ))}
             </div>
 
-            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-5 bg-[#f7f7f7]">
-              <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                <strong className="text-[#111111] font-medium">{t.standardScopeLabel}</strong> {t.standardScopeBody}
+            <div className="border border-line border-l-2 border-l-gold p-5 mt-5 bg-stone-soft">
+              <p className="font-serif text-sm text-ink-2 leading-relaxed">
+                <strong className="text-ink font-medium">{t.standardScopeLabel}</strong> {t.standardScopeBody}
               </p>
             </div>
 
             {/* Package comparison */}
-            <h3 className="font-serif text-xl text-[#111111] font-medium mt-12 mb-4">
+            <h3 className="type-h3 mt-12 mb-4">
               {t.comparisonHeading}
             </h3>
             <TableWrapper>
@@ -913,8 +913,8 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {comparisonRows.map(([label, ...vals]) => (
-                  <tr key={label.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top">
+                  <tr key={label.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top">
                       {L(label)}
                     </td>
                     {vals.map((v, i) => (
@@ -926,10 +926,10 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             </TableWrapper>
 
             {/* Recommended print bundles */}
-            <h3 className="font-serif text-xl text-[#111111] font-medium mt-12 mb-3">
+            <h3 className="type-h3 mt-12 mb-3">
               {t.bundleHeading}
             </h3>
-            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">
+            <p className="font-serif text-sm text-ink-3 mb-6 max-w-[70ch]">
               {t.bundleIntro}
             </p>
             <TableWrapper>
@@ -942,33 +942,33 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {printBundles.map((b) => (
-                  <tr key={b.name} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top">
+                  <tr key={b.name} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top">
                       {b.name}
                     </td>
                     <Td>{L(b.includes)}</Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">
                       {b.price}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3 max-w-[70ch]">
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-3 max-w-[70ch]">
               {t.bundleFootnote}
             </p>
 
             {/* Standard timeline */}
-            <h3 className="font-serif text-xl text-[#111111] font-medium mt-12 mb-3">
+            <h3 className="type-h3 mt-12 mb-3">
               {t.timelineHeading}
             </h3>
-            <p className="font-serif text-sm text-[#888888] mb-4 max-w-[70ch]">
+            <p className="font-serif text-sm text-ink-3 mb-4 max-w-[70ch]">
               {t.timelineIntro}
             </p>
             <ul className="flex flex-col gap-2 mb-6">
               {timelinePreconditions.map((item) => (
-                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
-                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
+                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
@@ -982,8 +982,8 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {timelineRows.map(([pkg, target]) => (
-                  <tr key={pkg.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
+                  <tr key={pkg.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">
                       {L(pkg)}
                     </td>
                     <Td>{L(target)}</Td>
@@ -991,37 +991,37 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3 max-w-[70ch]">
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-3 max-w-[70ch]">
               {t.timelineFootnote}
             </p>
           </section>
 
           {/* ───────────── 2. Physical Publication & Deposit ───────────── */}
           <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.physicalHeading}
             </h2>
 
-            <div className="border border-[#e2e2e2] p-6 md:p-8 mb-3">
+            <div className="border border-line p-6 md:p-8 mb-3">
               <div className="flex items-center justify-between mb-2">
-                <h3 className="font-serif text-lg text-[#111111] font-medium">{t.physicalPackName}</h3>
-                <span className="font-serif text-xl text-[#111111] font-medium">{t.physicalPackPrice}</span>
+                <h3 className="font-serif text-lg text-ink font-medium">{t.physicalPackName}</h3>
+                <span className="type-h3">{t.physicalPackPrice}</span>
               </div>
-              <p className="font-serif text-sm text-[#888888] mb-4">{t.physicalPackIntro}</p>
+              <p className="font-serif text-sm text-ink-3 mb-4">{t.physicalPackIntro}</p>
               <ul className="flex flex-col gap-2 mb-4">
                 {physicalPackIncludes.map((item) => (
-                  <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f7f7f7] pb-2 last:border-0">
-                    <span className="text-[#c8c8c8] shrink-0">-</span>
+                  <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2 last:border-0">
+                    <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                     {L(item)}
                   </li>
                 ))}
               </ul>
-              <p className="font-serif text-xs text-[#888888]">
-                <strong className="text-[#555555] font-medium">{t.physicalPackNotIncludedLabel}</strong> {L(physicalPackNotIncluded)}
+              <p className="font-serif text-xs text-ink-3">
+                <strong className="text-ink-2 font-medium">{t.physicalPackNotIncludedLabel}</strong> {L(physicalPackNotIncluded)}
               </p>
             </div>
 
-            <h3 className="font-serif text-base text-[#111111] font-medium mt-8 mb-3">{t.pageSurchargeHeading}</h3>
+            <h3 className="font-serif text-base text-ink font-medium mt-8 mb-3">{t.pageSurchargeHeading}</h3>
             <TableWrapper>
               <thead>
                 <tr>
@@ -1032,12 +1032,12 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {pageSurchargeRows.map(([range, surcharge, total]) => (
-                  <tr key={range.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">
+                  <tr key={range.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">
                       {L(range)}
                     </td>
                     <Td>{L(surcharge)}</Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">
                       {total || L(surcharge)}
                     </td>
                   </tr>
@@ -1045,7 +1045,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </tbody>
             </TableWrapper>
 
-            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.standaloneHeading}</h3>
+            <h3 className="font-serif text-base text-ink font-medium mt-10 mb-3">{t.standaloneHeading}</h3>
             <TableWrapper>
               <thead>
                 <tr>
@@ -1055,19 +1055,19 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {standaloneServices.map(([service, fee]) => (
-                  <tr key={service.en} className="even:bg-[#fafafa]">
-                    <Td><span className="text-[#111111]">{L(service)}</span></Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{fee}</td>
+                  <tr key={service.en} className="even:bg-stone-soft">
+                    <Td><span className="text-ink">{L(service)}</span></Td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{fee}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-3 bg-[#f7f7f7]">
-              <p className="font-serif text-sm text-[#555555] leading-relaxed">{t.standaloneFootnote}</p>
+            <div className="border border-line border-l-2 border-l-gold p-5 mt-3 bg-stone-soft">
+              <p className="font-serif text-sm text-ink-2 leading-relaxed">{t.standaloneFootnote}</p>
             </div>
 
-            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.additionalCopiesHeading}</h3>
-            <p className="font-serif text-sm text-[#888888] mb-4">{t.additionalCopiesIntro}</p>
+            <h3 className="font-serif text-base text-ink font-medium mt-10 mb-3">{t.additionalCopiesHeading}</h3>
+            <p className="font-serif text-sm text-ink-3 mb-4">{t.additionalCopiesIntro}</p>
             <TableWrapper>
               <thead>
                 <tr>
@@ -1077,16 +1077,16 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {additionalCopyRows.map(([qty, fee]) => (
-                  <tr key={qty} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top">{qty}</td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{fee}</td>
+                  <tr key={qty} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top">{qty}</td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{fee}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3">{t.additionalCopiesFootnote}</p>
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-3">{t.additionalCopiesFootnote}</p>
 
-            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.printUpgradesHeading}</h3>
+            <h3 className="font-serif text-base text-ink font-medium mt-10 mb-3">{t.printUpgradesHeading}</h3>
             <TableWrapper>
               <thead>
                 <tr>
@@ -1096,24 +1096,24 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {printUpgrades.map(([item, fee]) => (
-                  <tr key={item.en} className="even:bg-[#fafafa]">
-                    <Td><span className="text-[#111111]">{L(item)}</span></Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                  <tr key={item.en} className="even:bg-stone-soft">
+                    <Td><span className="text-ink">{L(item)}</span></Td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3">{t.printUpgradesFootnote}</p>
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-3">{t.printUpgradesFootnote}</p>
 
-            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.logisticsHeading}</h3>
-            <p className="font-serif text-sm text-[#888888] mb-4">{t.logisticsIntro}</p>
-            <div className="border border-[#e2e2e2] p-5 mb-4 bg-[#f7f7f7]">
-              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-1">{t.logisticsFormulaLabel}</p>
-              <p className="font-serif text-base text-[#111111] mb-3">{t.logisticsFormula}</p>
-              <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-1">{t.logisticsMinimumLabel}</p>
-              <p className="font-serif text-base text-[#111111]">{t.logisticsMinimum}</p>
+            <h3 className="font-serif text-base text-ink font-medium mt-10 mb-3">{t.logisticsHeading}</h3>
+            <p className="font-serif text-sm text-ink-3 mb-4">{t.logisticsIntro}</p>
+            <div className="border border-line p-5 mb-4 bg-stone-soft">
+              <p className="eyebrow mb-1">{t.logisticsFormulaLabel}</p>
+              <p className="font-serif text-base text-ink mb-3">{t.logisticsFormula}</p>
+              <p className="eyebrow mb-1">{t.logisticsMinimumLabel}</p>
+              <p className="font-serif text-base text-ink">{t.logisticsMinimum}</p>
             </div>
-            <h4 className="font-serif text-sm text-[#111111] font-medium mb-3">{t.logisticsOtherHeading}</h4>
+            <h4 className="font-serif text-sm text-ink font-medium mb-3">{t.logisticsOtherHeading}</h4>
             <TableWrapper>
               <thead>
                 <tr>
@@ -1123,23 +1123,23 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {logisticsExtraRows.map(([item, fee]) => (
-                  <tr key={item.en} className="even:bg-[#fafafa]">
-                    <Td><span className="text-[#111111]">{L(item)}</span></Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                  <tr key={item.en} className="even:bg-stone-soft">
+                    <Td><span className="text-ink">{L(item)}</span></Td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3 max-w-[70ch]">{t.logisticsFootnote}</p>
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-3 max-w-[70ch]">{t.logisticsFootnote}</p>
           </section>
 
           {/* ───────────── 3. Rush Tiers ───────────── */}
           <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.rushHeading}
             </h2>
 
-            <h3 className="font-serif text-lg text-[#111111] font-medium mb-3">{t.assessmentRushHeading}</h3>
+            <h3 className="font-serif text-lg text-ink font-medium mb-3">{t.assessmentRushHeading}</h3>
             <TableWrapper>
               <thead>
                 <tr>
@@ -1150,98 +1150,98 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               </thead>
               <tbody>
                 {assessmentTiers.map(([level, time, price]) => (
-                  <tr key={level.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                  <tr key={level.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">{L(level)}</td>
                     <Td>{L(time)}</Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(price)}</td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{L(price)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3">{t.assessmentRushFootnote}</p>
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-3">{t.assessmentRushFootnote}</p>
 
-            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.productionRushHeading}</h3>
+            <h3 className="font-serif text-lg text-ink font-medium mt-10 mb-3">{t.productionRushHeading}</h3>
 
-            <p className="font-serif text-sm tracking-[0.1em] uppercase text-[#888888] mb-2">{t.packageALabel}</p>
+            <p className="eyebrow mb-2">{t.packageALabel}</p>
             <TableWrapper>
               <thead>
                 <tr><Th>{t.level}</Th><Th>{t.targetTime}</Th><Th>{t.price}</Th></tr>
               </thead>
               <tbody>
                 {rushPackageA.map(([level, time, price]) => (
-                  <tr key={level.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                  <tr key={level.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">{L(level)}</td>
                     <Td>{L(time)}</Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{price}</td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{price}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-2 mb-8">{t.rushPackageAFootnote}</p>
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-2 mb-8">{t.rushPackageAFootnote}</p>
 
-            <p className="font-serif text-sm tracking-[0.1em] uppercase text-[#888888] mb-2">{t.packageBLabel}</p>
+            <p className="eyebrow mb-2">{t.packageBLabel}</p>
             <TableWrapper>
               <thead>
                 <tr><Th>{t.level}</Th><Th>{t.targetTime}</Th><Th>{t.price}</Th></tr>
               </thead>
               <tbody>
                 {rushPackageB.map(([level, time, price]) => (
-                  <tr key={level.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                  <tr key={level.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">{L(level)}</td>
                     <Td>{L(time)}</Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{price}</td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{price}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-2 mb-8">{t.rushPackageBFootnote}</p>
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-2 mb-8">{t.rushPackageBFootnote}</p>
 
-            <p className="font-serif text-sm tracking-[0.1em] uppercase text-[#888888] mb-2">{t.packageCLabel}</p>
+            <p className="eyebrow mb-2">{t.packageCLabel}</p>
             <TableWrapper>
               <thead>
                 <tr><Th>{t.level}</Th><Th>{t.price}</Th></tr>
               </thead>
               <tbody>
                 {rushPackageC.map(([level, price]) => (
-                  <tr key={level.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                  <tr key={level.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">{L(level)}</td>
                     <Td>{L(price)}</Td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-2">{t.rushPackageCFootnote}</p>
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-2">{t.rushPackageCFootnote}</p>
 
-            <h3 className="font-serif text-base text-[#111111] font-medium mt-10 mb-3">{t.rushRulesHeading}</h3>
+            <h3 className="font-serif text-base text-ink font-medium mt-10 mb-3">{t.rushRulesHeading}</h3>
             <ul className="flex flex-col gap-2 mb-4">
               {rushRules.map((item) => (
-                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
-                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
+                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
             </ul>
 
-            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.printingRushHeading}</h3>
-            <p className="font-serif text-sm text-[#888888] mb-4">{t.printingRushIntro}</p>
+            <h3 className="font-serif text-lg text-ink font-medium mt-10 mb-3">{t.printingRushHeading}</h3>
+            <p className="font-serif text-sm text-ink-3 mb-4">{t.printingRushIntro}</p>
             <TableWrapper>
               <thead>
                 <tr><Th>{t.level}</Th><Th>{t.targetTime}</Th><Th>{t.fee}</Th></tr>
               </thead>
               <tbody>
                 {printingRushRows.map(([level, time, fee]) => (
-                  <tr key={level.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(level)}</td>
+                  <tr key={level.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">{L(level)}</td>
                     <Td>{L(time)}</Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
             <ul className="flex flex-col gap-2 mt-4">
               {printingRushNotes.map((item) => (
-                <li key={item.en} className="font-serif text-xs text-[#888888] flex gap-3">
-                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                <li key={item.en} className="font-serif text-xs text-ink-3 flex gap-3">
+                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
@@ -1250,99 +1250,99 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
 
           {/* ───────────── 4. Additional Services ───────────── */}
           <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.additionalHeading}
             </h2>
 
-            <h3 className="font-serif text-lg text-[#111111] font-medium mb-3">{t.editingHeading}</h3>
+            <h3 className="font-serif text-lg text-ink font-medium mb-3">{t.editingHeading}</h3>
             <TableWrapper>
               <thead>
                 <tr><Th>{t.additionalService}</Th><Th>{t.fee}</Th></tr>
               </thead>
               <tbody>
                 {editingServices.map(([service, fee]) => (
-                  <tr key={service.en} className="even:bg-[#fafafa]">
-                    <Td><span className="text-[#111111]">{L(service)}</span></Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                  <tr key={service.en} className="even:bg-stone-soft">
+                    <Td><span className="text-ink">{L(service)}</span></Td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed mt-3 max-w-[70ch]">{t.editingFootnote}</p>
+            <p className="font-serif text-xs text-ink-3 leading-relaxed mt-3 max-w-[70ch]">{t.editingFootnote}</p>
 
-            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.additionalFormatsHeading}</h3>
-            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">{t.additionalFormatsIntro}</p>
+            <h3 className="font-serif text-lg text-ink font-medium mt-10 mb-3">{t.additionalFormatsHeading}</h3>
+            <p className="font-serif text-sm text-ink-3 mb-6 max-w-[70ch]">{t.additionalFormatsIntro}</p>
             <TableWrapper>
               <thead>
                 <tr><Th>{t.additionalService}</Th><Th>{t.fee}</Th></tr>
               </thead>
               <tbody>
                 {additionalFormatServices.map(([service, fee]) => (
-                  <tr key={service.en} className="even:bg-[#fafafa]">
-                    <Td><span className="text-[#111111]">{L(service)}</span></Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                  <tr key={service.en} className="even:bg-stone-soft">
+                    <Td><span className="text-ink">{L(service)}</span></Td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
 
-            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.institutionalHeading}</h3>
-            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">{t.institutionalIntro}</p>
+            <h3 className="font-serif text-lg text-ink font-medium mt-10 mb-3">{t.institutionalHeading}</h3>
+            <p className="font-serif text-sm text-ink-3 mb-6 max-w-[70ch]">{t.institutionalIntro}</p>
             <TableWrapper>
               <thead>
                 <tr><Th>{t.projectType}</Th><Th>{t.typicalServices}</Th><Th>{t.fee}</Th></tr>
               </thead>
               <tbody>
                 {institutionalRows.map(([type, services, fee]) => (
-                  <tr key={type.en} className="even:bg-[#fafafa]">
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#111111] font-medium align-top whitespace-nowrap">{L(type)}</td>
+                  <tr key={type.en} className="even:bg-stone-soft">
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink font-medium align-top whitespace-nowrap">{L(type)}</td>
                     <Td>{L(services)}</Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top whitespace-nowrap">{L(fee)}</td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top whitespace-nowrap">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
 
-            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.distributionHeading}</h3>
-            <p className="font-serif text-sm text-[#888888] mb-6 max-w-[70ch]">{t.distributionIntro}</p>
+            <h3 className="font-serif text-lg text-ink font-medium mt-10 mb-3">{t.distributionHeading}</h3>
+            <p className="font-serif text-sm text-ink-3 mb-6 max-w-[70ch]">{t.distributionIntro}</p>
             <TableWrapper>
               <thead>
                 <tr><Th>{t.distributionService}</Th><Th>{t.fee}</Th></tr>
               </thead>
               <tbody>
                 {distributionRows.map(([service, fee]) => (
-                  <tr key={service.en} className="even:bg-[#fafafa]">
-                    <Td><span className="text-[#111111]">{L(service)}</span></Td>
-                    <td className="px-5 py-4 border-b border-[#e2e2e2] font-serif text-sm text-[#555555] align-top">{L(fee)}</td>
+                  <tr key={service.en} className="even:bg-stone-soft">
+                    <Td><span className="text-ink">{L(service)}</span></Td>
+                    <td className="px-5 py-4 border-b border-line font-serif text-sm text-ink-2 align-top">{L(fee)}</td>
                   </tr>
                 ))}
               </tbody>
             </TableWrapper>
-            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mt-5 bg-[#f7f7f7]">
-              <p className="font-serif text-sm text-[#555555] leading-relaxed">
-                <strong className="text-[#111111] font-medium">{t.importantNoticeLabel}</strong> {t.importantNoticeBody}
+            <div className="border border-line border-l-2 border-l-gold p-5 mt-5 bg-stone-soft">
+              <p className="font-serif text-sm text-ink-2 leading-relaxed">
+                <strong className="text-ink font-medium">{t.importantNoticeLabel}</strong> {t.importantNoticeBody}
               </p>
             </div>
 
-            <h3 className="font-serif text-lg text-[#111111] font-medium mt-10 mb-3">{t.isbnHeading}</h3>
-            <p className="font-serif text-sm text-[#888888] mb-4 max-w-[70ch]">{t.isbnIntro}</p>
+            <h3 className="font-serif text-lg text-ink font-medium mt-10 mb-3">{t.isbnHeading}</h3>
+            <p className="font-serif text-sm text-ink-3 mb-4 max-w-[70ch]">{t.isbnIntro}</p>
             <ul className="flex flex-col gap-2 mb-6">
               {isbnRequirements.map((item) => (
-                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
-                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
+                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
             </ul>
-            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 mb-5 bg-[#f7f7f7]">
-              <p className="font-serif text-sm text-[#555555] leading-relaxed mb-3">{t.isbnBody1}</p>
-              <p className="font-serif text-sm text-[#555555] leading-relaxed">{t.isbnBody2}</p>
+            <div className="border border-line border-l-2 border-l-gold p-5 mb-5 bg-stone-soft">
+              <p className="font-serif text-sm text-ink-2 leading-relaxed mb-3">{t.isbnBody1}</p>
+              <p className="font-serif text-sm text-ink-2 leading-relaxed">{t.isbnBody2}</p>
             </div>
-            <p className="font-serif text-sm text-[#888888] leading-relaxed max-w-[70ch] mb-2">{t.isbnNotConstituteIntro}</p>
+            <p className="font-serif text-sm text-ink-3 leading-relaxed max-w-[70ch] mb-2">{t.isbnNotConstituteIntro}</p>
             <ul className="flex flex-col gap-1.5">
               {isbnNotConstitute.map((item) => (
-                <li key={item.en} className="font-serif text-sm text-[#888888] flex gap-3">
-                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                <li key={item.en} className="font-serif text-sm text-ink-3 flex gap-3">
+                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
@@ -1351,13 +1351,13 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
 
           {/* ───────────── 5. Payment & Quotation Rules ───────────── */}
           <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.paymentHeading}
             </h2>
             <ul className="flex flex-col gap-2 mb-4">
               {paymentRules.map((item, i) => (
-                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
-                  <span className="text-[#c8c8c8] shrink-0 tabular-nums text-xs pt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
+                  <span className="text-line-strong shrink-0 tabular-nums text-xs pt-0.5">{String(i + 1).padStart(2, "0")}</span>
                   {L(item)}
                 </li>
               ))}
@@ -1366,52 +1366,52 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
 
           {/* Cancellation and refund */}
           <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-4">
+            <h2 className="type-h2 mb-4">
               {t.cancellationHeading}
             </h2>
-            <p className="font-serif text-sm text-[#888888] mb-5 leading-relaxed max-w-[70ch]">
+            <p className="font-serif text-sm text-ink-3 mb-5 leading-relaxed max-w-[70ch]">
               {t.cancellationIntro}
             </p>
             <ul className="flex flex-col gap-2 mb-5">
               {cancellationPoints.map((item) => (
-                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
-                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
+                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
             </ul>
-            <p className="font-serif text-xs text-[#888888] leading-relaxed">
+            <p className="font-serif text-xs text-ink-3 leading-relaxed">
               {t.cancellationFootnote}
             </p>
           </section>
 
           {/* Manuscript review notice */}
           <section className="mb-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-4">
+            <h2 className="type-h2 mb-4">
               {t.declineHeading}
             </h2>
-            <p className="font-serif text-sm text-[#888888] mb-5 leading-relaxed max-w-[70ch]">
+            <p className="font-serif text-sm text-ink-3 mb-5 leading-relaxed max-w-[70ch]">
               {t.declineIntro}
             </p>
             <ul className="flex flex-col gap-2 mb-5">
               {declinePoints.map((item) => (
-                <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3 border-b border-[#f0f0f0] pb-2.5 last:border-0">
-                  <span className="text-[#c8c8c8] shrink-0">-</span>
+                <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
+                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
             </ul>
-            <div className="border border-[#e2e2e2] border-l-2 border-l-[#111111] p-5 bg-[#f7f7f7]">
-              <p className="font-serif text-sm text-[#555555] leading-relaxed">
+            <div className="border border-line border-l-2 border-l-gold p-5 bg-stone-soft">
+              <p className="font-serif text-sm text-ink-2 leading-relaxed">
                 {t.declineFootnote}
               </p>
             </div>
           </section>
 
           {/* CTA */}
-          <div className="border border-[#e2e2e2] bg-[#111111] p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="border border-line bg-forest p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <h2 className="font-serif text-2xl text-white font-medium mb-3">
+              <h2 className="font-serif text-2xl text-on-forest font-medium mb-3">
                 {t.ctaHeading}
               </h2>
               <p className="font-serif text-sm text-white/70 leading-relaxed max-w-[60ch]">
@@ -1420,7 +1420,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             </div>
             <a
               href="mailto:books@panorama-sg.com?subject=Publishing Quote Request"
-              className="shrink-0 font-serif text-[12px] tracking-[0.08em] uppercase border border-white px-8 py-3 text-white hover:bg-white hover:text-[#111111] transition-colors text-center"
+              className="btn btn-quiet shrink-0 text-center"
             >
               {t.ctaContact}
             </a>

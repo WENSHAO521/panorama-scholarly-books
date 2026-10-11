@@ -153,15 +153,15 @@ export default function AboutPageClient({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <section className="border-b border-[#e2e2e2] pt-16 pb-12">
+      <section className="border-b border-line pt-16 pb-12">
         <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
+          <p className="eyebrow mb-4">
             {t.eyebrow}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
+          <h1 className="type-h1 mb-4">
             {t.heading}
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[60ch]">
+          <p className="lede max-w-[62ch]">
             {t.subheading}
           </p>
         </Container>
@@ -172,112 +172,112 @@ export default function AboutPageClient({ locale }: { locale: Locale }) {
 
           {/* Mission */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.missionHeading}
             </h2>
-            <p className="font-serif text-lg text-[#555555] leading-relaxed mb-5">
+            <p className="font-serif text-lg text-ink-2 leading-relaxed mb-5">
               {t.missionP1}
             </p>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-5">
               {t.missionP2}
             </p>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* Scope */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.scopeHeading}
             </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-6">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-6">
               {t.scopeIntro}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#e2e2e2]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line">
               {t.fields.map((field) => (
-                <div key={field} className="bg-white px-5 py-4">
-                  <p className="font-serif text-sm text-[#555555]">{field}</p>
+                <div key={field} className="bg-surface px-5 py-4">
+                  <p className="font-serif text-sm text-ink-2">{field}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* Publisher information */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.publisherInfoHeading}
             </h2>
-            <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
+            <div className="flex flex-col gap-0 border-t border-line">
               {t.publisherInfo.map(([label, value]) => (
                 <div
                   key={label}
-                  className="grid grid-cols-2 border-b border-[#e2e2e2] py-4"
+                  className="grid grid-cols-2 border-b border-line py-4"
                 >
-                  <span className="font-serif text-sm text-[#888888]">{label}</span>
-                  <span className="font-serif text-sm text-[#555555]">{value}</span>
+                  <span className="font-serif text-sm text-ink-3">{label}</span>
+                  <span className="font-serif text-sm text-ink-2">{value}</span>
                 </div>
               ))}
             </div>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* Academic standards */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.standardsHeading}
             </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-5">
               {t.standardsP1}
             </p>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-5">
               {t.standardsP2}
             </p>
             <Link
               href={localeHref("/policies", locale)}
-              className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
+              className="link-arrow"
             >
               {t.readPolicies}
             </Link>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* Relationship with PSG */}
           <section className="mb-14">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.relationshipHeading}
             </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-5">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-5">
               {t.relationshipP1}
             </p>
-            <p className="font-serif text-base text-[#555555] leading-relaxed">
+            <p className="font-serif text-base text-ink-2 leading-relaxed">
               {t.relationshipP2}
             </p>
           </section>
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-14" />
+          <div className="w-full h-px bg-line mb-14" />
 
           {/* Contact */}
           <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-[#111111] font-medium mb-6">
+            <h2 className="type-h2 mb-6">
               {t.contactHeading}
             </h2>
-            <div className="border border-[#e2e2e2] p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="border border-line p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <p className="font-serif text-sm text-[#888888] mb-1">{t.booksDepartment}</p>
+                <p className="font-serif text-sm text-ink-3 mb-1">{t.booksDepartment}</p>
                 <a
                   href="mailto:books@panorama-sg.com"
-                  className="font-serif text-base text-[#111111] hover:text-[#555555] transition-colors"
+                  className="font-serif text-base text-ink hover:text-forest transition-colors"
                 >
                   books@panorama-sg.com
                 </a>
               </div>
               <Link
                 href={localeHref("/contact", locale)}
-                className="shrink-0 font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] bg-[#111111] text-white px-6 py-3 hover:bg-transparent hover:text-[#111111] transition-colors text-center"
+                className="btn btn-primary shrink-0 text-center"
               >
                 {t.contactUs}
               </Link>

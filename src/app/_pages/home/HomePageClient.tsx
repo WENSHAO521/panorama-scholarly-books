@@ -1,536 +1,344 @@
-"use client";
-
 import Link from "next/link";
-import { books, getBookBySlug } from "@/data/books";
-import BookCard from "@/components/BookCard";
-import HeroBookList from "@/components/HeroBookList";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { catalogue } from "@/data/books";
+import { series } from "@/data/series";
+import { news, newsKindLabel, formatNewsDate } from "@/data/news";
+import BookCard, { BookEntry } from "@/components/BookCard";
 import Container from "@/components/Container";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import { localeHref, type Locale } from "@/lib/locale";
 
-const publishingAreas = [
-  {
-    label: { en: "Humanities", "zh-Hant": "人文學科", "zh-Hans": "人文学科" },
-    sub: {
-      en: "Philosophy, History, Literature, Cultural Studies",
-      "zh-Hant": "哲學、歷史、文學、文化研究",
-      "zh-Hans": "哲学、历史、文学、文化研究",
-    },
-  },
-  {
-    label: { en: "Social Sciences", "zh-Hant": "社會科學", "zh-Hans": "社会科学" },
-    sub: {
-      en: "Sociology, Anthropology, Political Science",
-      "zh-Hant": "社會學、人類學、政治學",
-      "zh-Hans": "社会学、人类学、政治学",
-    },
-  },
-  {
-    label: { en: "Education", "zh-Hant": "教育", "zh-Hans": "教育" },
-    sub: {
-      en: "Policy, Pedagogy, Higher Education, Curriculum",
-      "zh-Hant": "政策、教學法、高等教育、課程",
-      "zh-Hans": "政策、教学法、高等教育、课程",
-    },
-  },
-  {
-    label: { en: "Arts", "zh-Hant": "藝術", "zh-Hans": "艺术" },
-    sub: {
-      en: "Art History, Media Studies, Performance, Design",
-      "zh-Hant": "藝術史、媒體研究、表演藝術、設計",
-      "zh-Hans": "艺术史、媒体研究、表演艺术、设计",
-    },
-  },
-  {
-    label: { en: "Public Policy", "zh-Hant": "公共政策", "zh-Hans": "公共政策" },
-    sub: {
-      en: "Governance, Public Administration, Law",
-      "zh-Hant": "治理、公共行政、法律",
-      "zh-Hans": "治理、公共行政、法律",
-    },
-  },
-  {
-    label: { en: "AI and Future Society", "zh-Hant": "人工智能與未來社會", "zh-Hans": "人工智能与未来社会" },
-    sub: {
-      en: "Technology Ethics, Digital Futures, Science Studies",
-      "zh-Hant": "科技倫理、數位未來、科學研究",
-      "zh-Hans": "科技伦理、数字未来、科学研究",
-    },
-  },
+type L = Record<Locale, string>;
+
+// Fields come from the imprint's published scope (About page).
+const fields: L[] = [
+  { en: "Humanities", "zh-Hant": "人文學科", "zh-Hans": "人文学科" },
+  { en: "Social Sciences", "zh-Hant": "社會科學", "zh-Hans": "社会科学" },
+  { en: "Education", "zh-Hant": "教育", "zh-Hans": "教育" },
+  { en: "Arts", "zh-Hant": "藝術", "zh-Hans": "艺术" },
+  { en: "Public Policy", "zh-Hant": "公共政策", "zh-Hans": "公共政策" },
+  { en: "AI and Future Society", "zh-Hant": "人工智能與未來社會", "zh-Hans": "人工智能与未来社会" },
 ];
 
-const featuredSlugs = [
-  "education-policy-digital-age",
-  "global-society-governance-asia-pacific",
-  "chan-buddhism-sinicization-collected-essays-cn",
-];
-
-const bookTypesAccepted = [
-  { en: "Scholarly Monographs", "zh-Hant": "學術專著", "zh-Hans": "学术专著" },
-  { en: "Edited Volumes", "zh-Hant": "編著文集", "zh-Hans": "编著文集" },
-  { en: "Academic Textbooks", "zh-Hant": "學術教材", "zh-Hans": "学术教材" },
-  { en: "Research Reports", "zh-Hant": "研究報告", "zh-Hans": "研究报告" },
-  { en: "Conference Proceedings", "zh-Hant": "會議論文集", "zh-Hans": "会议论文集" },
-  { en: "Doctoral Dissertation-Based Books", "zh-Hant": "博士論文改編專書", "zh-Hans": "博士论文改编专书" },
-  { en: "Interdisciplinary Research Books", "zh-Hant": "跨學科研究專書", "zh-Hans": "跨学科研究专书" },
-];
-
-const printBundles = [
+const pillars: { title: L; body: L; href: string; link: L }[] = [
   {
-    id: "essential",
-    name: "Essential Print Publication",
-    nameZh: "基礎紙質出版組合",
-    nameZhHans: "基础纸质出版组合",
-    price: "USD 1,999",
-    desc: {
-      en: "Package A (author-prepared digital publication) combined with the Standard Physical Publication Pack.",
-      "zh-Hant": "方案 A（作者自備稿件出版）結合標準實體出版及法定送存套餐。",
-      "zh-Hans": "方案 A（作者自备稿件出版）结合标准实体出版及法定送存套餐。",
+    title: { en: "Scholarly Publishing", "zh-Hant": "學術出版", "zh-Hans": "学术出版" },
+    body: {
+      en: "Monographs, edited volumes, academic textbooks, research reports, conference proceedings and interdisciplinary works.",
+      "zh-Hant": "學術專著、編著文集、學術教材、研究報告、會議論文集及跨學科著作。",
+      "zh-Hans": "学术专著、编著文集、学术教材、研究报告、会议论文集及跨学科著作。",
     },
-    features: [
-      { en: "One ISBN, publisher metadata, and official book webpage", "zh-Hant": "一組 ISBN、出版者元數據及官方圖書網頁", "zh-Hans": "一组 ISBN、出版者元数据及官方图书网页" },
-      { en: "25 paperback copies: 20 author copies + 5 statutory deposit copies", "zh-Hant": "25本平裝本：20本作者副本＋5本法定送存本", "zh-Hans": "25本平装本：20本作者副本＋5本法定送存本" },
-      { en: "Hong Kong statutory deposit coordination and hand-delivery", "zh-Hant": "香港法定送存協調及遞交", "zh-Hans": "香港法定送存协调及递交" },
-    ],
+    href: "/for-authors#what-we-publish",
+    link: { en: "What we publish", "zh-Hant": "出版類型", "zh-Hans": "出版类型" },
   },
   {
-    id: "standard",
-    name: "Standard Academic Print Publication",
-    nameZh: "標準學術紙質出版組合",
-    nameZhHans: "标准学术纸质出版组合",
-    price: "USD 2,799",
-    desc: {
-      en: "Package B (publisher-assisted proofreading, typesetting, and cover design) combined with the Standard Physical Publication Pack.",
-      "zh-Hant": "方案 B（出版社協助校對、排版及封面設計）結合標準實體出版及法定送存套餐。",
-      "zh-Hans": "方案 B（出版社协助校对、排版及封面设计）结合标准实体出版及法定送存套餐。",
+    title: { en: "Editorial Standards", "zh-Hant": "編輯標準", "zh-Hans": "编辑标准" },
+    body: {
+      en: "Proposals are assessed on scholarly merit, originality, clarity of argument and relevance, under published policies on ethics, authorship, plagiarism and AI use.",
+      "zh-Hant": "提案依學術價值、原創性、論述清晰度及相關性評估，並遵循已公布的出版倫理、著作權歸屬、抄襲及人工智能使用政策。",
+      "zh-Hans": "提案依据学术价值、原创性、论述清晰度及相关性评估，并遵循已公布的出版伦理、著作权归属、抄袭及人工智能使用政策。",
     },
-    features: [
-      { en: "All services in Essential, plus proofreading and standard typesetting", "zh-Hant": "涵蓋 Essential 所有服務，另加校對與標準排版", "zh-Hans": "涵盖 Essential 所有服务，另加校对与标准排版" },
-      { en: "25 paperback copies: 20 author copies + 5 statutory deposit copies", "zh-Hant": "25本平裝本：20本作者副本＋5本法定送存本", "zh-Hans": "25本平装本：20本作者副本＋5本法定送存本" },
-      { en: "One consolidated round of author corrections", "zh-Hant": "一輪整合式作者校訂", "zh-Hans": "一轮整合式作者校订" },
-    ],
+    href: "/policies",
+    link: { en: "Publishing policies", "zh-Hant": "出版政策", "zh-Hans": "出版政策" },
   },
   {
-    id: "extended",
-    name: "Extended Academic Print Publication",
-    nameZh: "延伸學術紙質出版組合",
-    nameZhHans: "延伸学术纸质出版组合",
-    price: "From USD 3,499",
-    desc: {
-      en: "Package C (extended and complex book production) combined with the Standard Physical Publication Pack.",
-      "zh-Hant": "方案 C（延伸與複雜圖書製作）結合標準實體出版及法定送存套餐。",
-      "zh-Hans": "方案 C（延伸与复杂图书制作）结合标准实体出版及法定送存套餐。",
+    title: { en: "Book Proposals", "zh-Hant": "圖書提案", "zh-Hans": "图书提案" },
+    body: {
+      en: "Authors, editors and research teams send a proposal with the documents listed in the author guidelines. Please allow 2–4 weeks for an initial response.",
+      "zh-Hant": "作者、編者及研究團隊可依作者指南所列文件提交提案。初步回覆約需二至四週。",
+      "zh-Hans": "作者、编者及研究团队可依作者指南所列文件提交提案。初步回复约需二至四周。",
     },
-    features: [
-      { en: "All services in Standard, plus advanced typesetting for complex manuscripts", "zh-Hant": "涵蓋 Standard 所有服務，另加複雜書稿之進階排版", "zh-Hans": "涵盖 Standard 所有服务，另加复杂书稿的进阶排版" },
-      { en: "25 paperback copies: 20 author copies + 5 statutory deposit copies", "zh-Hant": "25本平裝本：20本作者副本＋5本法定送存本", "zh-Hans": "25本平装本：20本作者副本＋5本法定送存本" },
-      { en: "Up to two consolidated correction rounds", "zh-Hant": "最多兩輪整合式校訂", "zh-Hans": "最多两轮整合式校订" },
-    ],
+    href: "/for-authors#proposal-content",
+    link: { en: "Proposal guidelines", "zh-Hant": "提案指南", "zh-Hans": "提案指南" },
+  },
+  {
+    title: { en: "Open Access Options", "zh-Hant": "開放獲取選項", "zh-Hans": "开放获取选项" },
+    body: {
+      en: "Selected titles may be published open access, by default under CC BY-NC-ND 4.0, with the licence agreed in the publishing agreement.",
+      "zh-Hant": "部分著作可採開放獲取方式出版，預設採用 CC BY-NC-ND 4.0 授權，授權條款於出版協議中約定。",
+      "zh-Hans": "部分著作可采用开放获取方式出版，默认采用 CC BY-NC-ND 4.0 许可，许可条款在出版协议中约定。",
+    },
+    href: "/policies/open-access",
+    link: { en: "Open access policy", "zh-Hant": "開放獲取政策", "zh-Hans": "开放获取政策" },
   },
 ];
 
 const copy = {
   en: {
-    eyebrow: "Academic Book Publishing",
-    lede: "The academic book publishing imprint of Panorama Scholarly Group Limited.",
-    lede2: "We publish scholarly monographs, edited volumes, research reports, academic textbooks, and interdisciplinary works across the humanities, social sciences, education, arts, public policy, and emerging fields.",
-    browseBooks: "Browse Books",
-    publishWithUs: "Publish with Us",
-    aboutHeading: "About Panorama Scholarly Books",
-    aboutBody: "Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange. As the academic book publishing imprint of Panorama Scholarly Group Limited, the imprint supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services.",
-    publishingAreasEyebrow: "Publishing Areas",
-    publishingAreasHeading: "Fields We Publish",
-    recentTitles: "Recent Titles",
-    featuredBooks: "Featured Books",
-    browseAllBooks: "Browse all books",
-    publishingServicesEyebrow: "Publishing Services",
-    publishingServicesHeading: "Recommended Print Publication Bundles",
-    publishingServicesNote: "Combined digital-production and print-publication pricing. Effective 1 August 2026.",
-    perTitle: "combined price",
-    learnMore: "Learn more",
-    noticeHeading: "Important Publishing Notice",
-    noticeP1: "ISBNs are assigned only to publications formally reviewed, accepted, and published by Panorama Scholarly Books under a signed publishing agreement. ISBNs are not sold, transferred, leased, or supplied as standalone numbers. Publishing fees are service charges covering editorial assessment, publisher administration, rights review, metadata management, ISBN assignment, production processing, official records, digital archiving, and compliance coordination.",
-    noticeP2: "Bundle prices exclude shipping of the 20 author copies to the author's address, taxes, payment-platform fees, and third-party platform charges. Hong Kong book registration itself carries no government fee — the fee covers the publisher's deposit-copy coordination, paperwork, packaging, and hand-delivery service, never a \"registration fee.\" See Publishing Services for the full price list, including rush tiers and additional formats.",
-    forAuthorsEyebrow: "For Authors",
-    forAuthorsHeading: "Publish with Panorama Scholarly Books",
-    forAuthorsBody: "We welcome proposals from academic authors, editors, and research teams working across a broad range of disciplines. Submissions are evaluated on scholarly merit, originality, clarity of argument, and relevance to academic discourse.",
-    authorGuidelines: "Author Guidelines",
-    acceptTypesIntro: "We accept the following book types:",
-    distributionEyebrow: "Sales and Distribution",
-    distributionHeading: "Distribution channels are currently being developed.",
-    distributionBody: "Panorama Scholarly Group Limited is gradually developing its book sales and distribution channels. At present, each published title receives an official book webpage, publisher and bibliographic metadata, an ISBN for its approved edition and product format, and digital archiving.",
-    distributionNote: "Book publishing fees do not guarantee book sales, bookstore placement, library acquisition, indexing, ranking, or commercial performance.",
-    distributionInfo: "Distribution information",
-    ctaHeading: "Submit a Book Proposal",
-    ctaBody: "To discuss a book project, submit a proposal, or inquire about publishing services, please contact the Books department directly.",
-    ctaContact: "Contact the Books Department",
+    eyebrow: "Academic Book Publishing · Hong Kong",
+    headline: ["Scholarly Books.", "Ideas Beyond Boundaries."],
+    lede: "Panorama Scholarly Books is the academic book imprint of Panorama Scholarly Group Limited, publishing monographs, edited volumes, textbooks and research reports across the humanities, social sciences and emerging fields.",
+    browse: "Browse Books",
+    publish: "Publish With Us",
+    fieldsLabel: "Fields of publication",
+    pubEyebrow: "Publications",
+    pubHeading: "From the catalogue",
+    latest: "Latest publication",
+    viewBook: "View book details",
+    allBooks: "View the full catalogue",
+    growing: "Our list is growing. New titles are announced here as they are published.",
+    seriesEyebrow: "Book Series",
+    seriesHeading: "Series open for proposals",
+    seriesBody: "Each series defines a field of scholarship and the book types it accepts. No volumes have yet been published in a series.",
+    allSeries: "Explore all series",
+    publishEyebrow: "Publishing with Panorama",
+    publishHeading: "A considered route from manuscript to book",
+    publishBody: "We work with academic authors, editors and institutions under signed publishing agreements, with clear editorial policies and transparent service terms.",
+    isbnNote: "ISBNs are assigned only to works formally reviewed, accepted and published by Panorama Scholarly Books under a signed publishing agreement. They are never sold or supplied as standalone numbers.",
+    services: "Services and fees",
+    guidelines: "Author guidelines",
+    newsEyebrow: "News & Announcements",
+    newsHeading: "Notices from the imprint",
   },
   "zh-Hant": {
-    eyebrow: "學術圖書出版",
-    lede: "Panorama Scholarly Books 是 Panorama Scholarly Group Limited 旗下的學術圖書出版品牌。",
-    lede2: "我們出版跨越人文學科、社會科學、教育、藝術、公共政策及新興領域的學術專著、編著文集、研究報告、學術教材與跨學科著作。",
-    browseBooks: "瀏覽書目",
-    publishWithUs: "與我們出版",
-    aboutHeading: "關於 Panorama Scholarly Books",
-    aboutBody: "Panorama Scholarly Books 致力於出版有助於學術交流、跨學科研究與全球知識共享的學術著作。作為 Panorama Scholarly Group Limited 旗下的學術圖書出版品牌，本平台透過負責任的出版實踐與專業的製作服務，支持學術作者、編者、研究人員與機構。",
-    publishingAreasEyebrow: "出版領域",
-    publishingAreasHeading: "我們出版的領域",
-    recentTitles: "近期出版",
-    featuredBooks: "精選圖書",
-    browseAllBooks: "瀏覽所有書目",
-    publishingServicesEyebrow: "出版服務",
-    publishingServicesHeading: "推薦對外紙質出版組合",
-    publishingServicesNote: "數位製作與紙質出版之組合定價，自2026年8月1日起生效。",
-    perTitle: "組合價",
-    learnMore: "了解更多",
-    noticeHeading: "重要出版須知",
-    noticeP1: "ISBN 僅分配予經 Panorama Scholarly Books 正式審查、接受並依簽署出版協議出版的著作。ISBN 不作出售、轉讓、租借，亦不會單獨提供編號。出版費用為服務費，涵蓋編輯評估、出版管理、版權審查、元數據管理、ISBN 分配、製作處理、正式紀錄、數位典藏及合規協調工作。",
-    noticeP2: "組合價格不包括20本作者副本寄往作者地址的運輸費、稅費、支付平台費用及第三方平台費用。香港書刊登記本身不收取政府費用——費用涵蓋的是出版者之送存本協調、文件處理、包裝及遞交服務，絕非「登記費」。完整價目表（含加急服務及額外格式）請參閱出版服務頁面。",
-    forAuthorsEyebrow: "作者專區",
-    forAuthorsHeading: "與 Panorama Scholarly Books 一同出版",
-    forAuthorsBody: "我們歡迎來自各學科領域的學術作者、編者及研究團隊提交提案。投稿將依學術價值、原創性、論述清晰度及與學術論述的相關性進行評估。",
-    authorGuidelines: "作者指南",
-    acceptTypesIntro: "我們接受以下圖書類型：",
-    distributionEyebrow: "銷售與發行",
-    distributionHeading: "發行渠道現正逐步建置中。",
-    distributionBody: "Panorama Scholarly Group Limited 正逐步發展其圖書銷售與發行渠道。目前每本已出版著作均設有官方圖書網頁、出版者及書目元數據、對應核准版次及產品格式的 ISBN，以及數位典藏。",
-    distributionNote: "圖書出版費用並不保證圖書銷售、書店上架、圖書館採購、索引收錄、排名或商業表現。",
-    distributionInfo: "發行資訊",
-    ctaHeading: "提交圖書提案",
-    ctaBody: "如需討論圖書專案、提交提案，或洽詢出版服務，請直接聯絡圖書部門。",
-    ctaContact: "聯絡圖書部門",
+    eyebrow: "學術圖書出版 · 香港",
+    headline: ["學術之書，", "思想無界。"],
+    lede: "Panorama Scholarly Books 是 Panorama Scholarly Group Limited 旗下的學術圖書出版品牌，出版人文學科、社會科學及新興領域的學術專著、編著文集、學術教材與研究報告。",
+    browse: "瀏覽書目",
+    publish: "與我們出版",
+    fieldsLabel: "出版領域",
+    pubEyebrow: "出版品",
+    pubHeading: "書目精選",
+    latest: "最新出版",
+    viewBook: "查看圖書詳情",
+    allBooks: "瀏覽完整書目",
+    growing: "書目將持續增加，新書出版後即於此公布。",
+    seriesEyebrow: "書系",
+    seriesHeading: "接受提案的書系",
+    seriesBody: "每個書系界定其學術範圍與接受的圖書類型。目前各書系尚未出版任何著作。",
+    allSeries: "瀏覽所有書系",
+    publishEyebrow: "與 Panorama 出版",
+    publishHeading: "從書稿到成書的審慎路徑",
+    publishBody: "我們依據已簽署的出版協議，與學術作者、編者及機構合作，並遵循清晰的編輯政策與透明的服務條款。",
+    isbnNote: "ISBN 僅分配予經 Panorama Scholarly Books 正式審查、接受並依簽署出版協議出版的著作，不作出售，亦不單獨提供編號。",
+    services: "出版服務與費用",
+    guidelines: "作者指南",
+    newsEyebrow: "最新消息與公告",
+    newsHeading: "出版品牌通告",
   },
   "zh-Hans": {
-    eyebrow: "学术图书出版",
-    lede: "Panorama Scholarly Books 是 Panorama Scholarly Group Limited 旗下的学术图书出版品牌。",
-    lede2: "我们出版涵盖人文学科、社会科学、教育、艺术、公共政策及新兴领域的学术专著、编著文集、研究报告、学术教材与跨学科著作。",
-    browseBooks: "浏览书目",
-    publishWithUs: "与我们合作出版",
-    aboutHeading: "关于 Panorama Scholarly Books",
-    aboutBody: "Panorama Scholarly Books 致力于出版有助于学术交流、跨学科研究与全球知识共享的学术著作。作为 Panorama Scholarly Group Limited 旗下的学术图书出版品牌，本平台通过负责任的出版实践与专业的制作服务，支持学术作者、编者、研究人员与机构。",
-    publishingAreasEyebrow: "出版领域",
-    publishingAreasHeading: "我们出版的领域",
-    recentTitles: "近期出版",
-    featuredBooks: "精选图书",
-    browseAllBooks: "浏览所有书目",
-    publishingServicesEyebrow: "出版服务",
-    publishingServicesHeading: "推荐纸质出版组合",
-    publishingServicesNote: "数字制作与纸质出版的组合定价，自2026年8月1日起生效。",
-    perTitle: "组合价",
-    learnMore: "了解更多",
-    noticeHeading: "重要出版须知",
-    noticeP1: "ISBN 仅分配给经 Panorama Scholarly Books 正式审查、接受并依签署出版协议出版的著作。ISBN 不出售、不转让、不租借，也不会单独提供编号。出版费用为服务费，涵盖编辑评估、出版管理、版权审查、元数据管理、ISBN 分配、制作处理、正式记录、数字化存档及合规协调工作。",
-    noticeP2: "组合价格不包括20本作者副本寄往作者地址的运输费、税费、支付平台费用及第三方平台费用。香港书刊登记本身不收取政府费用——费用涵盖的是出版者的送存本协调、文件处理、包装及递交服务，绝非\"登记费\"。完整价目表（含加急服务及额外格式）请参阅出版服务页面。",
-    forAuthorsEyebrow: "作者专区",
-    forAuthorsHeading: "与 Panorama Scholarly Books 一同出版",
-    forAuthorsBody: "我们欢迎来自各学科领域的学术作者、编者及研究团队提交提案。投稿将依据学术价值、原创性、论述清晰度及与学术论述的相关性进行评估。",
-    authorGuidelines: "作者指南",
-    acceptTypesIntro: "我们接受以下图书类型：",
-    distributionEyebrow: "销售与发行",
-    distributionHeading: "发行渠道正在逐步建设中。",
-    distributionBody: "Panorama Scholarly Group Limited 正逐步发展其图书销售与发行渠道。目前每本已出版著作均设有官方图书网页、出版者及书目元数据、对应核准版次及产品格式的 ISBN，以及数字化存档。",
-    distributionNote: "图书出版费用并不保证图书销售、书店上架、图书馆采购、索引收录、排名或商业表现。",
-    distributionInfo: "发行信息",
-    ctaHeading: "提交图书提案",
-    ctaBody: "如需讨论图书项目、提交提案，或咨询出版服务，请直接联系图书部门。",
-    ctaContact: "联系图书部门",
+    eyebrow: "学术图书出版 · 香港",
+    headline: ["学术之书，", "思想无界。"],
+    lede: "Panorama Scholarly Books 是 Panorama Scholarly Group Limited 旗下的学术图书出版品牌，出版人文学科、社会科学及新兴领域的学术专著、编著文集、学术教材与研究报告。",
+    browse: "浏览书目",
+    publish: "与我们出版",
+    fieldsLabel: "出版领域",
+    pubEyebrow: "出版物",
+    pubHeading: "书目精选",
+    latest: "最新出版",
+    viewBook: "查看图书详情",
+    allBooks: "浏览完整书目",
+    growing: "书目将持续增加，新书出版后即在此公布。",
+    seriesEyebrow: "书系",
+    seriesHeading: "接受提案的书系",
+    seriesBody: "每个书系界定其学术范围与接受的图书类型。目前各书系尚未出版任何著作。",
+    allSeries: "浏览所有书系",
+    publishEyebrow: "与 Panorama 出版",
+    publishHeading: "从书稿到成书的审慎路径",
+    publishBody: "我们依据已签署的出版协议，与学术作者、编者及机构合作，并遵循清晰的编辑政策与透明的服务条款。",
+    isbnNote: "ISBN 仅分配给经 Panorama Scholarly Books 正式审查、接受并依签署出版协议出版的著作，不出售，也不单独提供编号。",
+    services: "出版服务与费用",
+    guidelines: "作者指南",
+    newsEyebrow: "最新消息与公告",
+    newsHeading: "出版品牌通告",
   },
 } as const;
 
+function SectionHead({ eyebrow, heading, action }: { eyebrow: string; heading: string; action?: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-10 lg:mb-14">
+      <div>
+        <p className="eyebrow mb-3">{eyebrow}</p>
+        <h2 className="type-h2">{heading}</h2>
+      </div>
+      {action}
+    </div>
+  );
+}
+
+/** Brand composition for the hero: the three offset leaves of the Panorama
+    mark, drawn large, with the imprint's real fields set as a colophon. */
+function HeroColophon({ locale, label }: { locale: Locale; label: string }) {
+  return (
+    <div className="relative h-full min-h-[340px] bg-stone overflow-hidden">
+      <svg viewBox="0 0 400 480" className="absolute -right-8 -top-6 w-[58%] sm:w-[70%] lg:w-[86%] max-w-[440px] h-auto" aria-hidden="true">
+        <rect x="40" y="20" width="200" height="270" fill="#173D32" />
+        <rect x="100" y="80" width="200" height="270" fill="#4F7466" opacity="0.85" />
+        <rect x="160" y="140" width="200" height="270" fill="#A6855B" opacity="0.55" />
+        <line x1="40" y1="20" x2="40" y2="290" stroke="#A6855B" strokeWidth="2" />
+      </svg>
+      <div className="absolute left-0 bottom-0 p-6 sm:p-8 lg:p-10 bg-gradient-to-t from-stone via-stone/90 to-transparent pt-16 w-full">
+        <p className="eyebrow !text-ink-2 mb-3">{label}</p>
+        <ul className="font-serif text-[17px] text-ink leading-[1.9]">
+          {fields.map((f) => (
+            <li key={f.en}>{f[locale]}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export default function HomePageClient({ locale }: { locale: Locale }) {
   const t = copy[locale];
-  const featuredBooks = featuredSlugs
-    .map((slug) => getBookBySlug(slug))
-    .filter((b): b is NonNullable<typeof b> => Boolean(b));
+  const books = catalogue;
+  const featured = books.slice(0, 4);
+  const fewBooks = featured.length <= 2;
 
   return (
     <>
       <AnnouncementBanner locale={locale} />
-      {/* Hero */}
-      <section className="min-h-[100dvh] grid grid-cols-1 lg:grid-cols-5 border-b border-[#e2e2e2]">
-        {/* Left */}
-        <div className="lg:col-span-3 flex flex-col justify-center px-6 md:px-12 xl:px-20 pt-16 pb-16 lg:pt-0 lg:pb-0">
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-8">
-            {t.eyebrow}
-          </p>
-          <h1 className="font-serif text-5xl md:text-6xl xl:text-[72px] leading-[1.06] text-[#111111] mb-6 font-medium">
-            Panorama<br />Scholarly<br />Books
-          </h1>
-          <div className="w-10 h-px bg-[#111111] mb-8" />
-          <p className="font-serif text-lg md:text-xl text-[#555555] leading-relaxed max-w-[52ch] mb-3">
-            {t.lede}
-          </p>
-          <p className="font-serif text-base text-[#888888] leading-relaxed max-w-[52ch] mb-12">
-            {t.lede2}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start">
-            <Link
-              href={localeHref("/books", locale)}
-              className="font-serif text-base text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-            >
-              {t.browseBooks}
-            </Link>
-            <Link
-              href={localeHref("/for-authors", locale)}
-              className="font-serif text-base text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-            >
-              {t.publishWithUs}
-            </Link>
-          </div>
-        </div>
 
-        {/* Right: editorial catalog list */}
-        <div className="hidden lg:flex lg:col-span-2 border-l border-[#e2e2e2] bg-white flex-col">
-          <div className="px-8 pt-[72px] pb-8 flex flex-col flex-1">
-            <HeroBookList books={books} locale={locale} />
-          </div>
-        </div>
-      </section>
-
-      {/* About */}
-      <section className="border-b border-[#e2e2e2] py-20">
+      {/* ── Hero ─────────────────────────────────────────────────────── */}
+      <section className="border-b border-line">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium leading-[1.15] mb-6">
-                {t.aboutHeading}
-              </h2>
-              <div className="w-8 h-px bg-[#111111] mb-6" />
-            </div>
-            <div>
-              <p className="font-serif text-base text-[#555555] leading-relaxed">
-                {t.aboutBody}
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Publishing Areas */}
-      <section className="border-b border-[#e2e2e2] py-20">
-        <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
-            {t.publishingAreasEyebrow}
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium leading-[1.15] mb-12">
-            {t.publishingAreasHeading}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e2e2e2]">
-            {publishingAreas.map((area) => (
-              <div key={area.label.en} className="bg-white p-8">
-                <p className="font-serif text-xl text-[#111111] font-medium mb-3">
-                  {area.label[locale]}
-                </p>
-                <p className="font-serif text-sm text-[#888888] leading-relaxed">
-                  {area.sub[locale]}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Featured Books */}
-      <section className="border-b border-[#e2e2e2] py-20">
-        <Container>
-          <div className="flex items-end justify-between mb-12">
-            <div>
-              <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
-                {t.recentTitles}
-              </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium leading-[1.15]">
-                {t.featuredBooks}
-              </h2>
-            </div>
-            <Link
-              href={localeHref("/books", locale)}
-              className="hidden sm:inline font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors whitespace-nowrap"
-            >
-              {t.browseAllBooks}
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredBooks.map((book) => (
-              <BookCard key={book.slug} book={book} locale={locale} />
-            ))}
-          </div>
-          <div className="mt-8 sm:hidden">
-            <Link
-              href={localeHref("/books", locale)}
-              className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-            >
-              {t.browseAllBooks}
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      {/* Publishing Services */}
-      <section className="border-b border-[#e2e2e2] py-20 bg-[#f7f7f7]">
-        <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
-            {t.publishingServicesEyebrow}
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium leading-[1.15] mb-2">
-            {t.publishingServicesHeading}
-          </h2>
-          <p className="font-serif text-sm text-[#888888] mb-12">
-            {t.publishingServicesNote}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e2e2e2]">
-            {printBundles.map((bundle) => (
-              <div key={bundle.id} className="bg-white p-10 flex flex-col">
-                <div className="min-h-[100px] mb-4">
-                  <p className="font-serif text-2xl text-[#111111] font-medium leading-snug">
-                    {bundle.name}
-                  </p>
-                  {locale === "zh-Hant" && (
-                    <p className="font-serif text-base text-[#555555] leading-snug mt-1">
-                      {bundle.nameZh}
-                    </p>
-                  )}
-                  {locale === "zh-Hans" && (
-                    <p className="font-serif text-base text-[#555555] leading-snug mt-1">
-                      {bundle.nameZhHans}
-                    </p>
-                  )}
-                </div>
-                <div className="mb-6">
-                  <p className="font-serif text-3xl text-[#111111] font-medium">
-                    {bundle.price}
-                  </p>
-                  <p className="font-serif text-xs text-[#888888] mt-1">
-                    {t.perTitle}
-                  </p>
-                </div>
-                <div className="w-full h-px bg-[#e2e2e2] mb-6" />
-                <p className="font-serif text-sm text-[#555555] leading-relaxed mb-6">
-                  {bundle.desc[locale]}
-                </p>
-                <ul className="flex flex-col gap-3 mb-8 flex-1">
-                  {bundle.features.map((item) => (
-                    <li key={item.en} className="font-serif text-sm text-[#555555] flex gap-3">
-                      <span className="text-[#888888] shrink-0">-</span>
-                      {item[locale]}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={localeHref("/publishing-services", locale)}
-                  className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-                >
-                  {t.learnMore}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 py-12 sm:py-16 lg:py-20">
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <p className="eyebrow mb-6">{t.eyebrow}</p>
+              <h1 className="type-display">
+                <span className="block">{t.headline[0]}</span>
+                <span className="block text-forest italic font-normal">{t.headline[1]}</span>
+              </h1>
+              <span className="rule-gold mt-8 mb-7" aria-hidden="true" />
+              <p className="lede max-w-[54ch]">{t.lede}</p>
+              <div className="flex flex-col sm:flex-row gap-3 mt-9">
+                <Link href={localeHref("/books", locale)} className="btn btn-primary">
+                  {t.browse}
+                  <ArrowRight size={16} weight="bold" aria-hidden="true" />
+                </Link>
+                <Link href={localeHref("/for-authors", locale)} className="btn btn-secondary">
+                  {t.publish}
                 </Link>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-6 border border-[#e2e2e2] bg-white p-6">
-            <p className="font-serif text-xs tracking-[0.15em] uppercase text-[#888888] mb-3">
-              {t.noticeHeading}
-            </p>
-            <p className="font-serif text-sm text-[#555555] leading-relaxed mb-3">
-              {t.noticeP1}
-            </p>
-            <p className="font-serif text-sm text-[#888888] leading-relaxed">
-              {t.noticeP2}
-            </p>
+            </div>
+            <div className="lg:col-span-5 lg:col-start-8">
+              <HeroColophon locale={locale} label={t.fieldsLabel} />
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* For Authors */}
-      <section className="border-b border-[#e2e2e2] py-20">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            <div>
-              <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
-                {t.forAuthorsEyebrow}
-              </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium leading-[1.15] mb-6">
-                {t.forAuthorsHeading}
-              </h2>
-              <div className="w-8 h-px bg-[#111111] mb-6" />
-              <p className="font-serif text-base text-[#555555] leading-relaxed mb-8">
-                {t.forAuthorsBody}
-              </p>
-              <Link
-                href={localeHref("/for-authors", locale)}
-                className="inline-block font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-6 py-3 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
-              >
-                {t.authorGuidelines}
-              </Link>
-            </div>
-            <div>
-              <p className="font-serif text-sm text-[#888888] mb-4 tracking-wide">
-                {t.acceptTypesIntro}
-              </p>
-              <ul className="flex flex-col gap-3">
-                {bookTypesAccepted.map((type) => (
-                  <li key={type.en} className="font-serif text-base text-[#555555] flex gap-4 border-b border-[#f0f0f0] pb-3 last:border-0">
-                    <span className="text-[#c8c8c8] shrink-0 font-medium">-</span>
-                    {type[locale]}
-                  </li>
+      {/* ── Featured publications ────────────────────────────────────── */}
+      {books.length > 0 && (
+        <section className="py-16 lg:py-24">
+          <Container>
+            <SectionHead
+              eyebrow={t.pubEyebrow}
+              heading={fewBooks ? t.latest : t.pubHeading}
+              action={
+                <Link href={localeHref("/books", locale)} className="link-arrow">
+                  {t.allBooks}
+                  <ArrowRight size={14} weight="bold" aria-hidden="true" />
+                </Link>
+              }
+            />
+            {fewBooks ? (
+              <div className="space-y-16">
+                {featured.map((book) => (
+                  <BookEntry key={book.slug} book={book} locale={locale} moreLabel={t.viewBook} />
                 ))}
-              </ul>
+                <p className="meta border-t border-line pt-6">{t.growing}</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-5 sm:gap-x-8 gap-y-12">
+                {featured.map((book) => (
+                  <BookCard key={book.slug} book={book} locale={locale} />
+                ))}
+              </div>
+            )}
+          </Container>
+        </section>
+      )}
+
+      {/* ── Book series ──────────────────────────────────────────────── */}
+      <section className="py-16 lg:py-24 border-t border-line">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+            <div className="lg:col-span-4">
+              <p className="eyebrow mb-3">{t.seriesEyebrow}</p>
+              <h2 className="type-h2">{t.seriesHeading}</h2>
+              <p className="text-ink-2 mt-5 max-w-[42ch]">{t.seriesBody}</p>
+              <Link href={localeHref("/book-series", locale)} className="link-arrow mt-6">
+                {t.allSeries}
+                <ArrowRight size={14} weight="bold" aria-hidden="true" />
+              </Link>
+            </div>
+            <ol className="lg:col-span-8 border-t border-line">
+              {series.map((s, i) => (
+                <li key={s.id} className="border-b border-line">
+                  <Link
+                    href={`${localeHref("/book-series", locale)}#${s.id}`}
+                    className="group grid grid-cols-[2.5rem_1fr_auto] gap-x-4 items-baseline py-5"
+                  >
+                    <span className="font-sans text-[13px] tabular-nums text-gold-ink">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-serif text-[19px] leading-snug text-ink group-hover:text-forest">{s.title[locale]}</span>
+                    <ArrowRight size={14} className="text-ink-3 group-hover:text-forest transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Publishing with Panorama ─────────────────────────────────── */}
+      <section className="py-16 lg:py-24 bg-stone-soft border-y border-line">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+            <div className="lg:col-span-4">
+              <p className="eyebrow mb-3">{t.publishEyebrow}</p>
+              <h2 className="type-h2">{t.publishHeading}</h2>
+              <p className="text-ink-2 mt-5 max-w-[42ch]">{t.publishBody}</p>
+              <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 mt-8">
+                <Link href={localeHref("/for-authors", locale)} className="btn btn-primary">{t.guidelines}</Link>
+                <Link href={localeHref("/publishing-services", locale)} className="btn btn-quiet">{t.services}</Link>
+              </div>
+            </div>
+            <div className="lg:col-span-8">
+              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
+                {pillars.map((p, i) => (
+                  <div key={p.title.en} className="border-t-2 border-forest pt-5">
+                    <dt className="flex items-baseline gap-3">
+                      <span className="font-sans text-[13px] tabular-nums text-gold-ink">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="type-h3">{p.title[locale]}</span>
+                    </dt>
+                    <dd className="mt-3 text-ink-2 text-[16px] leading-relaxed">
+                      {p.body[locale]}
+                      <Link href={localeHref(p.href, locale)} className="link-arrow mt-3 !flex w-fit">
+                        {p.link[locale]}
+                        <ArrowRight size={14} weight="bold" aria-hidden="true" />
+                      </Link>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="meta mt-12 pt-6 border-t border-line max-w-[80ch]">{t.isbnNote}</p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Distribution Notice */}
-      <section className="border-b border-[#e2e2e2] py-16 bg-[#f7f7f7]">
-        <Container narrow>
-          <div className="border border-[#e2e2e2] bg-white p-8 md:p-12">
-            <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
-              {t.distributionEyebrow}
-            </p>
-            <p className="font-serif text-lg text-[#111111] mb-4 leading-relaxed">
-              {t.distributionHeading}
-            </p>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-4">
-              {t.distributionBody}
-            </p>
-            <p className="font-serif text-sm text-[#888888] leading-relaxed">
-              {t.distributionNote}
-            </p>
-            <div className="mt-6">
-              <Link
-                href={localeHref("/distribution", locale)}
-                className="font-serif text-sm text-[#111111] border-b border-[#111111] pb-0.5 hover:text-[#555555] hover:border-[#555555] transition-colors"
-              >
-                {t.distributionInfo}
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-20">
-        <Container narrow>
-          <div className="text-center">
-            <h2 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium mb-6">
-              {t.ctaHeading}
-            </h2>
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-10 max-w-[52ch] mx-auto">
-              {t.ctaBody}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href={localeHref("/contact", locale)}
-                className="inline-block font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] bg-[#111111] text-white px-8 py-3 hover:bg-transparent hover:text-[#111111] transition-colors"
-              >
-                {t.ctaContact}
-              </Link>
-              <Link
-                href={localeHref("/for-authors", locale)}
-                className="inline-block font-serif text-[12px] tracking-[0.08em] uppercase border border-[#111111] px-8 py-3 text-[#111111] hover:bg-[#111111] hover:text-white transition-colors"
-              >
-                {t.authorGuidelines}
-              </Link>
-            </div>
-          </div>
+      {/* ── News & announcements ─────────────────────────────────────── */}
+      <section className="pt-16 lg:pt-24">
+        <Container>
+          <SectionHead eyebrow={t.newsEyebrow} heading={t.newsHeading} />
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
+            {news.map((item) => (
+              <li key={item.id} className="border-t border-line pt-5">
+                <Link href={localeHref(item.href, locale)} className="group block">
+                  <p className="meta flex flex-wrap gap-x-2">
+                    <span className="font-semibold text-gold-ink">{newsKindLabel(item.kind, locale)}</span>
+                    <span aria-hidden="true">·</span>
+                    <time dateTime={item.date}>{formatNewsDate(item.date, locale)}</time>
+                  </p>
+                  <h3 className="font-serif text-[20px] leading-snug text-ink mt-2 group-hover:text-forest group-hover:underline underline-offset-4 decoration-1 decoration-line-strong">
+                    {item.title[locale]}
+                  </h3>
+                  <p className="text-ink-2 text-[16px] leading-relaxed mt-2">{item.summary[locale]}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
     </>
