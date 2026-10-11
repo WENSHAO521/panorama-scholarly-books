@@ -7,7 +7,7 @@ This document covers the redesign brief stages A–F (audit, direction, foundati
 ## A. Audit of the previous site
 
 **Kept (brand equity)**
-- The three offset rectangles in the Panorama mark. The geometry is unchanged and only the colours are new: forest, sage and gold in place of greys.
+- The Panorama mark (three offset rectangles), kept exactly as is: original shape and original colours (#1A1A1A, #4A4A4A, #8E8E8E). The logo is never recoloured to match the site palette.
 - A serif-led editorial voice, ruled lists and generous margins.
 - Trilingual routing (`/`, `/zh-hant`, `/zh-hans`) and per-string localisation.
 - The scholarly safeguards already in place: `citationEligible` gating for Google Scholar tags, JSON-LD and the sitemap.
@@ -50,7 +50,7 @@ Direction A was chosen because it handles a 1-book catalogue gracefully, fits th
 | `ink` | #3A3937 | 濃墨 Koi-zumi | headings | 11.0:1 |
 | `ink-2` | #595857 | 墨 Sumi | body text | 6.8:1 |
 | `ink-3` | #666B5E | 利休鼠 (deepened) | metadata | 5.3:1 |
-| `rikyu` / `line-strong` | #888E7E | 利休鼠 Rikyūnezumi | rules, control borders, logo; never small text | 3.2:1 (non-text) |
+| `rikyu` / `line-strong` | #888E7E | 利休鼠 Rikyūnezumi | rules, control borders, hero graphic; never small text | 3.2:1 (non-text) |
 | `brand` | #244A3C | 深緑 Fukamidori (muted) | brand, buttons, links, footer | 9.5:1 |
 | `accent` | #7EBEA5 | 青磁 Seiji | markers, rules, active indicators; never text | 2.1:1 (decorative) |
 | `accent-ink` | #3D7A62 | 青磁 (deepened) | small celadon text such as numerals | 4.8:1 |
