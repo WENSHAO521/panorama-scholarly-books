@@ -49,8 +49,8 @@ export default function CiteBlock({ formats, locale }: { formats: CitationFormat
   };
 
   return (
-    <div className="border border-line bg-surface rounded-sm">
-      <div role="tablist" aria-label={t.formats} className="flex border-b border-line overflow-x-auto">
+    <div className="border border-line bg-surface rounded-lg overflow-hidden">
+      <div role="tablist" aria-label={t.formats} className="flex border-b border-line overflow-x-auto no-scrollbar">
         {formats.map((f, i) => (
           <button
             key={f.id}
@@ -71,8 +71,8 @@ export default function CiteBlock({ formats, locale }: { formats: CitationFormat
             }}
             className={`relative shrink-0 px-5 min-h-[48px] font-sans text-[15px] transition-colors ${
               i === active
-                ? "text-forest font-semibold after:absolute after:inset-x-3 after:bottom-[-1px] after:h-[2px] after:bg-forest"
-                : "text-ink-2 hover:text-forest"
+                ? "text-brand font-semibold after:absolute after:inset-x-3 after:bottom-[-1px] after:h-[2px] after:bg-brand"
+                : "text-ink-2 hover:text-brand"
             }`}
           >
             {f.label}

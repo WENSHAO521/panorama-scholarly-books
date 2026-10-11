@@ -368,7 +368,7 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
                   <li key={item.href}>
                     <a
                       href={item.href}
-                      className="font-serif text-sm text-ink-2 hover:text-forest transition-colors"
+                      className="font-serif text-sm text-ink-2 hover:text-brand transition-colors"
                     >
                       {item.label[locale]}
                     </a>
@@ -430,7 +430,7 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
               <ul className="flex flex-col gap-2">
                 {whoCanSubmit.map((item) => (
                   <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-3 last:border-0">
-                    <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                    <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                     {item[locale]}
                   </li>
                 ))}
@@ -444,7 +444,7 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
               <h2 className="type-h2 mb-6">
                 {t.requiredDocuments}
               </h2>
-              <div className="bg-stone-soft border border-line p-6 mb-6">
+              <div className="bg-stone-soft border border-line p-6 mb-6 rounded-lg">
                 <p className="font-serif text-sm text-ink-3 mb-1">
                   {t.submissionsMustInclude}
                 </p>
@@ -477,7 +477,7 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
               <ul className="flex flex-col gap-2">
                 {proposalContent.map((item) => (
                   <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-3 last:border-0">
-                    <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                    <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                     {item[locale]}
                   </li>
                 ))}
@@ -519,7 +519,7 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
               </h2>
               <div className="flex flex-col gap-4">
                 {manuscriptRequirements.map((item) => (
-                  <div key={item.label.en} className="border border-line p-5">
+                  <div key={item.label.en} className="border border-line p-5 rounded-lg">
                     <p className="eyebrow mb-2">{item.label[locale]}</p>
                     <p className="font-serif text-sm text-ink-2 leading-relaxed">{item.text[locale]}</p>
                   </div>
@@ -537,12 +537,12 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
               <p className="font-serif text-base text-ink-2 leading-relaxed mb-8">
                 {t.submitIntro}
               </p>
-              <div className="border border-line p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="border border-line p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-lg">
                 <div>
                   <p className="font-serif text-sm text-ink-3 mb-1">{t.booksEditorialTeam}</p>
                   <a
                     href="mailto:books@panorama-sg.com"
-                    className="font-serif text-base text-ink hover:text-forest transition-colors"
+                    className="font-serif text-base text-ink hover:text-brand transition-colors"
                   >
                     books@panorama-sg.com
                   </a>
@@ -554,7 +554,7 @@ export default function ForAuthorsPageClient({ locale }: { locale: Locale }) {
                   {t.submitProposal}
                 </a>
               </div>
-              <div className="mt-4 border border-line bg-stone-soft p-5">
+              <div className="mt-4 border border-line bg-stone-soft p-5 rounded-lg">
                 <p className="font-serif text-xs text-ink-3 leading-relaxed">
                   {t.allowResponse}{" "}
                   <Link href={localeHref("/publishing-services", locale)} className="link">

@@ -41,18 +41,18 @@ export default function BookCover({ book, alt = "", eager = false, className = "
 
   return (
     <div
-      className={`book-frame aspect-[2/3] bg-forest text-on-forest flex flex-col justify-between p-[9%] ${className}`}
+      className={`book-frame aspect-[2/3] bg-brand text-on-brand flex flex-col justify-between p-[9%] ${className}`}
       role={alt ? "img" : undefined}
       aria-label={alt || undefined}
     >
       <div lang={bookLangTag(book)}>
-        <span className="block w-8 h-[2px] bg-gold mb-[12%]" aria-hidden="true" />
+        <span className="block w-8 h-[2px] bg-accent mb-[12%]" aria-hidden="true" />
         <p className="font-serif text-xl leading-tight">{book.title}</p>
-        {book.subtitle && <p className="font-serif italic text-on-forest-2 text-sm mt-3 leading-snug">{book.subtitle}</p>}
+        {book.subtitle && <p className="font-serif italic text-on-brand-2 text-sm mt-3 leading-snug">{book.subtitle}</p>}
       </div>
       <div>
         <p className="font-sans text-sm" lang={bookLangTag(book)}>{bookCredit(book)}</p>
-        <p className="font-sans text-[10px] tracking-[0.18em] uppercase text-on-forest-2 mt-3">Panorama Scholarly Books</p>
+        <p className="font-sans text-[10px] tracking-[0.18em] uppercase text-on-brand-2 mt-3">Panorama Scholarly Books</p>
       </div>
     </div>
   );

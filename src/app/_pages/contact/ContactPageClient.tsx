@@ -90,7 +90,7 @@ export default function ContactPageClient({ locale }: { locale: Locale }) {
                 </p>
                 <a
                   href="mailto:books@panorama-sg.com"
-                  className="font-serif text-base text-ink hover:text-forest transition-colors block"
+                  className="font-serif text-base text-ink hover:text-brand transition-colors block"
                 >
                   books@panorama-sg.com
                 </a>

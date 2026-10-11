@@ -160,12 +160,11 @@ function SectionHead({ eyebrow, heading, action }: { eyebrow: string; heading: s
     mark, drawn large, with the imprint's real fields set as a colophon. */
 function HeroColophon({ locale, label }: { locale: Locale; label: string }) {
   return (
-    <div className="relative h-full min-h-[340px] bg-stone overflow-hidden">
-      <svg viewBox="0 0 400 480" className="absolute -right-8 -top-6 w-[58%] sm:w-[70%] lg:w-[86%] max-w-[440px] h-auto" aria-hidden="true">
-        <rect x="40" y="20" width="200" height="270" fill="#173D32" />
-        <rect x="100" y="80" width="200" height="270" fill="#4F7466" opacity="0.85" />
-        <rect x="160" y="140" width="200" height="270" fill="#A6855B" opacity="0.55" />
-        <line x1="40" y1="20" x2="40" y2="290" stroke="#A6855B" strokeWidth="2" />
+    <div className="relative h-full min-h-[340px] bg-stone rounded-xl overflow-hidden">
+      <svg viewBox="0 0 400 480" className="absolute -right-8 -top-6 w-[58%] sm:w-[64%] lg:w-[72%] max-w-[440px] h-auto" aria-hidden="true">
+        <rect x="40" y="20" width="200" height="270" style={{ fill: "var(--color-mark-1)" }} />
+        <rect x="100" y="80" width="200" height="270" style={{ fill: "var(--color-mark-2)" }} opacity="0.85" />
+        <rect x="160" y="140" width="200" height="270" style={{ fill: "var(--color-mark-3)" }} opacity="0.55" />
       </svg>
       <div className="absolute left-0 bottom-0 p-6 sm:p-8 lg:p-10 bg-gradient-to-t from-stone via-stone/90 to-transparent pt-16 w-full">
         <p className="eyebrow !text-ink-2 mb-3">{label}</p>
@@ -197,9 +196,9 @@ export default function HomePageClient({ locale }: { locale: Locale }) {
               <p className="eyebrow mb-6">{t.eyebrow}</p>
               <h1 className="type-display">
                 <span className="block">{t.headline[0]}</span>
-                <span className="block text-forest italic font-normal">{t.headline[1]}</span>
+                <span className="block text-brand italic font-normal">{t.headline[1]}</span>
               </h1>
-              <span className="rule-gold mt-8 mb-7" aria-hidden="true" />
+              <span className="rule-accent mt-8 mb-7" aria-hidden="true" />
               <p className="lede max-w-[54ch]">{t.lede}</p>
               <div className="flex flex-col sm:flex-row gap-3 mt-9">
                 <Link href={localeHref("/books", locale)} className="btn btn-primary">
@@ -270,9 +269,9 @@ export default function HomePageClient({ locale }: { locale: Locale }) {
                     href={`${localeHref("/book-series", locale)}#${s.id}`}
                     className="group grid grid-cols-[2.5rem_1fr_auto] gap-x-4 items-baseline py-5"
                   >
-                    <span className="font-sans text-[13px] tabular-nums text-gold-ink">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="font-serif text-[19px] leading-snug text-ink group-hover:text-forest">{s.title[locale]}</span>
-                    <ArrowRight size={14} className="text-ink-3 group-hover:text-forest transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                    <span className="font-sans text-[13px] tabular-nums text-accent-ink">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-serif text-[19px] leading-snug text-ink group-hover:text-brand">{s.title[locale]}</span>
+                    <ArrowRight size={14} className="text-ink-3 group-hover:text-brand transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </Link>
                 </li>
               ))}
@@ -297,9 +296,9 @@ export default function HomePageClient({ locale }: { locale: Locale }) {
             <div className="lg:col-span-8">
               <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
                 {pillars.map((p, i) => (
-                  <div key={p.title.en} className="border-t-2 border-forest pt-5">
+                  <div key={p.title.en} className="border-t border-rikyu/60 pt-5">
                     <dt className="flex items-baseline gap-3">
-                      <span className="font-sans text-[13px] tabular-nums text-gold-ink">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="font-sans text-[13px] tabular-nums text-accent-ink">{String(i + 1).padStart(2, "0")}</span>
                       <span className="type-h3">{p.title[locale]}</span>
                     </dt>
                     <dd className="mt-3 text-ink-2 text-[16px] leading-relaxed">
@@ -324,14 +323,14 @@ export default function HomePageClient({ locale }: { locale: Locale }) {
           <SectionHead eyebrow={t.newsEyebrow} heading={t.newsHeading} />
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
             {news.map((item) => (
-              <li key={item.id} className="border-t border-line pt-5">
+              <li key={item.id} className="border-t border-rikyu/60 pt-5">
                 <Link href={localeHref(item.href, locale)} className="group block">
                   <p className="meta flex flex-wrap gap-x-2">
-                    <span className="font-semibold text-gold-ink">{newsKindLabel(item.kind, locale)}</span>
+                    <span className="font-semibold text-accent-ink">{newsKindLabel(item.kind, locale)}</span>
                     <span aria-hidden="true">·</span>
                     <time dateTime={item.date}>{formatNewsDate(item.date, locale)}</time>
                   </p>
-                  <h3 className="font-serif text-[20px] leading-snug text-ink mt-2 group-hover:text-forest group-hover:underline underline-offset-4 decoration-1 decoration-line-strong">
+                  <h3 className="font-serif text-[20px] leading-snug text-ink mt-2 group-hover:text-brand group-hover:underline underline-offset-4 decoration-1 decoration-line-strong">
                     {item.title[locale]}
                   </h3>
                   <p className="text-ink-2 text-[16px] leading-relaxed mt-2">{item.summary[locale]}</p>

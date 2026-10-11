@@ -35,7 +35,7 @@ export default function PolicyLayout({ content, locale }: { content: PolicyConte
     <>
       <div className="border-b border-line py-4">
         <Container>
-          <Link href={localeHref("/policies", locale)} className="font-serif text-sm text-ink-3 hover:text-forest transition-colors flex items-center gap-2">
+          <Link href={localeHref("/policies", locale)} className="font-serif text-sm text-ink-3 hover:text-brand transition-colors flex items-center gap-2">
             <ArrowLeft size={14} weight="light" /> {c.allPolicies}
           </Link>
         </Container>
@@ -62,7 +62,7 @@ export default function PolicyLayout({ content, locale }: { content: PolicyConte
                     <ul key={j} className="flex flex-col gap-3 mb-4">
                       {b.items.map((item, k) => (
                         <li key={k} className="flex gap-3 text-sm">
-                          <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                          <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                           {item[locale]}
                         </li>
                       ))}

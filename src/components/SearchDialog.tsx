@@ -84,9 +84,9 @@ export default function SearchDialog({
         if (e.target === ref.current) onClose();
       }}
       aria-labelledby={titleId}
-      className="m-0 sm:mx-auto sm:mt-[10vh] w-full max-w-none sm:max-w-[640px] max-h-[100dvh] sm:max-h-[80vh] h-full sm:h-auto bg-surface text-ink sm:rounded-sm sm:border border-line shadow-[var(--shadow-raise)] p-0 backdrop:bg-ink/40"
+      className="m-0 sm:mx-auto sm:mt-[10vh] w-full max-w-none sm:max-w-[640px] h-[100dvh] max-h-[100dvh] sm:h-fit sm:max-h-[80vh] overflow-hidden bg-surface text-ink sm:rounded-xl sm:border border-line shadow-[var(--shadow-raise)] p-0 backdrop:bg-ink/35 backdrop:backdrop-blur-[2px]"
     >
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full sm:h-auto sm:max-h-[80vh]">
         <form
           role="search"
           onSubmit={(e) => {
@@ -112,14 +112,14 @@ export default function SearchDialog({
           <button
             type="button"
             onClick={onClose}
-            className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-sm text-ink-2 hover:bg-stone-soft hover:text-forest"
+            className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-sm text-ink-2 hover:bg-stone-soft hover:text-brand"
             aria-label={t.close}
           >
             <X size={18} aria-hidden="true" />
           </button>
         </form>
 
-        <div className="overflow-y-auto px-2 sm:px-3 py-3">
+        <div className="flex-1 min-h-0 overflow-y-auto px-2 sm:px-3 py-3">
           <p id={statusId} aria-live="polite" className="meta px-2 sm:px-2 pb-2">
             {q ? (results.length ? t.results(results.length) : t.none) : t.hint}
           </p>
@@ -130,7 +130,7 @@ export default function SearchDialog({
                 <Link
                   href={localeHref(`/books/${book.slug}`, locale)}
                   onClick={onClose}
-                  className="flex gap-4 items-start p-2 rounded-sm hover:bg-stone-soft focus-visible:bg-stone-soft"
+                  className="flex gap-4 items-start p-2.5 rounded-md hover:bg-stone-soft focus-visible:bg-stone-soft"
                 >
                   <div className="w-11 shrink-0">
                     <BookCover book={book} />

@@ -14,7 +14,7 @@ export default function Monogram({ name, size = "md" }: { name: string; size?: "
   return (
     <span
       aria-hidden="true"
-      className={`${dims} inline-flex items-center justify-center rounded-full bg-forest-tint text-forest font-serif tracking-wide border border-line select-none`}
+      className={`${dims} inline-flex items-center justify-center rounded-full bg-brand-tint text-brand font-serif tracking-wide border border-line select-none`}
     >
       {letters}
     </span>

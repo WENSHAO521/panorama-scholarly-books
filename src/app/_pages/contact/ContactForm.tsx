@@ -267,7 +267,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
   if (status === "success") {
     return (
-      <div className="border border-line p-8 md:p-12">
+      <div className="border border-line p-8 md:p-12 rounded-lg">
         <p className="font-serif text-2xl text-ink font-medium mb-3">{t.successTitle}</p>
         <p className="font-serif text-base text-ink-2 mb-6 leading-relaxed">
           {t.successBody}
@@ -376,7 +376,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
               required
               value={inquiryType}
               onChange={(e) => setInquiryType(e.target.value)}
-              className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
+              className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-brand transition-colors appearance-none"
             >
               <option value="">{t.selectInquiryType}</option>
               {inquiryTypes.map((item) => (
@@ -388,7 +388,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           </div>
 
           {isPublishingInquiry && (
-            <div className="border border-line bg-stone-soft p-5 md:p-6 flex flex-col gap-5">
+            <div className="border border-line bg-stone-soft p-5 md:p-6 flex flex-col gap-5 rounded-lg">
               <p className="eyebrow">
                 {t.publishingDetailsHeading}
               </p>
@@ -412,7 +412,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                   <select
                     name="book_type"
                     defaultValue=""
-                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
+                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-brand transition-colors appearance-none"
                   >
                     <option value="">{t.selectBookType}</option>
                     {bookTypeOptions.map((opt) => (
@@ -491,7 +491,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                   <select
                     name="manuscript_status"
                     defaultValue=""
-                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
+                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-brand transition-colors appearance-none"
                   >
                     <option value="">{t.selectStatus}</option>
                     {manuscriptStatusOptions.map((opt) => (
@@ -506,7 +506,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                   <select
                     name="product_format"
                     defaultValue=""
-                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
+                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-brand transition-colors appearance-none"
                   >
                     <option value="">{t.selectFormat}</option>
                     {productFormatOptions.map((opt) => (
@@ -524,7 +524,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                   <select
                     name="publishing_package"
                     defaultValue=""
-                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-forest transition-colors appearance-none"
+                    className="font-serif text-sm text-ink border border-line px-4 py-3 bg-surface focus:outline-none focus:border-brand transition-colors appearance-none"
                   >
                     <option value="">{t.selectPackage}</option>
                     {publishingPackageOptions.map((opt) => (
@@ -578,7 +578,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                     type="file"
                     name="proposal_file"
                     accept=".pdf,.doc,.docx"
-                    className="font-serif text-xs text-ink-2 border border-line px-4 py-3 bg-surface file:mr-3 file:border-0 file:bg-forest file:text-on-forest file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
+                    className="font-serif text-xs text-ink-2 border border-line px-4 py-3 bg-surface file:mr-3 file:border-0 file:bg-brand file:text-on-brand file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -589,7 +589,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                     type="file"
                     name="manuscript_file"
                     accept=".pdf,.doc,.docx"
-                    className="font-serif text-xs text-ink-2 border border-line px-4 py-3 bg-surface file:mr-3 file:border-0 file:bg-forest file:text-on-forest file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
+                    className="font-serif text-xs text-ink-2 border border-line px-4 py-3 bg-surface file:mr-3 file:border-0 file:bg-brand file:text-on-brand file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
                   />
                 </div>
               </div>

@@ -40,7 +40,7 @@ export default function AuthorDetailClient({ author, locale }: { author: AuthorS
         <Container>
           <Link
             href={localeHref("/authors", locale)}
-            className="font-serif text-sm text-ink-3 hover:text-forest transition-colors flex items-center gap-2"
+            className="font-serif text-sm text-ink-3 hover:text-brand transition-colors flex items-center gap-2"
           >
             <ArrowLeft size={14} weight="light" />
             {t.backToAuthors}

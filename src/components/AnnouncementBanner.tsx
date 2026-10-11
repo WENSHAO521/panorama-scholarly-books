@@ -22,9 +22,9 @@ export default function AnnouncementBanner({ locale }: { locale: Locale }) {
     : undefined;
 
   return (
-    <div className="bg-stone border-b border-line" role="region" aria-label={t.notice}>
+    <div className="bg-stone-soft border-b border-line" role="region" aria-label={t.notice}>
       <div className="site-container py-4">
-        <p className="font-sans text-[14px] text-ink-2 leading-relaxed border-l-2 border-gold pl-4">
+        <p className="font-sans text-[14px] text-ink-2 leading-relaxed">
           <strong className="font-semibold text-ink mr-2">
             {t.notice} — {title}
           </strong>

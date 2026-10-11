@@ -130,7 +130,7 @@ function Select({
           id={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className={`field appearance-none pr-9 cursor-pointer ${value !== defaultValue ? "!border-forest !bg-forest-tint/40" : ""}`}
+          className={`field appearance-none pr-9 cursor-pointer ${value !== defaultValue ? "!border-brand !bg-brand-tint/40" : ""}`}
         >
           {options.map((o) => (
             <option key={o.value} value={o.value}>{o.label}</option>
@@ -285,7 +285,7 @@ export default function BooksPageClient({ locale }: { locale: Locale }) {
                   key={c.key}
                   type="button"
                   onClick={c.clear}
-                  className="tag !bg-forest-tint !border-forest/30 !text-forest hover:!border-forest min-h-[32px]"
+                  className="tag !bg-brand-tint !border-brand/30 !text-brand hover:!border-brand min-h-[32px]"
                   aria-label={`${t.remove}: ${c.label}`}
                 >
                   {c.label}
@@ -293,7 +293,7 @@ export default function BooksPageClient({ locale }: { locale: Locale }) {
                 </button>
               ))}
               {chips.length > 1 && (
-                <button type="button" onClick={clearAll} className="font-sans text-[14px] font-semibold text-forest underline underline-offset-4 px-1 min-h-[32px]">
+                <button type="button" onClick={clearAll} className="font-sans text-[14px] font-semibold text-brand underline underline-offset-4 px-1 min-h-[32px]">
                   {t.clearAll}
                 </button>
               )}

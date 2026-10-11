@@ -107,7 +107,7 @@ export default function BookSeriesPageClient({ locale }: { locale: Locale }) {
                     </a>
                     <Link
                       href={localeHref("/for-authors", locale)}
-                      className="font-serif text-sm text-ink-3 hover:text-forest transition-colors self-center"
+                      className="font-serif text-sm text-ink-3 hover:text-brand transition-colors self-center"
                     >
                       {t.authorGuidelines}
                     </Link>
@@ -118,7 +118,7 @@ export default function BookSeriesPageClient({ locale }: { locale: Locale }) {
           </div>
 
           {/* Note */}
-          <div className="border border-line bg-stone-soft p-6 md:p-8 mt-12">
+          <div className="border border-line bg-stone-soft p-6 md:p-8 mt-12 rounded-lg">
             <p className="eyebrow mb-3">
               {t.note}
             </p>

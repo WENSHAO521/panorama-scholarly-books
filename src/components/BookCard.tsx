@@ -21,7 +21,7 @@ export default function BookCard({ book, locale }: { book: Book; locale: Locale 
   const lang = bookLangTag(book);
   return (
     <Link href={localeHref(`/books/${book.slug}`, locale)} className="group flex flex-col rounded-sm">
-      <div className="aspect-[4/5] flex items-end justify-center bg-stone-soft px-[14%] pt-[12%] pb-[9%] transition-colors group-hover:bg-stone">
+      <div className="aspect-[4/5] flex items-end justify-center bg-stone rounded-sm px-[14%] pt-[12%] pb-[9%]">
         <div className="w-full transition-transform duration-200 ease-[var(--ease-quiet)] group-hover:-translate-y-1">
           <BookCover book={book} />
         </div>
@@ -30,7 +30,7 @@ export default function BookCard({ book, locale }: { book: Book; locale: Locale 
         <p className="meta">
           {bookTypeLabel(book.bookType, locale)} · {book.publicationYear}
         </p>
-        <h3 className="font-serif text-[19px] leading-snug text-ink mt-1.5 group-hover:text-forest group-hover:underline underline-offset-4 decoration-1 decoration-line-strong" lang={lang}>
+        <h3 className="font-serif text-[19px] leading-snug text-ink mt-1.5 group-hover:text-brand group-hover:underline underline-offset-4 decoration-1 decoration-line-strong" lang={lang}>
           {book.title}
         </h3>
         <p className="font-sans text-[15px] text-ink-2 mt-1.5" lang={lang}>{bookCredit(book)}</p>
@@ -70,7 +70,7 @@ export function BookEntry({
           <Flags book={book} locale={locale} />
         </div>
         <H className="font-serif text-[clamp(1.375rem,1.1rem+1.2vw,2rem)] leading-tight text-ink mt-3" lang={lang}>
-          <Link href={href} className="hover:text-forest hover:underline underline-offset-4 decoration-1 decoration-line-strong">
+          <Link href={href} className="hover:text-brand hover:underline underline-offset-4 decoration-1 decoration-line-strong">
             {book.title}
           </Link>
         </H>

@@ -75,7 +75,7 @@ const copy = {
   },
 } as const;
 
-const linkCls = "inline-flex items-center gap-1 py-1 font-sans text-[15px] text-on-forest-2 hover:text-on-forest hover:underline underline-offset-4 decoration-gold";
+const linkCls = "inline-flex items-center gap-1 py-1 font-sans text-[15px] text-on-footer-2 hover:text-on-footer hover:underline underline-offset-4 decoration-footer-accent";
 
 export default function Footer() {
   const pathname = usePathname() || "/";
@@ -84,32 +84,32 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-forest text-on-forest mt-24 lg:mt-32 [&_:focus-visible]:outline-on-forest">
+    <footer className="bg-footer text-on-footer mt-24 lg:mt-32">
       <div className="site-container pt-16 pb-10 lg:pt-20">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-x-8 gap-y-12">
           <div className="col-span-2 md:col-span-4 lg:col-span-4">
             <p className="font-serif text-[22px] font-semibold leading-tight">Panorama Scholarly Books</p>
-            <span className="rule-gold my-5" aria-hidden="true" />
-            <p className="font-serif text-[17px] text-on-forest-2 leading-relaxed max-w-[34ch]">{t.statement}</p>
+            <span className="rule-accent my-5" aria-hidden="true" />
+            <p className="font-serif text-[17px] text-on-footer-2 leading-relaxed max-w-[34ch]">{t.statement}</p>
             <dl className="mt-8 space-y-4 font-sans text-[15px]">
               <div>
-                <dt className="text-[12px] tracking-[0.12em] uppercase text-on-forest-2">{t.email}</dt>
+                <dt className="text-[12px] tracking-[0.12em] uppercase text-on-footer-2">{t.email}</dt>
                 <dd className="mt-1">
-                  <a href="mailto:books@panorama-sg.com" className="hover:underline underline-offset-4 decoration-gold">
+                  <a href="mailto:books@panorama-sg.com" className="hover:underline underline-offset-4 decoration-footer-accent">
                     books@panorama-sg.com
                   </a>
                 </dd>
               </div>
               <div>
-                <dt className="text-[12px] tracking-[0.12em] uppercase text-on-forest-2">{t.addressLabel}</dt>
-                <dd className="mt-1 text-on-forest-2 leading-relaxed max-w-[36ch]">{t.address}</dd>
+                <dt className="text-[12px] tracking-[0.12em] uppercase text-on-footer-2">{t.addressLabel}</dt>
+                <dd className="mt-1 text-on-footer-2 leading-relaxed max-w-[36ch]">{t.address}</dd>
               </div>
             </dl>
           </div>
 
           {columns.map((col) => (
             <nav key={col.heading.en} aria-label={col.heading[locale]} className="lg:col-span-2">
-              <p className="font-sans text-[12px] font-semibold tracking-[0.14em] uppercase text-gold mb-4">
+              <p className="font-sans text-[12px] font-semibold tracking-[0.14em] uppercase text-footer-accent mb-4">
                 {col.heading[locale]}
               </p>
               <ul className="space-y-1">
@@ -136,7 +136,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-16 pt-6 border-t border-white/15 flex flex-col md:flex-row md:items-start md:justify-between gap-3 font-sans text-[13px] text-on-forest-2">
+        <div className="mt-16 pt-6 border-t border-footer-line flex flex-col md:flex-row md:items-start md:justify-between gap-3 font-sans text-[13px] text-on-footer-2">
           <p>
             &copy; {year} Panorama Scholarly Group Limited. {t.rights}
           </p>
