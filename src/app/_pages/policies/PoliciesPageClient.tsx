@@ -152,7 +152,7 @@ export default function PoliciesPageClient({ locale }: { locale: Locale }) {
             ))}
           </div>
 
-          <div className="border border-line bg-stone-soft p-6 mt-12">
+          <div className="border border-line bg-stone-soft p-6 mt-12 rounded-lg">
             <p className="font-serif text-sm text-ink-2 leading-relaxed">
               {t.contactPrefix}{" "}
               <a

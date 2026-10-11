@@ -73,7 +73,7 @@ export default function AuthorsPageClient({ authors, locale }: { authors: Author
                   <div className="flex items-center gap-5">
                     <Monogram name={author.name} />
                     <div>
-                    <p className="font-serif text-lg text-ink font-medium group-hover:text-forest transition-colors">
+                    <p className="font-serif text-lg text-ink font-medium group-hover:text-brand transition-colors">
                       {author.name}
                     </p>
                     <p className="font-serif text-xs text-ink-3 mt-1">

@@ -157,14 +157,14 @@ export default function DistributionPageClient({ locale }: { locale: Locale }) {
             <h2 className="type-h2 mb-6">
               {t.currentStatusHeading}
             </h2>
-            <div className="border border-line p-6 md:p-8 mb-6">
+            <div className="border border-line p-6 md:p-8 mb-6 rounded-lg">
               <p className="font-serif text-base text-ink-2 leading-relaxed mb-4">
                 {t.currentStatusIntro}
               </p>
               <ul className="flex flex-col gap-2">
                 {t.currentStatusItems.map((item) => (
                   <li key={item} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
-                    <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                    <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                     {item}
                   </li>
                 ))}
@@ -185,12 +185,12 @@ export default function DistributionPageClient({ locale }: { locale: Locale }) {
             <p className="font-serif text-base text-ink-2 leading-relaxed mb-6">
               {t.directOrderBody}
             </p>
-            <div className="border border-line p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="border border-line p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-lg">
               <div>
                 <p className="font-serif text-sm text-ink-3 mb-1">{t.booksDepartment}</p>
                 <a
                   href="mailto:books@panorama-sg.com?subject=Book Order Inquiry"
-                  className="font-serif text-base text-ink hover:text-forest transition-colors"
+                  className="font-serif text-base text-ink hover:text-brand transition-colors"
                 >
                   books@panorama-sg.com
                 </a>
@@ -265,7 +265,7 @@ export default function DistributionPageClient({ locale }: { locale: Locale }) {
             <ul className="flex flex-col gap-2">
               {t.futureItems.map((item) => (
                 <li key={item} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
-                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                  <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                   {item}
                 </li>
               ))}
@@ -273,7 +273,7 @@ export default function DistributionPageClient({ locale }: { locale: Locale }) {
           </section>
 
           {/* Disclaimer */}
-          <div className="border border-line bg-stone-soft p-6 md:p-8">
+          <div className="border border-line bg-stone-soft p-6 md:p-8 rounded-lg">
             <p className="eyebrow mb-4">
               {t.noticeHeading}
             </p>

@@ -30,7 +30,7 @@ This document covers the redesign brief stages A–F (audit, direction, foundati
 |---|---|---|
 | Type | Source Serif 4 (opsz) for display and reading, with Source Sans 3 for UI | Sans-led (Inter) with serif only for book titles |
 | Grid | 12 columns with asymmetric 4/8 and 5/7 splits and hairline rules | Even 3–4 column card modules |
-| Colour | Unohana paper, Kinari stone, Fukamidori green, Kincha gold rules | White surfaces with green as an accent and tinted cards |
+| Colour | Kinari paper, Fukamidori green, Rikyūnezumi and Seiji for hierarchy | White surfaces with green as an accent and tinted cards |
 | Rhythm | Long vertical sections separated by rules and plenty of white space | Dense, card-driven sections |
 | Covers | Real aspect ratio, a "book on a shelf" stage, drop shadow | Uniformly cropped tiles |
 | Few books | Wide catalogue-record entries with typography carrying the page | Grid looks empty |
@@ -39,21 +39,29 @@ Direction A was chosen because it handles a 1-book catalogue gracefully, fits th
 
 ## C. Foundations (`src/app/globals.css`)
 
-### Colour tokens: Japanese traditional palette
+### Colour tokens: Japanese Modern Editorial (和紙と深緑)
 
-| Token | Hex | Name | Use | Contrast on paper |
+| Token | Hex | Japanese colour | Use | Contrast on Kinari |
 |---|---|---|---|---|
-| `paper` | #F7F5EF | 卯の花 Unohana | page background | n/a |
-| `surface` | #FCFBF8 | 白練 Shironeri | inputs, raised panels | n/a |
-| `stone` / `stone-soft` | #E9E4D8 / #F0ECE3 | 生成り Kinari | secondary surfaces | n/a |
-| `ink` | #252B28 | 墨 Sumi | primary text | 13.2:1 |
-| `ink-2` | #474E49 | 鈍色 Nibi | secondary text | 7.9:1 |
-| `ink-3` | #5F6660 | 利休鼠 Rikyū-nezumi | metadata | 5.4:1 (4.7:1 on stone) |
-| `forest` | #173D32 | 深緑 Fukamidori | brand, primary actions, links | 11.0:1 |
-| `gold` | #A6855B | 金茶 Kincha | rules and accents only (3.1:1, non-text) | n/a |
-| `gold-ink` | #7A5E3A | n/a | small gold text (eyebrows) | 5.5:1 |
-| `on-forest` / `on-forest-2` | #F7F5EF / #B9C4BD | n/a | text on the green footer | 11.0:1 / 6.7:1 |
-| `line` / `line-soft` / `line-strong` | #DDD6C7 / #E9E4D8 / #B7AE9C | n/a | rules and borders | n/a |
+| `paper` | #FBFAF5 | 生成り Kinari | page background | n/a |
+| `surface` | #FFFFFC | 胡粉 Gofun | inputs, dialogs, cards | n/a |
+| `stone-soft` | #F7FCFE | 卯の花 Unohana | alternate sections | n/a |
+| `stone` | #F1EFE6 | Kinari (deeper) | quiet panels, book "shelf" | n/a |
+| `ink` | #3A3937 | 濃墨 Koi-zumi | headings | 11.0:1 |
+| `ink-2` | #595857 | 墨 Sumi | body text | 6.8:1 |
+| `ink-3` | #666B5E | 利休鼠 (deepened) | metadata | 5.3:1 |
+| `rikyu` / `line-strong` | #888E7E | 利休鼠 Rikyūnezumi | rules, control borders, logo; never small text | 3.2:1 (non-text) |
+| `brand` | #244A3C | 深緑 Fukamidori (muted) | brand, buttons, links, footer | 9.5:1 |
+| `accent` | #7EBEA5 | 青磁 Seiji | markers, rules, active indicators; never text | 2.1:1 (decorative) |
+| `accent-ink` | #3D7A62 | 青磁 (deepened) | small celadon text such as numerals | 4.8:1 |
+| `line` | #E9E4D4 | 灰白色 Haihakushoku | hairlines and borders | n/a |
+| `on-brand-2` | #B8C9BF | n/a | secondary text on the green footer | 5.7:1 on brand |
+
+Rules: no pure white or black; no saturated green or blue buttons; no traditional patterns used as decoration; colour is never the only signal.
+
+### Corners and elevation
+
+Corners are restrained: book covers 2px, tags 4px, buttons and inputs 6px, and the few framed panels (dialog, citation block, notices) 8px. Content is separated by hairlines and white space rather than cards. Shadows are used only on book covers and on overlays (search dialog, language menu); there are no hover shadows.
 
 ### Type
 

@@ -14,9 +14,9 @@ export function LogoMark({ height = 40, className = "" }: { height?: number; cla
       className={className}
       aria-hidden="true"
     >
-      <rect x="100" y="80" width="120" height="160" fill="#173D32" />
-      <rect x="130" y="110" width="120" height="160" fill="#4F7466" opacity="0.85" />
-      <rect x="160" y="140" width="120" height="160" fill="#A6855B" opacity="0.7" />
+      <rect x="100" y="80" width="120" height="160" style={{ fill: "var(--color-mark-1)" }} />
+      <rect x="130" y="110" width="120" height="160" style={{ fill: "var(--color-mark-2)" }} opacity="0.9" />
+      <rect x="160" y="140" width="120" height="160" style={{ fill: "var(--color-mark-3)" }} opacity="0.85" />
     </svg>
   );
 }
@@ -30,9 +30,9 @@ export function LogoFull({ height = 120, className = "" }: { height?: number; cl
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <rect x="100" y="80" width="120" height="160" fill="#173D32" />
-      <rect x="130" y="110" width="120" height="160" fill="#4F7466" opacity="0.85" />
-      <rect x="160" y="140" width="120" height="160" fill="#A6855B" opacity="0.7" />
+      <rect x="100" y="80" width="120" height="160" style={{ fill: "var(--color-mark-1)" }} />
+      <rect x="130" y="110" width="120" height="160" style={{ fill: "var(--color-mark-2)" }} opacity="0.9" />
+      <rect x="160" y="140" width="120" height="160" style={{ fill: "var(--color-mark-3)" }} opacity="0.85" />
       <line x1="100" y1="310" x2="300" y2="310" stroke="#173D32" strokeWidth="2" />
       <text
         x="200"

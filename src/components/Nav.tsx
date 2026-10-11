@@ -97,7 +97,7 @@ export default function Nav() {
             >
               <LogoMark height={34} />
               <span className="flex flex-col leading-none">
-                <span className="font-serif text-[17px] lg:text-[18px] font-semibold tracking-[-0.005em] text-forest">
+                <span className="font-serif text-[17px] lg:text-[18px] font-semibold tracking-[-0.005em] text-brand">
                   Panorama Scholarly Books
                 </span>
                 <span className="hidden sm:block font-sans text-[11px] tracking-[0.14em] uppercase text-ink-3 mt-1.5">
@@ -118,8 +118,8 @@ export default function Nav() {
                         current={active}
                         className={`relative inline-flex items-center h-10 px-3 font-sans text-[15px] whitespace-nowrap transition-colors rounded-sm after:absolute after:left-3 after:right-3 after:-bottom-[1px] after:h-[2px] after:transition-colors ${
                           active
-                            ? "text-forest font-semibold after:bg-gold"
-                            : "text-ink-2 font-medium hover:text-forest after:bg-transparent hover:after:bg-line-strong"
+                            ? "text-brand font-semibold after:bg-accent"
+                            : "text-ink-2 font-medium hover:text-brand after:bg-transparent hover:after:bg-line-strong"
                         }`}
                       >
                         {item.label[locale]}
@@ -134,7 +134,7 @@ export default function Nav() {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="inline-flex items-center gap-2 h-9 px-2.5 rounded-sm font-sans text-[14px] font-medium text-ink-2 hover:text-forest hover:bg-stone-soft transition-colors"
+                className="inline-flex items-center gap-2 h-9 px-2.5 rounded-sm font-sans text-[14px] font-medium text-ink-2 hover:text-brand hover:bg-stone-soft transition-colors"
                 aria-haspopup="dialog"
                 aria-keyshortcuts="/"
               >
@@ -178,11 +178,11 @@ export default function Nav() {
                       href={localeHref(item.href, locale)}
                       current={active}
                       className={`flex items-center justify-between min-h-[56px] font-serif text-[22px] ${
-                        active ? "text-forest" : "text-ink"
+                        active ? "text-brand" : "text-ink"
                       }`}
                     >
                       {item.label[locale]}
-                      {active && <span className="rule-gold !w-6" aria-hidden="true" />}
+                      {active && <span className="rule-accent !w-6" aria-hidden="true" />}
                     </NavLink>
                   </li>
                 );
@@ -196,7 +196,7 @@ export default function Nav() {
                     item={item}
                     href={localeHref(item.href, locale)}
                     current={isActive(item, path)}
-                    className="flex items-center min-h-[44px] font-sans text-[16px] text-ink-2 hover:text-forest aria-[current=page]:text-forest aria-[current=page]:font-semibold"
+                    className="flex items-center min-h-[44px] font-sans text-[16px] text-ink-2 hover:text-brand aria-[current=page]:text-brand aria-[current=page]:font-semibold"
                   >
                     {item.label[locale]}
                   </NavLink>

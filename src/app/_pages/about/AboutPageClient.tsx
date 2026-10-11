@@ -193,7 +193,7 @@ export default function AboutPageClient({ locale }: { locale: Locale }) {
             <p className="font-serif text-base text-ink-2 leading-relaxed mb-6">
               {t.scopeIntro}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line rounded-lg overflow-hidden border border-line">
               {t.fields.map((field) => (
                 <div key={field} className="bg-surface px-5 py-4">
                   <p className="font-serif text-sm text-ink-2">{field}</p>
@@ -265,12 +265,12 @@ export default function AboutPageClient({ locale }: { locale: Locale }) {
             <h2 className="type-h2 mb-6">
               {t.contactHeading}
             </h2>
-            <div className="border border-line p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="border border-line p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-lg">
               <div>
                 <p className="font-serif text-sm text-ink-3 mb-1">{t.booksDepartment}</p>
                 <a
                   href="mailto:books@panorama-sg.com"
-                  className="font-serif text-base text-ink hover:text-forest transition-colors"
+                  className="font-serif text-base text-ink hover:text-brand transition-colors"
                 >
                   books@panorama-sg.com
                 </a>

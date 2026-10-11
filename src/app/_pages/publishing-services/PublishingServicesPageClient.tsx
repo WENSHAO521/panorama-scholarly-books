@@ -424,7 +424,7 @@ const declinePoints: Bi[] = [
 
 function TableWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-x-auto border border-line">
+    <div className="overflow-x-auto border border-line rounded-lg">
       <table className="w-full border-collapse min-w-[640px]">{children}</table>
     </div>
   );
@@ -432,7 +432,7 @@ function TableWrapper({ children }: { children: React.ReactNode }) {
 
 function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className="bg-forest text-on-forest text-left px-5 py-4 font-serif text-sm font-normal">
+    <th className="bg-brand text-on-brand text-left px-5 py-4 font-serif text-sm font-normal">
       {children}
     </th>
   );
@@ -822,12 +822,12 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               {t.packagesIntro}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-line">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {packages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className={`bg-surface p-8 flex flex-col ${
-                    pkg.featured ? "ring-1 ring-inset ring-forest" : ""
+                  className={`bg-surface p-8 flex flex-col rounded-lg border ${
+                    pkg.featured ? "border-brand ring-1 ring-brand" : "border-line"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -835,7 +835,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
                       {L(pkg.label)}
                     </span>
                     {pkg.featured && (
-                      <span className="btn btn-primary">
+                      <span className="tag !bg-brand !text-on-brand !border-brand">
                         {t.recommended}
                       </span>
                     )}
@@ -862,7 +862,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
                         key={item.en}
                         className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2 last:border-0"
                       >
-                        <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                        <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                         {L(item)}
                       </li>
                     ))}
@@ -892,7 +892,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               ))}
             </div>
 
-            <div className="border border-line border-l-2 border-l-gold p-5 mt-5 bg-stone-soft">
+            <div className="border border-line border-l-2 border-l-accent p-5 mt-5 bg-stone-soft rounded-lg">
               <p className="font-serif text-sm text-ink-2 leading-relaxed">
                 <strong className="text-ink font-medium">{t.standardScopeLabel}</strong> {t.standardScopeBody}
               </p>
@@ -968,7 +968,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             <ul className="flex flex-col gap-2 mb-6">
               {timelinePreconditions.map((item) => (
                 <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
-                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                  <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
@@ -1002,7 +1002,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               {t.physicalHeading}
             </h2>
 
-            <div className="border border-line p-6 md:p-8 mb-3">
+            <div className="border border-line p-6 md:p-8 mb-3 rounded-lg">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="font-serif text-lg text-ink font-medium">{t.physicalPackName}</h3>
                 <span className="type-h3">{t.physicalPackPrice}</span>
@@ -1011,7 +1011,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
               <ul className="flex flex-col gap-2 mb-4">
                 {physicalPackIncludes.map((item) => (
                   <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2 last:border-0">
-                    <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                    <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                     {L(item)}
                   </li>
                 ))}
@@ -1062,7 +1062,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
                 ))}
               </tbody>
             </TableWrapper>
-            <div className="border border-line border-l-2 border-l-gold p-5 mt-3 bg-stone-soft">
+            <div className="border border-line border-l-2 border-l-accent p-5 mt-3 bg-stone-soft rounded-lg">
               <p className="font-serif text-sm text-ink-2 leading-relaxed">{t.standaloneFootnote}</p>
             </div>
 
@@ -1107,7 +1107,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
 
             <h3 className="font-serif text-base text-ink font-medium mt-10 mb-3">{t.logisticsHeading}</h3>
             <p className="font-serif text-sm text-ink-3 mb-4">{t.logisticsIntro}</p>
-            <div className="border border-line p-5 mb-4 bg-stone-soft">
+            <div className="border border-line p-5 mb-4 bg-stone-soft rounded-lg">
               <p className="eyebrow mb-1">{t.logisticsFormulaLabel}</p>
               <p className="font-serif text-base text-ink mb-3">{t.logisticsFormula}</p>
               <p className="eyebrow mb-1">{t.logisticsMinimumLabel}</p>
@@ -1216,7 +1216,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             <ul className="flex flex-col gap-2 mb-4">
               {rushRules.map((item) => (
                 <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
-                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                  <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
@@ -1241,7 +1241,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             <ul className="flex flex-col gap-2 mt-4">
               {printingRushNotes.map((item) => (
                 <li key={item.en} className="font-serif text-xs text-ink-3 flex gap-3">
-                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                  <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
@@ -1318,7 +1318,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
                 ))}
               </tbody>
             </TableWrapper>
-            <div className="border border-line border-l-2 border-l-gold p-5 mt-5 bg-stone-soft">
+            <div className="border border-line border-l-2 border-l-accent p-5 mt-5 bg-stone-soft rounded-lg">
               <p className="font-serif text-sm text-ink-2 leading-relaxed">
                 <strong className="text-ink font-medium">{t.importantNoticeLabel}</strong> {t.importantNoticeBody}
               </p>
@@ -1329,12 +1329,12 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             <ul className="flex flex-col gap-2 mb-6">
               {isbnRequirements.map((item) => (
                 <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
-                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                  <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
             </ul>
-            <div className="border border-line border-l-2 border-l-gold p-5 mb-5 bg-stone-soft">
+            <div className="border border-line border-l-2 border-l-accent p-5 mb-5 bg-stone-soft rounded-lg">
               <p className="font-serif text-sm text-ink-2 leading-relaxed mb-3">{t.isbnBody1}</p>
               <p className="font-serif text-sm text-ink-2 leading-relaxed">{t.isbnBody2}</p>
             </div>
@@ -1342,7 +1342,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             <ul className="flex flex-col gap-1.5">
               {isbnNotConstitute.map((item) => (
                 <li key={item.en} className="font-serif text-sm text-ink-3 flex gap-3">
-                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                  <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
@@ -1375,7 +1375,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             <ul className="flex flex-col gap-2 mb-5">
               {cancellationPoints.map((item) => (
                 <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
-                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                  <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
@@ -1396,12 +1396,12 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
             <ul className="flex flex-col gap-2 mb-5">
               {declinePoints.map((item) => (
                 <li key={item.en} className="font-serif text-sm text-ink-2 flex gap-3 border-b border-line-soft pb-2.5 last:border-0">
-                  <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
+                  <span className="mt-[0.8em] h-px w-3 bg-accent shrink-0" aria-hidden="true" />
                   {L(item)}
                 </li>
               ))}
             </ul>
-            <div className="border border-line border-l-2 border-l-gold p-5 bg-stone-soft">
+            <div className="border border-line border-l-2 border-l-accent p-5 bg-stone-soft rounded-lg">
               <p className="font-serif text-sm text-ink-2 leading-relaxed">
                 {t.declineFootnote}
               </p>
@@ -1409,9 +1409,9 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
           </section>
 
           {/* CTA */}
-          <div className="border border-line bg-forest p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="border border-line bg-brand p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6 rounded-lg">
             <div>
-              <h2 className="font-serif text-2xl text-on-forest font-medium mb-3">
+              <h2 className="font-serif text-2xl text-on-brand font-medium mb-3">
                 {t.ctaHeading}
               </h2>
               <p className="font-serif text-sm text-white/70 leading-relaxed max-w-[60ch]">

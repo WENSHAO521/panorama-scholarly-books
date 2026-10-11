@@ -248,7 +248,7 @@ export default function BookDetailClient({
         <nav aria-label={t.breadcrumb} className="pt-6 lg:pt-8">
           <ol className="flex items-center gap-2 font-sans text-[14px] text-ink-3 min-w-0">
             <li>
-              <Link href={localeHref("/books", locale)} className="inline-flex items-center gap-1.5 hover:text-forest hover:underline underline-offset-4">
+              <Link href={localeHref("/books", locale)} className="inline-flex items-center gap-1.5 hover:text-brand hover:underline underline-offset-4">
                 <ArrowLeft size={14} aria-hidden="true" />
                 {t.books}
               </Link>
@@ -388,12 +388,12 @@ export default function BookDetailClient({
           <aside className="lg:col-span-3">
             <nav aria-label={t.onThisPage} className="lg:sticky lg:top-28 mb-10 lg:mb-0">
               <p className="eyebrow !text-ink-3 mb-3">{t.onThisPage}</p>
-              <ul className="flex lg:flex-col gap-x-1 gap-y-0.5 overflow-x-auto -mx-1 px-1 pb-2 lg:pb-0 lg:border-l lg:border-line">
+              <ul className="flex lg:flex-col gap-x-2 gap-y-0.5 overflow-x-auto no-scrollbar -mx-1 px-1 pb-2 lg:pb-0 lg:border-l lg:border-line">
                 {visibleSections.map((id) => (
                   <li key={id} className="shrink-0">
                     <a
                       href={`#${id}`}
-                      className="block whitespace-nowrap lg:whitespace-normal px-3 py-2 lg:py-1.5 lg:-ml-px lg:border-l-2 border-transparent font-sans text-[15px] text-ink-2 hover:text-forest hover:border-forest rounded-sm lg:rounded-none bg-stone-soft lg:bg-transparent"
+                      className="block whitespace-nowrap lg:whitespace-normal px-3 py-2 lg:py-1.5 lg:-ml-px lg:border-l-2 border-transparent font-sans text-[15px] text-ink-2 hover:text-brand hover:border-brand rounded-full lg:rounded-none bg-stone-soft lg:bg-transparent"
                     >
                       {sectionLabel[id]}
                     </a>
@@ -467,7 +467,7 @@ export default function BookDetailClient({
               </dl>
 
               <h3 className="type-h3 mt-10 mb-4">{t.copyrightLicensing}</h3>
-              <div className="border-l-2 border-gold pl-5 prose-reading !text-[16px]">
+              <div className="border-l-2 border-accent pl-5 prose-reading !text-[16px]">
                 {isOpenAccess ? (
                   <>
                     <p className="font-semibold text-ink">{t.ccTitle}</p>

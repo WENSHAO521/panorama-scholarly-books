@@ -2,44 +2,63 @@
 
 /* ──────────────────────────────────────────────────────────────────────────
    Panorama Scholarly Books — design tokens
-   Palette is built from traditional Japanese colour names (see
-   docs/design/DESIGN_SYSTEM.md). Semantic names are what components use;
-   every text/background pairing listed there meets WCAG 2.2 AA.
+   Palettes are built from traditional Japanese colour names (see
+   docs/design/README.md). Components only use the semantic names below;
+   every text/background pairing meets WCAG 2.2 AA.
    ────────────────────────────────────────────────────────────────────────── */
 @theme {
+  /* Japanese Modern Editorial — 和紙と深緑 */
   /* Surfaces */
-  --color-paper: #f7f5ef;        /* 卯の花 Unohana — page background */
-  --color-surface: #fcfbf8;      /* 白練 Shironeri — raised cards, inputs */
-  --color-stone: #e9e4d8;        /* 生成り Kinari — secondary surface */
-  --color-stone-soft: #f0ece3;   /* tint between paper and stone */
+  --color-paper: #fbfaf5;        /* 生成り Kinari — page background */
+  --color-surface: #fffffc;      /* 胡粉 Gofun — cards, inputs, dialogs */
+  --color-stone-soft: #f7fcfe;   /* 卯の花 Unohana — alternate sections */
+  --color-stone: #f1efe6;        /* Kinari, one step deeper — quiet panels */
 
   /* Text */
-  --color-ink: #252b28;          /* 墨 Sumi — primary text (13.2:1 on paper) */
-  --color-ink-2: #474e49;        /* 鈍色 Nibi — secondary text (7.9:1) */
-  --color-ink-3: #5f6660;        /* 利休鼠 Rikyū-nezumi — meta text (5.4:1) */
+  --color-ink: #3a3937;          /* 濃墨 Koi-zumi — headings (11.0:1 on Kinari) */
+  --color-ink-2: #595857;        /* 墨 Sumi — body text (6.8:1) */
+  --color-ink-3: #666b5e;        /* 利休鼠 deepened — metadata (5.3:1) */
+  --color-rikyu: #888e7e;        /* 利休鼠 Rikyūnezumi — lines, icons, large text only (3.2:1) */
 
   /* Brand */
-  --color-forest: #173d32;       /* 深緑 Fukamidori — brand, primary actions */
-  --color-forest-deep: #0f2c24;  /* hover / pressed */
-  --color-forest-tint: #e1e8e2;  /* selected / hover wash */
-  --color-gold: #a6855b;         /* 金茶 Kincha — rules, large accents only */
-  --color-gold-ink: #7a5e3a;     /* gold for small text (5.5:1 on paper) */
-  --color-on-forest: #f7f5ef;
-  --color-on-forest-2: #b9c4bd;  /* secondary text on forest (6.7:1) */
+  --color-brand: #244a3c;        /* 深緑 Fukamidori (muted) — brand, actions (9.5:1) */
+  --color-brand-deep: #1a3a2e;   /* hover / pressed */
+  --color-brand-tint: #e8f2ed;   /* 青磁 wash — selected / hover */
+  --color-accent: #7ebea5;       /* 青磁 Seiji — rules, markers (non-text) */
+  --color-accent-ink: #3d7a62;   /* Seiji deepened for small text (4.8:1) */
+  --color-on-brand: #fbfaf5;
+  --color-on-brand-2: #b8c9bf;   /* secondary text on Fukamidori (5.7:1) */
+
+  /* Logo leaves */
+  --color-mark-1: #244a3c;
+  --color-mark-2: #888e7e;
+  --color-mark-3: #7ebea5;
+
+  /* Footer (Fukamidori) */
+  --color-footer: #244a3c;
+  --color-on-footer: #fbfaf5;
+  --color-on-footer-2: #b8c9bf;
+  --color-footer-line: rgb(251 250 245 / 0.14);
+  --color-footer-accent: #7ebea5; /* 4.6:1 on Fukamidori */
 
   /* Lines */
-  --color-line: #ddd6c7;
-  --color-line-soft: #e9e4d8;
-  --color-line-strong: #b7ae9c;
+  --color-line: #e9e4d4;         /* 灰白色 Haihakushoku */
+  --color-line-soft: #f0ece1;
+  --color-line-strong: #888e7e;  /* control borders need 3:1 (WCAG 1.4.11) */
 
   /* Feedback (never colour-only: always paired with text/icon) */
   --color-notice: #8a5a1f;
 
-  --radius-sm: 2px;
-  --radius-md: 4px;
+  /* Corners: restrained. Controls are gently softened; no bubbly cards. */
+  --radius-xs: 2px;    /* book covers */
+  --radius-sm: 4px;    /* tags, small controls */
+  --radius-md: 6px;    /* buttons, inputs */
+  --radius-lg: 8px;    /* the few framed panels: dialog, citation, notices */
+  --radius-xl: 10px;   /* hero panel */
+  --radius-pill: 999px;
 
-  --shadow-raise: 0 1px 2px rgb(37 43 40 / 0.06), 0 8px 24px -12px rgb(37 43 40 / 0.18);
-  --shadow-book: 0 1px 1px rgb(37 43 40 / 0.08), 0 12px 32px -14px rgb(23 61 50 / 0.35);
+  --shadow-raise: 0 12px 32px -16px rgb(58 57 55 / 0.25);
+  --shadow-book: 0 1px 2px rgb(58 57 55 / 0.08), 0 10px 24px -14px rgb(36 74 60 / 0.3);
 
   --ease-quiet: cubic-bezier(0.2, 0, 0, 1);
 }
@@ -114,19 +133,34 @@ html[lang="zh-Hant"] {
   }
 
   ::selection {
-    background: var(--color-forest);
-    color: var(--color-on-forest);
+    background: var(--color-brand);
+    color: var(--color-on-brand);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-forest);
+    outline: 2px solid var(--color-brand);
     outline-offset: 3px;
-    border-radius: 1px;
   }
 
   * {
     box-sizing: border-box;
   }
+
+  /* Quiet, arrow-less scrollbars that sit in the palette. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-button { display: none; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--color-line-strong); border-radius: 999px; border: 2px solid transparent; background-clip: padding-box; }
+
+  /* Our search fields provide their own clear button. */
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+
+  textarea { resize: vertical; }
 }
 
 @layer components {
@@ -149,7 +183,17 @@ html[lang="zh-Hant"] {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     line-height: 1.4;
-    color: var(--color-gold-ink);
+    color: var(--color-brand);
+  }
+    /* A small Seiji square: a quiet marker beside each section label. */
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    margin-right: 0.7em;
+    vertical-align: 0.1em;
+    background: var(--color-accent);
   }
   :lang(zh) .eyebrow { letter-spacing: 0.08em; font-size: 0.8125rem; }
 
@@ -228,7 +272,7 @@ html[lang="zh-Hant"] {
     letter-spacing: 0.01em;
     text-align: center;
     border: 1px solid transparent;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     transition: background-color 150ms var(--ease-quiet), color 150ms var(--ease-quiet),
       border-color 150ms var(--ease-quiet);
     cursor: pointer;
@@ -238,47 +282,47 @@ html[lang="zh-Hant"] {
     cursor: not-allowed;
   }
   .btn-primary {
-    background: var(--color-forest);
-    color: var(--color-on-forest);
-    border-color: var(--color-forest);
+    background: var(--color-brand);
+    color: var(--color-on-brand);
+    border-color: var(--color-brand);
   }
-  .btn-primary:hover { background: var(--color-forest-deep); border-color: var(--color-forest-deep); }
+  .btn-primary:hover { background: var(--color-brand-deep); border-color: var(--color-brand-deep); }
   .btn-primary:active { background: #0a211b; }
 
   .btn-secondary {
     background: transparent;
-    color: var(--color-forest);
-    border-color: var(--color-forest);
+    color: var(--color-brand);
+    border-color: var(--color-brand);
   }
-  .btn-secondary:hover { background: var(--color-forest-tint); }
+  .btn-secondary:hover { background: var(--color-brand-tint); }
   .btn-secondary:active { background: #d3ddd6; }
 
   .btn-quiet {
     background: var(--color-surface);
     color: var(--color-ink-2);
-    border-color: var(--color-line);
+    border-color: var(--color-rikyu);
   }
-  .btn-quiet:hover { color: var(--color-forest); border-color: var(--color-forest); }
+  .btn-quiet:hover { color: var(--color-brand); border-color: var(--color-brand); background: var(--color-brand-tint); }
 
   .btn-on-dark {
-    background: var(--color-on-forest);
-    color: var(--color-forest);
-    border-color: var(--color-on-forest);
+    background: var(--color-on-brand);
+    color: var(--color-brand);
+    border-color: var(--color-on-brand);
   }
   .btn-on-dark:hover { background: #ffffff; }
-  .btn-on-dark:focus-visible { outline-color: var(--color-on-forest); }
+  .btn-on-dark:focus-visible { outline-color: var(--color-on-brand); }
 
   .btn-sm { min-height: 36px; padding: 0.375rem 0.875rem; font-size: 0.875rem; }
 
   .link {
-    color: var(--color-forest);
+    color: var(--color-brand);
     text-decoration-line: underline;
     text-decoration-color: var(--color-line-strong);
     text-decoration-thickness: 1px;
     text-underline-offset: 0.22em;
     transition: text-decoration-color 150ms var(--ease-quiet), color 150ms var(--ease-quiet);
   }
-  .link:hover { text-decoration-color: var(--color-forest); color: var(--color-forest-deep); }
+  .link:hover { text-decoration-color: var(--color-brand); color: var(--color-brand-deep); }
 
   .link-arrow {
     display: inline-flex;
@@ -287,7 +331,7 @@ html[lang="zh-Hant"] {
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: 0.9375rem;
-    color: var(--color-forest);
+    color: var(--color-brand);
   }
   .link-arrow > svg { transition: transform 150ms var(--ease-quiet); }
   .link-arrow:hover > svg { transform: translateX(3px); }
@@ -302,23 +346,25 @@ html[lang="zh-Hant"] {
     font-size: 0.8125rem;
     font-weight: 500;
     line-height: 1.3;
-    padding: 0.1875rem 0.5rem;
+    padding: 0.1875rem 0.5625rem;
     border: 1px solid var(--color-line);
     border-radius: var(--radius-sm);
     color: var(--color-ink-2);
     background: var(--color-surface);
   }
 
-  /* Gold hairline used as the signature editorial rule. */
-  .rule-gold {
+  /* Accent hairline used as the signature editorial rule. */
+  .rule-accent {
     display: block;
     width: 2.5rem;
     height: 2px;
-    background: var(--color-gold);
+    border-radius: 2px;
+    background: var(--color-accent);
   }
 
   /* Book cover frame: keeps the real aspect ratio, never crops. */
   .book-frame {
+    border-radius: var(--radius-xs);
     background: var(--color-surface);
     box-shadow: var(--shadow-book);
     border: 1px solid rgb(37 43 40 / 0.08);
@@ -332,7 +378,7 @@ html[lang="zh-Hant"] {
     color: var(--color-ink);
     background: var(--color-surface);
     border: 1px solid var(--color-line-strong);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     padding: 0.625rem 0.875rem;
     transition: border-color 150ms var(--ease-quiet), box-shadow 150ms var(--ease-quiet);
   }
@@ -340,17 +386,21 @@ html[lang="zh-Hant"] {
   .field:hover { border-color: var(--color-ink-3); }
   .field:focus-visible {
     outline: none;
-    border-color: var(--color-forest);
+    border-color: var(--color-brand);
     box-shadow: 0 0 0 3px rgb(23 61 50 / 0.18);
   }
+
+  /* Hide scrollbars on swipeable chip rows; they stay scrollable. */
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
 
   .skip-link {
     position: absolute;
     left: 1rem;
     top: -100px;
     z-index: 100;
-    background: var(--color-forest);
-    color: var(--color-on-forest);
+    background: var(--color-brand);
+    color: var(--color-on-brand);
     padding: 0.75rem 1rem;
     font-family: var(--font-sans);
     font-weight: 600;
