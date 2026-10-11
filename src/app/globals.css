@@ -29,7 +29,7 @@
   --color-on-brand: #fbfaf5;
   --color-on-brand-2: #b8c9bf;   /* secondary text on Fukamidori (5.7:1) */
 
-  /* Logo leaves */
+  /* Hero brand graphic (the logo itself keeps its original fixed colours) */
   --color-mark-1: #244a3c;
   --color-mark-2: #888e7e;
   --color-mark-3: #7ebea5;
