@@ -1,13 +1,33 @@
-import { EB_Garamond, Noto_Serif_SC, Noto_Serif_TC, Noto_Sans_SC, Noto_Sans_TC } from "next/font/google";
+import {
+  Source_Serif_4,
+  Source_Sans_3,
+  Noto_Serif_SC,
+  Noto_Serif_TC,
+  Noto_Sans_SC,
+  Noto_Sans_TC,
+} from "next/font/google";
 
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+// Source Serif 4 + Source Sans 3 are a matched superfamily (SIL OFL), with
+// full Latin Extended coverage so German (ä ö ü ß) and other European
+// languages render in the same face. Source Serif's optical-size axis keeps
+// small metadata crisp and large display headings refined.
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin", "latin-ext"],
   style: ["normal", "italic"],
-  variable: "--font-eb-garamond",
+  axes: ["opsz"],
+  variable: "--font-source-serif",
   display: "swap",
 });
 
+const sourceSans = Source_Sans_3({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  variable: "--font-source-sans",
+  display: "swap",
+});
+
+// CJK faces carry no Latin glyphs priority: they sit after the Latin face in
+// each stack so the browser falls through to them per character.
 const notoSerifSC = Noto_Serif_SC({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -36,4 +56,4 @@ const notoSansTC = Noto_Sans_TC({
   display: "swap",
 });
 
-export const fontVariables = `${ebGaramond.variable} ${notoSerifSC.variable} ${notoSerifTC.variable} ${notoSansSC.variable} ${notoSansTC.variable}`;
+export const fontVariables = `${sourceSerif.variable} ${sourceSans.variable} ${notoSerifSC.variable} ${notoSerifTC.variable} ${notoSansSC.variable} ${notoSansTC.variable}`;

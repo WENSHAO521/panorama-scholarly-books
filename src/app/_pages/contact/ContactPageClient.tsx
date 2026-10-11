@@ -64,15 +64,15 @@ export default function ContactPageClient({ locale }: { locale: Locale }) {
   return (
     <>
       <AnnouncementBanner locale={locale} />
-      <section className="border-b border-[#e2e2e2] pt-16 pb-12">
+      <section className="border-b border-line pt-16 pb-12">
         <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
+          <p className="eyebrow mb-4">
             {t.eyebrow}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
+          <h1 className="type-h1 mb-4">
             {t.heading}
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[60ch]">
+          <p className="lede max-w-[62ch]">
             {t.subheading}
           </p>
         </Container>
@@ -82,37 +82,37 @@ export default function ContactPageClient({ locale }: { locale: Locale }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 py-12 lg:py-16">
 
           {/* Left: contact info */}
-          <aside className="lg:col-span-1 lg:border-r border-[#e2e2e2] lg:pr-10 mb-12 lg:mb-0">
+          <aside className="lg:col-span-1 lg:border-r border-line lg:pr-10 mb-12 lg:mb-0">
             <div className="sticky top-24">
               <div className="mb-10">
-                <p className="text-[11px] tracking-[0.2em] uppercase text-[#888888] font-serif mb-4">
+                <p className="eyebrow mb-4">
                   {t.email}
                 </p>
                 <a
                   href="mailto:books@panorama-sg.com"
-                  className="font-serif text-base text-[#111111] hover:text-[#555555] transition-colors block"
+                  className="font-serif text-base text-ink hover:text-forest transition-colors block"
                 >
                   books@panorama-sg.com
                 </a>
-                <p className="font-serif text-xs text-[#888888] mt-1">
+                <p className="font-serif text-xs text-ink-3 mt-1">
                   {t.allInquiries}
                 </p>
               </div>
 
               <div className="mb-10">
-                <p className="text-[11px] tracking-[0.2em] uppercase text-[#888888] font-serif mb-4">
+                <p className="eyebrow mb-4">
                   {t.location}
                 </p>
-                <p className="font-serif text-sm text-[#555555] leading-relaxed">
+                <p className="font-serif text-sm text-ink-2 leading-relaxed">
                   {t.address}
                 </p>
               </div>
 
               <div>
-                <p className="text-[11px] tracking-[0.2em] uppercase text-[#888888] font-serif mb-4">
+                <p className="eyebrow mb-4">
                   {t.responseTime}
                 </p>
-                <p className="font-serif text-sm text-[#888888] leading-relaxed">
+                <p className="font-serif text-sm text-ink-3 leading-relaxed">
                   {t.responseTimeText}
                 </p>
               </div>

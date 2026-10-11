@@ -6,13 +6,11 @@ interface ContainerProps {
   narrow?: boolean;
 }
 
+// 1200px content width on desktop, 20px / 32px gutters below.
+// `narrow` is the long-form reading column (~760px).
 export default function Container({ children, className = "", narrow = false }: ContainerProps) {
   return (
-    <div
-      className={`mx-auto px-6 xl:px-12 ${
-        narrow ? "max-w-4xl" : "max-w-[1400px]"
-      } ${className}`}
-    >
+    <div className={`site-container ${narrow ? "!max-w-[calc(760px+4rem)]" : ""} ${className}`}>
       {children}
     </div>
   );

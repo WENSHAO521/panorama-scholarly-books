@@ -4,7 +4,7 @@ import PolicyLayout, { type PolicyContent } from "@/components/PolicyLayout";
 import type { Locale } from "@/lib/locale";
 
 const mailLink = (
-  <a href="mailto:books@panorama-sg.com" className="text-[#111111] underline underline-offset-2">
+  <a href="mailto:books@panorama-sg.com" className="text-ink underline underline-offset-2">
     books@panorama-sg.com
   </a>
 );

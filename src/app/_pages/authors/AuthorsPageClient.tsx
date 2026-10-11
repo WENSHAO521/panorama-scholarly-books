@@ -2,6 +2,8 @@
 
 import type { AuthorSummary } from "@/data/books";
 import Container from "@/components/Container";
+import Monogram from "@/components/Monogram";
+import { nameRomanizations } from "@/data/books";
 import { localeHref, type Locale } from "@/lib/locale";
 import { commonLabel } from "@/lib/i18nLabels";
 
@@ -37,15 +39,15 @@ export default function AuthorsPageClient({ authors, locale }: { authors: Author
 
   return (
     <>
-      <section className="border-b border-[#e2e2e2] pt-16 pb-12">
+      <section className="border-b border-line pt-16 pb-12">
         <Container>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
+          <p className="eyebrow mb-4">
             {t.eyebrow}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-4">
+          <h1 className="type-h1 mb-4">
             {t.heading}
           </h1>
-          <p className="font-serif text-base text-[#888888] max-w-[60ch]">
+          <p className="lede max-w-[62ch]">
             {t.subheading}
           </p>
         </Container>
@@ -54,11 +56,11 @@ export default function AuthorsPageClient({ authors, locale }: { authors: Author
       <Container narrow>
         <div className="py-12 lg:py-16">
           {authors.length === 0 ? (
-            <p className="font-serif text-base text-[#888888]">
+            <p className="font-serif text-base text-ink-3">
               {t.empty}
             </p>
           ) : (
-            <div className="flex flex-col gap-0 border-t border-[#e2e2e2]">
+            <div className="flex flex-col gap-0 border-t border-line">
               {authors.map((author) => (
                 // Plain <a>, not next/link — see the note on the author link
                 // in books/[slug]/page.tsx: client-side transitions into a
@@ -66,17 +68,21 @@ export default function AuthorsPageClient({ authors, locale }: { authors: Author
                 <a
                   key={author.slug}
                   href={`${localeHref(`/authors/${author.slug}`, locale)}/`}
-                  className="group flex items-center justify-between gap-4 border-b border-[#e2e2e2] py-6 hover:bg-[#f7f7f7] transition-colors"
+                  className="group flex items-center justify-between gap-4 border-b border-line py-6 hover:bg-stone-soft transition-colors"
                 >
-                  <div>
-                    <p className="font-serif text-lg text-[#111111] font-medium group-hover:text-[#555555] transition-colors">
+                  <div className="flex items-center gap-5">
+                    <Monogram name={author.name} />
+                    <div>
+                    <p className="font-serif text-lg text-ink font-medium group-hover:text-forest transition-colors">
                       {author.name}
                     </p>
-                    <p className="font-serif text-xs text-[#888888] mt-1">
+                    <p className="font-serif text-xs text-ink-3 mt-1">
+                      {locale === "en" && nameRomanizations[author.name] && <>{nameRomanizations[author.name]} · </>}
                       {author.books.length} {author.books.length === 1 ? t.title : t.titles}
                     </p>
+                    </div>
                   </div>
-                  <span className="font-serif text-[11px] text-[#111111] shrink-0">{commonLabel("View →", locale)}</span>
+                  <span className="font-serif text-[11px] text-ink shrink-0">{commonLabel("View →", locale)}</span>
                 </a>
               ))}
             </div>

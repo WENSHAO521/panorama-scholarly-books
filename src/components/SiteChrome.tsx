@@ -5,7 +5,9 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   return (
     <>
       <Nav />
-      <main>{children}</main>
+      <main id="main" tabIndex={-1} className="focus:outline-none">
+        {children}
+      </main>
       <Footer />
     </>
   );

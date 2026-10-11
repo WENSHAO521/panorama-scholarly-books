@@ -33,26 +33,26 @@ export default function PolicyLayout({ content, locale }: { content: PolicyConte
 
   return (
     <>
-      <div className="border-b border-[#e2e2e2] py-4">
+      <div className="border-b border-line py-4">
         <Container>
-          <Link href={localeHref("/policies", locale)} className="font-serif text-sm text-[#888888] hover:text-[#111111] transition-colors flex items-center gap-2">
+          <Link href={localeHref("/policies", locale)} className="font-serif text-sm text-ink-3 hover:text-forest transition-colors flex items-center gap-2">
             <ArrowLeft size={14} weight="light" /> {c.allPolicies}
           </Link>
         </Container>
       </div>
-      <section className="border-b border-[#e2e2e2] pt-12 pb-10">
+      <section className="border-b border-line pt-12 pb-10">
         <Container narrow>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">{c.policy}</p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#111111] font-medium leading-[1.1] mb-3">{content.title[locale]}</h1>
-          <p className="font-serif text-sm text-[#888888]">{c.lastUpdated} {content.updated[locale]}</p>
+          <p className="eyebrow mb-4">{c.policy}</p>
+          <h1 className="type-h1 mb-3">{content.title[locale]}</h1>
+          <p className="font-serif text-sm text-ink-3">{c.lastUpdated} {content.updated[locale]}</p>
         </Container>
       </section>
       <Container narrow>
-        <div className="py-12 lg:py-16 font-serif text-[#555555] leading-relaxed">
+        <div className="py-12 lg:py-16 font-serif text-ink-2 leading-relaxed">
           {content.sections.map((s, i) => (
             <div key={i}>
               <section className="mb-10">
-                <h2 className="font-serif text-xl text-[#111111] font-medium mb-4">{s.heading[locale]}</h2>
+                <h2 className="type-h3 mb-4">{s.heading[locale]}</h2>
                 {s.blocks.map((b, j) =>
                   b.type === "p" ? (
                     <p key={j} className="mb-4 last:mb-0">
@@ -62,7 +62,7 @@ export default function PolicyLayout({ content, locale }: { content: PolicyConte
                     <ul key={j} className="flex flex-col gap-3 mb-4">
                       {b.items.map((item, k) => (
                         <li key={k} className="flex gap-3 text-sm">
-                          <span className="text-[#c8c8c8] shrink-0">-</span>
+                          <span className="mt-[0.8em] h-px w-3 bg-gold shrink-0" aria-hidden="true" />
                           {item[locale]}
                         </li>
                       ))}
@@ -71,7 +71,7 @@ export default function PolicyLayout({ content, locale }: { content: PolicyConte
                 )}
               </section>
               {i < content.sections.length - 1 && (
-                <div className="w-full h-px bg-[#e2e2e2] mb-10" />
+                <div className="w-full h-px bg-line mb-10" />
               )}
             </div>
           ))}

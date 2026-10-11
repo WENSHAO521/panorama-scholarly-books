@@ -6,7 +6,7 @@ import type { Locale } from "@/lib/locale";
 const mailLink = (
   <a
     href="mailto:books@panorama-sg.com?subject=Open Access Inquiry"
-    className="text-[#111111] underline underline-offset-2"
+    className="text-ink underline underline-offset-2"
   >
     books@panorama-sg.com
   </a>

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import type { AuthorSummary } from "@/data/books";
 import Container from "@/components/Container";
+import Monogram from "@/components/Monogram";
+import { nameRomanizations } from "@/data/books";
 import BookCard from "@/components/BookCard";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { pickLocale, localeHref, type Locale } from "@/lib/locale";
@@ -34,11 +36,11 @@ export default function AuthorDetailClient({ author, locale }: { author: AuthorS
 
   return (
     <>
-      <div className="border-b border-[#e2e2e2] py-4">
+      <div className="border-b border-line py-4">
         <Container>
           <Link
             href={localeHref("/authors", locale)}
-            className="font-serif text-sm text-[#888888] hover:text-[#111111] transition-colors flex items-center gap-2"
+            className="font-serif text-sm text-ink-3 hover:text-forest transition-colors flex items-center gap-2"
           >
             <ArrowLeft size={14} weight="light" />
             {t.backToAuthors}
@@ -48,22 +50,28 @@ export default function AuthorDetailClient({ author, locale }: { author: AuthorS
 
       <Container narrow>
         <div className="py-12 lg:py-16">
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#888888] font-serif mb-4">
+          <div className="flex items-center gap-6 mb-8">
+            <Monogram name={author.name} size="lg" />
+            <div>
+              <p className="eyebrow mb-4">
             {t.eyebrow}
           </p>
-          <h1 className="font-serif text-3xl md:text-4xl text-[#111111] font-medium leading-[1.15] mb-8">
-            {author.name}
-          </h1>
+          <h1 className="type-h1">{author.name}</h1>
+              {locale === "en" && nameRomanizations[author.name] && (
+                <p className="lede mt-2">{nameRomanizations[author.name]}</p>
+              )}
+            </div>
+          </div>
 
           {bio && (
-            <p className="font-serif text-base text-[#555555] leading-relaxed mb-12">
+            <p className="font-serif text-base text-ink-2 leading-relaxed mb-12">
               {bio}
             </p>
           )}
 
-          <div className="w-full h-px bg-[#e2e2e2] mb-10" />
+          <div className="w-full h-px bg-line mb-10" />
 
-          <h2 className="font-serif text-xl text-[#111111] font-medium mb-6">
+          <h2 className="type-h3 mb-6">
             {author.books.length === 1 ? t.title : t.titles}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
