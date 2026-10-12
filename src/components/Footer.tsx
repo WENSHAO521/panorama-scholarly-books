@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { getLocaleFromPathname, localeHref, type Locale } from "@/lib/locale";
 
 type L = Record<Locale, string>;
@@ -118,7 +117,6 @@ export default function Footer() {
                     {link.external ? (
                       <a href={link.href} target="_blank" rel="noopener noreferrer" className={linkCls}>
                         {link.label[locale]}
-                        <ArrowUpRight size={12} aria-hidden="true" />
                       </a>
                     ) : link.hardNav ? (
                       <a href={`${localeHref(link.href, locale)}/`} className={linkCls}>
