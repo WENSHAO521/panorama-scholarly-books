@@ -75,7 +75,7 @@ const copy = {
     ccSub: "CC BY-NC-ND 4.0 · Open Access",
     ccBody:
       "This work is published open access under the Creative Commons CC BY-NC-ND 4.0 licence. You are free to share and redistribute this material in any medium or format for non-commercial purposes, provided you give appropriate credit to the author(s) and publisher, and do not modify or adapt the work.",
-    viewLicence: "View licence terms ↗",
+    viewLicence: "View licence terms",
     allRightsReserved: "All rights reserved.",
     restrictedBody:
       "This title is published by Panorama Scholarly Group Limited for restricted, non-commercial circulation only. It is not for sale and is not made available to the general public. Reproduction, distribution, or transmission in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — requires the prior written permission of the publisher.",
@@ -118,7 +118,7 @@ const copy = {
     ccSub: "CC BY-NC-ND 4.0 · 開放獲取",
     ccBody:
       "本著作依創用CC「姓名標示－非商業性－禁止改作」4.0國際授權條款以開放獲取方式出版。您可自由於任何媒介或格式分享及重製本著作，作非商業性用途，惟須註明作者與出版者，並不得修改或改作本著作。",
-    viewLicence: "查看授權條款 ↗",
+    viewLicence: "查看授權條款",
     allRightsReserved: "版權所有。",
     restrictedBody:
       "本著作由 Panorama Scholarly Group Limited 出版，僅供限量、非商業性流通，非賣品，不對外公開發售。任何形式或方式之重製、散布或傳播——包括電子、機械、影印、錄音或其他方式——均須事先取得出版者書面許可。",
@@ -161,7 +161,7 @@ const copy = {
     ccSub: "CC BY-NC-ND 4.0 · 开放获取",
     ccBody:
       "本作品依据知识共享\"署名-非商业性使用-禁止演绎\"4.0国际许可协议以开放获取方式出版。您可自由在任何媒介或格式下分享和复制本作品，用于非商业性目的，但须注明作者与出版者，且不得修改或演绎本作品。",
-    viewLicence: "查看许可条款 ↗",
+    viewLicence: "查看许可条款",
     allRightsReserved: "版权所有。",
     restrictedBody:
       "本作品由 Panorama Scholarly Group Limited 出版，仅供限量、非商业性流通，非卖品，不对外公开发售。任何形式或方式的复制、散布或传播——包括电子、机械、影印、录音或其他方式——均须事先取得出版者书面许可。",
