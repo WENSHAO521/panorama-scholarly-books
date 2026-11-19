@@ -7,7 +7,7 @@ import { localeHref, type Locale } from "@/lib/locale";
 const policies = [
   {
     href: "/policies/publishing-ethics",
-    title: { en: "Publishing Ethics", "zh-Hant": "出版倫理", "zh-Hans": "出版伦理" },
+    title: { en: "Publishing ethics", "zh-Hant": "出版倫理", "zh-Hans": "出版伦理" },
     desc: {
       en: "Standards of conduct for authors, editors, reviewers, and the publisher. Responsibilities and obligations of all parties in the publication process.",
       "zh-Hant": "作者、編者、審稿人及出版者之行為準則，以及出版過程中各方的責任與義務。",
@@ -17,7 +17,7 @@ const policies = [
   },
   {
     href: "/policies/authorship",
-    title: { en: "Authorship and Contributorship", "zh-Hant": "著作權歸屬與貢獻", "zh-Hans": "著作权归属与贡献" },
+    title: { en: "Authorship and contributorship", "zh-Hant": "著作權歸屬與貢獻", "zh-Hans": "著作权归属与贡献" },
     desc: {
       en: "Criteria for authorship and editorship of published works. Acknowledgement of contributions and management of authorship disputes.",
       "zh-Hant": "已出版著作之作者及編者資格標準，貢獻之致謝，以及著作權歸屬爭議之處理。",
@@ -27,7 +27,7 @@ const policies = [
   },
   {
     href: "/policies/plagiarism",
-    title: { en: "Plagiarism and Similarity Check", "zh-Hant": "抄襲與相似度檢查", "zh-Hans": "抄袭与相似度检查" },
+    title: { en: "Plagiarism and similarity check", "zh-Hant": "抄襲與相似度檢查", "zh-Hans": "抄袭与相似度检查" },
     desc: {
       en: "Policy on text similarity, self-plagiarism, and duplicate publication. Processes for identification and handling of plagiarism concerns.",
       "zh-Hant": "有關文字相似度、自我抄襲及重複出版之政策，以及識別與處理抄襲疑慮之流程。",
@@ -37,7 +37,7 @@ const policies = [
   },
   {
     href: "/policies/copyright",
-    title: { en: "Copyright and Licensing", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" },
+    title: { en: "Copyright and licensing", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" },
     desc: {
       en: "Ownership of copyright in published works, licensing arrangements, and rights retained by authors.",
       "zh-Hant": "已出版著作之版權歸屬、授權安排，以及作者保留之權利。",
@@ -47,7 +47,7 @@ const policies = [
   },
   {
     href: "/policies/open-access",
-    title: { en: "Open Access Books", "zh-Hant": "開放獲取圖書", "zh-Hans": "开放获取图书" },
+    title: { en: "Open access books", "zh-Hant": "開放獲取圖書", "zh-Hans": "开放获取图书" },
     desc: {
       en: "Policy on open access publication, Creative Commons licensing, and conditions under which titles may be made freely available.",
       "zh-Hant": "有關開放獲取出版、創用CC授權，以及書目得以免費公開之條件的政策。",
@@ -57,7 +57,7 @@ const policies = [
   },
   {
     href: "/policies/ai-use-policy",
-    title: { en: "AI Use Policy", "zh-Hant": "人工智能使用政策", "zh-Hans": "人工智能使用政策" },
+    title: { en: "AI use policy", "zh-Hant": "人工智能使用政策", "zh-Hans": "人工智能使用政策" },
     desc: {
       en: "Policy on the use of artificial intelligence tools in the preparation of manuscripts submitted to Panorama Scholarly Books.",
       "zh-Hant": "有關投稿予 Panorama Scholarly Books 之書稿在撰寫過程中使用人工智能工具之政策。",
@@ -70,7 +70,7 @@ const policies = [
 const copy = {
   en: {
     eyebrow: "Policies",
-    heading: "Publishing Policies",
+    heading: "Publishing policies",
     subheading: "Panorama Scholarly Books is committed to responsible and transparent publishing. All policies apply to authors, editors, reviewers, and the publisher.",
     intro: "The following policies govern the submission, evaluation, production, and publication of works under the Panorama Scholarly Books imprint. Authors are required to familiarise themselves with these policies before submitting a proposal or manuscript.",
     updated: "Updated",

@@ -13,11 +13,11 @@ const mailLink = (
 );
 
 const content: PolicyContent = {
-  title: { en: "AI Use Policy", "zh-Hant": "人工智能使用政策", "zh-Hans": "人工智能使用政策" },
+  title: { en: "AI use policy", "zh-Hant": "人工智能使用政策", "zh-Hans": "人工智能使用政策" },
   updated: { en: "2026", "zh-Hant": "2026年", "zh-Hans": "2026年" },
   sections: [
     {
-      heading: { en: "1. Scope and Purpose", "zh-Hant": "一、範圍與目的", "zh-Hans": "一、适用范围与目的" },
+      heading: { en: "1. Scope and purpose", "zh-Hant": "一、範圍與目的", "zh-Hans": "一、适用范围与目的" },
       blocks: [
         {
           type: "p",
@@ -38,7 +38,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "2. AI Tools and Authorship", "zh-Hant": "二、人工智能工具與作者身份", "zh-Hans": "二、人工智能工具与作者身份" },
+      heading: { en: "2. AI tools and authorship", "zh-Hant": "二、人工智能工具與作者身份", "zh-Hans": "二、人工智能工具与作者身份" },
       blocks: [
         {
           type: "p",
@@ -59,7 +59,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "3. Disclosure Requirements", "zh-Hant": "三、披露要求", "zh-Hans": "三、披露要求" },
+      heading: { en: "3. Disclosure requirements", "zh-Hant": "三、披露要求", "zh-Hans": "三、披露要求" },
       blocks: [
         {
           type: "p",
@@ -108,7 +108,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "4. Prohibited Uses", "zh-Hant": "四、禁止之使用方式", "zh-Hans": "四、禁止的使用方式" },
+      heading: { en: "4. Prohibited uses", "zh-Hant": "四、禁止之使用方式", "zh-Hans": "四、禁止的使用方式" },
       blocks: [
         {
           type: "p",
@@ -151,7 +151,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "5. Author Responsibility", "zh-Hant": "五、作者之責任", "zh-Hans": "五、作者的责任" },
+      heading: { en: "5. Author responsibility", "zh-Hant": "五、作者之責任", "zh-Hans": "五、作者的责任" },
       blocks: [
         {
           type: "p",
@@ -172,7 +172,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "6. Review and Enforcement", "zh-Hant": "六、審查與執行", "zh-Hans": "六、审查与执行" },
+      heading: { en: "6. Review and enforcement", "zh-Hant": "六、審查與執行", "zh-Hans": "六、审查与执行" },
       blocks: [
         {
           type: "p",
@@ -193,7 +193,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "7. Questions and Clarification", "zh-Hant": "七、疑問與釋疑", "zh-Hans": "七、疑问与释疑" },
+      heading: { en: "7. Questions and clarification", "zh-Hant": "七、疑問與釋疑", "zh-Hans": "七、疑问与释疑" },
       blocks: [
         {
           type: "p",

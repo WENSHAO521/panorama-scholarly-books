@@ -10,7 +10,7 @@ const mailLink = (
 );
 
 const content: PolicyContent = {
-  title: { en: "Publishing Ethics", "zh-Hant": "出版倫理", "zh-Hans": "出版伦理" },
+  title: { en: "Publishing ethics", "zh-Hant": "出版倫理", "zh-Hans": "出版伦理" },
   updated: { en: "2026", "zh-Hant": "2026年", "zh-Hans": "2026年" },
   sections: [
     {
@@ -35,7 +35,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "2. Responsibilities of Authors", "zh-Hant": "二、作者之責任", "zh-Hans": "二、作者的责任" },
+      heading: { en: "2. Responsibilities of authors", "zh-Hant": "二、作者之責任", "zh-Hans": "二、作者的责任" },
       blocks: [
         {
           type: "p",
@@ -93,7 +93,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "3. Responsibilities of Editors", "zh-Hant": "三、編者之責任", "zh-Hans": "三、编者的责任" },
+      heading: { en: "3. Responsibilities of editors", "zh-Hant": "三、編者之責任", "zh-Hans": "三、编者的责任" },
       blocks: [
         {
           type: "p",
@@ -136,7 +136,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "4. Responsibilities of the Publisher", "zh-Hant": "四、出版者之責任", "zh-Hans": "四、出版者的责任" },
+      heading: { en: "4. Responsibilities of the publisher", "zh-Hant": "四、出版者之責任", "zh-Hans": "四、出版者的责任" },
       blocks: [
         {
           type: "p",
@@ -184,7 +184,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "5. Misconduct and Complaints", "zh-Hant": "五、不當行為與投訴", "zh-Hans": "五、不当行为与投诉" },
+      heading: { en: "5. Misconduct and complaints", "zh-Hant": "五、不當行為與投訴", "zh-Hans": "五、不当行为与投诉" },
       blocks: [
         {
           type: "p",
@@ -205,7 +205,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "6. Corrections and Retractions", "zh-Hant": "六、更正與撤回", "zh-Hans": "六、更正与撤回" },
+      heading: { en: "6. Corrections and retractions", "zh-Hant": "六、更正與撤回", "zh-Hans": "六、更正与撤回" },
       blocks: [
         {
           type: "p",

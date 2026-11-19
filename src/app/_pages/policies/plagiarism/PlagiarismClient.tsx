@@ -10,11 +10,11 @@ const mailLink = (
 );
 
 const content: PolicyContent = {
-  title: { en: "Plagiarism and Similarity Check", "zh-Hant": "抄襲與相似度檢查", "zh-Hans": "抄袭与相似度检查" },
+  title: { en: "Plagiarism and similarity check", "zh-Hant": "抄襲與相似度檢查", "zh-Hans": "抄袭与相似度检查" },
   updated: { en: "2026", "zh-Hant": "2026年", "zh-Hans": "2026年" },
   sections: [
     {
-      heading: { en: "1. Definition of Plagiarism", "zh-Hant": "一、抄襲之定義", "zh-Hans": "一、抄袭的定义" },
+      heading: { en: "1. Definition of plagiarism", "zh-Hant": "一、抄襲之定義", "zh-Hans": "一、抄袭的定义" },
       blocks: [
         {
           type: "p",
@@ -60,7 +60,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "2. Self-Plagiarism and Duplicate Publication", "zh-Hant": "二、自我抄襲與重複出版", "zh-Hans": "二、自我抄袭与重复出版" },
+      heading: { en: "2. Self-plagiarism and duplicate publication", "zh-Hant": "二、自我抄襲與重複出版", "zh-Hans": "二、自我抄袭与重复出版" },
       blocks: [
         {
           type: "p",
@@ -89,7 +89,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "3. Similarity Checking", "zh-Hant": "三、相似度檢查", "zh-Hans": "三、相似度检查" },
+      heading: { en: "3. Similarity checking", "zh-Hant": "三、相似度檢查", "zh-Hans": "三、相似度检查" },
       blocks: [
         {
           type: "p",
@@ -110,7 +110,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "4. AI-Generated Text and Similarity", "zh-Hant": "四、人工智能生成文字與相似度", "zh-Hans": "四、人工智能生成文本与相似度" },
+      heading: { en: "4. AI-generated text and similarity", "zh-Hant": "四、人工智能生成文字與相似度", "zh-Hans": "四、人工智能生成文本与相似度" },
       blocks: [
         {
           type: "p",
@@ -131,7 +131,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "5. Handling of Plagiarism Concerns", "zh-Hant": "五、抄襲疑慮之處理", "zh-Hans": "五、抄袭疑虑的处理" },
+      heading: { en: "5. Handling of plagiarism concerns", "zh-Hant": "五、抄襲疑慮之處理", "zh-Hans": "五、抄袭疑虑的处理" },
       blocks: [
         {
           type: "p",

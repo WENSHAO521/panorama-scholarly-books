@@ -10,11 +10,11 @@ const mailLink = (
 );
 
 const content: PolicyContent = {
-  title: { en: "Authorship and Contributorship", "zh-Hant": "著作權歸屬與貢獻", "zh-Hans": "著作权归属与贡献" },
+  title: { en: "Authorship and contributorship", "zh-Hant": "著作權歸屬與貢獻", "zh-Hans": "著作权归属与贡献" },
   updated: { en: "2026", "zh-Hant": "2026年", "zh-Hans": "2026年" },
   sections: [
     {
-      heading: { en: "1. Criteria for Authorship", "zh-Hant": "一、作者資格標準", "zh-Hans": "一、作者资格标准" },
+      heading: { en: "1. Criteria for authorship", "zh-Hant": "一、作者資格標準", "zh-Hans": "一、作者资格标准" },
       blocks: [
         {
           type: "p",
@@ -60,7 +60,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "2. Editorship of Volumes", "zh-Hant": "二、文集之編輯身份", "zh-Hans": "二、文集的编辑身份" },
+      heading: { en: "2. Editorship of volumes", "zh-Hant": "二、文集之編輯身份", "zh-Hans": "二、文集的编辑身份" },
       blocks: [
         {
           type: "p",
@@ -81,7 +81,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "3. Ghost Authorship and Gift Authorship", "zh-Hant": "三、代筆掛名與贈與掛名", "zh-Hans": "三、代笔挂名与赠与挂名" },
+      heading: { en: "3. Ghost authorship and gift authorship", "zh-Hant": "三、代筆掛名與贈與掛名", "zh-Hans": "三、代笔挂名与赠与挂名" },
       blocks: [
         {
           type: "p",
@@ -102,7 +102,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "4. AI Tools and Authorship", "zh-Hant": "四、人工智能工具與作者身份", "zh-Hans": "四、人工智能工具与作者身份" },
+      heading: { en: "4. AI tools and authorship", "zh-Hant": "四、人工智能工具與作者身份", "zh-Hans": "四、人工智能工具与作者身份" },
       blocks: [
         {
           type: "p",
@@ -123,7 +123,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "5. Changes to Authorship", "zh-Hant": "五、作者身份之變更", "zh-Hans": "五、作者身份的变更" },
+      heading: { en: "5. Changes to authorship", "zh-Hant": "五、作者身份之變更", "zh-Hans": "五、作者身份的变更" },
       blocks: [
         {
           type: "p",
@@ -144,7 +144,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "6. Authorship Disputes", "zh-Hant": "六、作者身份爭議", "zh-Hans": "六、作者身份争议" },
+      heading: { en: "6. Authorship disputes", "zh-Hant": "六、作者身份爭議", "zh-Hans": "六、作者身份争议" },
       blocks: [
         {
           type: "p",

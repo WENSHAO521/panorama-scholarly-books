@@ -13,11 +13,11 @@ const mailLink = (
 );
 
 const content: PolicyContent = {
-  title: { en: "Open Access Books", "zh-Hant": "開放獲取圖書", "zh-Hans": "开放获取图书" },
+  title: { en: "Open access books", "zh-Hant": "開放獲取圖書", "zh-Hans": "开放获取图书" },
   updated: { en: "2026", "zh-Hant": "2026年", "zh-Hans": "2026年" },
   sections: [
     {
-      heading: { en: "1. Open Access at Panorama Scholarly Books", "zh-Hant": "一、Panorama Scholarly Books 之開放獲取", "zh-Hans": "一、Panorama Scholarly Books 的开放获取" },
+      heading: { en: "1. Open access at Panorama Scholarly Books", "zh-Hant": "一、Panorama Scholarly Books 之開放獲取", "zh-Hans": "一、Panorama Scholarly Books 的开放获取" },
       blocks: [
         {
           type: "p",
@@ -38,7 +38,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "2. Default Open Access Licence", "zh-Hant": "二、預設開放獲取授權", "zh-Hans": "二、默认开放获取许可" },
+      heading: { en: "2. Default open access licence", "zh-Hant": "二、預設開放獲取授權", "zh-Hans": "二、默认开放获取许可" },
       blocks: [
         {
           type: "p",
@@ -92,7 +92,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "3. Conditions for Open Access Publication", "zh-Hant": "三、開放獲取出版之條件", "zh-Hans": "三、开放获取出版的条件" },
+      heading: { en: "3. Conditions for open access publication", "zh-Hant": "三、開放獲取出版之條件", "zh-Hans": "三、开放获取出版的条件" },
       blocks: [
         {
           type: "p",
@@ -130,7 +130,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "4. Open Access and Funder Requirements", "zh-Hant": "四、開放獲取與資助機構之要求", "zh-Hans": "四、开放获取与资助机构的要求" },
+      heading: { en: "4. Open access and funder requirements", "zh-Hant": "四、開放獲取與資助機構之要求", "zh-Hans": "四、开放获取与资助机构的要求" },
       blocks: [
         {
           type: "p",

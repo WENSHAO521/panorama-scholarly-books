@@ -20,7 +20,7 @@ const packages: {
   {
     id: "a",
     label: { en: "Package A", "zh-Hant": "方案 A", "zh-Hans": "方案 A" },
-    name: { en: "Author-Prepared Publication", "zh-Hant": "作者自備稿件出版", "zh-Hans": "作者自备稿件出版" },
+    name: { en: "Author-prepared publication", "zh-Hant": "作者自備稿件出版", "zh-Hans": "作者自备稿件出版" },
     price: "USD 999",
     unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及產品格式", "zh-Hans": "每个书名、版次及产品格式" },
     desc: {
@@ -51,7 +51,7 @@ const packages: {
   {
     id: "b",
     label: { en: "Package B", "zh-Hant": "方案 B", "zh-Hans": "方案 B" },
-    name: { en: "Standard Academic Book Production", "zh-Hant": "標準學術圖書製作", "zh-Hans": "标准学术图书制作" },
+    name: { en: "Standard academic book production", "zh-Hant": "標準學術圖書製作", "zh-Hans": "标准学术图书制作" },
     price: "USD 1,799",
     unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及產品格式", "zh-Hans": "每个书名、版次及产品格式" },
     desc: {
@@ -79,7 +79,7 @@ const packages: {
   {
     id: "c",
     label: { en: "Package C", "zh-Hant": "方案 C", "zh-Hans": "方案 C" },
-    name: { en: "Extended and Complex Book Production", "zh-Hant": "延伸與複雜圖書製作", "zh-Hans": "延伸与复杂图书制作" },
+    name: { en: "Extended and complex book production", "zh-Hant": "延伸與複雜圖書製作", "zh-Hans": "延伸与复杂图书制作" },
     price: "From USD 2,499",
     unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及產品格式", "zh-Hans": "每个书名、版次及产品格式" },
     desc: {
@@ -159,9 +159,9 @@ const timelinePreconditions: Bi[] = [
 
 // Section 三 — manuscript assessment priority
 const assessmentTiers: [Bi, Bi, Bi][] = [
-  [{ en: "Standard Assessment", "zh-Hant": "標準評估", "zh-Hans": "标准评估" }, { en: "2–4 weeks", "zh-Hant": "2—4週", "zh-Hans": "2—4周" }, { en: "No extra charge", "zh-Hant": "不另收費", "zh-Hans": "不另收费" }],
-  [{ en: "Priority Assessment", "zh-Hant": "優先評估", "zh-Hans": "优先评估" }, { en: "5 business days", "zh-Hant": "5個工作日", "zh-Hans": "5个工作日" }, { en: "USD 199", "zh-Hant": "USD 199", "zh-Hans": "USD 199" }],
-  [{ en: "Express Assessment", "zh-Hant": "特快評估", "zh-Hans": "特快评估" }, { en: "2 business days", "zh-Hant": "2個工作日", "zh-Hans": "2个工作日" }, { en: "USD 399", "zh-Hant": "USD 399", "zh-Hans": "USD 399" }],
+  [{ en: "Standard assessment", "zh-Hant": "標準評估", "zh-Hans": "标准评估" }, { en: "2–4 weeks", "zh-Hant": "2—4週", "zh-Hans": "2—4周" }, { en: "No extra charge", "zh-Hant": "不另收費", "zh-Hans": "不另收费" }],
+  [{ en: "Priority assessment", "zh-Hant": "優先評估", "zh-Hans": "优先评估" }, { en: "5 business days", "zh-Hant": "5個工作日", "zh-Hans": "5个工作日" }, { en: "USD 199", "zh-Hant": "USD 199", "zh-Hans": "USD 199" }],
+  [{ en: "Express assessment", "zh-Hant": "特快評估", "zh-Hans": "特快评估" }, { en: "2 business days", "zh-Hant": "2個工作日", "zh-Hans": "2个工作日" }, { en: "USD 399", "zh-Hant": "USD 399", "zh-Hans": "USD 399" }],
 ];
 
 // Section 四 — production rush per package
@@ -169,7 +169,7 @@ const rushPackageA: [Bi, Bi, string][] = [
   [{ en: "Standard", "zh-Hant": "標準", "zh-Hans": "标准" }, { en: "Approx. 15 business days", "zh-Hant": "約15個工作日", "zh-Hans": "约15个工作日" }, "USD 999"],
   [{ en: "Priority", "zh-Hant": "優先", "zh-Hans": "优先" }, { en: "Approx. 10 business days", "zh-Hant": "約10個工作日", "zh-Hans": "约10个工作日" }, "USD 1,249"],
   [{ en: "Express", "zh-Hant": "特快", "zh-Hans": "特快" }, { en: "Approx. 5–7 business days", "zh-Hant": "約5—7個工作日", "zh-Hans": "约5—7个工作日" }, "USD 1,499"],
-  [{ en: "Critical Fast-Track", "zh-Hant": "緊急", "zh-Hans": "紧急" }, { en: "As fast as approx. 3 business days", "zh-Hant": "最快約3個工作日", "zh-Hans": "最快约3个工作日" }, "USD 1,999"],
+  [{ en: "Critical fast-track", "zh-Hant": "緊急", "zh-Hans": "紧急" }, { en: "As fast as approx. 3 business days", "zh-Hant": "最快約3個工作日", "zh-Hans": "最快约3个工作日" }, "USD 1,999"],
 ];
 
 const rushPackageB: [Bi, Bi, string][] = [
@@ -181,7 +181,7 @@ const rushPackageB: [Bi, Bi, string][] = [
 const rushPackageC: [Bi, Bi][] = [
   [{ en: "Standard", "zh-Hant": "標準", "zh-Hans": "标准" }, { en: "From USD 2,499", "zh-Hant": "USD 2,499起", "zh-Hans": "USD 2,499起" }],
   [{ en: "Priority", "zh-Hant": "優先", "zh-Hans": "优先" }, { en: "+25% of the standard project price", "zh-Hant": "標準項目價格加收25%", "zh-Hans": "标准项目价格加收25%" }],
-  [{ en: "Express or Critical production", "zh-Hant": "特快或緊急製作", "zh-Hans": "特快或紧急制作" }, { en: "Assessed and quoted individually", "zh-Hant": "單獨評估及報價", "zh-Hans": "单独评估及报价" }],
+  [{ en: "Express or critical production", "zh-Hant": "特快或緊急製作", "zh-Hans": "特快或紧急制作" }, { en: "Assessed and quoted individually", "zh-Hant": "單獨評估及報價", "zh-Hans": "单独评估及报价" }],
 ];
 
 const rushRules: Bi[] = [
@@ -262,10 +262,10 @@ const printUpgrades: [Bi, Bi][] = [
 
 // Section 九 — printing rush
 const printingRushRows: [Bi, Bi, Bi][] = [
-  [{ en: "Standard Printing", "zh-Hant": "標準印刷", "zh-Hans": "标准印刷" }, { en: "7–12 business days", "zh-Hant": "7—12個工作日", "zh-Hans": "7—12个工作日" }, { en: "No extra charge", "zh-Hant": "無", "zh-Hans": "无" }],
-  [{ en: "Priority Printing", "zh-Hant": "優先印刷", "zh-Hans": "优先印刷" }, { en: "4–6 business days", "zh-Hant": "4—6個工作日", "zh-Hans": "4—6个工作日" }, { en: "+25% of printing fee", "zh-Hant": "印刷費加收25%", "zh-Hans": "印刷费加收25%" }],
-  [{ en: "Express Printing", "zh-Hant": "特快印刷", "zh-Hans": "特快印刷" }, { en: "2–3 business days", "zh-Hant": "2—3個工作日", "zh-Hans": "2—3个工作日" }, { en: "+50% of printing fee", "zh-Hant": "印刷費加收50%", "zh-Hans": "印刷费加收50%" }],
-  [{ en: "Emergency Printing", "zh-Hant": "緊急印刷", "zh-Hans": "紧急印刷" }, { en: "As fast as 1 business day", "zh-Hant": "最快1個工作日", "zh-Hans": "最快1个工作日" }, { en: "From +100% of printing fee", "zh-Hant": "印刷費加收100%起", "zh-Hans": "印刷费加收100%起" }],
+  [{ en: "Standard printing", "zh-Hant": "標準印刷", "zh-Hans": "标准印刷" }, { en: "7–12 business days", "zh-Hant": "7—12個工作日", "zh-Hans": "7—12个工作日" }, { en: "No extra charge", "zh-Hant": "無", "zh-Hans": "无" }],
+  [{ en: "Priority printing", "zh-Hant": "優先印刷", "zh-Hans": "优先印刷" }, { en: "4–6 business days", "zh-Hant": "4—6個工作日", "zh-Hans": "4—6个工作日" }, { en: "+25% of printing fee", "zh-Hant": "印刷費加收25%", "zh-Hans": "印刷费加收25%" }],
+  [{ en: "Express printing", "zh-Hant": "特快印刷", "zh-Hans": "特快印刷" }, { en: "2–3 business days", "zh-Hant": "2—3個工作日", "zh-Hans": "2—3个工作日" }, { en: "+50% of printing fee", "zh-Hant": "印刷費加收50%", "zh-Hans": "印刷费加收50%" }],
+  [{ en: "Emergency printing", "zh-Hant": "緊急印刷", "zh-Hans": "紧急印刷" }, { en: "As fast as 1 business day", "zh-Hant": "最快1個工作日", "zh-Hans": "最快1个工作日" }, { en: "From +100% of printing fee", "zh-Hant": "印刷費加收100%起", "zh-Hans": "印刷费加收100%起" }],
 ];
 
 const printingRushNotes: Bi[] = [
@@ -317,22 +317,22 @@ const additionalFormatServices: [Bi, Bi][] = [
 
 const institutionalRows: [Bi, Bi, Bi][] = [
   [
-    { en: "Institutional Publication", "zh-Hant": "機構出版", "zh-Hans": "机构出版" },
+    { en: "Institutional publication", "zh-Hant": "機構出版", "zh-Hans": "机构出版" },
     { en: "Publication planning, metadata preparation, editorial coordination, official webpage, digital archiving", "zh-Hant": "出版規劃、元數據準備、編輯協調、官方網頁、數位典藏", "zh-Hans": "出版规划、元数据准备、编辑协调、官方网页、数字化存档" },
     { en: "Quotation-based", "zh-Hant": "另行報價", "zh-Hans": "另行报价" },
   ],
   [
-    { en: "Book Series", "zh-Hant": "書系", "zh-Hans": "书系" },
+    { en: "Book series", "zh-Hant": "書系", "zh-Hans": "书系" },
     { en: "Series setup, series identity, manuscript structure, metadata planning, publication workflow", "zh-Hant": "書系建置、書系識別、稿件架構、元數據規劃、出版流程", "zh-Hans": "书系建置、书系识别、稿件架构、元数据规划、出版流程" },
     { en: "Quotation-based", "zh-Hant": "另行報價", "zh-Hans": "另行报价" },
   ],
   [
-    { en: "Conference Proceedings", "zh-Hant": "會議論文集", "zh-Hans": "会议论文集" },
+    { en: "Conference proceedings", "zh-Hant": "會議論文集", "zh-Hans": "会议论文集" },
     { en: "Proceedings structure, chapter formatting, contributor coordination, official publication page", "zh-Hant": "論文集架構、章節格式、撰稿人協調、官方出版頁面", "zh-Hans": "论文集架构、章节格式、撰稿人协调、官方出版页面" },
     { en: "Quotation-based", "zh-Hant": "另行報價", "zh-Hans": "另行报价" },
   ],
   [
-    { en: "Large Edited Volume", "zh-Hant": "大型編著文集", "zh-Hans": "大型编著文集" },
+    { en: "Large edited volume", "zh-Hant": "大型編著文集", "zh-Hans": "大型编著文集" },
     { en: "Multi-author coordination, chapter standardization, extended layout work, metadata preparation", "zh-Hant": "多作者協調、章節格式統一、延伸排版工作、元數據準備", "zh-Hans": "多作者协调、章节格式统一、延伸排版工作、元数据准备" },
     { en: "Quotation-based", "zh-Hant": "另行報價", "zh-Hans": "另行报价" },
   ],
@@ -432,7 +432,7 @@ function TableWrapper({ children }: { children: React.ReactNode }) {
 
 function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className="bg-brand text-on-brand text-left px-5 py-4 font-serif text-sm font-normal">
+    <th className="bg-stone text-ink-3 text-left px-5 py-3 font-sans text-[14px] font-normal border-b border-line-strong/40">
       {children}
     </th>
   );
@@ -448,116 +448,116 @@ function Td({ children }: { children: React.ReactNode }) {
 
 const copy = {
   en: {
-    eyebrow: "Publishing Services",
-    heading: "Book Publishing Services and Fees",
+    eyebrow: "Publishing services",
+    heading: "Book publishing services and fees",
     intro1: "Panorama Scholarly Books provides academic book publishing and production services for scholarly monographs, edited volumes, academic textbooks, research reports, conference proceedings, institutional publications, and interdisciplinary research books.",
     intro2: "All projects are subject to editorial, academic-ethics, copyright, technical, and publication-eligibility review. Payment of any fee does not guarantee publication, and does not represent or guarantee sales, indexing, citations, promotion or tenure outcomes, academic recognition, or commercial revenue. The following fees are effective from 1 August 2026.",
 
-    coreHeading: "1. Core Publishing Packages",
+    coreHeading: "1. Core publishing packages",
     packagesIntro: "Each package covers one title, one edition, and one product format. Printing, shipping, statutory deposit copies, and third-party platform charges are not included unless separately agreed in writing.",
     recommended: "Recommended",
-    notIncluded: "Not Included",
+    notIncluded: "Not included",
     inquireAbout: "Inquire about",
     standardScopeLabel: "Standard scope:",
     standardScopeBody: "Package B generally applies to a manuscript of up to 60,000 words or approximately 200 finished pages, in one principal language, with standard academic formatting, references, and a normal number of tables and figures. Longer or more complex manuscripts require Package C or a separate quotation. Publication-ready files submitted under Package A must meet the publisher's technical and ethical standards; files requiring substantial correction or reconstruction may be transferred to Package B or C, or quoted separately.",
-    comparisonHeading: "Package Comparison",
-    serviceItem: "Service Item",
+    comparisonHeading: "Package comparison",
+    serviceItem: "Service item",
 
-    bundleHeading: "Recommended Print Publication Bundles",
+    bundleHeading: "Recommended print publication bundles",
     bundleIntro: "For authors who want a printed edition, the following bundles combine a core package with the Standard Physical Publication Pack (Section 2) at a combined price:",
     bundleFootnote: "Bundle prices exclude shipping of the 20 author copies to the author's address, taxes, payment-platform fees, and third-party platform charges.",
     bundleName: "Bundle",
     bundleIncludes: "Includes",
 
-    timelineHeading: "Standard Production Timeline",
+    timelineHeading: "Standard production timeline",
     timelineIntro: "The timelines below run from the next business day after all of the following are satisfied:",
     timelinePackage: "Package",
-    timelineTarget: "Target Timeline",
+    timelineTarget: "Target timeline",
     timelineFootnote: "These are target production timelines only. They exclude author revision time, third-party permission wait times, government or public-body processing time, printing time, international shipping time, and delays caused by force majeure.",
 
-    physicalHeading: "2. Physical Publication and Statutory Deposit",
-    physicalPackName: "Standard Physical Publication Pack",
+    physicalHeading: "2. Physical publication and statutory deposit",
+    physicalPackName: "Standard physical publication pack",
     physicalPackPrice: "USD 999",
     physicalPackIntro: "For standard black-and-white academic books up to 200 finished pages, this pack includes:",
     physicalPackNotIncludedLabel: "Not included:",
-    pageSurchargeHeading: "Page-Count Surcharge",
-    pageRange: "Finished Pages",
+    pageSurchargeHeading: "Page-count surcharge",
+    pageRange: "Finished pages",
     surcharge: "Surcharge",
     packageTotal: "Package Total",
 
-    standaloneHeading: "Standalone Printing and Deposit-Coordination Services",
+    standaloneHeading: "Standalone printing and deposit-coordination services",
     standaloneFootnote: "“Statutory deposit & delivery coordination” covers data verification, form preparation, packaging, local Hong Kong hand-delivery, progress tracking, and record archiving. Hong Kong book registration itself carries no government fee — this is a publisher service and coordination fee, never a “registration fee.”",
 
-    additionalCopiesHeading: "Additional Author Copies",
+    additionalCopiesHeading: "Additional author copies",
     additionalCopiesIntro: "Prices below apply when ordered with the first print run, up to 200 pages, black-and-white paperback.",
     additionalCopiesFootnote: "Over 200 pages, colour interior, special paper, special binding, or a separate later reprint are quoted separately.",
     copies: "Copies",
 
-    printUpgradesHeading: "Print Upgrades",
+    printUpgradesHeading: "Print upgrades",
     printUpgradesFootnote: "Changes requested after the author approves the final proof may incur replating, re-proofing, or reprinting charges.",
 
-    printingRushHeading: "Printing Rush",
+    printingRushHeading: "Printing rush",
     printingRushIntro: "Printing lead time is counted from the business day after the final print files and proofs are formally approved. Shipping time is calculated separately.",
 
-    logisticsHeading: "Author Copy Delivery and International Logistics",
+    logisticsHeading: "Author copy delivery and international logistics",
     logisticsIntro: "Shipping of author copies is not included in any publishing package or the Standard Physical Publication Pack.",
     logisticsFormulaLabel: "Pricing formula:",
     logisticsFormula: "Actual carrier shipping cost + 10% logistics coordination and handling fee",
     logisticsMinimumLabel: "Minimum logistics coordination and handling fee:",
     logisticsMinimum: "USD 35 per shipment",
-    logisticsOtherHeading: "Other Logistics Charges",
+    logisticsOtherHeading: "Other logistics charges",
     logisticsFootnote: "The publisher does not guarantee customs clearance time, carrier delivery time, or destination postal processing time. Expedited publication, expedited printing, and international courier are three independent services.",
 
-    rushHeading: "3. Rush Tiers",
-    assessmentRushHeading: "Manuscript Assessment Priority",
+    rushHeading: "3. Rush tiers",
+    assessmentRushHeading: "Manuscript assessment priority",
     assessmentRushFootnote: "Assessment fees cover priority scheduling only and do not guarantee acceptance. Non-refundable once assessment work has begun.",
-    level: "Service Level",
-    targetTime: "Target Time",
+    level: "Service level",
+    targetTime: "Target time",
     price: "Price",
 
-    productionRushHeading: "Production Rush by Package",
+    productionRushHeading: "Production rush by package",
     packageALabel: "Package A",
     packageBLabel: "Package B",
     packageCLabel: "Package C",
     rushPackageAFootnote: "Critical Fast-Track applies only to fully proofread, typeset, publication-ready files that already meet technical standards.",
     rushPackageBFootnote: "Package B does not offer a 3-business-day critical production option.",
     rushPackageCFootnote: "Bilingual, multilingual, large edited volumes, complex formulas, colour figures, multi-author unification work, and manuscripts over approximately 300 pages are not guaranteed a fixed rush timeline. Package C only publishes a Priority tier — Express or Critical delivery is not publicly committed and is assessed individually.",
-    rushRulesHeading: "Rush Service Rules",
+    rushRulesHeading: "Rush service rules",
     printingRushFootnote: "Applies only to technically compliant final PDF files and excludes shipping time.",
 
-    additionalHeading: "4. Additional Services",
-    editingHeading: "Additional Editing and Production Services",
+    additionalHeading: "4. Additional services",
+    editingHeading: "Additional editing and production services",
     editingFootnote: "“One consolidated round” means the author or editor submits all revision comments in a single document at once. Scattered, repeated, or cross-file revisions are billed as additional rounds or by the hour.",
-    additionalFormatsHeading: "Additional Editions and Digital Formats",
+    additionalFormatsHeading: "Additional editions and digital formats",
     additionalFormatsIntro: "Each package covers one title, one edition, and one product format. Paperback, hardback, PDF, EPUB, Kindle-compatible editions, revised editions, translated editions, and other separately distributed versions each require their own ISBN, metadata, and production work — an additional edition or format is never covered by a single flat “ISBN fee.” An additional ISBN will not be assigned unless the additional edition or format has been formally approved and is intended for genuine publication.",
-    additionalService: "Additional Service",
+    additionalService: "Additional service",
     fee: "Fee",
-    institutionalHeading: "Institutional, Series, and Proceedings Publishing",
+    institutionalHeading: "Institutional, series, and proceedings publishing",
     institutionalIntro: "Institutional publications, book series, conference proceedings, annual reports, multi-volume works, large edited collections, and sponsored open-access books are quoted separately according to project size, manuscript complexity, number of contributors, languages, production requirements, publication formats, distribution requirements, and expected administrative workload.",
-    projectType: "Project Type",
-    typicalServices: "Typical Services",
-    distributionHeading: "Sales and Distribution Setup",
+    projectType: "Project type",
+    typicalServices: "Typical services",
+    distributionHeading: "Sales and distribution setup",
     distributionIntro: "Standard publishing fees do not include commercial distribution. Optional distribution services may be available for eligible titles, subject to the rules, approval processes, territorial limitations, technical requirements, and fees of the relevant platform.",
-    distributionService: "Distribution Service",
+    distributionService: "Distribution service",
     importantNoticeLabel: "Important notice:",
     importantNoticeBody: "Publishing or distribution fees do not guarantee book sales, bookstore placement, library acquisition, platform approval, indexing, ranking, reviews, citations, academic promotion, institutional recognition, or commercial performance.",
 
-    isbnHeading: "ISBN and Publisher-of-Record Policy",
+    isbnHeading: "ISBN and publisher-of-record policy",
     isbnIntro: "ISBNs are assigned only to publications that have been:",
     isbnBody1: "ISBNs are not sold, transferred, leased, licensed as standalone numbers, or supplied for use by another publisher. The publisher name displayed in the book must correspond with the publisher information recorded for the ISBN.",
     isbnBody2: "Publishing fees are not government ISBN application fees. They are fees for publisher services, editorial assessment, project administration, rights review, bibliographic metadata, ISBN assignment, production processing, official publication records, digital archiving, and post-publication compliance coordination.",
     isbnNotConstituteIntro: "Assignment of an ISBN does not constitute:",
 
-    paymentHeading: "5. Payment and Quotation Rules",
-    cancellationHeading: "Cancellation and Refund Principles",
+    paymentHeading: "5. Payment and quotation rules",
+    cancellationHeading: "Cancellation and refund principles",
     cancellationIntro: "Fees reflect editorial, administrative, metadata, production, design, archiving, and publisher work already performed. Fees paid before work begins may be refundable subject to documented administrative costs.",
     cancellationFootnote: "Detailed cancellation and refund provisions are governed by the signed publishing agreement.",
-    declineHeading: "Review and Publisher's Right to Decline",
+    declineHeading: "Review and publisher's right to decline",
     declineIntro: "All proposals and manuscripts are subject to editorial, ethical, legal, and technical review. Panorama Scholarly Books may decline or discontinue a project that:",
     declineFootnote: "Payment does not override the publisher's editorial independence or publication standards. The publishing fee does not represent or guarantee sales outcomes, bookstore listing, library purchase, indexing, ranking, citations, academic promotion, degree recognition, institutional approval, or commercial revenue.",
-    ctaHeading: "Request a Publishing Assessment",
+    ctaHeading: "Request a publishing assessment",
     ctaBody: "Authors, editors, and institutions may contact Panorama Scholarly Books to discuss manuscript suitability, production requirements, publication timeline, and available publishing packages. Submission of an inquiry does not constitute acceptance or create a publishing agreement.",
-    ctaContact: "Contact Us",
+    ctaContact: "Contact us",
   },
   "zh-Hant": {
     eyebrow: "出版服務",
@@ -835,7 +835,7 @@ export default function PublishingServicesPageClient({ locale }: { locale: Local
                       {L(pkg.label)}
                     </span>
                     {pkg.featured && (
-                      <span className="tag !bg-brand !text-on-brand !border-brand">
+                      <span className="tag">
                         {t.recommended}
                       </span>
                     )}

@@ -14,7 +14,8 @@ export const seriesTypeLabels: Record<string, { zhHant: string; zhHans: string }
 export function seriesTypeLabel(key: string, locale: Locale) {
   if (locale === "zh-Hant") return seriesTypeLabels[key]?.zhHant ?? key;
   if (locale === "zh-Hans") return seriesTypeLabels[key]?.zhHans ?? key;
-  return key;
+  // Keys are Title Case identifiers; on screen they read in sentence case.
+  return key.charAt(0) + key.slice(1).toLowerCase();
 }
 
 export const series = [
@@ -27,7 +28,7 @@ export const series = [
       "zh-Hans": "出版探讨教育政策、教学法、课程研究、高等教育治理及国内外比较教育的原创研究专著与编著文集。",
     },
     types: ["Monographs", "Edited Volumes", "Research Reports"],
-    status: { en: "Open for Submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
   },
   {
     id: "panorama-studies-public-policy",
@@ -38,7 +39,7 @@ export const series = [
       "zh-Hans": "涵盖公共行政、治理改革、政策分析、监管研究，以及国家机构与公民社会的关系，采比较与跨学科取向。",
     },
     types: ["Monographs", "Edited Volumes"],
-    status: { en: "Open for Submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
   },
   {
     id: "panorama-studies-arts-humanities",
@@ -49,7 +50,7 @@ export const series = [
       "zh-Hans": "涵盖文学、哲学、历史、文化研究、艺术史、媒体研究及表演艺术的原创学术著作，特别重视跨学科与跨文化取向。",
     },
     types: ["Monographs", "Edited Volumes"],
-    status: { en: "Open for Submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
   },
   {
     id: "panorama-studies-global-society",
@@ -60,7 +61,7 @@ export const series = [
       "zh-Hans": "探讨全球化、国际关系、跨国公民社会、移民、全球治理，以及地缘政治变迁带来的社会影响。",
     },
     types: ["Monographs", "Edited Volumes"],
-    status: { en: "Open for Submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
   },
   {
     id: "panorama-studies-ai-future-society",
@@ -71,7 +72,7 @@ export const series = [
       "zh-Hans": "从跨学科视角探讨人工智能、自动化、数字化转型及新兴科技在社会、伦理、政治与哲学层面的意涵。",
     },
     types: ["Monographs", "Edited Volumes", "Research Reports"],
-    status: { en: "Open for Submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
   },
   {
     id: "panorama-conference-proceedings",
@@ -82,7 +83,7 @@ export const series = [
       "zh-Hans": "出版涵盖 Panorama Scholarly Books 各学科领域的同行评审会议论文集，为会议主办单位提供专业学术出版渠道。",
     },
     types: ["Conference Proceedings"],
-    status: { en: "Open for Submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
   },
   {
     id: "panorama-research-reports",
@@ -93,6 +94,6 @@ export const series = [
       "zh-Hans": "专门收录学术研究团队、政策研究机构及跨学科研究项目的研究报告、政策简报与调查成果。",
     },
     types: ["Research Reports"],
-    status: { en: "Open for Submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
   },
 ];

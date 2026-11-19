@@ -19,7 +19,7 @@ export const primaryNav: NavItem[] = [
   { href: "/authors", label: { en: "Authors", "zh-Hant": "作者", "zh-Hans": "作者" }, hardNav: true },
   {
     href: "/for-authors",
-    label: { en: "Publish With Us", "zh-Hant": "與我們出版", "zh-Hans": "与我们出版" },
+    label: { en: "Publish with us", "zh-Hant": "與我們出版", "zh-Hans": "与我们出版" },
     match: ["/publishing-services", "/distribution"],
   },
   {
@@ -30,7 +30,7 @@ export const primaryNav: NavItem[] = [
 ];
 
 export const secondaryNav: NavItem[] = [
-  { href: "/publishing-services", label: { en: "Publishing Services", "zh-Hant": "出版服務", "zh-Hans": "出版服务" } },
+  { href: "/publishing-services", label: { en: "Publishing services", "zh-Hant": "出版服務", "zh-Hans": "出版服务" } },
   { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊", "zh-Hans": "发行信息" } },
   { href: "/policies", label: { en: "Policies", "zh-Hant": "出版政策", "zh-Hans": "出版政策" } },
   { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們", "zh-Hans": "联系我们" } },

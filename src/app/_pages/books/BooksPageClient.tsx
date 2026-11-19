@@ -293,7 +293,7 @@ export default function BooksPageClient({ locale }: { locale: Locale }) {
                 </button>
               ))}
               {chips.length > 1 && (
-                <button type="button" onClick={clearAll} className="font-sans text-[14px] font-semibold text-brand underline underline-offset-4 px-1 min-h-[32px]">
+                <button type="button" onClick={clearAll} className="font-sans text-[14px] font-medium text-brand underline underline-offset-4 px-1 min-h-[32px]">
                   {t.clearAll}
                 </button>
               )}

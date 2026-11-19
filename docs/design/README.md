@@ -45,7 +45,7 @@ Direction A was chosen because it handles a 1-book catalogue gracefully, fits th
 |---|---|---|---|---|
 | `paper` | #FBFAF5 | 生成り Kinari | page background | n/a |
 | `surface` | #FFFFFC | 胡粉 Gofun | inputs, dialogs, cards | n/a |
-| `stone-soft` | #F7FCFE | 卯の花 Unohana | alternate sections | n/a |
+| `stone-soft` | #F5F3EC | Kinari (half step deeper) | alternate sections, notices, table stripes | n/a |
 | `stone` | #F1EFE6 | Kinari (deeper) | quiet panels, book "shelf" | n/a |
 | `ink` | #3A3937 | 濃墨 Koi-zumi | headings | 11.0:1 |
 | `ink-2` | #595857 | 墨 Sumi | body text | 6.8:1 |
@@ -61,19 +61,19 @@ Rules: no pure white or black; no saturated green or blue buttons; no traditiona
 
 ### Corners and elevation
 
-Corners are restrained: book covers 2px, tags 4px, buttons and inputs 6px, and the few framed panels (dialog, citation block, notices) 8px. Content is separated by hairlines and white space rather than cards. Shadows are used only on book covers and on overlays (search dialog, language menu); there are no hover shadows.
+Corners are restrained: book covers 2px, tags 4px, buttons and inputs 8px, the few framed panels (dialog, citation block, notices) 12px, and the homepage book stage 16px. Content is separated by hairlines and white space rather than cards. Shadows are used only on book covers and on overlays (search dialog, language menu); there are no hover shadows.
 
 ### Type
 
 | Class | Family | Size | Notes |
 |---|---|---|---|
-| `type-display` | Serif 500 | clamp 40→72px | hero only |
+| `type-display` | Serif 400 | clamp 40→60px | hero only |
 | `type-h1` | Serif 500 | clamp 34→52px | page titles |
 | `type-h2` | Serif 500 | clamp 26→36px | sections |
-| `type-h3` | Serif 600 | 20px | sub-sections |
+| `type-h3` | Serif 500 | 20px | sub-sections |
 | `lede` | Serif | 18→21px | introductions |
 | `prose-reading` | Serif | 17px / 1.75, max 68ch | abstracts, bios, policies |
-| `eyebrow` | Sans 600, caps, 0.14em | 12px | section labels (no caps or wide tracking for CJK) |
+| `eyebrow` | Sans 400, sentence case, muted | 14px | section labels; no caps or tracking in any language |
 | `meta` | Sans | 14px | metadata |
 
 CJK falls back per character to Noto Serif/Sans SC or TC. Language-tagged elements (`lang="zh-Hans"` on a Simplified-Chinese title shown on a Traditional page) keep their correct glyph set. CJK text gets a line-height of 1.85–1.95 and headings 1.3–1.4. German uses `hyphens: auto`, and Source Serif and Sans load the `latin-ext` subsets.
@@ -138,3 +138,12 @@ Code is the source of truth. A Figma library should mirror these names one-to-on
 ## Reference screenshots
 
 `docs/design/screens/` contains production-build captures at 1440px and 390px: home (EN and 简体), book detail, catalogue and Publish With Us. Regenerate them after visual changes.
+
+## E. Unslop pass (November 2026)
+
+A second pass with the unslop process (Damir Sokolovsky, CC BY 4.0) kept the palette, type and section order and removed what read as template: uppercase tracked labels, italic headline emphasis, the decorative three-square hero graphic, arrows on every link, the bluish alternate background, Title Case copy and 600 weights. English interface copy is sentence case; lookup keys in `lib/i18nLabels.ts` and `data/series.ts` stay Title Case and are sentence-cased on display.
+
+- **Moment:** the homepage hero shows the latest real cover as a bound book on a shelf (`.book-stage`, `.book-object`).
+- **Signature:** catalogue records set like a colophon page (`.colophon`): muted label, value, hairline.
+- **Secondary actions** are a raised neutral with a hairline; green is kept for the one primary action.
+- **Motion:** one easing curve, `cubic-bezier(0.22, 1, 0.36, 1)`, one entrance on the homepage hero, no hover lifts.

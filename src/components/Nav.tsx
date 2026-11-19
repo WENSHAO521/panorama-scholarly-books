@@ -95,14 +95,9 @@ export default function Nav() {
               className="flex items-center gap-3 shrink-0 group rounded-sm"
               aria-label="Panorama Scholarly Books — Home"
             >
-              <LogoMark height={34} />
-              <span className="flex flex-col leading-none">
-                <span className="font-serif text-[17px] lg:text-[18px] font-semibold tracking-[-0.005em] text-brand">
-                  Panorama Scholarly Books
-                </span>
-                <span className="hidden sm:block font-sans text-[11px] tracking-[0.14em] uppercase text-ink-3 mt-1.5">
-                  {t.tagline}
-                </span>
+              <LogoMark height={28} />
+              <span className="font-serif text-[17px] lg:text-[18px] font-medium leading-none text-ink">
+                Panorama Scholarly Books
               </span>
             </Link>
 
@@ -118,8 +113,8 @@ export default function Nav() {
                         current={active}
                         className={`relative inline-flex items-center h-10 px-3 font-sans text-[15px] whitespace-nowrap transition-colors rounded-sm after:absolute after:left-3 after:right-3 after:-bottom-[1px] after:h-[2px] after:transition-colors ${
                           active
-                            ? "text-brand font-semibold after:bg-accent"
-                            : "text-ink-2 font-medium hover:text-brand after:bg-transparent hover:after:bg-line-strong"
+                            ? "text-ink after:bg-brand"
+                            : "text-ink-2 hover:text-ink after:bg-transparent"
                         }`}
                       >
                         {item.label[locale]}
@@ -134,21 +129,21 @@ export default function Nav() {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="inline-flex items-center gap-2 h-9 px-2.5 rounded-sm font-sans text-[14px] font-medium text-ink-2 hover:text-brand hover:bg-stone-soft transition-colors"
+                className="inline-flex items-center gap-2 h-9 px-2.5 rounded-md font-sans text-[15px] text-ink-2 hover:text-ink hover:bg-stone transition-colors"
                 aria-haspopup="dialog"
                 aria-keyshortcuts="/"
               >
-                <MagnifyingGlass size={18} aria-hidden="true" />
+                <MagnifyingGlass size={16} aria-hidden="true" />
                 <span className="hidden xl:inline">{t.search}</span>
                 <span className="sr-only xl:hidden">{t.search}</span>
-                <kbd className="hidden xl:inline-flex items-center justify-center w-5 h-5 text-[11px] font-sans border border-line rounded-sm text-ink-3">/</kbd>
+                <kbd className="hidden xl:inline-flex items-center justify-center min-w-5 h-5 px-1 text-[12px] font-sans border border-line-strong/40 border-b-2 rounded-[4px] text-ink-3 bg-paper">/</kbd>
               </button>
               <div className="hidden sm:block">
                 <LanguageMenu />
               </div>
               <button
                 type="button"
-                className="xl:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-sm text-ink hover:bg-stone-soft"
+                className="xl:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md text-ink hover:bg-stone"
                 onClick={() => setMenuOpen((v) => !v)}
                 aria-expanded={menuOpen}
                 aria-controls="mobile-menu"
@@ -182,8 +177,7 @@ export default function Nav() {
                       }`}
                     >
                       {item.label[locale]}
-                      {active && <span className="rule-accent !w-6" aria-hidden="true" />}
-                    </NavLink>
+                                          </NavLink>
                   </li>
                 );
               })}
@@ -196,7 +190,7 @@ export default function Nav() {
                     item={item}
                     href={localeHref(item.href, locale)}
                     current={isActive(item, path)}
-                    className="flex items-center min-h-[44px] font-sans text-[16px] text-ink-2 hover:text-brand aria-[current=page]:text-brand aria-[current=page]:font-semibold"
+                    className="flex items-center min-h-[44px] font-sans text-[16px] text-ink-2 hover:text-brand aria-[current=page]:text-ink"
                   >
                     {item.label[locale]}
                   </NavLink>
