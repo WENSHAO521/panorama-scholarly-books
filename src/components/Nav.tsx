@@ -155,12 +155,14 @@ export default function Nav() {
           </div>
         </div>
 
-        {/* Mobile / tablet menu: full-height sheet under the bar. The inline
+        {/* Mobile / tablet menu: full-height sheet under the bar. The header's
+            backdrop-filter makes it the containing block for this fixed sheet,
+            so the height is set from the viewport instead of bottom-0. The inline
             nav needs ≥1280px so longer languages (e.g. German) never overflow. */}
         <div
           id="mobile-menu"
           hidden={!menuOpen}
-          className="xl:hidden fixed inset-x-0 top-16 lg:top-[76px] bottom-0 bg-paper border-t border-line overflow-y-auto"
+          className="xl:hidden fixed inset-x-0 top-16 lg:top-[76px] h-[calc(100dvh-4rem)] lg:h-[calc(100dvh-76px)] bg-paper border-t border-line overflow-y-auto"
         >
           <nav className="site-container py-6" aria-label="Main">
             <ul>
