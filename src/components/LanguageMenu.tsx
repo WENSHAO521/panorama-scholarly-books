@@ -72,7 +72,7 @@ export default function LanguageMenu({ inline = false }: { inline?: boolean }) {
             loc,
             `inline-flex items-center gap-2 min-h-[44px] px-5 font-sans text-[15px] border rounded-full transition-colors ${
               loc === current
-                ? "border-brand bg-brand-tint text-brand font-semibold"
+                ? "border-brand bg-brand-tint text-brand font-medium"
                 : "border-line text-ink-2 hover:border-brand hover:text-brand"
             }`
           )
@@ -105,7 +105,7 @@ export default function LanguageMenu({ inline = false }: { inline?: boolean }) {
           option(
             loc,
             `flex items-center justify-between gap-4 px-3 py-2.5 rounded-sm font-sans text-[15px] transition-colors ${
-              loc === current ? "text-brand font-semibold" : "text-ink-2 hover:bg-stone-soft hover:text-brand"
+              loc === current ? "text-brand font-medium" : "text-ink-2 hover:bg-stone-soft hover:text-brand"
             }`
           )
         )}

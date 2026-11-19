@@ -22,7 +22,7 @@ export default function BookCard({ book, locale }: { book: Book; locale: Locale 
   return (
     <Link href={localeHref(`/books/${book.slug}`, locale)} className="group flex flex-col rounded-sm">
       <div className="aspect-[4/5] flex items-end justify-center bg-stone rounded-sm px-[14%] pt-[12%] pb-[9%]">
-        <div className="w-full transition-transform duration-200 ease-[var(--ease-quiet)] group-hover:-translate-y-1">
+        <div className="w-full">
           <BookCover book={book} />
         </div>
       </div>
@@ -75,7 +75,7 @@ export function BookEntry({
           </Link>
         </H>
         {book.subtitle && (
-          <p className="font-serif italic text-[17px] sm:text-lg text-ink-2 mt-2 leading-snug" lang={lang}>
+          <p className="font-serif text-[17px] sm:text-lg text-ink-2 mt-2 leading-snug" lang={lang}>
             {book.subtitle}
           </p>
         )}
@@ -88,7 +88,6 @@ export function BookEntry({
         <p className="prose-reading line-clamp-4">{abstract}</p>
         <Link href={href} className="link-arrow mt-5">
           {moreLabel}
-          <span aria-hidden="true">→</span>
         </Link>
       </div>
     </article>

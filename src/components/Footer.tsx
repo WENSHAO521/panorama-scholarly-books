@@ -12,26 +12,26 @@ const columns: { heading: L; links: FooterLink[] }[] = [
     heading: { en: "Books", "zh-Hant": "書目", "zh-Hans": "书目" },
     links: [
       { href: "/books", label: { en: "Catalogue", "zh-Hant": "全部書目", "zh-Hans": "全部书目" } },
-      { href: "/book-series", label: { en: "Book Series", "zh-Hant": "書系", "zh-Hans": "书系" } },
-      { href: "/authors", label: { en: "Authors & Editors", "zh-Hant": "作者與編者", "zh-Hans": "作者与编者" }, hardNav: true },
+      { href: "/book-series", label: { en: "Book series", "zh-Hant": "書系", "zh-Hans": "书系" } },
+      { href: "/authors", label: { en: "Authors & editors", "zh-Hant": "作者與編者", "zh-Hans": "作者与编者" }, hardNav: true },
       { href: "/distribution", label: { en: "Distribution", "zh-Hant": "發行資訊", "zh-Hans": "发行信息" } },
     ],
   },
   {
     heading: { en: "Publishing", "zh-Hant": "出版", "zh-Hans": "出版" },
     links: [
-      { href: "/for-authors", label: { en: "Publish With Us", "zh-Hant": "與我們出版", "zh-Hans": "与我们出版" } },
-      { href: "/publishing-services", label: { en: "Publishing Services & Fees", "zh-Hant": "出版服務與費用", "zh-Hans": "出版服务与费用" } },
-      { href: "/contact", label: { en: "Submit an Inquiry", "zh-Hant": "提交詢問", "zh-Hans": "提交咨询" } },
+      { href: "/for-authors", label: { en: "Publish with us", "zh-Hant": "與我們出版", "zh-Hans": "与我们出版" } },
+      { href: "/publishing-services", label: { en: "Publishing services & fees", "zh-Hant": "出版服務與費用", "zh-Hans": "出版服务与费用" } },
+      { href: "/contact", label: { en: "Submit an inquiry", "zh-Hant": "提交詢問", "zh-Hans": "提交咨询" } },
     ],
   },
   {
     heading: { en: "Policies", "zh-Hant": "出版政策", "zh-Hans": "出版政策" },
     links: [
-      { href: "/policies/publishing-ethics", label: { en: "Publishing Ethics", "zh-Hant": "出版倫理", "zh-Hans": "出版伦理" } },
-      { href: "/policies/copyright", label: { en: "Copyright & Licensing", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" } },
-      { href: "/policies/open-access", label: { en: "Open Access", "zh-Hant": "開放獲取", "zh-Hans": "开放获取" } },
-      { href: "/policies/ai-use-policy", label: { en: "AI Use", "zh-Hant": "人工智能使用", "zh-Hans": "人工智能使用" } },
+      { href: "/policies/publishing-ethics", label: { en: "Publishing ethics", "zh-Hant": "出版倫理", "zh-Hans": "出版伦理" } },
+      { href: "/policies/copyright", label: { en: "Copyright & licensing", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" } },
+      { href: "/policies/open-access", label: { en: "Open access", "zh-Hant": "開放獲取", "zh-Hans": "开放获取" } },
+      { href: "/policies/ai-use-policy", label: { en: "AI use", "zh-Hant": "人工智能使用", "zh-Hans": "人工智能使用" } },
       { href: "/policies/plagiarism", label: { en: "Plagiarism", "zh-Hant": "抄襲", "zh-Hans": "抄袭" } },
       { href: "/policies/authorship", label: { en: "Authorship", "zh-Hant": "著作權歸屬", "zh-Hans": "著作权归属" } },
     ],
@@ -39,10 +39,10 @@ const columns: { heading: L; links: FooterLink[] }[] = [
   {
     heading: { en: "Institution", "zh-Hant": "機構", "zh-Hans": "机构" },
     links: [
-      { href: "/about", label: { en: "About the Imprint", "zh-Hant": "關於本出版品牌", "zh-Hans": "关于本出版品牌" } },
+      { href: "/about", label: { en: "About the imprint", "zh-Hant": "關於本出版品牌", "zh-Hans": "关于本出版品牌" } },
       { href: "/contact", label: { en: "Contact", "zh-Hant": "聯絡我們", "zh-Hans": "联系我们" } },
       { href: "https://panorama-sg.com", label: { en: "Panorama Scholarly Group", "zh-Hant": "Panorama Scholarly Group", "zh-Hans": "Panorama Scholarly Group" }, external: true },
-      { href: "https://posi.panorama-sg.com", label: { en: "POSI · Scholarly Index", "zh-Hant": "POSI · 學術索引", "zh-Hans": "POSI · 学术索引" }, external: true },
+      { href: "https://posi.panorama-sg.com", label: { en: "POSI · scholarly index", "zh-Hant": "POSI · 學術索引", "zh-Hans": "POSI · 学术索引" }, external: true },
     ],
   },
 ];
@@ -74,7 +74,7 @@ const copy = {
   },
 } as const;
 
-const linkCls = "inline-flex items-center gap-1 py-1 font-sans text-[15px] text-on-footer-2 hover:text-on-footer hover:underline underline-offset-4 decoration-footer-accent";
+const linkCls = "inline-flex items-center gap-1 py-1 font-sans text-[15px] text-on-footer hover:underline underline-offset-4 decoration-footer-accent";
 
 export default function Footer() {
   const pathname = usePathname() || "/";
@@ -87,12 +87,11 @@ export default function Footer() {
       <div className="site-container pt-16 pb-10 lg:pt-20">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-x-8 gap-y-12">
           <div className="col-span-2 md:col-span-4 lg:col-span-4">
-            <p className="font-serif text-[22px] font-semibold leading-tight">Panorama Scholarly Books</p>
-            <span className="rule-accent my-5" aria-hidden="true" />
-            <p className="font-serif text-[17px] text-on-footer-2 leading-relaxed max-w-[34ch]">{t.statement}</p>
+            <p className="font-serif text-[20px] font-medium leading-tight">Panorama Scholarly Books</p>
+            <p className="font-serif text-[16px] text-on-footer-2 leading-relaxed max-w-[34ch] mt-3">{t.statement}</p>
             <dl className="mt-8 space-y-4 font-sans text-[15px]">
               <div>
-                <dt className="text-[12px] tracking-[0.12em] uppercase text-on-footer-2">{t.email}</dt>
+                <dt className="text-[14px] text-on-footer-2">{t.email}</dt>
                 <dd className="mt-1">
                   <a href="mailto:books@panorama-sg.com" className="hover:underline underline-offset-4 decoration-footer-accent">
                     books@panorama-sg.com
@@ -100,7 +99,7 @@ export default function Footer() {
                 </dd>
               </div>
               <div>
-                <dt className="text-[12px] tracking-[0.12em] uppercase text-on-footer-2">{t.addressLabel}</dt>
+                <dt className="text-[14px] text-on-footer-2">{t.addressLabel}</dt>
                 <dd className="mt-1 text-on-footer-2 leading-relaxed max-w-[36ch]">{t.address}</dd>
               </div>
             </dl>
@@ -108,7 +107,7 @@ export default function Footer() {
 
           {columns.map((col) => (
             <nav key={col.heading.en} aria-label={col.heading[locale]} className="lg:col-span-2">
-              <p className="font-sans text-[12px] font-semibold tracking-[0.14em] uppercase text-footer-accent mb-4">
+              <p className="font-sans text-[14px] text-on-footer-2 mb-3">
                 {col.heading[locale]}
               </p>
               <ul className="space-y-1">

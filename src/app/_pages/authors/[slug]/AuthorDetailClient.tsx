@@ -11,7 +11,7 @@ import { pickLocale, localeHref, type Locale } from "@/lib/locale";
 
 const copy = {
   en: {
-    backToAuthors: "Back to Authors",
+    backToAuthors: "Back to authors",
     eyebrow: "Author",
     title: "Title",
     titles: "Titles",

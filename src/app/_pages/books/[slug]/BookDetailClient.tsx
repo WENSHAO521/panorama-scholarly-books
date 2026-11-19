@@ -45,9 +45,9 @@ const copy = {
     breadcrumb: "Breadcrumb",
     onThisPage: "On this page",
     description: "Description",
-    publicationDetails: "Publication Details",
-    citeThisBook: "Cite This Book",
-    related: "Related Publications",
+    publicationDetails: "Publication details",
+    citeThisBook: "Cite this book",
+    related: "Related publications",
     accessHeading: "Formats & access",
     restrictedAccess: "Not for sale. This title circulates on a restricted, non-commercial basis; copies may be requested from the Books department.",
     openAccessNote: "Open access under CC BY-NC-ND 4.0.",
@@ -57,22 +57,22 @@ const copy = {
     readMore: "Read the full description",
     published: "Published",
     and: "and",
-    backToBooks: "Back to Books",
+    backToBooks: "Back to books",
     forthcoming: "Forthcoming",
     notForSale: "Not for sale. Restricted, non-commercial circulation only.",
-    requestCopy: "Request a Copy",
-    orderInquiry: "Order Inquiry",
-    institutionalInquiry: "Institutional Purchase Inquiry",
-    requestSample: "Request Sample Chapter",
-    bookDescription: "Book Description",
-    tableOfContents: "Table of Contents",
-    aboutAuthor: "About the Author",
-    aboutEditors: "About the Editors",
-    howToCite: "How to Cite",
-    psgFormat: "PSG Format",
-    copyrightLicensing: "Copyright and Licensing",
+    requestCopy: "Request a copy",
+    orderInquiry: "Order inquiry",
+    institutionalInquiry: "Institutional purchase inquiry",
+    requestSample: "Request sample chapter",
+    bookDescription: "Book description",
+    tableOfContents: "Table of contents",
+    aboutAuthor: "About the author",
+    aboutEditors: "About the editors",
+    howToCite: "How to cite",
+    psgFormat: "PSG format",
+    copyrightLicensing: "Copyright and licensing",
     ccTitle: "Creative Commons Attribution–NonCommercial–NoDerivatives 4.0 International",
-    ccSub: "CC BY-NC-ND 4.0 · Open Access",
+    ccSub: "CC BY-NC-ND 4.0 · open access",
     ccBody:
       "This work is published open access under the Creative Commons CC BY-NC-ND 4.0 licence. You are free to share and redistribute this material in any medium or format for non-commercial purposes, provided you give appropriate credit to the author(s) and publisher, and do not modify or adapt the work.",
     viewLicence: "View licence terms",
@@ -306,7 +306,7 @@ export default function BookDetailClient({
 
             <h1 className="type-h1 mt-4" lang={lang}>{book.title}</h1>
             {book.subtitle && (
-              <p className="font-serif italic text-[clamp(1.125rem,1rem+0.6vw,1.5rem)] leading-snug text-ink-2 mt-3" lang={lang}>
+              <p className="font-serif text-[clamp(1.125rem,1rem+0.6vw,1.5rem)] leading-snug text-ink-2 mt-3" lang={lang}>
                 {book.subtitle}
               </p>
             )}
@@ -322,12 +322,12 @@ export default function BookDetailClient({
                   {book.citationEligible ? (
                     // Plain <a>, not next/link: client-side transitions into a
                     // unicode author slug 404 on static hosting.
-                    <a href={`${localeHref(`/authors/${slugifyName(name)}`, locale)}/`} className="link font-semibold">
+                    <a href={`${localeHref(`/authors/${slugifyName(name)}`, locale)}/`} className="link font-medium">
                       <span lang={lang}>{name}</span>
                       {latin && <span className="font-normal"> ({latin})</span>}
                     </a>
                   ) : (
-                    <span className="font-semibold">{name}</span>
+                    <span className="font-medium">{name}</span>
                   )}
                 </span>
               ))}
@@ -421,7 +421,7 @@ export default function BookDetailClient({
                       <li
                         key={i}
                         className={`grid grid-cols-[2.25rem_1fr] gap-3 py-3 border-b border-line-soft ${
-                          isPart ? "pt-6 font-semibold text-ink" : "text-ink-2"
+                          isPart ? "pt-6 font-medium text-ink" : "text-ink-2"
                         }`}
                       >
                         <span className="font-sans text-[13px] tabular-nums text-ink-3 pt-1">{String(i + 1).padStart(2, "0")}</span>
@@ -470,7 +470,7 @@ export default function BookDetailClient({
               <div className="border-l-2 border-accent pl-5 prose-reading !text-[16px]">
                 {isOpenAccess ? (
                   <>
-                    <p className="font-semibold text-ink">{t.ccTitle}</p>
+                    <p className="font-medium text-ink">{t.ccTitle}</p>
                     <p className="meta">{t.ccSub}</p>
                     <p>{t.ccBody}</p>
                     <p>
@@ -481,7 +481,7 @@ export default function BookDetailClient({
                   </>
                 ) : (
                   <>
-                    <p className="font-semibold text-ink">
+                    <p className="font-medium text-ink">
                       © {book.publicationYear} <span lang={lang}>{credit}</span>. {t.allRightsReserved}
                     </p>
                     <p>{isRestricted ? t.restrictedBody : t.defaultBody}</p>

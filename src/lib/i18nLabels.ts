@@ -56,7 +56,7 @@ const common: BiDict = {
   "Browse all books": { zhHant: "瀏覽所有書目", zhHans: "浏览所有书目" },
   "Browse Books": { zhHant: "瀏覽書目", zhHans: "浏览书目" },
   "Contact Us": { zhHant: "聯絡我們", zhHans: "联系我们" },
-  "View →": { zhHant: "查看 →", zhHans: "查看 →" },
+  View: { zhHant: "查看", zhHans: "查看" },
   By: { zhHant: "作者", zhHans: "作者" },
   "Edited by": { zhHant: "編者", zhHans: "编者" },
   "(Ed.)": { zhHant: "（編）", zhHans: "（编）" },
@@ -73,10 +73,16 @@ const common: BiDict = {
   "Copyright and Licensing": { zhHant: "版權與授權", zhHans: "版权与授权" },
 };
 
+// English keys are written in Title Case so they read as stable identifiers;
+// on screen every label is sentence case. Acronyms (ISBN, DOI, CC) keep caps.
+function sentenceCase(key: string): string {
+  return key.replace(/(?<=\s|–|—|-)([A-Z])([a-z]+)/g, (_m, a: string, b: string) => a.toLowerCase() + b);
+}
+
 function lookup(dict: BiDict, key: string, locale: Locale): string {
   if (locale === "zh-Hant") return dict[key]?.zhHant ?? key;
   if (locale === "zh-Hans") return dict[key]?.zhHans ?? key;
-  return key;
+  return dict[key] ? sentenceCase(key) : key;
 }
 
 export const bookTypeLabel = (key: string, locale: Locale) => lookup(bookType, key, locale);

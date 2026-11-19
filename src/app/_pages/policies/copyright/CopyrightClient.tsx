@@ -13,11 +13,11 @@ const mailLink = (
 );
 
 const content: PolicyContent = {
-  title: { en: "Copyright and Licensing", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" },
+  title: { en: "Copyright and licensing", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" },
   updated: { en: "June 2026", "zh-Hant": "2026年6月", "zh-Hans": "2026年6月" },
   sections: [
     {
-      heading: { en: "1. Copyright Ownership", "zh-Hant": "一、版權歸屬", "zh-Hans": "一、版权归属" },
+      heading: { en: "1. Copyright ownership", "zh-Hant": "一、版權歸屬", "zh-Hans": "一、版权归属" },
       blocks: [
         {
           type: "p",
@@ -38,7 +38,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "2. Rights Retained by Authors", "zh-Hant": "二、作者保留之權利", "zh-Hans": "二、作者保留的权利" },
+      heading: { en: "2. Rights retained by authors", "zh-Hant": "二、作者保留之權利", "zh-Hans": "二、作者保留的权利" },
       blocks: [
         {
           type: "p",
@@ -76,7 +76,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "3. Third-Party Material", "zh-Hant": "三、第三方材料", "zh-Hans": "三、第三方材料" },
+      heading: { en: "3. Third-party material", "zh-Hant": "三、第三方材料", "zh-Hans": "三、第三方材料" },
       blocks: [
         {
           type: "p",
@@ -105,7 +105,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "4. Open Access and Creative Commons", "zh-Hant": "四、開放獲取與創用CC授權", "zh-Hans": "四、开放获取与知识共享许可协议" },
+      heading: { en: "4. Open access and Creative Commons", "zh-Hant": "四、開放獲取與創用CC授權", "zh-Hans": "四、开放获取与知识共享许可协议" },
       blocks: [
         {
           type: "p",
@@ -126,7 +126,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "5. Permissions and Licensing Inquiries", "zh-Hant": "五、授權與許可查詢", "zh-Hans": "五、授权与许可查询" },
+      heading: { en: "5. Permissions and licensing inquiries", "zh-Hant": "五、授權與許可查詢", "zh-Hans": "五、授权与许可查询" },
       blocks: [
         {
           type: "p",

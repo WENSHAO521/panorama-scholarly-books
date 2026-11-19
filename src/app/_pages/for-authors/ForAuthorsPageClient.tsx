@@ -6,7 +6,7 @@ import { localeHref, type Locale } from "@/lib/locale";
 
 const acceptedTypes = [
   {
-    type: { en: "Scholarly Monographs", "zh-Hant": "學術專著", "zh-Hans": "学术专著" },
+    type: { en: "Scholarly monographs", "zh-Hant": "學術專著", "zh-Hans": "学术专著" },
     desc: {
       en: "Original research works by one or more authors presenting a sustained argument or investigation.",
       "zh-Hant": "由一位或多位作者撰寫的原創研究著作，提出具連貫性的論述或調查研究。",
@@ -14,7 +14,7 @@ const acceptedTypes = [
     },
   },
   {
-    type: { en: "Edited Volumes", "zh-Hant": "編著文集", "zh-Hans": "编著文集" },
+    type: { en: "Edited volumes", "zh-Hant": "編著文集", "zh-Hans": "编著文集" },
     desc: {
       en: "Collections of original chapters by multiple contributors, organised and introduced by one or more editors.",
       "zh-Hant": "由多位撰稿人撰寫原創章節，並由一位或多位編者統籌與導言的文集。",
@@ -22,7 +22,7 @@ const acceptedTypes = [
     },
   },
   {
-    type: { en: "Academic Textbooks", "zh-Hant": "學術教材", "zh-Hans": "学术教材" },
+    type: { en: "Academic textbooks", "zh-Hant": "學術教材", "zh-Hans": "学术教材" },
     desc: {
       en: "Pedagogically structured works designed for use in higher education curricula.",
       "zh-Hant": "依教學需求編排、供高等教育課程使用的著作。",
@@ -30,7 +30,7 @@ const acceptedTypes = [
     },
   },
   {
-    type: { en: "Research Reports", "zh-Hant": "研究報告", "zh-Hans": "研究报告" },
+    type: { en: "Research reports", "zh-Hant": "研究報告", "zh-Hans": "研究报告" },
     desc: {
       en: "Structured reports presenting findings from research projects, systematic reviews, or policy investigations.",
       "zh-Hant": "呈現研究專案、系統性回顧或政策調查成果的結構化報告。",
@@ -38,7 +38,7 @@ const acceptedTypes = [
     },
   },
   {
-    type: { en: "Conference Proceedings", "zh-Hant": "會議論文集", "zh-Hans": "会议论文集" },
+    type: { en: "Conference proceedings", "zh-Hant": "會議論文集", "zh-Hans": "会议论文集" },
     desc: {
       en: "Collections of peer-reviewed papers presented at academic conferences.",
       "zh-Hant": "收錄於學術會議發表並經同行評審之論文集。",
@@ -46,7 +46,7 @@ const acceptedTypes = [
     },
   },
   {
-    type: { en: "Doctoral Dissertation-Based Books", "zh-Hant": "博士論文改編專書", "zh-Hans": "博士论文改编专书" },
+    type: { en: "Doctoral dissertation-based books", "zh-Hant": "博士論文改編專書", "zh-Hans": "博士论文改编专书" },
     desc: {
       en: "Substantially revised and expanded works based on doctoral theses.",
       "zh-Hant": "以博士論文為基礎，經大幅修訂與擴充的著作。",
@@ -54,7 +54,7 @@ const acceptedTypes = [
     },
   },
   {
-    type: { en: "Interdisciplinary Research Books", "zh-Hant": "跨學科研究專書", "zh-Hans": "跨学科研究专书" },
+    type: { en: "Interdisciplinary research books", "zh-Hant": "跨學科研究專書", "zh-Hans": "跨学科研究专书" },
     desc: {
       en: "Works that cross conventional disciplinary boundaries and engage multiple fields of inquiry.",
       "zh-Hant": "跨越傳統學科界線、涉及多重研究領域的著作。",
@@ -123,7 +123,7 @@ const proposalContent = [
 
 const processSteps = [
   {
-    step: { en: "Proposal Submission", "zh-Hant": "提交提案", "zh-Hans": "提交提案" },
+    step: { en: "Proposal submission", "zh-Hant": "提交提案", "zh-Hans": "提交提案" },
     desc: {
       en: "Submit the book proposal, author or editor CV, table of contents, sample chapters or complete manuscript, book description, target-readership statement, originality declaration, and relevant permissions information.",
       "zh-Hant": "提交圖書提案、作者或編者履歷、目錄、樣章或完整書稿、內容簡介、目標讀者說明、原創性聲明及相關授權資訊。",
@@ -131,7 +131,7 @@ const processSteps = [
     },
   },
   {
-    step: { en: "Initial Editorial Screening", "zh-Hant": "初步編輯審查", "zh-Hans": "初步编辑审查" },
+    step: { en: "Initial editorial screening", "zh-Hant": "初步編輯審查", "zh-Hans": "初步编辑审查" },
     desc: {
       en: "The editorial team assesses the project's subject scope, scholarly contribution, originality, ethical suitability, legal suitability, and basic production feasibility. This normally takes two to four weeks.",
       "zh-Hant": "編輯團隊評估專案的學科範疇、學術貢獻、原創性、倫理及法律適當性，以及基本製作可行性，一般需時兩至四週。",
@@ -139,7 +139,7 @@ const processSteps = [
     },
   },
   {
-    step: { en: "Editorial Evaluation", "zh-Hant": "編輯評估", "zh-Hans": "编辑评估" },
+    step: { en: "Editorial evaluation", "zh-Hant": "編輯評估", "zh-Hans": "编辑评估" },
     desc: {
       en: "Suitable proposals proceed to detailed editorial evaluation. External academic assessment may be requested where appropriate.",
       "zh-Hant": "符合條件的提案將進入詳細編輯評估，必要時可能安排外部學術審查。",
@@ -147,7 +147,7 @@ const processSteps = [
     },
   },
   {
-    step: { en: "Publication Decision", "zh-Hant": "出版決定", "zh-Hans": "出版决定" },
+    step: { en: "Publication decision", "zh-Hant": "出版決定", "zh-Hans": "出版决定" },
     desc: {
       en: "The author or editor receives one of the following decisions: accept; accept subject to revision; revise and resubmit; or decline. A fee quotation does not constitute editorial acceptance.",
       "zh-Hant": "作者或編者將收到以下其中一項決定：接受、有條件接受待修訂、修訂後重新提交，或不接受。費用報價並不構成編輯接受。",
@@ -155,7 +155,7 @@ const processSteps = [
     },
   },
   {
-    step: { en: "Publishing Agreement and Payment", "zh-Hant": "出版協議與付款", "zh-Hans": "出版协议与付款" },
+    step: { en: "Publishing agreement and payment", "zh-Hant": "出版協議與付款", "zh-Hans": "出版协议与付款" },
     desc: {
       en: "Accepted projects proceed to a written publishing agreement specifying publication format, services, responsibilities, fees, payment schedule, rights and licences, production scope, correction rounds, estimated schedule, and printing and distribution arrangements.",
       "zh-Hant": "獲接受的專案將簽署書面出版協議，載明出版格式、服務內容、責任、費用、付款時程、版權與授權、製作範圍、校訂輪次、預估時程，以及印刷與發行安排。",
@@ -163,7 +163,7 @@ const processSteps = [
     },
   },
   {
-    step: { en: "Rights and Metadata Verification", "zh-Hant": "版權與元數據核實", "zh-Hans": "版权与元数据核实" },
+    step: { en: "Rights and metadata verification", "zh-Hant": "版權與元數據核實", "zh-Hans": "版权与元数据核实" },
     desc: {
       en: "The publisher verifies the final title and subtitle, author and editor names, contributor information, affiliations, copyright ownership, third-party permissions, edition and product format, publication language, book description, subject classification, and publisher information.",
       "zh-Hant": "出版者核實最終書名及副題、作者與編者姓名、撰稿人資訊、所屬機構、版權歸屬、第三方授權、版次及產品格式、出版語言、內容簡介、學科分類及出版者資訊。",
@@ -179,7 +179,7 @@ const processSteps = [
     },
   },
   {
-    step: { en: "ISBN Assignment and Final Approval", "zh-Hant": "ISBN 分配與最終核准", "zh-Hans": "ISBN 分配与最终核准" },
+    step: { en: "ISBN assignment and final approval", "zh-Hant": "ISBN 分配與最終核准", "zh-Hans": "ISBN 分配与最终核准" },
     desc: {
       en: "Following approval of the publication format and bibliographic metadata, the publisher assigns the appropriate ISBN and completes the copyright-page and barcode information. ISBN assignment does not mean that unfinished or non-compliant files have received final publication approval.",
       "zh-Hant": "出版格式及書目元數據經核准後，出版者將分配對應 ISBN，並完成版權頁及條碼資訊。ISBN 的分配並不代表未完成或不合規之檔案已獲最終出版核准。",
@@ -195,7 +195,7 @@ const processSteps = [
     },
   },
   {
-    step: { en: "Registration, Deposit, and Archiving", "zh-Hant": "登記、送存與典藏", "zh-Hans": "登记、送存与典藏" },
+    step: { en: "Registration, deposit, and archiving", "zh-Hant": "登記、送存與典藏", "zh-Hans": "登记、送存与典藏" },
     desc: {
       en: "Where applicable, the publisher coordinates post-publication registration, statutory deposit arrangements, publisher records, and long-term digital archiving. The author or commissioning institution remains responsible for all separately invoiced printing, binding, deposit-copy, delivery, and third-party costs.",
       "zh-Hant": "如適用，出版者將協調出版後登記、法定送存安排、出版紀錄及長期數位典藏。另行開立發票之印刷、裝訂、送存本、運送及第三方費用，仍由作者或委託機構負責。",
@@ -248,39 +248,39 @@ const manuscriptRequirements = [
 ];
 
 const onThisPage = [
-  { href: "#what-we-publish", label: { en: "What We Publish", "zh-Hant": "我們出版的內容", "zh-Hans": "我们出版的内容" } },
-  { href: "#who-can-submit", label: { en: "Who Can Submit", "zh-Hant": "投稿資格", "zh-Hans": "投稿资格" } },
-  { href: "#required-documents", label: { en: "Required Documents", "zh-Hant": "所需文件", "zh-Hans": "所需文件" } },
-  { href: "#proposal-content", label: { en: "Proposal Content", "zh-Hant": "提案內容", "zh-Hans": "提案内容" } },
-  { href: "#review-process", label: { en: "Review Process", "zh-Hant": "審查流程", "zh-Hans": "审查流程" } },
-  { href: "#manuscript-requirements", label: { en: "Manuscript Requirements", "zh-Hant": "書稿要求", "zh-Hans": "书稿要求" } },
-  { href: "#submit", label: { en: "Submit an Inquiry", "zh-Hant": "提交查詢", "zh-Hans": "提交咨询" } },
+  { href: "#what-we-publish", label: { en: "What we publish", "zh-Hant": "我們出版的內容", "zh-Hans": "我们出版的内容" } },
+  { href: "#who-can-submit", label: { en: "Who can submit", "zh-Hant": "投稿資格", "zh-Hans": "投稿资格" } },
+  { href: "#required-documents", label: { en: "Required documents", "zh-Hant": "所需文件", "zh-Hans": "所需文件" } },
+  { href: "#proposal-content", label: { en: "Proposal content", "zh-Hant": "提案內容", "zh-Hans": "提案内容" } },
+  { href: "#review-process", label: { en: "Review process", "zh-Hant": "審查流程", "zh-Hans": "审查流程" } },
+  { href: "#manuscript-requirements", label: { en: "Manuscript requirements", "zh-Hant": "書稿要求", "zh-Hans": "书稿要求" } },
+  { href: "#submit", label: { en: "Submit an inquiry", "zh-Hant": "提交查詢", "zh-Hans": "提交咨询" } },
 ];
 
 const copy = {
   en: {
-    eyebrow: "For Authors",
+    eyebrow: "For authors",
     heading: "Publish with Panorama Scholarly Books",
     subheading: "Information for authors and editors seeking to publish with Panorama Scholarly Books.",
-    onThisPage: "On This Page",
+    onThisPage: "On this page",
     readyToSubmit: "Ready to submit?",
-    contactEditorialTeam: "Contact the Editorial Team",
-    whatWePublish: "What We Publish",
+    contactEditorialTeam: "Contact the editorial team",
+    whatWePublish: "What we publish",
     whatWePublishIntro: "Panorama Scholarly Books publishes original, peer-considered academic works across a broad range of humanistic, social scientific, educational, and interdisciplinary fields. We are committed to high scholarly standards, rigorous argumentation, and accessible academic writing.",
-    whoCanSubmit: "Who Can Submit",
+    whoCanSubmit: "Who can submit",
     whoCanSubmitIntro: "We welcome proposals from:",
-    requiredDocuments: "Required Documents",
+    requiredDocuments: "Required documents",
     submissionsMustInclude: "Submissions must include the following:",
-    bookProposalContent: "Book Proposal Content",
+    bookProposalContent: "Book proposal content",
     proposalContentIntro: "The book proposal should be a document of 1,000-3,000 words and address the following:",
-    reviewProcess: "Review and Publication Process",
-    manuscriptRequirementsHeading: "Manuscript Requirements",
-    submitInquiry: "Submit an Inquiry",
+    reviewProcess: "Review and publication process",
+    manuscriptRequirementsHeading: "Manuscript requirements",
+    submitInquiry: "Submit an inquiry",
     submitIntro: "To submit a book proposal or discuss a publishing project, please email the Books department. Include your proposal and relevant supporting documents as attachments.",
-    booksEditorialTeam: "Books Editorial Team",
-    submitProposal: "Submit Proposal",
+    booksEditorialTeam: "Books editorial team",
+    submitProposal: "Submit proposal",
     allowResponse: "Please allow 2-4 weeks for an initial response to proposals. The editorial team will contact you if additional information is required. For questions about services and fees, please also consult the",
-    publishingServicesPage: "Publishing Services",
+    publishingServicesPage: "Publishing services",
     pageSuffix: "page.",
   },
   "zh-Hant": {

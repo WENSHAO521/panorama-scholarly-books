@@ -14,7 +14,7 @@ const copy = {
       "Panorama Scholarly Books is dedicated to publishing academic works that contribute to scholarly communication, interdisciplinary research, and global knowledge exchange.",
     missionP2:
       "As part of Panorama Scholarly Group, the platform supports academic authors, editors, researchers, and institutions through responsible publishing practices and professional production services. We are committed to maintaining high scholarly standards, supporting intellectual diversity, and making serious academic work accessible to researchers, educators, and practitioners worldwide.",
-    scopeHeading: "Publishing Scope",
+    scopeHeading: "Publishing scope",
     scopeIntro:
       "We publish scholarly monographs, edited volumes, research reports, academic textbooks, conference proceedings, and interdisciplinary works across the following fields:",
     fields: [
@@ -27,7 +27,7 @@ const copy = {
       "AI, Technology, and Future Society",
       "Global Studies and International Relations",
     ],
-    publisherInfoHeading: "Publisher Information",
+    publisherInfoHeading: "Publisher information",
     publisherInfo: [
       ["Legal Publisher", "Panorama Scholarly Group Limited"],
       ["Publishing Imprint", "Panorama Scholarly Books"],
@@ -39,7 +39,7 @@ const copy = {
       ["Website", "books.panorama-sg.com"],
       ["Publishing Inquiries", "books@panorama-sg.com"],
     ],
-    standardsHeading: "Academic Standards",
+    standardsHeading: "Academic standards",
     standardsP1:
       "Panorama Scholarly Books is committed to responsible publishing practices that uphold the integrity of scholarly work. All submissions are subject to editorial evaluation for scholarly merit, originality, methodological rigour, and clarity of argumentation.",
     standardsP2:
@@ -51,8 +51,8 @@ const copy = {
     relationshipP2:
       "Panorama Scholarly Books maintains its own editorial identity, author relationships, book catalogue, publishing policies, and production standards within the broader scholarly publishing activities of Panorama Scholarly Group Limited, which also spans academic journals, conference proceedings, and research communication services.",
     contactHeading: "Contact",
-    booksDepartment: "Books Department",
-    contactUs: "Contact Us",
+    booksDepartment: "Books department",
+    contactUs: "Contact us",
   },
   "zh-Hant": {
     eyebrow: "關於我們",

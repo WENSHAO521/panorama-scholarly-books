@@ -7,12 +7,12 @@ import { series, seriesTypeLabel } from "@/data/series";
 
 const copy = {
   en: {
-    eyebrow: "Book Series",
-    heading: "Book Series",
+    eyebrow: "Book series",
+    heading: "Book series",
     subheading:
       "Panorama Scholarly Books publishes under a number of specialist series, each with its own editorial focus and scope. All series are currently open for submissions.",
-    aimsScope: "Aims and Scope",
-    submitToSeries: "Submit to This Series",
+    aimsScope: "Aims and scope",
+    submitToSeries: "Submit to this series",
     authorGuidelines: "Author guidelines",
     note: "Note",
     noteP1: "Books may be submitted as part of a named series or as standalone titles under the Panorama Scholarly Books imprint. Series affiliation is determined during the editorial review process.",

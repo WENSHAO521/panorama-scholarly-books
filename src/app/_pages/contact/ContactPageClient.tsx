@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/locale";
 const copy = {
   en: {
     eyebrow: "Contact",
-    heading: "Contact Us",
+    heading: "Contact us",
     subheading: "For publishing inquiries, copy requests, institutional purchases, and general questions.",
     email: "Email",
     allInquiries: "All inquiries",
@@ -24,7 +24,7 @@ const copy = {
         Mong Kok, Kowloon, Hong Kong
       </>
     ),
-    responseTime: "Response Time",
+    responseTime: "Response time",
     responseTimeText:
       "We aim to respond to all inquiries within 5-7 business days. For proposal submissions, please allow 2-4 weeks for an initial response.",
   },

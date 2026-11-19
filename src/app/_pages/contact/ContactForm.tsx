@@ -12,20 +12,20 @@ function optionLabel(opt: Bi, locale: Locale): string {
 }
 
 const inquiryTypes = [
-  { label: { en: "Book Publishing Inquiry", "zh-Hant": "圖書出版洽詢", "zh-Hans": "图书出版咨询" }, subject: "Book Publishing Inquiry" },
-  { label: { en: "Order / Copy Request", "zh-Hant": "訂購／索書申請", "zh-Hans": "订购/索书申请" }, subject: "Book Order Request" },
-  { label: { en: "Institutional Purchase", "zh-Hant": "機構採購", "zh-Hans": "机构采购" }, subject: "Institutional Purchase Inquiry" },
-  { label: { en: "Rights and Permissions", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" }, subject: "Rights and Permissions Inquiry" },
-  { label: { en: "General Inquiry", "zh-Hant": "一般查詢", "zh-Hans": "一般咨询" }, subject: "General Inquiry" },
+  { label: { en: "Book publishing inquiry", "zh-Hant": "圖書出版洽詢", "zh-Hans": "图书出版咨询" }, subject: "Book Publishing Inquiry" },
+  { label: { en: "Order / copy request", "zh-Hant": "訂購／索書申請", "zh-Hans": "订购/索书申请" }, subject: "Book Order Request" },
+  { label: { en: "Institutional purchase", "zh-Hant": "機構採購", "zh-Hans": "机构采购" }, subject: "Institutional Purchase Inquiry" },
+  { label: { en: "Rights and permissions", "zh-Hant": "版權與授權", "zh-Hans": "版权与授权" }, subject: "Rights and Permissions Inquiry" },
+  { label: { en: "General inquiry", "zh-Hant": "一般查詢", "zh-Hans": "一般咨询" }, subject: "General Inquiry" },
 ];
 
 const bookTypeOptions: Bi[] = [
-  { en: "Scholarly Monograph", "zh-Hant": "學術專著", "zh-Hans": "学术专著" },
-  { en: "Edited Volume", "zh-Hant": "編著文集", "zh-Hans": "编著文集" },
-  { en: "Academic Textbook", "zh-Hant": "學術教材", "zh-Hans": "学术教材" },
-  { en: "Research Report", "zh-Hant": "研究報告", "zh-Hans": "研究报告" },
-  { en: "Conference Proceedings", "zh-Hant": "會議論文集", "zh-Hans": "会议论文集" },
-  { en: "Doctoral Dissertation-Based Book", "zh-Hant": "博士論文改編專書", "zh-Hans": "博士论文改编专书" },
+  { en: "Scholarly monograph", "zh-Hant": "學術專著", "zh-Hans": "学术专著" },
+  { en: "Edited volume", "zh-Hant": "編著文集", "zh-Hans": "编著文集" },
+  { en: "Academic textbook", "zh-Hant": "學術教材", "zh-Hans": "学术教材" },
+  { en: "Research report", "zh-Hant": "研究報告", "zh-Hans": "研究报告" },
+  { en: "Conference proceedings", "zh-Hant": "會議論文集", "zh-Hans": "会议论文集" },
+  { en: "Doctoral dissertation-based book", "zh-Hant": "博士論文改編專書", "zh-Hans": "博士论文改编专书" },
   { en: "Other", "zh-Hant": "其他", "zh-Hans": "其他" },
 ];
 
@@ -59,54 +59,54 @@ const ACCESS_KEY = "0eb32213-c404-42e4-adf6-850fedb7679d";
 
 const copy = {
   en: {
-    successTitle: "Inquiry Received",
+    successTitle: "Inquiry received",
     successBody:
       "Thank you for contacting Panorama Scholarly Books. We have received your inquiry and will respond within 5–7 business days. Submission of this inquiry does not constitute acceptance, ISBN assignment, or a publishing agreement.",
-    submitAnother: "Submit Another Inquiry",
-    selectInquiryHeading: "Select Your Inquiry Type",
-    sendEmail: "Send Email",
-    contactFormHeading: "Contact Form",
+    submitAnother: "Submit another inquiry",
+    selectInquiryHeading: "Select your inquiry type",
+    sendEmail: "Send email",
+    contactFormHeading: "Contact form",
     contactFormNote:
       "All fields marked with an asterisk are required. Submission of this form does not constitute acceptance, ISBN assignment, or a publishing agreement.",
     name: "Name *",
     namePlaceholder: "Your full name",
     email: "Email *",
     emailPlaceholder: "your@email.com",
-    institution: "Institution / Affiliation",
+    institution: "Institution / affiliation",
     institutionPlaceholder: "University, institution, or organisation",
-    country: "Country or Region",
+    country: "Country or region",
     countryPlaceholder: "Country or region",
-    inquiryType: "Inquiry Type *",
+    inquiryType: "Inquiry type *",
     selectInquiryType: "Select inquiry type",
-    publishingDetailsHeading: "Publishing Assessment Details",
-    bookTitle: "Proposed Book Title",
+    publishingDetailsHeading: "Publishing assessment details",
+    bookTitle: "Proposed book title",
     bookTitlePlaceholder: "Working title and subtitle",
-    bookType: "Book Type",
+    bookType: "Book type",
     selectBookType: "Select book type",
-    subjectArea: "Subject Area",
-    subjectAreaPlaceholder: "e.g. Public Policy, Education",
-    manuscriptLanguage: "Manuscript Language",
+    subjectArea: "Subject area",
+    subjectAreaPlaceholder: "e.g. public policy, education",
+    manuscriptLanguage: "Manuscript language",
     manuscriptLanguagePlaceholder: "e.g. English, Chinese (Simplified)",
-    wordCount: "Current Word Count",
+    wordCount: "Current word count",
     wordCountPlaceholder: "e.g. 55,000",
-    pageCount: "Estimated Page Count",
+    pageCount: "Estimated page count",
     pageCountPlaceholder: "e.g. 200",
-    tablesFigures: "Tables and Figures",
+    tablesFigures: "Tables and figures",
     tablesFiguresPlaceholder: "e.g. 12",
-    manuscriptStatus: "Current Manuscript Status",
+    manuscriptStatus: "Current manuscript status",
     selectStatus: "Select status",
-    productFormat: "Required Product Format",
+    productFormat: "Required product format",
     selectFormat: "Select format",
-    publishingPackage: "Required Publishing Package",
+    publishingPackage: "Required publishing package",
     selectPackage: "Select package",
-    requiredDate: "Required Publication Date",
+    requiredDate: "Required publication date",
     requiredDatePlaceholder: "e.g. Q1 2027, or flexible",
-    previouslyPublished: "Previously Published Material",
+    previouslyPublished: "Previously published material",
     previouslyPublishedPlaceholder: "None, or describe (e.g. based on a doctoral thesis, prior journal articles)",
-    thirdPartyCopyright: "Third-Party Copyright Material",
+    thirdPartyCopyright: "Third-party copyright material",
     thirdPartyCopyrightPlaceholder: "None, or describe material and permission status",
-    uploadProposal: "Upload Proposal",
-    uploadManuscript: "Upload Sample Chapter or Manuscript",
+    uploadProposal: "Upload proposal",
+    uploadManuscript: "Upload sample chapter or manuscript",
     fileNote: "Files up to 10 MB. PDF or Word documents only. For larger files, please email books@panorama-sg.com directly.",
     message: "Message *",
     messagePlaceholder:
@@ -117,7 +117,7 @@ const copy = {
       "I confirm that the information supplied is accurate and that submission of this inquiry does not constitute acceptance, ISBN assignment, or a publishing agreement.",
     errorMessage: "Something went wrong. Please try again or email us directly at books@panorama-sg.com.",
     submitting: "Submitting…",
-    submit: "Submit Inquiry",
+    submit: "Submit inquiry",
     alternative: "Alternatively, email us directly at",
   },
   "zh-Hant": {
@@ -578,7 +578,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                     type="file"
                     name="proposal_file"
                     accept=".pdf,.doc,.docx"
-                    className="font-serif text-xs text-ink-2 border border-line px-4 py-3 bg-surface file:mr-3 file:border-0 file:bg-brand file:text-on-brand file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
+                    className="font-sans text-[14px] text-ink-2 border border-line rounded-md px-4 py-3 bg-surface file:mr-3 file:border file:border-line file:rounded-md file:bg-stone file:text-ink file:px-3 file:py-1.5 file:font-sans file:text-[14px] file:cursor-pointer"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -589,7 +589,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
                     type="file"
                     name="manuscript_file"
                     accept=".pdf,.doc,.docx"
-                    className="font-serif text-xs text-ink-2 border border-line px-4 py-3 bg-surface file:mr-3 file:border-0 file:bg-brand file:text-on-brand file:px-3 file:py-1.5 file:font-serif file:text-xs file:uppercase file:tracking-[0.08em] file:cursor-pointer"
+                    className="font-sans text-[14px] text-ink-2 border border-line rounded-md px-4 py-3 bg-surface file:mr-3 file:border file:border-line file:rounded-md file:bg-stone file:text-ink file:px-3 file:py-1.5 file:font-sans file:text-[14px] file:cursor-pointer"
                   />
                 </div>
               </div>

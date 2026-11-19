@@ -10,7 +10,7 @@ import { commonLabel } from "@/lib/i18nLabels";
 const copy = {
   en: {
     eyebrow: "Authors",
-    heading: "Authors & Editors",
+    heading: "Authors & editors",
     subheading: "Scholars published under the Panorama Scholarly Books imprint.",
     empty: "Author profiles will appear here as titles are published.",
     title: "title",
@@ -82,7 +82,7 @@ export default function AuthorsPageClient({ authors, locale }: { authors: Author
                     </p>
                     </div>
                   </div>
-                  <span className="font-serif text-[11px] text-ink shrink-0">{commonLabel("View →", locale)}</span>
+                  <span className="font-sans text-[14px] text-ink-3 shrink-0">{commonLabel("View", locale)}</span>
                 </a>
               ))}
             </div>

@@ -71,7 +71,7 @@ export default function CiteBlock({ formats, locale }: { formats: CitationFormat
             }}
             className={`relative shrink-0 px-5 min-h-[48px] font-sans text-[15px] transition-colors ${
               i === active
-                ? "text-brand font-semibold after:absolute after:inset-x-3 after:bottom-[-1px] after:h-[2px] after:bg-brand"
+                ? "text-brand font-medium after:absolute after:inset-x-3 after:bottom-[-1px] after:h-[2px] after:bg-brand"
                 : "text-ink-2 hover:text-brand"
             }`}
           >
