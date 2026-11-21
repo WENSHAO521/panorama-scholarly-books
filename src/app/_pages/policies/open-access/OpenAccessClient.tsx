@@ -158,7 +158,7 @@ const content: PolicyContent = {
           content: {
             en: <>For inquiries about open access publication, please contact {mailLink} with the subject line &quot;Open Access Inquiry.&quot;</>,
             "zh-Hant": <>如對開放獲取出版有任何查詢，請聯絡 {mailLink}，主旨請註明「Open Access Inquiry」。</>,
-            "zh-Hans": <>如对开放获取出版有任何查询，请联系 {mailLink}，主旨请注明"Open Access Inquiry"。</>,
+            "zh-Hans": <>如对开放获取出版有任何查询，请联系 {mailLink}，主旨请注明“Open Access Inquiry”。</>,
           },
         },
       ],

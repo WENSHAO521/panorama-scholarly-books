@@ -141,7 +141,7 @@ const content: PolicyContent = {
           content: {
             en: <>For permissions and licensing inquiries, contact {mailLink} with the subject line &quot;Rights and Permissions.&quot;</>,
             "zh-Hant": <>如有授權與許可查詢，請聯絡 {mailLink}，主旨請註明「Rights and Permissions」。</>,
-            "zh-Hans": <>如有授权与许可查询，请联系 {mailLink}，主旨请注明"Rights and Permissions"。</>,
+            "zh-Hans": <>如有授权与许可查询，请联系 {mailLink}，主旨请注明“Rights and Permissions”。</>,
           },
         },
       ],

@@ -388,8 +388,8 @@ export default function BookCoverSVG(book: Props) {
     : book.authors.join(", ");
 
   if (book.coverImage) {
-    // eslint-disable-next-line @next/next/no-img-element
     return (
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         src={book.coverImage}
         alt={`${book.title} cover`}
