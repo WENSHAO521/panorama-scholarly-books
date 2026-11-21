@@ -93,14 +93,14 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "3. Responsibilities of editors", "zh-Hant": "三、編者之責任", "zh-Hans": "三、编者的责任" },
+      heading: { en: "3. Responsibilities of editors", "zh-Hant": "三、編輯人員之責任", "zh-Hans": "三、编辑人员的责任" },
       blocks: [
         {
           type: "p",
           content: {
             en: "Volume editors and series editors are expected to:",
-            "zh-Hant": "文集編者及書系編輯應：",
-            "zh-Hans": "文集编者及书系编辑应：",
+            "zh-Hant": "文集主編及書系主編應：",
+            "zh-Hans": "文集主编及书系主编应：",
           },
         },
         {
@@ -151,8 +151,8 @@ const content: PolicyContent = {
           items: [
             {
               en: "Evaluating all proposals and manuscripts on the basis of scholarly merit, without discrimination on grounds of race, gender, nationality, religion, or institutional affiliation.",
-              "zh-Hant": "依學術價值評估所有提案及書稿，不因種族、性別、國籍、宗教或所屬機構而有所歧視。",
-              "zh-Hans": "依学术价值评估所有提案及书稿，不因种族、性别、国籍、宗教或所属机构而有所歧视。",
+              "zh-Hant": "依學術價值評估所有出版計劃書及書稿，不因種族、性別、國籍、宗教或所屬機構而有所歧視。",
+              "zh-Hans": "依学术价值评估所有出版计划书及书稿，不因种族、性别、国籍、宗教或所属机构而有所歧视。",
             },
             {
               en: "Maintaining clear and transparent policies that are publicly accessible.",
@@ -166,8 +166,8 @@ const content: PolicyContent = {
             },
             {
               en: "Protecting the confidentiality of submitted manuscripts and proposal materials.",
-              "zh-Hant": "保護所提交書稿及提案材料之機密性。",
-              "zh-Hans": "保护所提交书稿及提案材料的机密性。",
+              "zh-Hant": "保護所提交書稿及出版計劃書之機密性。",
+              "zh-Hans": "保护所提交书稿及出版计划书的机密性。",
             },
             {
               en: "Responding promptly and fairly to complaints, corrections, and appeals.",

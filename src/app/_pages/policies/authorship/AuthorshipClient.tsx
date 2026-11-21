@@ -10,7 +10,7 @@ const mailLink = (
 );
 
 const content: PolicyContent = {
-  title: { en: "Authorship and contributorship", "zh-Hant": "著作權歸屬與貢獻", "zh-Hans": "著作权归属与贡献" },
+  title: { en: "Authorship and contributorship", "zh-Hant": "作者署名與貢獻", "zh-Hans": "作者署名与贡献" },
   updated: { en: "2026", "zh-Hant": "2026年", "zh-Hans": "2026年" },
   sections: [
     {
@@ -66,16 +66,16 @@ const content: PolicyContent = {
           type: "p",
           content: {
             en: "Editors of multi-author volumes are responsible for the intellectual organisation of the work, including the selection and development of contributions and the drafting of introductory and concluding material. Editors bear responsibility for the integrity of the volume as a whole.",
-            "zh-Hant": "多作者文集之編者，負責該著作之整體思想組織工作，包括篩選及發展各篇稿件，以及撰寫導言及結語部分。編者對整部文集之誠信負責。",
-            "zh-Hans": "多作者文集的编者，负责该著作的整体思想组织工作，包括筛选及发展各篇稿件，以及撰写导言及结语部分。编者对整部文集的诚信负责。",
+            "zh-Hant": "多作者文集之主編負責該著作之整體學術架構，包括遴選及修訂完善各篇稿件，以及撰寫導論及結語。主編對整部文集之學術誠信負責。",
+            "zh-Hans": "多作者文集的主编负责该著作的整体学术架构，包括遴选及修订完善各篇稿件，以及撰写导论及结语。主编对整部文集的学术诚信负责。",
           },
         },
         {
           type: "p",
           content: {
             en: "Editors who have also authored individual chapters in a volume should be listed both as editors and as authors of the relevant chapters.",
-            "zh-Hant": "如編者亦撰寫文集中之個別章節，應同時列為編者及該章節之作者。",
-            "zh-Hans": "如编者亦撰写文集中的个别章节，应同时列为编者及该章节的作者。",
+            "zh-Hant": "如主編亦撰寫文集中之個別章節，應同時署名為主編及該章節之作者。",
+            "zh-Hans": "如主编亦撰写文集中的个别章节，应同时署名为主编及该章节的作者。",
           },
         },
       ],

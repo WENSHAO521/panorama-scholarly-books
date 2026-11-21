@@ -22,23 +22,23 @@ const packages: {
     label: { en: "Package A", "zh-Hant": "方案 A", "zh-Hans": "方案 A" },
     name: { en: "Author-prepared publication", "zh-Hant": "作者自備稿件出版", "zh-Hans": "作者自备稿件出版" },
     price: "USD 999",
-    unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及產品格式", "zh-Hans": "每个书名、版次及产品格式" },
+    unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及出版形式", "zh-Hans": "每个书名、版次及出版形式" },
     desc: {
       en: "For authors who provide a final, fully proofread manuscript, a final typeset interior file, and a publication-ready cover.",
       "zh-Hant": "適合已備妥最終完整校對稿件、最終排版內文檔案及出版用封面的作者。",
       "zh-Hans": "适合已备妥最终完整校对稿件、最终排版内文文件及出版用封面的作者。",
     },
     includes: [
-      { en: "Initial editorial and publication eligibility screening", "zh-Hant": "初步編輯與出版資格審查", "zh-Hans": "初步编辑与出版资格审查" },
+      { en: "Initial editorial and publication eligibility screening", "zh-Hant": "編輯初審及出版資格審查", "zh-Hans": "编辑初审及出版资格审查" },
       { en: "Publishing agreement preparation", "zh-Hant": "出版協議準備", "zh-Hans": "出版协议准备" },
-      { en: "Authorship and rights documentation review", "zh-Hant": "著作權與授權文件審查", "zh-Hans": "著作权与授权文件审查" },
+      { en: "Authorship and rights documentation review", "zh-Hant": "署名與版權文件審查", "zh-Hans": "署名与版权文件审查" },
       { en: "Final interior and cover file inspection", "zh-Hant": "最終內文及封面檔案檢查", "zh-Hans": "最终内文及封面文件检查" },
       { en: "Copyright-page format review", "zh-Hant": "版權頁格式審查", "zh-Hans": "版权页格式审查" },
       { en: "One ISBN for one accepted edition and product format", "zh-Hant": "為一個核准版次及格式提供一組 ISBN", "zh-Hans": "为一个核准版次及格式提供一个 ISBN" },
       { en: "ISBN barcode preparation", "zh-Hant": "ISBN 條碼製作", "zh-Hans": "ISBN 条码制作" },
       { en: "Publisher metadata and bibliographic record preparation", "zh-Hant": "出版者元數據與書目紀錄準備", "zh-Hans": "出版者元数据与书目记录准备" },
       { en: "Official book webpage", "zh-Hant": "官方圖書網頁", "zh-Hans": "官方图书网页" },
-      { en: "Digital archiving and publication-record management", "zh-Hant": "數位典藏與出版紀錄管理", "zh-Hans": "数字化存档与出版记录管理" },
+      { en: "Digital archiving and publication-record management", "zh-Hant": "數碼存檔與出版紀錄管理", "zh-Hans": "数字化存档与出版记录管理" },
       { en: "Post-publication registration and compliance coordination", "zh-Hant": "出版後登記與合規協調", "zh-Hans": "出版后登记与合规协调" },
     ],
     notIncluded: [
@@ -53,14 +53,14 @@ const packages: {
     label: { en: "Package B", "zh-Hant": "方案 B", "zh-Hans": "方案 B" },
     name: { en: "Standard academic book production", "zh-Hant": "標準學術圖書製作", "zh-Hans": "标准学术图书制作" },
     price: "USD 1,799",
-    unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及產品格式", "zh-Hans": "每个书名、版次及产品格式" },
+    unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及出版形式", "zh-Hans": "每个书名、版次及出版形式" },
     desc: {
       en: "For standard academic books requiring publisher-assisted proofreading, typesetting, cover design, and final production.",
       "zh-Hant": "適合需要出版社協助校對、排版、封面設計及最終製作的標準學術圖書。",
       "zh-Hans": "适合需要出版社协助校对、排版、封面设计及最终制作的标准学术图书。",
     },
     includes: [
-      { en: "All editorial, administrative, metadata, ISBN, webpage, and archiving services in Package A", "zh-Hant": "涵蓋方案 A 所有編輯、管理、元數據、ISBN、網頁及典藏服務", "zh-Hans": "涵盖方案 A 所有编辑、管理、元数据、ISBN、网页及存档服务" },
+      { en: "All editorial, administrative, metadata, ISBN, webpage, and archiving services in Package A", "zh-Hant": "涵蓋方案 A 所有編輯、管理、元數據、ISBN、網頁及存檔服務", "zh-Hans": "涵盖方案 A 所有编辑、管理、元数据、ISBN、网页及存档服务" },
       { en: "Basic proofreading", "zh-Hant": "基礎校對", "zh-Hans": "基础校对" },
       { en: "Standard academic interior typesetting", "zh-Hant": "標準學術內文排版", "zh-Hans": "标准学术内文排版" },
       { en: "Standard academic cover design", "zh-Hant": "標準學術封面設計", "zh-Hans": "标准学术封面设计" },
@@ -68,7 +68,7 @@ const packages: {
       { en: "Placement of a normal number of tables and figures", "zh-Hant": "一般數量圖表之編排", "zh-Hans": "一般数量图表的编排" },
       { en: "Print-ready PDF preparation", "zh-Hant": "印刷用 PDF 準備", "zh-Hans": "印刷用 PDF 准备" },
       { en: "Final production quality review", "zh-Hant": "最終製作品質審查", "zh-Hans": "最终制作质量审查" },
-      { en: "One consolidated round of author corrections after typesetting", "zh-Hant": "排版後一輪整合式作者校訂", "zh-Hans": "排版后一轮整合式作者校订" },
+      { en: "One consolidated round of author corrections after typesetting", "zh-Hant": "排版後作者集中改校一輪", "zh-Hans": "排版后作者集中改校一轮" },
     ],
     notIncluded: [
       { en: "Manuscripts exceeding 60,000 words / approx. 200 pages", "zh-Hant": "超過60,000字／約200頁之書稿", "zh-Hans": "超过60,000字/约200页的书稿" },
@@ -79,9 +79,9 @@ const packages: {
   {
     id: "c",
     label: { en: "Package C", "zh-Hant": "方案 C", "zh-Hans": "方案 C" },
-    name: { en: "Extended and complex book production", "zh-Hant": "延伸與複雜圖書製作", "zh-Hans": "延伸与复杂图书制作" },
+    name: { en: "Extended and complex book production", "zh-Hant": "擴展及複雜圖書製作", "zh-Hans": "扩展及复杂图书制作" },
     price: "From USD 2,499",
-    unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及產品格式", "zh-Hans": "每个书名、版次及产品格式" },
+    unit: { en: "per title, edition, and product format", "zh-Hant": "每一書名、版次及出版形式", "zh-Hans": "每个书名、版次及出版形式" },
     desc: {
       en: "For longer, bilingual, multilingual, edited, illustrated, or technically complex academic books.",
       "zh-Hant": "適合篇幅較長、雙語、多語、編著、附插圖或技術上較複雜的學術圖書。",
@@ -89,11 +89,11 @@ const packages: {
     },
     includes: [
       { en: "All services in Package B", "zh-Hant": "涵蓋方案 B 所有服務", "zh-Hans": "涵盖方案 B 所有服务" },
-      { en: "Extended proofreading and advanced academic typesetting", "zh-Hant": "延伸校對與進階學術排版", "zh-Hans": "延伸校对与进阶学术排版" },
+      { en: "Extended proofreading and advanced academic typesetting", "zh-Hant": "深度校對及高級學術排版", "zh-Hans": "深度校对及高级学术排版" },
       { en: "Complex table, figure, formula, and illustration placement", "zh-Hant": "複雜圖表、公式及插圖編排", "zh-Hans": "复杂图表、公式及插图编排" },
       { en: "Multi-author chapter standardisation", "zh-Hant": "多作者章節格式統一", "zh-Hans": "多作者章节格式统一" },
-      { en: "Customized academic cover design", "zh-Hant": "客製化學術封面設計", "zh-Hans": "定制化学术封面设计" },
-      { en: "Up to two consolidated rounds of author or editor corrections", "zh-Hant": "最多兩輪整合式作者或編者校訂", "zh-Hans": "最多两轮整合式作者或编者校订" },
+      { en: "Customized academic cover design", "zh-Hant": "定製學術封面設計", "zh-Hans": "定制学术封面设计" },
+      { en: "Up to two consolidated rounds of author or editor corrections", "zh-Hant": "作者或主編集中改校最多兩輪", "zh-Hans": "作者或主编集中改校最多两轮" },
       { en: "Enhanced bibliographic metadata", "zh-Hant": "強化書目元數據", "zh-Hans": "强化书目元数据" },
       { en: "Book description and promotional-text preparation", "zh-Hant": "內容簡介及宣傳文字準備", "zh-Hans": "内容简介及宣传文字准备" },
     ],
@@ -105,19 +105,19 @@ const packages: {
 ];
 
 const comparisonRows: [Bi, Bi, Bi, Bi][] = [
-  [{ en: "Editorial screening", "zh-Hant": "編輯審查", "zh-Hans": "编辑审查" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
+  [{ en: "Editorial screening", "zh-Hant": "編輯初審", "zh-Hans": "编辑初审" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
   [{ en: "Publishing agreement", "zh-Hant": "出版協議", "zh-Hans": "出版协议" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
   [{ en: "Rights-document review", "zh-Hant": "版權文件審查", "zh-Hans": "版权文件审查" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
-  [{ en: "Proofreading", "zh-Hant": "校對", "zh-Hans": "校对" }, { en: "Author supplies final text", "zh-Hant": "作者提供最終文本", "zh-Hans": "作者提供最终文本" }, { en: "Basic proofreading", "zh-Hant": "基礎校對", "zh-Hans": "基础校对" }, { en: "Extended or project-specific", "zh-Hant": "延伸或依專案而定", "zh-Hans": "延伸或依项目而定" }],
-  [{ en: "Interior typesetting", "zh-Hant": "內文排版", "zh-Hans": "内文排版" }, { en: "Author supplies final file", "zh-Hant": "作者提供最終檔案", "zh-Hans": "作者提供最终文件" }, { en: "Standard typesetting", "zh-Hant": "標準排版", "zh-Hans": "标准排版" }, { en: "Advanced typesetting", "zh-Hant": "進階排版", "zh-Hans": "进阶排版" }],
-  [{ en: "Cover design", "zh-Hant": "封面設計", "zh-Hans": "封面设计" }, { en: "Author supplies final cover", "zh-Hant": "作者提供最終封面", "zh-Hans": "作者提供最终封面" }, { en: "Standard cover design", "zh-Hant": "標準封面設計", "zh-Hans": "标准封面设计" }, { en: "Customized cover design", "zh-Hant": "客製化封面設計", "zh-Hans": "定制化封面设计" }],
+  [{ en: "Proofreading", "zh-Hant": "校對", "zh-Hans": "校对" }, { en: "Author supplies final text", "zh-Hant": "作者提供最終文本", "zh-Hans": "作者提供最终文本" }, { en: "Basic proofreading", "zh-Hant": "基礎校對", "zh-Hans": "基础校对" }, { en: "Extended or project-specific", "zh-Hant": "深度校對或按項目而定", "zh-Hans": "深度校对或按项目而定" }],
+  [{ en: "Interior typesetting", "zh-Hant": "內文排版", "zh-Hans": "内文排版" }, { en: "Author supplies final file", "zh-Hant": "作者提供最終檔案", "zh-Hans": "作者提供最终文件" }, { en: "Standard typesetting", "zh-Hant": "標準排版", "zh-Hans": "标准排版" }, { en: "Advanced typesetting", "zh-Hant": "高級排版", "zh-Hans": "高级排版" }],
+  [{ en: "Cover design", "zh-Hant": "封面設計", "zh-Hans": "封面设计" }, { en: "Author supplies final cover", "zh-Hant": "作者提供最終封面", "zh-Hans": "作者提供最终封面" }, { en: "Standard cover design", "zh-Hant": "標準封面設計", "zh-Hans": "标准封面设计" }, { en: "Customized cover design", "zh-Hant": "定製封面設計", "zh-Hans": "定制封面设计" }],
   [{ en: "Copyright page", "zh-Hant": "版權頁", "zh-Hans": "版权页" }, { en: "Format review", "zh-Hant": "格式審查", "zh-Hans": "格式审查" }, { en: "Preparation included", "zh-Hant": "包含準備服務", "zh-Hans": "包含准备服务" }, { en: "Preparation included", "zh-Hant": "包含準備服務", "zh-Hans": "包含准备服务" }],
   [{ en: "ISBN", "zh-Hant": "ISBN", "zh-Hans": "ISBN" }, { en: "One approved format", "zh-Hant": "一個核准格式", "zh-Hans": "一个核准格式" }, { en: "One approved format", "zh-Hant": "一個核准格式", "zh-Hans": "一个核准格式" }, { en: "One approved format", "zh-Hant": "一個核准格式", "zh-Hans": "一个核准格式" }],
   [{ en: "ISBN barcode", "zh-Hant": "ISBN 條碼", "zh-Hans": "ISBN 条码" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
   [{ en: "Publisher metadata", "zh-Hant": "出版者元數據", "zh-Hans": "出版者元数据" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Enhanced", "zh-Hant": "強化版", "zh-Hans": "强化版" }],
   [{ en: "Official book webpage", "zh-Hant": "官方圖書網頁", "zh-Hans": "官方图书网页" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
-  [{ en: "Digital archiving", "zh-Hant": "數位典藏", "zh-Hans": "数字化存档" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
-  [{ en: "Correction rounds", "zh-Hant": "校訂輪次", "zh-Hans": "校订轮次" }, { en: "Not included", "zh-Hant": "不包含", "zh-Hans": "不包含" }, { en: "One consolidated round", "zh-Hant": "一輪整合式校訂", "zh-Hans": "一轮整合式校订" }, { en: "Up to two consolidated rounds", "zh-Hant": "最多兩輪整合式校訂", "zh-Hans": "最多两轮整合式校订" }],
+  [{ en: "Digital archiving", "zh-Hant": "數碼存檔", "zh-Hans": "数字化存档" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
+  [{ en: "Correction rounds", "zh-Hant": "校訂輪次", "zh-Hans": "校订轮次" }, { en: "Not included", "zh-Hant": "不包含", "zh-Hans": "不包含" }, { en: "One consolidated round", "zh-Hant": "一輪集中改校", "zh-Hans": "一轮集中改校" }, { en: "Up to two consolidated rounds", "zh-Hant": "最多兩輪集中改校", "zh-Hans": "最多两轮集中改校" }],
   [{ en: "Printing and shipping", "zh-Hant": "印刷與運送", "zh-Hans": "印刷与运送" }, { en: "Not included", "zh-Hant": "不包含", "zh-Hans": "不包含" }, { en: "Not included", "zh-Hant": "不包含", "zh-Hans": "不包含" }, { en: "Not included", "zh-Hant": "不包含", "zh-Hans": "不包含" }],
   [{ en: "Statutory deposit copies", "zh-Hant": "法定送存本", "zh-Hans": "法定送存本" }, { en: "Not included", "zh-Hant": "不包含", "zh-Hans": "不包含" }, { en: "Not included", "zh-Hant": "不包含", "zh-Hans": "不包含" }, { en: "Not included", "zh-Hant": "不包含", "zh-Hans": "不包含" }],
 ];
@@ -197,8 +197,8 @@ const rushRules: Bi[] = [
 // Section 五 — Standard Physical Publication Pack
 const physicalPackIncludes: Bi[] = [
   { en: "25 paperback print copies in total", "zh-Hant": "共25本平裝紙質圖書", "zh-Hans": "共25本平装纸质图书" },
-  { en: "20 of which are author copies", "zh-Hant": "其中20本為作者副本", "zh-Hans": "其中20本为作者副本" },
-  { en: "5 of which are for Hong Kong statutory deposit and book registration", "zh-Hant": "其中5本用於香港法定送存及書刊登記", "zh-Hans": "其中5本用于香港法定送存及书刊登记" },
+  { en: "20 of which are author copies", "zh-Hant": "其中20本為作者樣書", "zh-Hans": "其中20本为作者样书" },
+  { en: "5 of which are for Hong Kong statutory deposit and book registration", "zh-Hant": "其中5本用於香港法定送存及書刊註冊", "zh-Hans": "其中5本用于香港法定送存及书刊注册" },
   { en: "Black-and-white interior", "zh-Hant": "黑白內文", "zh-Hans": "黑白内文" },
   { en: "Colour cover", "zh-Hant": "彩色封面", "zh-Hans": "彩色封面" },
   { en: "Standard perfect binding", "zh-Hant": "普通膠裝", "zh-Hans": "普通胶装" },
@@ -207,16 +207,16 @@ const physicalPackIncludes: Bi[] = [
   { en: "Matte or gloss lamination", "zh-Hant": "啞膜或光膜", "zh-Hans": "哑膜或光膜" },
   { en: "Finished size up to 185mm × 260mm", "zh-Hant": "成品尺寸不超過185 mm × 260 mm", "zh-Hans": "成品尺寸不超过185 mm × 260 mm" },
   { en: "Technical inspection of the final print files", "zh-Hant": "最終印刷文件技術檢查", "zh-Hans": "最终印刷文件技术检查" },
-  { en: "Packaging of the 5 deposit copies", "zh-Hant": "5本送存副本的包裝", "zh-Hans": "5本送存副本的包装" },
-  { en: "Book registration form preparation and data verification", "zh-Hant": "書刊登記表格準備及資料核對", "zh-Hans": "书刊登记表格准备及资料核对" },
+  { en: "Packaging of the 5 deposit copies", "zh-Hant": "5本送存樣書的包裝", "zh-Hans": "5本送存样书的包装" },
+  { en: "Book registration form preparation and data verification", "zh-Hant": "書刊註冊表格準備及資料核對", "zh-Hans": "书刊注册表格准备及资料核对" },
   { en: "Local Hong Kong hand-delivery", "zh-Hant": "香港本地遞送", "zh-Hans": "香港本地递送" },
   { en: "Deposit and delivery record archiving", "zh-Hant": "送存及遞交記錄歸檔", "zh-Hans": "送存及递交记录归档" },
 ];
 
 const physicalPackNotIncluded: Bi = {
   en: "Shipping of the 20 author copies to the author's address",
-  "zh-Hant": "20本作者副本寄往作者地址的運輸費用",
-  "zh-Hans": "20本作者副本寄往作者地址的运输费用",
+  "zh-Hant": "20本作者樣書寄往作者地址的運輸費用",
+  "zh-Hans": "20本作者样书寄往作者地址的运输费用",
 };
 
 const pageSurchargeRows: [Bi, Bi, string][] = [
@@ -231,8 +231,8 @@ const pageSurchargeRows: [Bi, Bi, string][] = [
 const standaloneServices: [Bi, string][] = [
   [{ en: "25 standard paperback copies, up to 200 pages", "zh-Hant": "25本標準平裝印刷，200頁以內", "zh-Hans": "25本标准平装印刷，200页以内" }, "USD 749"],
   [{ en: "Statutory deposit & delivery coordination, ordered with printing", "zh-Hant": "法定送存及遞交協調，與印刷同時訂購", "zh-Hans": "法定送存及递交协调，与印刷同时订购" }, "USD 250"],
-  [{ en: "Deposit coordination for 5 author-supplied compliant copies", "zh-Hant": "作者自行印刷並提供5本合格副本後的送存協調", "zh-Hans": "作者自行印刷并提供5本合格副本后的送存协调" }, "USD 299"],
-  [{ en: "Printing of 5 deposit copies only, plus delivery coordination", "zh-Hant": "僅印製5本送存副本並辦理遞交", "zh-Hans": "仅印制5本送存副本并办理递交" }, "From USD 449"],
+  [{ en: "Deposit coordination for 5 author-supplied compliant copies", "zh-Hant": "作者自行印刷並提供5本合格樣書後的送存協調", "zh-Hans": "作者自行印刷并提供5本合格样书后的送存协调" }, "USD 299"],
+  [{ en: "Printing of 5 deposit copies only, plus delivery coordination", "zh-Hant": "僅印製5本送存樣書並辦理遞交", "zh-Hans": "仅印制5本送存样书并办理递交" }, "From USD 449"],
 ];
 
 // Section 七 — additional author copies
@@ -289,7 +289,7 @@ const logisticsExtraRows: [Bi, Bi][] = [
 
 // Section 十一 — additional editing & production services (replaces old optionalServices)
 const editingServices: [Bi, Bi][] = [
-  [{ en: "Basic proofreading beyond package scope", "zh-Hant": "超出套餐範圍的基礎校對", "zh-Hans": "超出套餐范围的基础校对" }, { en: "From USD 12 per 1,000 words, USD 250 minimum", "zh-Hant": "USD 12／每1,000詞起，最低USD 250", "zh-Hans": "USD 12/每1,000词起，最低USD 250" }],
+  [{ en: "Basic proofreading beyond package scope", "zh-Hant": "超出方案範圍的基礎校對", "zh-Hans": "超出方案范围的基础校对" }, { en: "From USD 12 per 1,000 words, USD 250 minimum", "zh-Hant": "USD 12／每1,000詞起，最低USD 250", "zh-Hans": "USD 12/每1,000词起，最低USD 250" }],
   [{ en: "Academic language editing", "zh-Hant": "學術語言編輯", "zh-Hans": "学术语言编辑" }, { en: "From USD 25 per 1,000 words, USD 500 minimum", "zh-Hant": "USD 25／每1,000詞起，最低USD 500", "zh-Hans": "USD 25/每1,000词起，最低USD 500" }],
   [{ en: "Substantive or developmental editing", "zh-Hant": "實質性或發展性編輯", "zh-Hans": "实质性或发展性编辑" }, { en: "From USD 45 per 1,000 words, USD 900 minimum", "zh-Hant": "USD 45／每1,000詞起，最低USD 900", "zh-Hans": "USD 45/每1,000词起，最低USD 900" }],
   [{ en: "Reference-style unification and verification", "zh-Hant": "參考文獻格式統一及核查", "zh-Hans": "参考文献格式统一及核查" }, { en: "From USD 3 per entry, USD 150 minimum", "zh-Hant": "USD 3／條起，最低USD 150", "zh-Hans": "USD 3/条起，最低USD 150" }],
@@ -318,7 +318,7 @@ const additionalFormatServices: [Bi, Bi][] = [
 const institutionalRows: [Bi, Bi, Bi][] = [
   [
     { en: "Institutional publication", "zh-Hant": "機構出版", "zh-Hans": "机构出版" },
-    { en: "Publication planning, metadata preparation, editorial coordination, official webpage, digital archiving", "zh-Hant": "出版規劃、元數據準備、編輯協調、官方網頁、數位典藏", "zh-Hans": "出版规划、元数据准备、编辑协调、官方网页、数字化存档" },
+    { en: "Publication planning, metadata preparation, editorial coordination, official webpage, digital archiving", "zh-Hant": "出版規劃、元數據準備、編輯協調、官方網頁、數碼存檔", "zh-Hans": "出版规划、元数据准备、编辑协调、官方网页、数字化存档" },
     { en: "Quotation-based", "zh-Hant": "另行報價", "zh-Hans": "另行报价" },
   ],
   [
@@ -333,7 +333,7 @@ const institutionalRows: [Bi, Bi, Bi][] = [
   ],
   [
     { en: "Large edited volume", "zh-Hant": "大型編著文集", "zh-Hans": "大型编著文集" },
-    { en: "Multi-author coordination, chapter standardization, extended layout work, metadata preparation", "zh-Hant": "多作者協調、章節格式統一、延伸排版工作、元數據準備", "zh-Hans": "多作者协调、章节格式统一、延伸排版工作、元数据准备" },
+    { en: "Multi-author coordination, chapter standardization, extended layout work, metadata preparation", "zh-Hant": "多作者協調、章節格式統一、擴展排版工作、元數據準備", "zh-Hans": "多作者协调、章节格式统一、扩展排版工作、元数据准备" },
     { en: "Quotation-based", "zh-Hant": "另行報價", "zh-Hans": "另行报价" },
   ],
 ];
@@ -341,7 +341,7 @@ const institutionalRows: [Bi, Bi, Bi][] = [
 // Section 十三 — distribution & sales setup (updated figures)
 const distributionRows: [Bi, Bi][] = [
   [{ en: "Official book webpage", "zh-Hant": "官方圖書網頁", "zh-Hans": "官方图书网页" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
-  [{ en: "Direct-order inquiry setup", "zh-Hant": "直接訂購洽詢建置", "zh-Hans": "直接订购咨询建置" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
+  [{ en: "Direct-order inquiry setup", "zh-Hant": "直接訂購諮詢建置", "zh-Hans": "直接订购咨询建置" }, { en: "Included", "zh-Hant": "包含", "zh-Hans": "包含" }],
   [{ en: "Amazon or other POD platform setup assistance", "zh-Hant": "Amazon或其他POD平台設置協助", "zh-Hans": "Amazon或其他POD平台设置协助" }, { en: "From USD 250", "zh-Hant": "USD 250起", "zh-Hans": "USD 250起" }],
   [{ en: "Google Play Books setup assistance", "zh-Hant": "Google Play Books設置協助", "zh-Hans": "Google Play Books设置协助" }, { en: "From USD 200", "zh-Hant": "USD 200起", "zh-Hans": "USD 200起" }],
   [{ en: "IngramSpark setup assistance", "zh-Hant": "IngramSpark設置協助", "zh-Hans": "IngramSpark设置协助" }, { en: "From USD 399", "zh-Hant": "USD 399起", "zh-Hans": "USD 399起" }],
@@ -366,11 +366,11 @@ const paymentRules: Bi[] = [
 
 const isbnRequirements: Bi[] = [
   { en: "Submitted to Panorama Scholarly Books", "zh-Hant": "已提交予 Panorama Scholarly Books", "zh-Hans": "已提交至 Panorama Scholarly Books" },
-  { en: "Reviewed and formally accepted", "zh-Hant": "已審查並正式接受", "zh-Hans": "已审查并正式接受" },
+  { en: "Reviewed and formally accepted", "zh-Hant": "已經審稿並正式錄用", "zh-Hans": "已经审稿并正式录用" },
   { en: "Covered by a signed publishing agreement", "zh-Hant": "已簽署出版協議", "zh-Hans": "已签署出版协议" },
   { en: "Approved for publication under the Panorama Scholarly Books imprint", "zh-Hant": "已核准以 Panorama Scholarly Books 品牌出版", "zh-Hans": "已核准以 Panorama Scholarly Books 品牌出版" },
-  { en: "Supported by complete authorship, rights, and bibliographic information", "zh-Hant": "備有完整著作權、版權及書目資訊", "zh-Hans": "备有完整著作权、版权及书目信息" },
-  { en: "Prepared for a genuine and identifiable edition and product format", "zh-Hant": "已準備供真實且可辨識之版次及產品格式使用", "zh-Hans": "已准备供真实且可辨识的版次及产品格式使用" },
+  { en: "Supported by complete authorship, rights, and bibliographic information", "zh-Hant": "署名、版權及書目資料完整", "zh-Hans": "署名、版权及书目信息完整" },
+  { en: "Prepared for a genuine and identifiable edition and product format", "zh-Hant": "已準備供真實且可辨識之版次及出版形式使用", "zh-Hans": "已准备供真实且可辨识的版次及出版形式使用" },
 ];
 
 const isbnNotConstitute: Bi[] = [
@@ -390,8 +390,8 @@ const cancellationPoints: Bi[] = [
   },
   {
     en: "Fees are normally non-refundable after an ISBN has been assigned or reserved for the accepted publication.",
-    "zh-Hant": "已為獲接受出版物分配或預留 ISBN 後，費用一般概不退還。",
-    "zh-Hans": "已为获接受出版物分配或预留 ISBN 后，费用一般概不退还。",
+    "zh-Hant": "已為獲錄用出版物分配或預留 ISBN 後，費用一般概不退還。",
+    "zh-Hans": "已为获录用出版物分配或预留 ISBN 后，费用一般概不退还。",
   },
   {
     en: "Fees are non-refundable after final files have been released or publication has been completed.",
@@ -405,8 +405,8 @@ const cancellationPoints: Bi[] = [
   },
   {
     en: "Where the publisher terminates a project because of plagiarism, rights infringement, undisclosed authorship disputes, unlawful content, false information, ethical violations, or breach of agreement, completed work and incurred costs remain payable.",
-    "zh-Hant": "如出版者因抄襲、侵犯版權、未披露之著作權爭議、違法內容、虛假資訊、違反倫理或違反協議而終止專案，已完成之工作及已產生之費用仍須支付。",
-    "zh-Hans": "如出版者因抄袭、侵犯版权、未披露的著作权争议、违法内容、虚假信息、违反伦理或违反协议而终止项目，已完成的工作及已产生的费用仍须支付。",
+    "zh-Hant": "如出版者因抄襲、侵犯版權、未披露之署名爭議、違法內容、虛假資訊、違反倫理或違反協議而終止項目，已完成之工作及已產生之費用仍須支付。",
+    "zh-Hans": "如出版者因抄袭、侵犯版权、未披露的署名争议、违法内容、虚假信息、违反伦理或违反协议而终止项目，已完成的工作及已产生的费用仍须支付。",
   },
 ];
 
@@ -414,7 +414,7 @@ const declinePoints: Bi[] = [
   { en: "Falls outside the publisher's scope", "zh-Hant": "超出出版者出版範疇", "zh-Hans": "超出出版者出版范畴" },
   { en: "Does not meet academic or production standards", "zh-Hant": "未達學術或製作標準", "zh-Hans": "未达学术或制作标准" },
   { en: "Contains plagiarism or duplicate publication", "zh-Hant": "含有抄襲或重複出版之情形", "zh-Hans": "含有抄袭或重复出版的情形" },
-  { en: "Contains unresolved authorship or copyright disputes", "zh-Hant": "存在未解決之著作權歸屬或版權爭議", "zh-Hans": "存在未解决的著作权归属或版权争议" },
+  { en: "Contains unresolved authorship or copyright disputes", "zh-Hant": "存在未解決之署名或版權爭議", "zh-Hans": "存在未解决的署名或版权争议" },
   { en: "Uses third-party material without permission", "zh-Hant": "未經授權使用第三方材料", "zh-Hans": "未经授权使用第三方材料" },
   { en: "Contains unlawful, defamatory, deceptive, or materially misleading content", "zh-Hant": "含有違法、誹謗、欺詐或重大誤導性內容", "zh-Hans": "含有违法、诽谤、欺诈或重大误导性内容" },
   { en: "Provides false author, affiliation, funding, or publication information", "zh-Hant": "提供虛假之作者、所屬機構、資助或出版資訊", "zh-Hans": "提供虚假的作者、所属机构、资助或出版信息" },
@@ -454,10 +454,10 @@ const copy = {
     intro2: "All projects are subject to editorial, academic-ethics, copyright, technical, and publication-eligibility review. Payment of any fee does not guarantee publication, and does not represent or guarantee sales, indexing, citations, promotion or tenure outcomes, academic recognition, or commercial revenue. The following fees are effective from 1 August 2026.",
 
     coreHeading: "1. Core publishing packages",
-    packagesIntro: "Each package covers one title, one edition, and one product format. Printing, shipping, statutory deposit copies, and third-party platform charges are not included unless separately agreed in writing.",
+    packagesIntro: "Each package covers one title, one edition and one publication format. Printing, shipping, statutory deposit copies, and third-party platform charges are not included unless separately agreed in writing.",
     recommended: "Recommended",
     notIncluded: "Not included",
-    inquireAbout: "Inquire about",
+    inquireAbout: "Enquire about",
     standardScopeLabel: "Standard scope:",
     standardScopeBody: "Package B generally applies to a manuscript of up to 60,000 words or approximately 200 finished pages, in one principal language, with standard academic formatting, references, and a normal number of tables and figures. Longer or more complex manuscripts require Package C or a separate quotation. Publication-ready files submitted under Package A must meet the publisher's technical and ethical standards; files requiring substantial correction or reconstruction may be transferred to Package B or C, or quoted separately.",
     comparisonHeading: "Package comparison",
@@ -483,7 +483,7 @@ const copy = {
     pageSurchargeHeading: "Page-count surcharge",
     pageRange: "Finished pages",
     surcharge: "Surcharge",
-    packageTotal: "Package Total",
+    packageTotal: "Package total",
 
     standaloneHeading: "Standalone printing and deposit-coordination services",
     standaloneFootnote: "“Statutory deposit & delivery coordination” covers data verification, form preparation, packaging, local Hong Kong hand-delivery, progress tracking, and record archiving. Hong Kong book registration itself carries no government fee — this is a publisher service and coordination fee, never a “registration fee.”",
@@ -496,7 +496,7 @@ const copy = {
     printUpgradesHeading: "Print upgrades",
     printUpgradesFootnote: "Changes requested after the author approves the final proof may incur replating, re-proofing, or reprinting charges.",
 
-    printingRushHeading: "Printing rush",
+    printingRushHeading: "Expedited printing",
     printingRushIntro: "Printing lead time is counted from the business day after the final print files and proofs are formally approved. Shipping time is calculated separately.",
 
     logisticsHeading: "Author copy delivery and international logistics",
@@ -508,28 +508,28 @@ const copy = {
     logisticsOtherHeading: "Other logistics charges",
     logisticsFootnote: "The publisher does not guarantee customs clearance time, carrier delivery time, or destination postal processing time. Expedited publication, expedited printing, and international courier are three independent services.",
 
-    rushHeading: "3. Rush tiers",
+    rushHeading: "3. Expedited services",
     assessmentRushHeading: "Manuscript assessment priority",
     assessmentRushFootnote: "Assessment fees cover priority scheduling only and do not guarantee acceptance. Non-refundable once assessment work has begun.",
     level: "Service level",
     targetTime: "Target time",
     price: "Price",
 
-    productionRushHeading: "Production rush by package",
+    productionRushHeading: "Expedited production by package",
     packageALabel: "Package A",
     packageBLabel: "Package B",
     packageCLabel: "Package C",
     rushPackageAFootnote: "Critical Fast-Track applies only to fully proofread, typeset, publication-ready files that already meet technical standards.",
     rushPackageBFootnote: "Package B does not offer a 3-business-day critical production option.",
     rushPackageCFootnote: "Bilingual, multilingual, large edited volumes, complex formulas, colour figures, multi-author unification work, and manuscripts over approximately 300 pages are not guaranteed a fixed rush timeline. Package C only publishes a Priority tier — Express or Critical delivery is not publicly committed and is assessed individually.",
-    rushRulesHeading: "Rush service rules",
+    rushRulesHeading: "Terms for expedited services",
     printingRushFootnote: "Applies only to technically compliant final PDF files and excludes shipping time.",
 
     additionalHeading: "4. Additional services",
     editingHeading: "Additional editing and production services",
     editingFootnote: "“One consolidated round” means the author or editor submits all revision comments in a single document at once. Scattered, repeated, or cross-file revisions are billed as additional rounds or by the hour.",
     additionalFormatsHeading: "Additional editions and digital formats",
-    additionalFormatsIntro: "Each package covers one title, one edition, and one product format. Paperback, hardback, PDF, EPUB, Kindle-compatible editions, revised editions, translated editions, and other separately distributed versions each require their own ISBN, metadata, and production work — an additional edition or format is never covered by a single flat “ISBN fee.” An additional ISBN will not be assigned unless the additional edition or format has been formally approved and is intended for genuine publication.",
+    additionalFormatsIntro: "Each package covers one title, one edition and one publication format. Paperback, hardback, PDF, EPUB, Kindle-compatible editions, revised editions, translated editions, and other separately distributed versions each require their own ISBN, metadata, and production work — an additional edition or format is never covered by a single flat “ISBN fee.” An additional ISBN will not be assigned unless the additional edition or format has been formally approved and is intended for genuine publication.",
     additionalService: "Additional service",
     fee: "Fee",
     institutionalHeading: "Institutional, series, and proceedings publishing",
@@ -565,25 +565,25 @@ const copy = {
     intro1: "Panorama Scholarly Books 為學術專著、編著文集、學術教材、研究報告、會議論文集、機構出版物及跨學科研究專書提供學術圖書出版與製作服務。",
     intro2: "所有項目均須經過編輯、學術倫理、版權、技術及出版適格性審查。支付任何費用均不代表稿件必然獲得出版，也不構成對銷售、檢索、引用、職稱評審、學術認可或商業收益的保證。以下費用自2026年8月1日起生效。",
 
-    coreHeading: "一、核心出版套餐",
-    packagesIntro: "各方案均涵蓋一個書名、一個版次及一種產品格式。除非另有書面協議，否則印刷、運送、法定送存本及第三方平台費用均不包含在內。",
+    coreHeading: "一、核心出版方案",
+    packagesIntro: "各方案均涵蓋一個書名、一個版次及一種出版形式。除非另有書面協議，否則印刷、運送、法定送存本及第三方平台費用均不包含在內。",
     recommended: "推薦方案",
     notIncluded: "不包含項目",
-    inquireAbout: "洽詢",
+    inquireAbout: "諮詢",
     standardScopeLabel: "標準範圍：",
     standardScopeBody: "方案 B 一般適用於單一主要語言、字數不超過60,000字或約200頁完稿、採標準學術格式、含參考文獻及一般數量圖表之書稿。篇幅較長或較複雜之書稿須採用方案 C 或另行報價。以方案 A 提交之出版用檔案須符合出版者之技術及倫理標準；需大幅修正或重建之檔案，可能轉為方案 B 或 C 處理，或另行報價。",
     comparisonHeading: "方案比較",
     serviceItem: "服務項目",
 
-    bundleHeading: "推薦對外組合價格",
+    bundleHeading: "紙本出版組合方案",
     bundleIntro: "如作者需要紙質出版，以下組合將核心套餐與「標準實體出版及法定送存套餐」（見第二部分）合併計價：",
-    bundleFootnote: "組合價格均不包括20本作者副本寄往作者地址的運輸費、稅費、支付平台費用及第三方平台費用。",
+    bundleFootnote: "組合價格均不包括20本作者樣書寄往作者地址的運輸費、稅費、支付平台費用及第三方平台費用。",
     bundleName: "組合",
     bundleIncludes: "內容",
 
     timelineHeading: "出版項目標準周期",
     timelineIntro: "下列周期從以下條件全部滿足後的下一個工作日起計算：",
-    timelinePackage: "套餐",
+    timelinePackage: "方案",
     timelineTarget: "標準目標周期",
     timelineFootnote: "上述時間屬於目標製作周期，不包括作者修改時間、第三方授權等待時間、政府或公共機構處理時間、印刷時間、國際物流時間以及不可抗力造成的延誤。",
 
@@ -598,9 +598,9 @@ const copy = {
     packageTotal: "套餐總價",
 
     standaloneHeading: "單獨印刷及法定送存服務",
-    standaloneFootnote: "「法定送存及遞交協調」涵蓋資料核對、表格準備、包裝、香港本地遞交、進度跟進及記錄歸檔。香港書刊登記本身不收取政府費用——此項為出版社的服務及協調費用，絕非「登記費」。",
+    standaloneFootnote: "「法定送存及遞交協調」涵蓋資料核對、表格準備、包裝、香港本地遞交、進度跟進及記錄歸檔。香港書刊註冊本身不收取政府費用——此項為出版社的服務及協調費用，絕非「註冊費」。",
 
-    additionalCopiesHeading: "追加作者副本",
+    additionalCopiesHeading: "追加作者樣書",
     additionalCopiesIntro: "以下價格適用於與首次印刷同時下單、不超過200頁的黑白平裝圖書。",
     additionalCopiesFootnote: "超過200頁、彩色內文、特殊紙張、特殊裝幀或後續單獨重印，重新報價。",
     copies: "數量",
@@ -611,8 +611,8 @@ const copy = {
     printingRushHeading: "印刷加急服務",
     printingRushIntro: "印刷周期從最終印刷文件和校樣正式獲批後的下一個工作日起計算，運輸時間另計。",
 
-    logisticsHeading: "作者副本遞送和國際物流",
-    logisticsIntro: "作者副本運輸不包含在出版套餐或標準實體出版套餐內。",
+    logisticsHeading: "作者樣書遞送和國際物流",
+    logisticsIntro: "作者樣書運輸不包含在出版方案或標準實體出版套餐內。",
     logisticsFormulaLabel: "計價方式：",
     logisticsFormula: "承運商實際運費＋10%物流協調及行政處理費",
     logisticsMinimumLabel: "物流協調及行政處理費最低為：",
@@ -627,7 +627,7 @@ const copy = {
     targetTime: "目標時間",
     price: "價格",
 
-    productionRushHeading: "出版制作加急服務",
+    productionRushHeading: "出版製作加急服務",
     packageALabel: "方案 A",
     packageBLabel: "方案 B",
     packageCLabel: "方案 C",
@@ -640,13 +640,13 @@ const copy = {
     additionalHeading: "四、附加服務",
     editingHeading: "額外編輯及製作服務",
     editingFootnote: "「集中修改一輪」是指作者或編輯在一份文件中一次性提交全部修改意見。零散、多次或跨文件修改可以按額外修改輪次或小時費計價。",
-    additionalFormatsHeading: "額外版本和數字載體",
-    additionalFormatsIntro: "各方案均涵蓋一個書名、一個版次及一種產品格式。平裝本、精裝本、PDF、EPUB、Kindle相容版、修訂版、翻譯版及其他另行發行之版本，均各自需要獨立的ISBN、元數據及製作工作——額外版本及載體不能僅收一個低價「書號費」帶過。除非額外版次或格式已正式核准並確為真實出版用途，否則不會分配額外 ISBN。",
+    additionalFormatsHeading: "額外版本及數碼載體",
+    additionalFormatsIntro: "各方案均涵蓋一個書名、一個版次及一種出版形式。平裝本、精裝本、PDF、EPUB、Kindle相容版、修訂版、翻譯版及其他另行發行之版本，均各自需要獨立的ISBN、元數據及製作工作——額外版本及載體不能僅收一個低價「書號費」帶過。除非額外版次或格式已正式核准並確為真實出版用途，否則不會分配額外 ISBN。",
     additionalService: "額外服務",
     fee: "費用",
     institutionalHeading: "機構、書系與論文集出版",
-    institutionalIntro: "機構出版物、書系、會議論文集、年度報告、多卷本著作、大型編著文集及贊助之開放獲取圖書，將依專案規模、書稿複雜度、撰稿人數、語言、製作需求、出版格式、發行需求及預期行政工作量另行報價。",
-    projectType: "專案類型",
+    institutionalIntro: "機構出版物、書系、會議論文集、年度報告、多卷本著作、大型編著文集及贊助之開放獲取圖書，將依項目規模、書稿複雜度、撰稿人數、語言、製作需求、出版格式、發行需求及預期行政工作量另行報價。",
+    projectType: "項目類型",
     typicalServices: "一般服務內容",
     distributionHeading: "銷售與發行配置",
     distributionIntro: "標準出版費用不包含商業發行。符合資格之書目可選用發行服務，惟須遵循相關平台之規則、核准流程、地域限制、技術要求及費用。",
@@ -657,18 +657,18 @@ const copy = {
     isbnHeading: "ISBN 與出版者登記政策",
     isbnIntro: "ISBN 僅分配予符合以下條件之出版物：",
     isbnBody1: "ISBN 不作出售、轉讓、租借、以單獨編號授權，亦不供其他出版者使用。書中顯示之出版者名稱須與該 ISBN 登記之出版者資訊相符。",
-    isbnBody2: "出版費用並非政府 ISBN 申請費，而是出版者服務費，涵蓋編輯評估、專案管理、版權審查、書目元數據、ISBN 分配、製作處理、正式出版紀錄、數位典藏及出版後合規協調。",
+    isbnBody2: "出版費用並非政府 ISBN 申請費，而是出版者服務費，涵蓋編輯評估、項目管理、版權審查、書目元數據、ISBN 分配、製作處理、正式出版紀錄、數碼存檔及出版後合規協調。",
     isbnNotConstituteIntro: "分配 ISBN 並不代表：",
 
     paymentHeading: "五、付款及報價規則",
     cancellationHeading: "取消與退款原則",
-    cancellationIntro: "費用反映已進行之編輯、行政、元數據、製作、設計、典藏及出版者工作。於工作開始前繳付之費用，可能依已記錄之行政成本予以退還。",
+    cancellationIntro: "費用反映已進行之編輯、行政、元數據、製作、設計、存檔及出版者工作。於工作開始前繳付之費用，可能依已記錄之行政成本予以退還。",
     cancellationFootnote: "詳細取消與退款條款以簽署之出版協議為準。",
-    declineHeading: "審查與出版者拒絕之權利",
-    declineIntro: "所有提案及書稿均須經編輯、倫理、法律及技術審查。Panorama Scholarly Books 得拒絕或終止具有以下情形之專案：",
+    declineHeading: "審稿及出版者保留拒絕出版之權利",
+    declineIntro: "所有提案及書稿均須經編輯、倫理、法律及技術審查。Panorama Scholarly Books 得拒絕或終止具有以下情形之項目：",
     declineFootnote: "付款並不凌駕出版者之編輯獨立性或出版標準。出版費用並不代表或保證銷售成果、書店上架、圖書館採購、索引收錄、排名、引用次數、學術推廣、學位認可、機構核准或商業收益。",
     ctaHeading: "申請出版評估",
-    ctaBody: "作者、編者及機構可聯絡 Panorama Scholarly Books，洽詢書稿適合度、製作需求、出版時程及可選用之出版方案。提交查詢並不構成接受或建立出版協議。",
+    ctaBody: "作者、主編及機構可聯絡 Panorama Scholarly Books，諮詢書稿適合度、製作需求、出版時程及可選用之出版方案。提交查詢並不構成接受或建立出版協議。",
     ctaContact: "聯絡我們",
   },
   "zh-Hans": {
@@ -677,8 +677,8 @@ const copy = {
     intro1: "Panorama Scholarly Books 为学术专著、编著文集、学术教材、研究报告、会议论文集、机构出版物及跨学科研究专书提供学术图书出版与制作服务。",
     intro2: "所有项目均须经过编辑、学术伦理、版权、技术及出版适格性审查。支付任何费用均不代表稿件必然获得出版，也不构成对销售、检索、引用、职称评审、学术认可或商业收益的保证。以下费用自2026年8月1日起生效。",
 
-    coreHeading: "一、核心出版套餐",
-    packagesIntro: "各方案均涵盖一个书名、一个版次及一种产品格式。除非另有书面协议，否则印刷、运送、法定送存本及第三方平台费用均不包含在内。",
+    coreHeading: "一、核心出版方案",
+    packagesIntro: "各方案均涵盖一个书名、一个版次及一种出版形式。除非另有书面协议，否则印刷、运送、法定送存本及第三方平台费用均不包含在内。",
     recommended: "推荐方案",
     notIncluded: "不包含项目",
     inquireAbout: "咨询",
@@ -687,15 +687,15 @@ const copy = {
     comparisonHeading: "方案比较",
     serviceItem: "服务项目",
 
-    bundleHeading: "推荐组合价格",
+    bundleHeading: "纸本出版组合方案",
     bundleIntro: "如作者需要纸质出版，以下组合将核心套餐与“标准实体出版及法定送存套餐”（见第二部分）合并计价：",
-    bundleFootnote: "组合价格均不包括20本作者副本寄往作者地址的运输费、税费、支付平台费用及第三方平台费用。",
+    bundleFootnote: "组合价格均不包括20本作者样书寄往作者地址的运输费、税费、支付平台费用及第三方平台费用。",
     bundleName: "组合",
     bundleIncludes: "内容",
 
     timelineHeading: "出版项目标准周期",
     timelineIntro: "下列周期从以下条件全部满足后的下一个工作日起计算：",
-    timelinePackage: "套餐",
+    timelinePackage: "方案",
     timelineTarget: "标准目标周期",
     timelineFootnote: "上述时间属于目标制作周期，不包括作者修改时间、第三方授权等待时间、政府或公共机构处理时间、印刷时间、国际物流时间以及不可抗力造成的延误。",
 
@@ -710,9 +710,9 @@ const copy = {
     packageTotal: "套餐总价",
 
     standaloneHeading: "单独印刷及法定送存服务",
-    standaloneFootnote: "“法定送存及递交协调”涵盖资料核对、表格准备、包装、香港本地递交、进度跟进及记录归档。香港书刊登记本身不收取政府费用——此项为出版社的服务及协调费用，绝非“登记费”。",
+    standaloneFootnote: "“法定送存及递交协调”涵盖资料核对、表格准备、包装、香港本地递交、进度跟进及记录归档。香港书刊注册本身不收取政府费用——此项为出版社的服务及协调费用，绝非“注册费”。",
 
-    additionalCopiesHeading: "追加作者副本",
+    additionalCopiesHeading: "追加作者樣書",
     additionalCopiesIntro: "以下价格适用于与首次印刷同时下单、不超过200页的黑白平装图书。",
     additionalCopiesFootnote: "超过200页、彩色内文、特殊纸张、特殊装帧或后续单独重印，重新报价。",
     copies: "数量",
@@ -723,8 +723,8 @@ const copy = {
     printingRushHeading: "印刷加急服务",
     printingRushIntro: "印刷周期从最终印刷文件和校样正式获批后的下一个工作日起计算，运输时间另计。",
 
-    logisticsHeading: "作者副本递送和国际物流",
-    logisticsIntro: "作者副本运输不包含在出版套餐或标准实体出版套餐内。",
+    logisticsHeading: "作者樣書递送和国际物流",
+    logisticsIntro: "作者样书运输不包含在出版方案或标准实体出版套餐内。",
     logisticsFormulaLabel: "计价方式：",
     logisticsFormula: "承运商实际运费＋10%物流协调及行政处理费",
     logisticsMinimumLabel: "物流协调及行政处理费最低为：",
@@ -752,8 +752,8 @@ const copy = {
     additionalHeading: "四、附加服务",
     editingHeading: "额外编辑及制作服务",
     editingFootnote: "“集中修改一轮”是指作者或编辑在一份文件中一次性提交全部修改意见。零散、多次或跨文件修改可以按额外修改轮次或小时费计价。",
-    additionalFormatsHeading: "额外版本和数字载体",
-    additionalFormatsIntro: "各方案均涵盖一个书名、一个版次及一种产品格式。平装本、精装本、PDF、EPUB、Kindle兼容版、修订版、翻译版及其他另行发行的版本，均各自需要独立的ISBN、元数据及制作工作——额外版本及载体不能仅收一个低价“书号费”带过。除非额外版次或格式已正式核准并确为真实出版用途，否则不会分配额外 ISBN。",
+    additionalFormatsHeading: "额外版本及数字载体",
+    additionalFormatsIntro: "各方案均涵盖一个书名、一个版次及一种出版形式。平装本、精装本、PDF、EPUB、Kindle兼容版、修订版、翻译版及其他另行发行的版本，均各自需要独立的ISBN、元数据及制作工作——额外版本及载体不能仅收一个低价“书号费”带过。除非额外版次或格式已正式核准并确为真实出版用途，否则不会分配额外 ISBN。",
     additionalService: "额外服务",
     fee: "费用",
     institutionalHeading: "机构、书系与论文集出版",
@@ -776,11 +776,11 @@ const copy = {
     cancellationHeading: "取消与退款原则",
     cancellationIntro: "费用反映已进行的编辑、行政、元数据、制作、设计、存档及出版者工作。在工作开始前缴付的费用，可能依已记录的行政成本予以退还。",
     cancellationFootnote: "详细取消与退款条款以签署的出版协议为准。",
-    declineHeading: "审查与出版者拒绝的权利",
+    declineHeading: "审稿及出版者保留拒绝出版的权利",
     declineIntro: "所有提案及书稿均须经编辑、伦理、法律及技术审查。Panorama Scholarly Books 可拒绝或终止具有以下情形的项目：",
     declineFootnote: "付款并不凌驾出版者的编辑独立性或出版标准。出版费用并不代表或保证销售成果、书店上架、图书馆采购、索引收录、排名、引用次数、学术推广、学位认可、机构核准或商业收益。",
     ctaHeading: "申请出版评估",
-    ctaBody: "作者、编者及机构可联系 Panorama Scholarly Books，咨询书稿适合度、制作需求、出版时程及可选用的出版方案。提交咨询并不构成接受或建立出版协议。",
+    ctaBody: "作者、主编及机构可联系 Panorama Scholarly Books，咨询书稿适合度、制作需求、出版时程及可选用的出版方案。提交咨询不构成录用决定，也不构成出版协议。",
     ctaContact: "联系我们",
   },
 } as const;

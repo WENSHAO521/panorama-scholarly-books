@@ -19,7 +19,7 @@ export const primaryNav: NavItem[] = [
   { href: "/authors", label: { en: "Authors", "zh-Hant": "作者", "zh-Hans": "作者" }, hardNav: true },
   {
     href: "/for-authors",
-    label: { en: "Publish with us", "zh-Hant": "與我們出版", "zh-Hans": "与我们出版" },
+    label: { en: "For authors", "zh-Hant": "作者投稿", "zh-Hans": "作者投稿" },
     match: ["/publishing-services", "/distribution"],
   },
   {

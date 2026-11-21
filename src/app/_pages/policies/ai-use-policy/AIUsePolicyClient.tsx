@@ -23,8 +23,8 @@ const content: PolicyContent = {
           type: "p",
           content: {
             en: "This policy applies to all manuscripts, proposals, and supporting documents submitted to Panorama Scholarly Books. It addresses the use of artificial intelligence (AI) tools, including large language models (LLMs) and generative AI applications, in the preparation of academic works.",
-            "zh-Hant": "本政策適用於所有提交予 Panorama Scholarly Books 之書稿、提案及輔助文件，規範學術著作撰寫過程中使用人工智能（AI）工具（包括大型語言模型及生成式人工智能應用）之情形。",
-            "zh-Hans": "本政策适用于所有提交至 Panorama Scholarly Books 的书稿、提案及辅助文件，规范学术著作撰写过程中使用人工智能（AI）工具（包括大型语言模型及生成式人工智能应用）的情形。",
+            "zh-Hant": "本政策適用於所有提交予 Panorama Scholarly Books 之書稿、出版計劃書及輔助文件，規範學術著作撰寫過程中使用人工智能（AI）工具（包括大型語言模型及生成式人工智能應用）之情形。",
+            "zh-Hans": "本政策适用于所有提交至 Panorama Scholarly Books 的书稿、出版计划书及辅助文件，规范学术著作撰写过程中使用人工智能（AI）工具（包括大型语言模型及生成式人工智能应用）的情形。",
           },
         },
         {
@@ -198,9 +198,9 @@ const content: PolicyContent = {
         {
           type: "p",
           content: {
-            en: <>Authors who are uncertain whether a particular use of AI tools requires disclosure are encouraged to contact the Books department before submission at {mailLink}.</>,
-            "zh-Hant": <>如作者不確定特定人工智能工具使用情形是否須予披露，建議於投稿前聯絡圖書部門，電郵 {mailLink}。</>,
-            "zh-Hans": <>如作者不确定特定人工智能工具使用情形是否须予披露，建议在投稿前联系图书部门，电邮 {mailLink}。</>,
+            en: <>Authors who are uncertain whether a particular use of AI tools requires disclosure are encouraged to contact the Books Division before submission at {mailLink}.</>,
+            "zh-Hant": <>如作者不確定特定人工智能工具使用情形是否須予披露，建議於投稿前聯絡圖書出版部，電郵 {mailLink}。</>,
+            "zh-Hans": <>如作者不确定特定人工智能工具使用情形是否须予披露，建议在投稿前联系图书出版部，电邮 {mailLink}。</>,
           },
         },
       ],
