@@ -5,8 +5,8 @@ import { pickLocale, type Locale } from "@/lib/locale";
 
 const copy = {
   en: { notice: "Notice", effective: "Effective", questions: "For questions concerning an existing quotation or project, please contact" },
-  "zh-Hant": { notice: "通知", effective: "生效日期", questions: "如對現有報價或項目有任何疑問，請聯絡" },
-  "zh-Hans": { notice: "通知", effective: "生效日期", questions: "如对现有报价或项目有任何疑问，请联系" },
+  "zh-Hant": { notice: "公告", effective: "生效日期", questions: "如對現有報價或項目有任何疑問，請聯絡" },
+  "zh-Hans": { notice: "公告", effective: "生效日期", questions: "如对现有报价或项目有任何疑问，请联系" },
 } as const;
 
 export default function AnnouncementBanner({ locale }: { locale: Locale }) {

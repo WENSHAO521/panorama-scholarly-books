@@ -25,7 +25,7 @@ export const news: NewsItem[] = [
     },
     summary: {
       en: "Revised fees reflect the expanded scope of editorial screening, rights verification, metadata management and archiving now included in each package.",
-      "zh-Hant": "調整後的費用反映各方案現已涵蓋更廣泛的編輯審查、版權查核、元數據管理及數位典藏服務。",
+      "zh-Hant": "調整後的費用反映各方案現已涵蓋更廣泛的編輯審查、版權查核、元數據管理及數碼存檔服務。",
       "zh-Hans": "调整后的费用反映各方案现已涵盖更广泛的编辑审查、版权核查、元数据管理及数字化存档服务。",
     },
     href: "/publishing-services",
@@ -50,14 +50,14 @@ export const news: NewsItem[] = [
     id: "call-for-proposals",
     kind: "call",
     title: {
-      en: "Book series open for proposals",
-      "zh-Hant": "各書系現正接受出版提案",
-      "zh-Hans": "各书系现正接受出版提案",
+      en: "Book series: call for proposals",
+      "zh-Hant": "各書系現正徵稿",
+      "zh-Hans": "各书系现正征稿",
     },
     summary: {
-      en: "Every Panorama book series is currently open for proposals. Each series page sets out its scope and accepted book types.",
-      "zh-Hant": "Panorama 各書系目前均接受出版提案，各書系之學術範圍及接受類型詳見書系頁面。",
-      "zh-Hans": "Panorama 各书系目前均接受出版提案，各书系的学术范围及接受类型详见书系页面。",
+      en: "All Panorama book series are currently accepting proposals. The scope and accepted book types of each series are set out on the series page.",
+      "zh-Hant": "Panorama 各書系目前均接受出版計劃書，各書系之學科範圍及收錄圖書類型詳見書系頁面。",
+      "zh-Hans": "Panorama 各书系目前均接受出版计划书，各书系的学科范围及收录图书类型详见书系页面。",
     },
     href: "/book-series",
   },
@@ -65,7 +65,7 @@ export const news: NewsItem[] = [
 
 const KIND: Record<NewsItem["kind"], L> = {
   publication: { en: "New publication", "zh-Hant": "新書出版", "zh-Hans": "新书出版" },
-  notice: { en: "Notice", "zh-Hant": "通告", "zh-Hans": "通告" },
+  notice: { en: "Notice", "zh-Hant": "公告", "zh-Hans": "公告" },
   call: { en: "Call for proposals", "zh-Hant": "徵稿", "zh-Hans": "征稿" },
 };
 
@@ -73,7 +73,7 @@ export function newsKindLabel(kind: NewsItem["kind"], locale: Locale) {
   return KIND[kind][locale];
 }
 
-const ONGOING: L = { en: "Ongoing", "zh-Hant": "持續進行", "zh-Hans": "持续进行" };
+const ONGOING: L = { en: "Ongoing", "zh-Hant": "長期有效", "zh-Hans": "长期有效" };
 
 export function formatNewsDate(date: string | undefined, locale: Locale): string {
   if (!date) return ONGOING[locale];

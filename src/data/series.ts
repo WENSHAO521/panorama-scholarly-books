@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/locale";
 // information only — never placeholder volumes.
 
 export const seriesTypeLabels: Record<string, { zhHant: string; zhHans: string }> = {
-  Monographs: { zhHant: "專著", zhHans: "专著" },
+  Monographs: { zhHant: "學術專著", zhHans: "学术专著" },
   "Edited Volumes": { zhHant: "編著文集", zhHans: "编著文集" },
   "Research Reports": { zhHant: "研究報告", zhHans: "研究报告" },
   "Conference Proceedings": { zhHant: "會議論文集", zhHans: "会议论文集" },
@@ -28,7 +28,7 @@ export const series = [
       "zh-Hans": "出版探讨教育政策、教学法、课程研究、高等教育治理及国内外比较教育的原创研究专著与编著文集。",
     },
     types: ["Monographs", "Edited Volumes", "Research Reports"],
-    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "徵稿中", "zh-Hans": "征稿中" },
   },
   {
     id: "panorama-studies-public-policy",
@@ -39,7 +39,7 @@ export const series = [
       "zh-Hans": "涵盖公共行政、治理改革、政策分析、监管研究，以及国家机构与公民社会的关系，采比较与跨学科取向。",
     },
     types: ["Monographs", "Edited Volumes"],
-    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "徵稿中", "zh-Hans": "征稿中" },
   },
   {
     id: "panorama-studies-arts-humanities",
@@ -50,7 +50,7 @@ export const series = [
       "zh-Hans": "涵盖文学、哲学、历史、文化研究、艺术史、媒体研究及表演艺术的原创学术著作，特别重视跨学科与跨文化取向。",
     },
     types: ["Monographs", "Edited Volumes"],
-    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "徵稿中", "zh-Hans": "征稿中" },
   },
   {
     id: "panorama-studies-global-society",
@@ -61,39 +61,39 @@ export const series = [
       "zh-Hans": "探讨全球化、国际关系、跨国公民社会、移民、全球治理，以及地缘政治变迁带来的社会影响。",
     },
     types: ["Monographs", "Edited Volumes"],
-    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "徵稿中", "zh-Hans": "征稿中" },
   },
   {
     id: "panorama-studies-ai-future-society",
     title: { en: "Panorama Studies in AI and Future Society", "zh-Hant": "Panorama 人工智能與未來社會研究叢書", "zh-Hans": "Panorama 人工智能与未来社会研究丛书" },
     scope: {
       en: "Examines the social, ethical, political, and philosophical dimensions of artificial intelligence, automation, digital transformation, and emerging technologies, from interdisciplinary perspectives.",
-      "zh-Hant": "從跨學科視角探討人工智能、自動化、數位轉型及新興科技在社會、倫理、政治與哲學層面的意涵。",
+      "zh-Hant": "從跨學科視角探討人工智能、自動化、數碼轉型及新興科技在社會、倫理、政治與哲學層面的意涵。",
       "zh-Hans": "从跨学科视角探讨人工智能、自动化、数字化转型及新兴科技在社会、伦理、政治与哲学层面的意涵。",
     },
     types: ["Monographs", "Edited Volumes", "Research Reports"],
-    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "徵稿中", "zh-Hans": "征稿中" },
   },
   {
     id: "panorama-conference-proceedings",
     title: { en: "Panorama Conference Proceedings Series", "zh-Hant": "Panorama 會議論文集叢書", "zh-Hans": "Panorama 会议论文集丛书" },
     scope: {
-      en: "Publishes peer-reviewed conference proceedings across all fields covered by Panorama Scholarly Books, providing a dedicated venue for conference organisers seeking professional academic publication.",
-      "zh-Hant": "出版涵蓋 Panorama Scholarly Books 各學科領域之同行評審會議論文集，為會議主辦單位提供專業學術出版渠道。",
-      "zh-Hans": "出版涵盖 Panorama Scholarly Books 各学科领域的同行评审会议论文集，为会议主办单位提供专业学术出版渠道。",
+      en: "Publishes peer-reviewed conference proceedings across all fields covered by Panorama Scholarly Books, providing conference organisers with a dedicated route to formal academic publication.",
+      "zh-Hant": "出版涵蓋 Panorama Scholarly Books 各學科領域之同行評審會議論文集，為學術會議主辦單位提供規範的論文集出版途徑。",
+      "zh-Hans": "出版涵盖 Panorama Scholarly Books 各学科领域的同行评审会议论文集，为学术会议主办单位提供规范的论文集出版途径。",
     },
     types: ["Conference Proceedings"],
-    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "徵稿中", "zh-Hans": "征稿中" },
   },
   {
     id: "panorama-research-reports",
     title: { en: "Panorama Research Report Series", "zh-Hant": "Panorama 研究報告叢書", "zh-Hans": "Panorama 研究报告丛书" },
     scope: {
       en: "A dedicated series for research reports, policy briefs, and investigation findings from academic research groups, policy institutes, and interdisciplinary research projects.",
-      "zh-Hant": "專門收錄學術研究團隊、政策研究機構及跨學科研究專案之研究報告、政策簡報與調查成果。",
+      "zh-Hant": "專門收錄學術研究團隊、政策研究機構及跨學科研究項目之研究報告、政策簡報與調查成果。",
       "zh-Hans": "专门收录学术研究团队、政策研究机构及跨学科研究项目的研究报告、政策简报与调查成果。",
     },
     types: ["Research Reports"],
-    status: { en: "Open for submissions", "zh-Hant": "接受投稿中", "zh-Hans": "接受投稿中" },
+    status: { en: "Open for submissions", "zh-Hant": "徵稿中", "zh-Hans": "征稿中" },
   },
 ];

@@ -8,7 +8,7 @@ export function generateStaticParams() {
 }
 
 const META = {
-  "zh-Hant": { title: "聯絡我們", description: "聯絡 Panorama Scholarly Books，洽詢出版、訂購及其他一般問題。" },
+  "zh-Hant": { title: "聯絡我們", description: "聯絡 Panorama Scholarly Books，諮詢出版、訂購及其他一般問題。" },
   "zh-Hans": { title: "联系我们", description: "联系 Panorama Scholarly Books，咨询出版、订购及其他一般问题。" },
 } as const;
 

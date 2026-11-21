@@ -9,9 +9,9 @@ const copy = {
   en: {
     eyebrow: "Contact",
     heading: "Contact us",
-    subheading: "For publishing inquiries, copy requests, institutional purchases, and general questions.",
+    subheading: "Publishing enquiries, requests for copies, institutional purchases and general correspondence.",
     email: "Email",
-    allInquiries: "All inquiries",
+    allInquiries: "General enquiries",
     location: "Location",
     address: (
       <>
@@ -26,35 +26,35 @@ const copy = {
     ),
     responseTime: "Response time",
     responseTimeText:
-      "We aim to respond to all inquiries within 5-7 business days. For proposal submissions, please allow 2-4 weeks for an initial response.",
+      "Enquiries are normally answered within 5–7 business days. For book proposals, an initial response is normally issued within 2–4 weeks.",
   },
   "zh-Hant": {
     eyebrow: "聯絡我們",
     heading: "聯絡我們",
-    subheading: "如需洽詢出版、索取樣書、機構採購或其他一般問題，歡迎與我們聯絡。",
+    subheading: "出版諮詢、索取樣書、機構採購及其他一般事務，請按以下方式聯絡。",
     email: "電郵",
-    allInquiries: "所有查詢",
+    allInquiries: "一般諮詢",
     location: "地址",
     address: <>Panorama Scholarly Group Limited
       <br />
       香港旺角彌敦道625號雅蘭中心辦公樓二期15樓1508室
     </>,
     responseTime: "回覆時間",
-    responseTimeText: "我們致力於在5-7個工作天內回覆所有查詢。如為提案投稿，請預留2-4週作初步回覆。",
+    responseTimeText: "一般諮詢將於5至7個工作日內回覆；出版計劃書一般於二至四週內作出初步回覆。",
   },
   "zh-Hans": {
     eyebrow: "联系我们",
     heading: "联系我们",
-    subheading: "如需咨询出版、索取样书、机构采购或其他一般问题，欢迎与我们联系。",
+    subheading: "出版咨询、索取样书、机构采购及其他一般事务，请按以下方式联系。",
     email: "电邮",
-    allInquiries: "所有咨询",
+    allInquiries: "一般咨询",
     location: "地址",
     address: <>Panorama Scholarly Group Limited
       <br />
       香港旺角弥敦道625号雅兰中心办公楼二期15楼1508室
     </>,
     responseTime: "回复时间",
-    responseTimeText: "我们致力于在5-7个工作日内回复所有咨询。如为提案投稿，请预留2-4周用于初步回复。",
+    responseTimeText: "一般咨询将于5至7个工作日内回复；出版计划书一般于二至四周内作出初步回复。",
   },
 } as const;
 

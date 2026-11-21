@@ -136,8 +136,8 @@ const content: PolicyContent = {
           type: "p",
           content: {
             en: "Some research funders require that works resulting from funded research be made publicly available on an open access basis. Authors with such obligations are encouraged to notify the publisher at the proposal stage so that suitable arrangements can be made.",
-            "zh-Hant": "部分研究資助機構要求受資助研究之成果須以開放獲取方式公開。有此義務之作者，建議於提案階段即通知出版者，以便作出適當安排。",
-            "zh-Hans": "部分研究资助机构要求受资助研究的成果须以开放获取方式公开。有此义务的作者，建议在提案阶段即通知出版者，以便作出适当安排。",
+            "zh-Hant": "部分研究資助機構要求受資助研究之成果須以開放獲取方式公開。有此義務之作者，建議於投稿階段即通知出版者，以便作出適當安排。",
+            "zh-Hans": "部分研究资助机构要求受资助研究的成果须以开放获取方式公开。有此义务的作者，建议在投稿阶段即通知出版者，以便作出适当安排。",
           },
         },
         {
@@ -151,14 +151,14 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "5. Inquiries", "zh-Hant": "五、查詢", "zh-Hans": "五、查询" },
+      heading: { en: "5. Inquiries", "zh-Hant": "五、諮詢", "zh-Hans": "五、咨询" },
       blocks: [
         {
           type: "p",
           content: {
             en: <>For inquiries about open access publication, please contact {mailLink} with the subject line &quot;Open Access Inquiry.&quot;</>,
-            "zh-Hant": <>如對開放獲取出版有任何查詢，請聯絡 {mailLink}，主旨請註明「Open Access Inquiry」。</>,
-            "zh-Hans": <>如对开放获取出版有任何查询，请联系 {mailLink}，主旨请注明"Open Access Inquiry"。</>,
+            "zh-Hant": <>有關開放獲取出版之諮詢，請聯絡 {mailLink}，主旨請註明「Open Access Inquiry」。</>,
+            "zh-Hans": <>有关开放获取出版的咨询，请联系 {mailLink}，主旨请注明“Open Access Inquiry”。</>,
           },
         },
       ],
