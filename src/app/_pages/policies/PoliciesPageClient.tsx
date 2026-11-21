@@ -17,11 +17,11 @@ const policies = [
   },
   {
     href: "/policies/authorship",
-    title: { en: "Authorship and contributorship", "zh-Hant": "著作權歸屬與貢獻", "zh-Hans": "著作权归属与贡献" },
+    title: { en: "Authorship and contributorship", "zh-Hant": "作者署名與貢獻", "zh-Hans": "作者署名与贡献" },
     desc: {
       en: "Criteria for authorship and editorship of published works. Acknowledgement of contributions and management of authorship disputes.",
-      "zh-Hant": "已出版著作之作者及編者資格標準，貢獻之致謝，以及著作權歸屬爭議之處理。",
-      "zh-Hans": "已出版著作的作者及编者资格标准，贡献的致谢，以及著作权归属争议的处理。",
+      "zh-Hant": "已出版著作之作者及編者資格標準，貢獻之致謝，以及署名爭議之處理。",
+      "zh-Hans": "已出版著作的作者及编者资格标准，贡献的致谢，以及署名争议的处理。",
     },
     updated: "2026",
   },
@@ -75,7 +75,7 @@ const copy = {
     intro: "The following policies govern the submission, evaluation, production, and publication of works under the Panorama Scholarly Books imprint. Authors are required to familiarise themselves with these policies before submitting a proposal or manuscript.",
     updated: "Updated",
     readPolicy: "Read policy",
-    contactPrefix: "For policy-related questions, complaints, or appeals, please contact the Books department at",
+    contactPrefix: "For policy-related questions, complaints, or appeals, please contact the Books Division at",
     contactSuffix: "Panorama Scholarly Books aims to respond to policy-related correspondence within 10 business days.",
   },
   "zh-Hant": {
@@ -85,7 +85,7 @@ const copy = {
     intro: "以下政策規範 Panorama Scholarly Books 品牌下著作之投稿、評估、製作與出版。作者於提交提案或書稿前，須熟悉這些政策。",
     updated: "更新於",
     readPolicy: "閱讀政策",
-    contactPrefix: "如有政策相關問題、投訴或申訴，請聯絡圖書部門，電郵",
+    contactPrefix: "如有政策相關問題、投訴或申訴，請聯絡圖書出版部，電郵",
     contactSuffix: "Panorama Scholarly Books 致力於在10個工作天內回覆政策相關來函。",
   },
   "zh-Hans": {
@@ -95,7 +95,7 @@ const copy = {
     intro: "以下政策规范 Panorama Scholarly Books 品牌下著作的投稿、评估、制作与出版。作者在提交提案或书稿前，须熟悉这些政策。",
     updated: "更新于",
     readPolicy: "阅读政策",
-    contactPrefix: "如有政策相关问题、投诉或申诉，请联系图书部门，电邮",
+    contactPrefix: "如有政策相关问题、投诉或申诉，请联系图书出版部，电邮",
     contactSuffix: "Panorama Scholarly Books 致力于在10个工作日内回复政策相关来函。",
   },
 } as const;

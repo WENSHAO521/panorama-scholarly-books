@@ -8,8 +8,8 @@ export function generateStaticParams() {
 }
 
 const META = {
-  "zh-Hant": { title: "著作權歸屬與貢獻政策", description: "Panorama Scholarly Books 著作權歸屬與貢獻政策。" },
-  "zh-Hans": { title: "著作权归属与贡献政策", description: "Panorama Scholarly Books 著作权归属与贡献政策。" },
+  "zh-Hant": { title: "作者署名與貢獻政策", description: "Panorama Scholarly Books 作者署名與貢獻政策。" },
+  "zh-Hans": { title: "作者署名与贡献政策", description: "Panorama Scholarly Books 作者署名与贡献政策。" },
 } as const;
 
 export async function generateMetadata({

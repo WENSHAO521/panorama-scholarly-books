@@ -9,8 +9,8 @@ export function generateStaticParams() {
 }
 
 const META = {
-  "zh-Hant": { title: "作者", description: "在 Panorama Scholarly Books 品牌下出版的作者與編者。" },
-  "zh-Hans": { title: "作者", description: "在 Panorama Scholarly Books 品牌下出版的作者与编者。" },
+  "zh-Hant": { title: "作者", description: "於 Panorama Scholarly Books 出版著作之作者及主編。" },
+  "zh-Hans": { title: "作者", description: "于 Panorama Scholarly Books 出版著作的作者及主编。" },
 } as const;
 
 export async function generateMetadata({

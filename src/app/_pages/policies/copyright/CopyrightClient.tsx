@@ -58,8 +58,8 @@ const content: PolicyContent = {
             },
             {
               en: "The right to post the final accepted manuscript (pre-production version) in an institutional or personal repository, subject to any embargo period specified in the publishing agreement.",
-              "zh-Hant": "將最終接受版本之書稿（製作前版本）張貼於機構或個人典藏庫之權利，惟須遵守出版協議中規定之任何禁用期限。",
-              "zh-Hans": "将最终接受版本的书稿（制作前版本）张贴于机构或个人典藏库的权利，但须遵守出版协议中规定的任何禁用期限。",
+              "zh-Hant": "將最終錄用稿（排版前版本）存放於機構或個人知識庫之權利，惟須遵守出版協議所訂之延遲開放期。",
+              "zh-Hans": "将最终录用稿（排版前版本）存放于机构或个人知识库的权利，但须遵守出版协议所订的延迟开放期。",
             },
             {
               en: "The right to reproduce portions of the work in subsequent publications by the same author, with appropriate attribution to the original publication.",
@@ -126,7 +126,7 @@ const content: PolicyContent = {
       ],
     },
     {
-      heading: { en: "5. Permissions and licensing inquiries", "zh-Hant": "五、授權與許可查詢", "zh-Hans": "五、授权与许可查询" },
+      heading: { en: "5. Permissions and licensing inquiries", "zh-Hant": "五、授權與許可諮詢", "zh-Hans": "五、授权与许可咨询" },
       blocks: [
         {
           type: "p",
@@ -140,8 +140,8 @@ const content: PolicyContent = {
           type: "p",
           content: {
             en: <>For permissions and licensing inquiries, contact {mailLink} with the subject line &quot;Rights and Permissions.&quot;</>,
-            "zh-Hant": <>如有授權與許可查詢，請聯絡 {mailLink}，主旨請註明「Rights and Permissions」。</>,
-            "zh-Hans": <>如有授权与许可查询，请联系 {mailLink}，主旨请注明“Rights and Permissions”。</>,
+            "zh-Hant": <>如有授權與許可諮詢，請聯絡 {mailLink}，主旨請註明「Rights and Permissions」。</>,
+            "zh-Hans": <>如有授权与许可咨询，请联系 {mailLink}，主旨请注明“Rights and Permissions”。</>,
           },
         },
       ],
